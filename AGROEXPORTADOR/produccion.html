@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FRUTIGENIX | Producción y cosecha</title>
+
+  <!-- CSS general -->
+  <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+
+<body>
+
+  <!-- =========================
+       BARRA SUPERIOR
+  ========================== -->
+  <div class="barra-superior">
+
+    <div class="selector-perfil">
+      <a href="#" class="perfil-link">🌐 Público general</a>
+      <a href="#" class="perfil-link activo">🌱 Agroexportadores</a>
+    </div>
+
+    <div class="usuario-opciones">
+      <a href="#">👤 Iniciar sesión</a>
+      <a href="#" class="boton-registro">Registrarse</a>
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       ENCABEZADO PRINCIPAL
+  ========================== -->
+  <header class="encabezado-principal">
+
+    <div class="marca">
+      <div class="logo-placeholder">
+        🫐
+      </div>
+
+      <div class="marca-texto">
+        <h1>FRUTIGENIX</h1>
+        <p>Ciencia que llega más lejos</p>
+      </div>
+    </div>
+
+    <nav class="menu-principal">
+      <a href="#">Inicio</a>
+      <a href="#">Quiénes somos</a>
+      <a href="#">Ficha pública NFC</a>
+      <a href="#">Beneficios</a>
+      <a href="#">Contáctanos</a>
+    </nav>
+
+  </header>
+
+
+  <!-- =========================
+       BANNER
+  ========================== -->
+  <section class="banner">
+
+    <div class="banner-texto">
+      <h2>Del campo al mundo<br>con ciencia y confianza</h2>
+
+      <p>
+        Trazabilidad, calidad y valor para una agricultura sin fronteras.
+      </p>
+
+      <div class="beneficios-banner">
+
+        <div class="beneficio">
+          <span>🌱</span>
+          <p>Mejores<br>frutos</p>
+        </div>
+
+        <div class="beneficio">
+          <span>📊</span>
+          <p>Mercados<br>más fuertes</p>
+        </div>
+
+        <div class="beneficio">
+          <span>🌎</span>
+          <p>Un futuro<br>sostenible</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="banner-frase">
+      <p>
+        Grandes cosechas<br>
+        dejan huella
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MÓDULOS AGROEXPORTADOR
+  ========================== -->
+  <section class="modulos">
+
+    <div class="titulo-modulos">
+      ▦
+      <span>Módulos para agroexportadores</span>
+    </div>
+
+    <a href="#" class="modulo">
+      🔍 Busca tu lote
+    </a>
+
+    <a href="produccion.html" class="modulo activo-modulo">
+      🌱 Producción y cosecha
+    </a>
+
+    <a href="#" class="modulo">
+      🛡 Calidad
+    </a>
+
+    <a href="#" class="modulo">
+      📦 Packing y poscosecha
+    </a>
+
+    <a href="#" class="modulo">
+      📍 Recorrido de trazabilidad
+    </a>
+
+    <a href="#" class="modulo">
+      📄 Documentos y certificaciones
+    </a>
+
+  </section>
+
+
+  <!-- =========================
+       MIGAS DE PAN
+  ========================== -->
+  <div class="breadcrumb">
+    🏠
+    <span>›</span>
+    <span>Gestión de lotes</span>
+    <span>›</span>
+    <strong>Producción y cosecha</strong>
+  </div>
+
+
+  <!-- =========================
+       FORMULARIO DE REGISTRO
+  ========================== -->
+  <main class="contenedor-principal">
+
+    <section class="tarjeta formulario-lote">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          🌱
+        </div>
+
+        <div>
+          <h2>Registrar nuevo lote</h2>
+
+          <p>
+            Completa la información de tu lote para un mejor seguimiento y trazabilidad.
+          </p>
+        </div>
+
+      </div>
+
+
+      <form id="formLote">
+
+        <div class="grid-formulario">
+
+          <div class="campo">
+            <label for="pais">País</label>
+
+            <select id="pais" required>
+              <option value="">Seleccionar</option>
+              <option value="Perú">Perú</option>
+              <option value="Chile">Chile</option>
+              <option value="Colombia">Colombia</option>
+              <option value="Ecuador">Ecuador</option>
+            </select>
+          </div>
+
+
+          <div class="campo">
+            <label for="region">Región</label>
+
+            <select id="region" required>
+              <option value="">Seleccionar</option>
+              <option value="Ica">Ica</option>
+              <option value="La Libertad">La Libertad</option>
+              <option value="Lambayeque">Lambayeque</option>
+              <option value="Lima">Lima</option>
+              <option value="Piura">Piura</option>
+            </select>
+          </div>
+
+
+          <div class="campo">
+            <label for="fundo">Fundo / Productor</label>
+
+            <input
+              type="text"
+              id="fundo"
+              placeholder="Ej. Fundo Santa Ana"
+              required
+            >
+          </div>
+
+
+          <div class="campo">
+            <label for="lote">Parcela / Lote</label>
+
+            <input
+              type="text"
+              id="lote"
+              placeholder="Ej. Lote A23"
+              required
+            >
+          </div>
+
+
+          <div class="campo">
+            <label for="variedad">Variedad</label>
+
+            <select id="variedad" required>
+              <option value="">Seleccionar</option>
+              <option value="Ventura">Ventura</option>
+              <option value="Biloxi">Biloxi</option>
+              <option value="Emerald">Emerald</option>
+              <option value="Sekoya Pop">Sekoya Pop</option>
+              <option value="Legacy">Legacy</option>
+              <option value="Otra">Otra</option>
+            </select>
+          </div>
+
+
+          <div class="campo">
+            <label for="fechaCosecha">Fecha de cosecha</label>
+
+            <input
+              type="date"
+              id="fechaCosecha"
+              required
+            >
+          </div>
+
+        </div>
+
+
+        <div class="botones-formulario">
+
+          <button type="submit" class="btn btn-principal">
+            💾 Guardar
+          </button>
+
+          <button type="reset" class="btn btn-secundario">
+            ↻ Limpiar
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+
+    <!-- =========================
+         LOTES REGISTRADOS
+    ========================== -->
+    <section class="tarjeta seccion-tabla">
+
+      <div class="cabecera-tabla">
+
+        <div class="titulo-seccion">
+
+          <div class="icono-seccion">
+            ☷
+          </div>
+
+          <div>
+            <h2>Lotes registrados</h2>
+
+            <p>
+              Consulta y gestiona tus lotes registrados.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="resumen-lotes">
+
+          <div class="tarjeta-resumen">
+            <strong id="contadorLotes">0</strong>
+            <span>Lotes activos</span>
+          </div>
+
+          <div class="tarjeta-resumen">
+            <strong id="ultimaCosecha">--</strong>
+            <span>Última cosecha</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- Buscador -->
+      <div class="zona-busqueda">
+
+        <input
+          type="text"
+          id="buscarLote"
+          placeholder="🔍 Buscar lote..."
+        >
+
+      </div>
+
+
+      <!-- Tabla -->
+      <div class="tabla-responsive">
+
+        <table>
+
+          <thead>
+
+            <tr>
+              <th>ID</th>
+              <th>País</th>
+              <th>Región</th>
+              <th>Fundo</th>
+              <th>Lote</th>
+              <th>Variedad</th>
+              <th>Cosecha</th>
+              <th>Acciones</th>
+            </tr>
+
+          </thead>
+
+          <tbody id="tablaLotesBody">
+
+            <!-- JavaScript llenará esta parte -->
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       PIE DE PÁGINA
+  ========================== -->
+  <footer class="footer">
+
+    <div class="footer-marca">
+      <strong>🫐 FRUTIGENIX</strong>
+      <span>Ciencia que llega más lejos.</span>
+    </div>
+
+    <a href="#">❓ Preguntas frecuentes</a>
+
+    <div>
+      Redes sociales:
+      <span>LinkedIn</span>
+      <span>Instagram</span>
+      <span>YouTube</span>
+    </div>
+
+    <div>
+      🎧 Soporte<br>
+      soporte@frutigenix.com
+    </div>
+
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="../JS/lotes.js"></script>
+
+</body>
+
+</html>

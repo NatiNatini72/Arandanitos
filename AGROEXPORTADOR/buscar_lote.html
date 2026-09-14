@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NECHDATA | Buscar lote</title>
+
+  <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+
+<body>
+
+  <!-- BARRA SUPERIOR -->
+
+  <div class="barra-superior">
+
+    <div class="selector-perfil">
+
+      <a href="../index.html" class="perfil-link">
+        🌐 Público general
+      </a>
+
+      <a href="#" class="perfil-link activo">
+        🌱 Agroexportadores
+      </a>
+
+    </div>
+
+
+    <div class="usuario-opciones">
+
+      <a href="#">
+        👤 Iniciar sesión
+      </a>
+
+      <a href="#" class="boton-registro">
+        Registrarse
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- ENCABEZADO -->
+
+  <header class="encabezado-principal">
+
+<div class="marca marca-nechdata">
+
+  <img
+    src="../IMAGENES/LOGO3.png"
+    alt="Logo NECHDATA"
+    class="logo-nechdata"
+  >
+
+</div>
+
+    </div>
+
+
+    <nav class="menu-principal">
+
+      <a href="../index.html">
+        Inicio
+      </a>
+
+      <a href="#">
+        Quiénes somos
+      </a>
+
+      <a href="#">
+        Ficha pública NFC
+      </a>
+
+      <a href="#">
+        Beneficios
+      </a>
+
+      <a href="#">
+        Contáctanos
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- MÓDULOS -->
+
+  <section class="modulos">
+
+    <div class="titulo-modulos">
+
+      ▦
+
+      <span>
+        Módulos para agroexportadores
+      </span>
+
+    </div>
+
+
+    <a
+      href="buscar_lote.html"
+      class="modulo activo-modulo"
+    >
+      🔍 Busca tu lote
+    </a>
+
+
+    <a
+      href="produccion.html"
+      class="modulo"
+    >
+      🌱 Producción y cosecha
+    </a>
+
+
+    <a href="#" class="modulo">
+      🛡 Calidad
+    </a>
+
+
+    <a href="#" class="modulo">
+      📦 Packing y poscosecha
+    </a>
+
+
+    <a href="#" class="modulo">
+      📍 Recorrido de trazabilidad
+    </a>
+
+
+    <a href="#" class="modulo">
+      📄 Documentos y certificaciones
+    </a>
+
+  </section>
+
+
+  <!-- BREADCRUMB -->
+
+  <div class="breadcrumb">
+
+    🏠
+
+    <span>›</span>
+
+    <strong>
+      Buscar lote
+    </strong>
+
+  </div>
+
+
+  <!-- CONTENIDO -->
+
+  <main class="contenedor-principal">
+
+
+    <!-- BUSCADOR GRANDE -->
+
+    <section class="tarjeta buscador-principal">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          🔍
+        </div>
+
+        <div>
+
+          <h2>
+            Busca tu lote
+          </h2>
+
+          <p>
+            Consulta rápidamente los lotes registrados en NECHDATA.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="buscador-grande">
+
+        <input
+          type="text"
+          id="busquedaGeneral"
+          placeholder="Buscar por código, fundo, variedad, región o lote..."
+        >
+
+      </div>
+
+
+      <div class="filtros-busqueda">
+
+        <select id="filtroPais">
+
+          <option value="">
+            Todos los países
+          </option>
+
+          <option value="Perú">
+            Perú
+          </option>
+
+          <option value="Chile">
+            Chile
+          </option>
+
+          <option value="Colombia">
+            Colombia
+          </option>
+
+          <option value="Ecuador">
+            Ecuador
+          </option>
+
+        </select>
+
+
+        <select id="filtroVariedad">
+
+          <option value="">
+            Todas las variedades
+          </option>
+
+          <option value="Ventura">
+            Ventura
+          </option>
+
+          <option value="Biloxi">
+            Biloxi
+          </option>
+
+          <option value="Emerald">
+            Emerald
+          </option>
+
+          <option value="Sekoya Pop">
+            Sekoya Pop
+          </option>
+
+          <option value="Legacy">
+            Legacy
+          </option>
+
+        </select>
+
+
+        <button
+          id="btnLimpiarFiltros"
+          class="btn btn-secundario"
+        >
+          ↻ Limpiar filtros
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- RESULTADOS -->
+
+    <section class="tarjeta">
+
+      <div class="cabecera-resultados">
+
+        <div>
+
+          <h2>
+            Resultados
+          </h2>
+
+          <p id="cantidadResultados">
+            0 lotes encontrados
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        id="contenedorResultados"
+        class="resultados-lotes"
+      >
+
+        <!-- JavaScript pondrá aquí los lotes -->
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+
+    <div class="footer-marca">
+
+      <strong>
+        🫐 NECHDATA
+      </strong>
+
+      <span>
+        Todo el proceso a la vista.
+      </span>
+
+    </div>
+
+    <span>
+      Consulta de trazabilidad
+    </span>
+
+    <span>
+      Proyecto demostrativo 2026
+    </span>
+
+  </footer>
+
+
+  <script src="../JS/buscar_lote.js"></script>
+
+</body>
+
+</html>

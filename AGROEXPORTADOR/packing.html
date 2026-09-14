@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NECHDATA | Packing y poscosecha</title>
+
+  <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+
+<body>
+
+  <div class="barra-superior">
+
+    <div class="selector-perfil">
+
+      <a href="../index.html" class="perfil-link">
+        🌐 Público general
+      </a>
+
+      <a href="#" class="perfil-link activo">
+        🌱 Agroexportadores
+      </a>
+
+    </div>
+
+
+    <div class="usuario-opciones">
+
+      <a href="#">
+        👤 Iniciar sesión
+      </a>
+
+      <a href="#" class="boton-registro">
+        Registrarse
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <header class="encabezado-principal">
+
+<div class="marca marca-nechdata">
+
+  <img
+    src="../IMAGENES/LOGO3.png"
+    alt="Logo NECHDATA"
+    class="logo-nechdata"
+  >
+
+</div>
+
+    </div>
+
+
+    <nav class="menu-principal">
+
+      <a href="../index.html">
+        Inicio
+      </a>
+
+      <a href="#">
+        Quiénes somos
+      </a>
+
+      <a href="#">
+        Ficha pública NFC
+      </a>
+
+      <a href="#">
+        Beneficios
+      </a>
+
+      <a href="#">
+        Contáctanos
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <section class="modulos">
+
+    <div class="titulo-modulos">
+
+      ▦
+
+      <span>
+        Módulos para agroexportadores
+      </span>
+
+    </div>
+
+
+    <a href="buscar_lote.html" class="modulo">
+      🔍 Busca tu lote
+    </a>
+
+
+    <a href="produccion.html" class="modulo">
+      🌱 Producción y cosecha
+    </a>
+
+
+    <a href="calidad.html" class="modulo">
+      🛡 Calidad
+    </a>
+
+
+    <a href="packing.html" class="modulo activo-modulo">
+      📦 Packing y poscosecha
+    </a>
+
+
+    <a href="#" class="modulo">
+      📍 Recorrido de trazabilidad
+    </a>
+
+
+    <a href="#" class="modulo">
+      📄 Documentos y certificaciones
+    </a>
+
+  </section>
+
+
+  <div class="breadcrumb">
+
+    🏠
+
+    <span>›</span>
+
+    <span>
+      Gestión de lotes
+    </span>
+
+    <span>›</span>
+
+    <strong>
+      Packing y poscosecha
+    </strong>
+
+  </div>
+
+
+  <main class="contenedor-principal">
+
+
+    <!-- FORMULARIO -->
+
+    <section class="tarjeta">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          📦
+        </div>
+
+        <div>
+
+          <h2>
+            Registrar packing y poscosecha
+          </h2>
+
+          <p>
+            Registra la información asociada al acondicionamiento y conservación del lote.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form id="formPacking">
+
+        <div class="grid-formulario">
+
+
+          <div class="campo">
+
+            <label for="lotePacking">
+              Lote
+            </label>
+
+            <select id="lotePacking" required>
+
+              <option value="">
+                Seleccionar lote
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="fechaRecepcion">
+              Fecha de recepción
+            </label>
+
+            <input
+              type="date"
+              id="fechaRecepcion"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="fechaPacking">
+              Fecha de packing
+            </label>
+
+            <input
+              type="date"
+              id="fechaPacking"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="prefrioTemp">
+              Temperatura de pre-frío (°C)
+            </label>
+
+            <input
+              type="number"
+              step="0.01"
+              id="prefrioTemp"
+              placeholder="Ej. 2.0"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="tipoEmpaque">
+              Tipo de empaque
+            </label>
+
+            <input
+              type="text"
+              id="tipoEmpaque"
+              placeholder="Ej. Clamshell / caja"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="temperaturaCamara">
+              Temperatura de cámara (°C)
+            </label>
+
+            <input
+              type="number"
+              step="0.01"
+              id="temperaturaCamara"
+              placeholder="Ej. 1.0"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="o2">
+              O₂ (%)
+            </label>
+
+            <input
+              type="number"
+              step="0.01"
+              id="o2"
+              placeholder="Ej. 9"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="co2">
+              CO₂ (%)
+            </label>
+
+            <input
+              type="number"
+              step="0.01"
+              id="co2"
+              placeholder="Ej. 11"
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="campo campo-observaciones">
+
+          <label for="observacionesPacking">
+            Observaciones
+          </label>
+
+          <textarea
+            id="observacionesPacking"
+            rows="4"
+            placeholder="Observaciones sobre empaque, pre-frío, cámaras o conservación..."
+          ></textarea>
+
+        </div>
+
+
+        <div class="botones-formulario">
+
+          <button
+            type="submit"
+            class="btn btn-principal"
+          >
+            💾 Guardar packing
+          </button>
+
+
+          <button
+            type="reset"
+            class="btn btn-secundario"
+          >
+            ↻ Limpiar
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+
+    <!-- INFORMACIÓN REGISTRADA -->
+
+    <section class="tarjeta">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          ❄️
+        </div>
+
+        <div>
+
+          <h2>
+            Último registro de packing
+          </h2>
+
+          <p>
+            Información de poscosecha asociada al lote seleccionado.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div id="resultadoPacking">
+
+        <p class="mensaje-proximamente">
+          Selecciona un lote para consultar su información.
+        </p>
+
+      </div>
+
+    </section>
+
+
+  </main>
+
+
+  <footer class="footer">
+
+    <div class="footer-marca">
+
+      <strong>
+        🫐 NECHDATA
+      </strong>
+
+      <span>
+        Ciencia que llega más lejos.
+      </span>
+
+    </div>
+
+
+    <span>
+      Packing y poscosecha
+    </span>
+
+
+    <span>
+      Proyecto demostrativo 2026
+    </span>
+
+  </footer>
+
+
+  <script src="../JS/packing.js"></script>
+
+</body>
+
+</html>

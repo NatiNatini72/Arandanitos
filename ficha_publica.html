@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NECHDATA | Ficha pública</title>
+
+  <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+
+<body>
+
+  <!-- PANTALLA DE CARGA NFC -->
+
+  <div id="pantallaCarga" class="pantalla-carga-nfc">
+
+    <div class="carga-contenido">
+
+      <img
+        src="IMAGENES/LOGO1.png"
+        alt="NECHDATA"
+        class="logo-carga-nfc"
+      >
+
+ <div class="carga-variedad">
+
+  <span>
+    FUNDO SALVADOR · INKA BERRIES
+  </span>
+
+  <strong id="variedadCarga">
+    Consultando...
+  </strong>
+
+</div>
+
+<div class="spinner-nfc"></div>
+
+<p>
+  Cargando trazabilidad...
+</p>
+ </div>
+
+</div>
+
+
+<!-- ==========================================
+     FICHA PÚBLICA
+========================================== -->
+
+  <div id="contenidoFicha" 
+  class="ficha-publica-contenedor oculto">
+<!-- AQUÍ EMPIEZA TODO EL CONTENIDO
+       DE LA FICHA -->
+
+    <header class="ficha-header">
+
+      <img
+        src="IMAGENES/LOGO3.png"
+        alt="NECHDATA"
+        class="logo-ficha-publica"
+      >
+
+      <div class="ficha-estado">
+        <span class="punto-estado"></span>
+        Lote verificado
+      </div>
+
+    </header>
+
+
+    <main class="ficha-publica-main">
+
+
+      <!-- PORTADA DEL LOTE -->
+
+     <section
+  class="ficha-portada"
+  style="background-image: url('IMAGENES/inka_berries.jpg');"
+>
+
+  <div class="ficha-portada-overlay">
+
+    <p class="etiqueta-ficha">
+      HISTORIA DEL LOTE
+    </p>
+
+    <div class="ficha-fundo-demo">
+      Fundo Salvador · Inka Berries
+    </div>
+
+    <h1 id="codigoPublico">
+      --
+    </h1>
+
+    <h2 id="variedadPublica">
+      --
+    </h2>
+
+    <p id="origenPublico">
+      Santiago, Ica, Perú
+    </p>
+
+  </div>
+
+</section>
+
+
+      <!-- DATOS PRINCIPALES -->
+
+      <section class="ficha-bloque">
+
+        <h2>
+          🌱 Origen y producción
+        </h2>
+
+        <div class="grid-ficha-publica">
+
+          <div class="dato-publico">
+            <span>País</span>
+            <strong id="paisPublico">--</strong>
+          </div>
+
+          <div class="dato-publico">
+            <span>Región</span>
+            <strong id="regionPublico">--</strong>
+          </div>
+
+          <div class="dato-publico">
+            <span>Fundo</span>
+            <strong id="fundoPublico">--</strong>
+          </div>
+
+          <div class="dato-publico">
+            <span>Lote</span>
+            <strong id="lotePublico">--</strong>
+          </div>
+
+          <div class="dato-publico">
+            <span>Cosecha</span>
+            <strong id="fechaPublica">--</strong>
+          </div>
+
+        </div>
+
+      </section>
+<!-- UBICACIÓN DEL FUNDO -->
+
+<section class="ficha-bloque">
+
+  <h2>
+    📍 Ubicación del fundo
+  </h2>
+
+  <div class="ubicacion-fundo">
+
+    <div class="mapa-fundo">
+
+      <iframe
+        src="https://www.google.com/maps?q=Fundo%20Salvador%20Inka%20Berries%20Santiago%20Ica%20Peru&output=embed"
+        width="100%"
+        height="350"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+
+    </div>
+
+
+    <div class="info-ubicacion">
+
+      <span class="etiqueta-ubicacion">
+        FUNDO DE ORIGEN
+      </span>
+
+      <h3>
+        Fundo Salvador · Inka Berries
+      </h3>
+
+      <p>
+        Santiago, Ica, Perú
+      </p>
+
+      <a
+        href="https://maps.app.goo.gl/f7p7KPrtDXpBbQyT8"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-mapa"
+      >
+        📍 Ver ubicación en Google Maps
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+      <!-- CALIDAD -->
+
+      <section class="ficha-bloque">
+
+        <h2>
+          🛡 Calidad visible
+        </h2>
+
+        <div id="calidadPublica">
+
+          <p class="mensaje-proximamente">
+            Consultando calidad...
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- PACKING -->
+
+      <section class="ficha-bloque">
+
+        <h2>
+          📦 Packing y poscosecha
+        </h2>
+
+        <div id="packingPublico">
+
+          <p class="mensaje-proximamente">
+            Consultando packing...
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <!-- RECORRIDO -->
+
+      <section class="ficha-bloque">
+
+        <h2>
+          📍 Recorrido del lote
+        </h2>
+
+        <div class="timeline-publica">
+
+          <div class="paso-traza">
+            <div class="icono-traza">🌱</div>
+            <div>
+              <strong>Origen</strong>
+              <p id="rutaOrigen">Fundo de producción</p>
+            </div>
+          </div>
+
+          <div class="linea-traza"></div>
+
+          <div class="paso-traza">
+            <div class="icono-traza">📦</div>
+            <div>
+              <strong>Packing</strong>
+              <p>Acondicionamiento y conservación</p>
+            </div>
+          </div>
+
+          <div class="linea-traza"></div>
+
+          <div class="paso-traza">
+            <div class="icono-traza">🚚</div>
+            <div>
+              <strong>Despacho</strong>
+              <p>Información de transporte pendiente</p>
+            </div>
+          </div>
+
+          <div class="linea-traza"></div>
+
+          <div class="paso-traza">
+            <div class="icono-traza">🌎</div>
+            <div>
+              <strong>Destino</strong>
+              <p>Destino comercial pendiente</p>
+            </div>
+          </div>
+
+        </div>
+
+      </section>
+
+
+    </main>
+
+
+    <footer class="footer ficha-footer">
+
+      <img
+        src="IMAGENES/LOGO3.png"
+        alt="NECHDATA"
+        class="logo-footer-nechdata"
+      >
+
+      <span>
+        Todo el proceso a la vista
+      </span>
+
+    </footer>
+
+
+  </div>
+
+
+  <script src="JS/ficha_publica.js"></script>
+
+</body>
+
+</html>

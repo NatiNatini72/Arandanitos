@@ -37,7 +37,56 @@ def crear_tabla():
             fecha_cosecha TEXT NOT NULL
         )
     """)
+    # ==========================================
+    # TABLA DE CALIDAD
+    # ==========================================
 
+    conexion.execute("""
+        CREATE TABLE IF NOT EXISTS calidad (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+            lote_id INTEGER NOT NULL,
+
+            calibre REAL,
+            firmeza REAL,
+            brix REAL,
+            acidez REAL,
+            defectos REAL,
+
+            observaciones TEXT,
+
+            FOREIGN KEY (lote_id)
+            REFERENCES lotes(id)
+        )
+    """)
+        # ==========================================
+    # TABLA DE PACKING Y POSCOSECHA
+    # ==========================================
+
+    conexion.execute("""
+        CREATE TABLE IF NOT EXISTS packing (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+            lote_id INTEGER NOT NULL,
+
+            fecha_recepcion TEXT,
+            fecha_packing TEXT,
+
+            prefrio_temp REAL,
+
+            tipo_empaque TEXT,
+
+            temperatura_camara REAL,
+
+            o2 REAL,
+            co2 REAL,
+
+            observaciones TEXT,
+
+            FOREIGN KEY (lote_id)
+            REFERENCES lotes(id)
+        )
+    """)
     conexion.commit()
     conexion.close()
 
@@ -219,7 +268,227 @@ def obtener_lote(id):
 # ==========================================
 # INICIAR SERVIDOR
 # ==========================================
+# ==========================================
+# OBTENER CALIDAD DE UN LOTE
+# ==========================================
 
+@app.route("/api/lotes/<int:lote_id>/calidad", methods=["GET"])
+def obtener_calidad(lote_id):
+
+    conexion = conectar_bd()
+
+    calidad = conexion.execute("""
+        SELECT *
+        FROM calidad
+        WHERE lote_id = ?
+        ORDER BY id DESC
+        LIMIT 1
+    """, (lote_id,)).fetchone()
+
+    conexion.close()
+
+
+    if calidad is None:
+
+        return jsonify({
+            "mensaje": "No hay información de calidad registrada"
+        }), 404
+
+
+    return jsonify({
+
+        "id": calidad["id"],
+
+        "lote_id": calidad["lote_id"],
+
+        "calibre": calidad["calibre"],
+
+        "firmeza": calidad["firmeza"],
+
+        "brix": calidad["brix"],
+
+        "acidez": calidad["acidez"],
+
+        "defectos": calidad["defectos"],
+
+        "observaciones":
+            calidad["observaciones"]
+
+    })
+
+
+# ==========================================
+# REGISTRAR CALIDAD DE UN LOTE
+# ==========================================
+
+@app.route("/api/lotes/<int:lote_id>/calidad", methods=["POST"])
+def registrar_calidad(lote_id):
+
+    datos = request.get_json()
+
+    conexion = conectar_bd()
+
+
+    conexion.execute("""
+        INSERT INTO calidad (
+            lote_id,
+            calibre,
+            firmeza,
+            brix,
+            acidez,
+            defectos,
+            observaciones
+        )
+
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+
+    """, (
+
+        lote_id,
+
+        datos.get("calibre"),
+
+        datos.get("firmeza"),
+
+        datos.get("brix"),
+
+        datos.get("acidez"),
+
+        datos.get("defectos"),
+
+        datos.get("observaciones")
+
+    ))
+
+
+    conexion.commit()
+
+    conexion.close()
+
+
+    return jsonify({
+        "mensaje":
+            "Información de calidad registrada correctamente"
+    }), 201
+# ==========================================
+# OBTENER PACKING DE UN LOTE
+# ==========================================
+
+@app.route("/api/lotes/<int:lote_id>/packing", methods=["GET"])
+def obtener_packing(lote_id):
+
+    conexion = conectar_bd()
+
+    packing = conexion.execute("""
+        SELECT *
+        FROM packing
+        WHERE lote_id = ?
+        ORDER BY id DESC
+        LIMIT 1
+    """, (lote_id,)).fetchone()
+
+    conexion.close()
+
+
+    if packing is None:
+
+        return jsonify({
+            "mensaje":
+                "No hay información de packing registrada"
+        }), 404
+
+
+    return jsonify({
+
+        "id": packing["id"],
+
+        "lote_id": packing["lote_id"],
+
+        "fechaRecepcion":
+            packing["fecha_recepcion"],
+
+        "fechaPacking":
+            packing["fecha_packing"],
+
+        "prefrioTemp":
+            packing["prefrio_temp"],
+
+        "tipoEmpaque":
+            packing["tipo_empaque"],
+
+        "temperaturaCamara":
+            packing["temperatura_camara"],
+
+        "o2":
+            packing["o2"],
+
+        "co2":
+            packing["co2"],
+
+        "observaciones":
+            packing["observaciones"]
+
+    })
+
+
+# ==========================================
+# REGISTRAR PACKING DE UN LOTE
+# ==========================================
+
+@app.route("/api/lotes/<int:lote_id>/packing", methods=["POST"])
+def registrar_packing(lote_id):
+
+    datos = request.get_json()
+
+    conexion = conectar_bd()
+
+
+    conexion.execute("""
+        INSERT INTO packing (
+            lote_id,
+            fecha_recepcion,
+            fecha_packing,
+            prefrio_temp,
+            tipo_empaque,
+            temperatura_camara,
+            o2,
+            co2,
+            observaciones
+        )
+
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+
+    """, (
+
+        lote_id,
+
+        datos.get("fechaRecepcion"),
+
+        datos.get("fechaPacking"),
+
+        datos.get("prefrioTemp"),
+
+        datos.get("tipoEmpaque"),
+
+        datos.get("temperaturaCamara"),
+
+        datos.get("o2"),
+
+        datos.get("co2"),
+
+        datos.get("observaciones")
+
+    ))
+
+
+    conexion.commit()
+    conexion.close()
+
+
+    return jsonify({
+        "mensaje":
+            "Información de packing registrada correctamente"
+    }), 201
 if __name__ == "__main__":
     crear_tabla()
     app.run(debug=True)

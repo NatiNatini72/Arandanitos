@@ -2624,3 +2624,159 @@ tbody tr:hover {
 .arandano-nfc {
   font-size: 18px;
 }
+
+/* ==========================================
+   RECORRIDO DE TRAZABILIDAD
+========================================== */
+
+.timeline-recorrido {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+
+
+.etapa-recorrido {
+  flex: 1;
+
+  text-align: center;
+}
+
+
+.circulo-recorrido {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #eef8f5;
+
+  border: 2px solid #cce7df;
+
+  font-size: 25px;
+}
+
+
+.etapa-recorrido span {
+  display: block;
+
+  font-size: 11px;
+  text-transform: uppercase;
+
+  color: #7a8a99;
+
+  margin-bottom: 5px;
+}
+
+
+.etapa-recorrido strong {
+  color: #17265f;
+
+  font-size: 13px;
+}
+
+
+.linea-recorrido {
+  height: 2px;
+
+  flex: 0.45;
+
+  background: #cadde0;
+
+  margin-top: 29px;
+}
+
+
+.detalle-recorrido {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 14px;
+
+  margin-bottom: 18px;
+}
+
+
+.detalle-recorrido div {
+  padding: 17px;
+
+  border-radius: 12px;
+
+  background: #f4f8fb;
+
+  border: 1px solid #dde8ed;
+}
+
+
+.detalle-recorrido span {
+  display: block;
+
+  color: #7a8a99;
+
+  font-size: 11px;
+
+  text-transform: uppercase;
+
+  margin-bottom: 6px;
+}
+
+
+.detalle-recorrido strong {
+  color: #17265f;
+}
+
+
+@media (max-width: 750px) {
+
+  .timeline-recorrido {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+
+
+  .etapa-recorrido {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    text-align: left;
+  }
+
+
+  .circulo-recorrido {
+    margin: 0;
+
+    flex-shrink: 0;
+  }
+
+
+  .linea-recorrido {
+    width: 2px;
+    height: 28px;
+
+    flex: none;
+
+    margin:
+      5px 0 5px 28px;
+  }
+
+
+  .detalle-recorrido {
+    grid-template-columns: 1fr;
+  }
+
+}

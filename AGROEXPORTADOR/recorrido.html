@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NECHDATA | Recorrido de trazabilidad</title>
+
+  <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+
+<body>
+
+  <!-- BARRA SUPERIOR -->
+
+  <div class="barra-superior">
+
+    <div class="perfiles">
+
+      <a href="../index.html">
+        🌐 Público general
+      </a>
+
+      <a href="produccion.html" class="perfil-activo">
+        🌱 Agroexportadores
+      </a>
+
+    </div>
+
+    <div class="acciones-usuario">
+      👤 Iniciar sesión
+      <button>Registrarse</button>
+    </div>
+
+  </div>
+
+
+  <!-- HEADER -->
+
+  <header class="encabezado-principal">
+
+    <div class="marca marca-nechdata">
+
+      <img
+        src="../IMAGENES/LOGO3.png"
+        alt="NECHDATA"
+        class="logo-nechdata"
+      >
+
+    </div>
+
+  </header>
+
+
+  <!-- MÓDULOS -->
+
+  <section class="modulos">
+
+    <div class="titulo-modulos">
+      ▦ Módulos para agroexportadores
+    </div>
+
+    <a href="buscar_lote.html">
+      🔍 Busca tu lote
+    </a>
+
+    <a href="produccion.html">
+      🌱 Producción y cosecha
+    </a>
+
+    <a href="calidad.html">
+      🛡 Calidad
+    </a>
+
+    <a href="packing.html">
+      📦 Packing y poscosecha
+    </a>
+
+    <a href="recorrido.html" class="modulo-activo">
+      📍 Recorrido de trazabilidad
+    </a>
+
+    <a href="#">
+      📄 Documentos y certificaciones
+    </a>
+
+  </section>
+
+
+  <!-- BREADCRUMB -->
+
+  <div class="breadcrumb">
+    🏠 › Gestión de lotes ›
+    <strong>Recorrido de trazabilidad</strong>
+  </div>
+
+
+  <!-- CONTENIDO -->
+
+  <main class="contenido-principal">
+
+    <section class="tarjeta">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          📍
+        </div>
+
+        <div>
+
+          <h2>
+            Registrar recorrido del lote
+          </h2>
+
+          <p>
+            Registra el despacho y destino comercial del lote.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form id="formRecorrido">
+
+        <div class="grid-formulario">
+
+          <div class="campo campo-completo">
+
+            <label for="loteRecorrido">
+              Selecciona el lote
+            </label>
+
+            <select id="loteRecorrido" required>
+
+              <option value="">
+                Selecciona un lote
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="fechaDespacho">
+              Fecha de despacho
+            </label>
+
+            <input
+              type="date"
+              id="fechaDespacho"
+              required
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="transportista">
+              Transportista
+            </label>
+
+            <input
+              type="text"
+              id="transportista"
+              placeholder="Ej. Transportes del Sur"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="puertoSalida">
+              Puerto de salida
+            </label>
+
+            <input
+              type="text"
+              id="puertoSalida"
+              placeholder="Ej. Puerto del Callao"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="estadoEnvio">
+              Estado del envío
+            </label>
+
+            <select id="estadoEnvio">
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="En preparación">
+                En preparación
+              </option>
+
+              <option value="Despachado">
+                Despachado
+              </option>
+
+              <option value="En tránsito">
+                En tránsito
+              </option>
+
+              <option value="En puerto">
+                En puerto
+              </option>
+
+              <option value="Entregado">
+                Entregado
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="paisDestino">
+              País destino
+            </label>
+
+            <input
+              type="text"
+              id="paisDestino"
+              placeholder="Ej. Estados Unidos"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="ciudadDestino">
+              Ciudad destino
+            </label>
+
+            <input
+              type="text"
+              id="ciudadDestino"
+              placeholder="Ej. Miami"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="fechaLlegadaEstimada">
+              Llegada estimada
+            </label>
+
+            <input
+              type="date"
+              id="fechaLlegadaEstimada"
+            >
+
+          </div>
+
+
+          <div class="campo campo-completo">
+
+            <label for="observacionesRecorrido">
+              Observaciones
+            </label>
+
+            <textarea
+              id="observacionesRecorrido"
+              rows="4"
+              placeholder="Información adicional del recorrido..."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <div class="acciones-formulario">
+
+          <button
+            type="submit"
+            class="btn-principal"
+          >
+            Guardar recorrido
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+
+    <!-- ÚLTIMO RECORRIDO -->
+
+    <section class="tarjeta">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          🚚
+        </div>
+
+        <div>
+
+          <h2>
+            Recorrido registrado
+          </h2>
+
+          <p>
+            Última información logística asociada al lote.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div id="resultadoRecorrido">
+
+        <p class="mensaje-proximamente">
+          Selecciona un lote para consultar su recorrido.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="../JS/recorrido.js"></script>
+
+</body>
+
+</html>

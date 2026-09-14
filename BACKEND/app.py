@@ -28,77 +28,77 @@ def crear_tabla():
     conexion.execute("""
         CREATE TABLE IF NOT EXISTS lotes (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            codigo TEXT UNIQUE,
-            pais TEXT NOT NULL,
-            region TEXT NOT NULL,
-            fundo TEXT NOT NULL,
-            lote TEXT NOT NULL,
-            variedad TEXT NOT NULL,
-            fecha_cosecha TEXT NOT NULL
+            codigo TEXT NOT NULL,
+            pais TEXT,
+            region TEXT,
+            fundo TEXT,
+            lote TEXT,
+            variedad TEXT,
+            fecha_cosecha TEXT
         )
     """)
-    # ==========================================
-    # TABLA DE CALIDAD
-    # ==========================================
 
     conexion.execute("""
         CREATE TABLE IF NOT EXISTS calidad (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-
             lote_id INTEGER NOT NULL,
-
             calibre REAL,
             firmeza REAL,
             brix REAL,
             acidez REAL,
             defectos REAL,
-
             observaciones TEXT,
-
             FOREIGN KEY (lote_id)
             REFERENCES lotes(id)
         )
     """)
-        # ==========================================
-    # TABLA DE PACKING Y POSCOSECHA
-    # ==========================================
 
     conexion.execute("""
         CREATE TABLE IF NOT EXISTS packing (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-
             lote_id INTEGER NOT NULL,
-
             fecha_recepcion TEXT,
             fecha_packing TEXT,
-
             prefrio_temp REAL,
-
             tipo_empaque TEXT,
-
             temperatura_camara REAL,
-
             o2 REAL,
             co2 REAL,
-
             observaciones TEXT,
-
             FOREIGN KEY (lote_id)
             REFERENCES lotes(id)
         )
     """)
+
+    conexion.execute("""
+        CREATE TABLE IF NOT EXISTS recorrido (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            lote_id INTEGER NOT NULL,
+            fecha_despacho TEXT,
+            transportista TEXT,
+            puerto_salida TEXT,
+            pais_destino TEXT,
+            ciudad_destino TEXT,
+            estado_envio TEXT,
+            fecha_llegada_estimada TEXT,
+            observaciones TEXT,
+            FOREIGN KEY (lote_id)
+            REFERENCES lotes(id)
+        )
+    """)
+
     conexion.commit()
     conexion.close()
 
 
 # ==========================================
-# RUTA DE PRUEBA
+# RUTAS DE PRUEBA
 # ==========================================
 
 @app.route("/")
 def inicio():
     return jsonify({
-        "mensaje": "Servidor FRUTIGENIX funcionando 🫐"
+        "mensaje": "Servidor NECHDATA funcionando 🫐"
     })
 
 
@@ -371,7 +371,7 @@ def registrar_calidad(lote_id):
             "Información de calidad registrada correctamente"
     }), 201
 # ==========================================
-# OBTENER PACKING DE UN LOTE
+# RUTAS DE PACKING
 # ==========================================
 
 @app.route("/api/lotes/<int:lote_id>/packing", methods=["GET"])
@@ -489,6 +489,112 @@ def registrar_packing(lote_id):
         "mensaje":
             "Información de packing registrada correctamente"
     }), 201
+# ==========================================
+# OBTENER RECORRIDO DE UN LOTE
+# ==========================================
+
+@app.route("/api/lotes/<int:lote_id>/recorrido", methods=["GET"])
+def obtener_recorrido(lote_id):
+
+    conexion = conectar_bd()
+
+    recorrido = conexion.execute("""
+        SELECT *
+        FROM recorrido
+        WHERE lote_id = ?
+        ORDER BY id DESC
+        LIMIT 1
+    """, (lote_id,)).fetchone()
+
+    conexion.close()
+
+    if recorrido is None:
+
+        return jsonify({
+            "mensaje": "No hay información de recorrido registrada"
+        }), 404
+
+
+    return jsonify({
+
+        "id": recorrido["id"],
+
+        "lote_id": recorrido["lote_id"],
+
+        "fechaDespacho": recorrido["fecha_despacho"],
+
+        "transportista": recorrido["transportista"],
+
+        "puertoSalida": recorrido["puerto_salida"],
+
+        "paisDestino": recorrido["pais_destino"],
+
+        "ciudadDestino": recorrido["ciudad_destino"],
+
+        "estadoEnvio": recorrido["estado_envio"],
+
+        "fechaLlegadaEstimada":
+            recorrido["fecha_llegada_estimada"],
+
+        "observaciones":
+            recorrido["observaciones"]
+
+    })
+
+
+# ==========================================
+# RUTAS DE RECORRIDO
+# ==========================================
+
+@app.route("/api/lotes/<int:lote_id>/recorrido", methods=["POST"])
+def registrar_recorrido(lote_id):
+
+    datos = request.get_json()
+
+    conexion = conectar_bd()
+
+    conexion.execute("""
+        INSERT INTO recorrido (
+            lote_id,
+            fecha_despacho,
+            transportista,
+            puerto_salida,
+            pais_destino,
+            ciudad_destino,
+            estado_envio,
+            fecha_llegada_estimada,
+            observaciones
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+    """, (
+
+        lote_id,
+
+        datos.get("fechaDespacho"),
+
+        datos.get("transportista"),
+
+        datos.get("puertoSalida"),
+
+        datos.get("paisDestino"),
+
+        datos.get("ciudadDestino"),
+
+        datos.get("estadoEnvio"),
+
+        datos.get("fechaLlegadaEstimada"),
+
+        datos.get("observaciones")
+
+    ))
+
+    conexion.commit()
+    conexion.close()
+
+    return jsonify({
+        "mensaje": "Recorrido registrado correctamente"
+    }), 201
+
 if __name__ == "__main__":
     crear_tabla()
     app.run(debug=True)

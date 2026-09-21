@@ -1,33 +1,78 @@
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 import sqlite3
+import os
+import psycopg2
+
+from psycopg2.extras import RealDictCursor
 
 app = Flask(__name__)
 CORS(app)
 
 BASE_DATOS = "frutigenix.db"
+DATABASE_URL = os.environ.get("DATABASE_URL")
 
+USANDO_POSTGRES = DATABASE_URL is not None
 
 # ==========================================
 # CONEXIÓN CON LA BASE DE DATOS
 # ==========================================
 
 def conectar_bd():
-    conexion = sqlite3.connect(BASE_DATOS)
-    conexion.row_factory = sqlite3.Row
-    return conexion
 
+    if USANDO_POSTGRES:
 
+        conexion = psycopg2.connect(
+            DATABASE_URL,
+            cursor_factory=RealDictCursor
+        )
+
+        return conexion
+
+    else:
+
+        conexion = sqlite3.connect(
+            BASE_DATOS
+        )
+
+        conexion.row_factory = sqlite3.Row
+
+        return conexion
+
+def adaptar_sql(sql):
+
+    if USANDO_POSTGRES:
+        return sql.replace("?", "%s")
+
+    return sql
+
+def ejecutar(conexion, sql, parametros=()):
+
+    cursor = conexion.cursor()
+
+    cursor.execute(
+        adaptar_sql(sql),
+        parametros
+    )
+
+    return cursor
 # ==========================================
 # CREAR TABLA DE LOTES
 # ==========================================
-
 def crear_tabla():
-    conexion = conectar_bd()
 
-    conexion.execute("""
+    conexion = conectar_bd()
+    cursor = conexion.cursor()
+
+    if USANDO_POSTGRES:
+        tipo_id = "SERIAL PRIMARY KEY"
+    else:
+        tipo_id = "INTEGER PRIMARY KEY AUTOINCREMENT"
+
+
+    cursor.execute(f"""
         CREATE TABLE IF NOT EXISTS lotes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id {tipo_id},
             codigo TEXT NOT NULL,
             pais TEXT,
             region TEXT,
@@ -38,9 +83,10 @@ def crear_tabla():
         )
     """)
 
-    conexion.execute("""
+
+    cursor.execute(f"""
         CREATE TABLE IF NOT EXISTS calidad (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id {tipo_id},
             lote_id INTEGER NOT NULL,
             calibre REAL,
             firmeza REAL,
@@ -53,9 +99,10 @@ def crear_tabla():
         )
     """)
 
-    conexion.execute("""
+
+    cursor.execute(f"""
         CREATE TABLE IF NOT EXISTS packing (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id {tipo_id},
             lote_id INTEGER NOT NULL,
             fecha_recepcion TEXT,
             fecha_packing TEXT,
@@ -70,9 +117,10 @@ def crear_tabla():
         )
     """)
 
-    conexion.execute("""
+
+    cursor.execute(f"""
         CREATE TABLE IF NOT EXISTS recorrido (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            id {tipo_id},
             lote_id INTEGER NOT NULL,
             fecha_despacho TEXT,
             transportista TEXT,
@@ -87,34 +135,26 @@ def crear_tabla():
         )
     """)
 
-    conexion.execute("""
-    CREATE TABLE IF NOT EXISTS documentos (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
 
-        lote_id INTEGER NOT NULL,
+    cursor.execute(f"""
+        CREATE TABLE IF NOT EXISTS documentos (
+            id {tipo_id},
+            lote_id INTEGER NOT NULL,
+            tipo_documento TEXT,
+            nombre_documento TEXT NOT NULL,
+            numero_documento TEXT,
+            fecha_emision TEXT,
+            entidad_emisora TEXT,
+            url_documento TEXT,
+            observaciones TEXT,
+            FOREIGN KEY (lote_id)
+            REFERENCES lotes(id)
+        )
+    """)
 
-        tipo_documento TEXT,
-
-        nombre_documento TEXT NOT NULL,
-
-        numero_documento TEXT,
-
-        fecha_emision TEXT,
-
-        entidad_emisora TEXT,
-
-        url_documento TEXT,
-
-        observaciones TEXT,
-
-        FOREIGN KEY (lote_id)
-        REFERENCES lotes(id)
-    )
-""")
 
     conexion.commit()
     conexion.close()
-
 
 # ==========================================
 # RUTAS DE PRUEBA
@@ -133,19 +173,24 @@ def inicio():
 
 @app.route("/api/lotes", methods=["GET"])
 def obtener_lotes():
+
     conexion = conectar_bd()
 
-    lotes = conexion.execute("""
+    lotes = ejecutar(
+        conexion,
+        """
         SELECT *
         FROM lotes
         ORDER BY id DESC
-    """).fetchall()
+        """
+    ).fetchall()
 
     conexion.close()
 
     resultado = []
 
     for lote in lotes:
+
         resultado.append({
             "id": lote["id"],
             "codigo": lote["codigo"],
@@ -159,19 +204,20 @@ def obtener_lotes():
 
     return jsonify(resultado)
 
-
 # ==========================================
 # REGISTRAR NUEVO LOTE
 # ==========================================
 
 @app.route("/api/lotes", methods=["POST"])
 def registrar_lote():
+
     datos = request.get_json()
 
     conexion = conectar_bd()
-    cursor = conexion.cursor()
 
-    cursor.execute("""
+    ejecutar(
+        conexion,
+        """
         INSERT INTO lotes (
             codigo,
             pais,
@@ -182,15 +228,17 @@ def registrar_lote():
             fecha_cosecha
         )
         VALUES (?, ?, ?, ?, ?, ?, ?)
-    """, (
-        datos["codigo"],
-        datos["pais"],
-        datos["region"],
-        datos["fundo"],
-        datos["lote"],
-        datos["variedad"],
-        datos["fechaCosecha"]
-    ))
+        """,
+        (
+            datos["codigo"],
+            datos["pais"],
+            datos["region"],
+            datos["fundo"],
+            datos["lote"],
+            datos["variedad"],
+            datos["fechaCosecha"]
+        )
+    )
 
     conexion.commit()
     conexion.close()
@@ -199,19 +247,23 @@ def registrar_lote():
         "mensaje": "Lote registrado correctamente"
     }), 201
 
-
 # ==========================================
 # ELIMINAR LOTE
 # ==========================================
 
 @app.route("/api/lotes/<int:id>", methods=["DELETE"])
 def eliminar_lote(id):
+
     conexion = conectar_bd()
 
-    conexion.execute("""
+    ejecutar(
+        conexion,
+        """
         DELETE FROM lotes
         WHERE id = ?
-    """, (id,))
+        """,
+        (id,)
+    )
 
     conexion.commit()
     conexion.close()
@@ -219,7 +271,6 @@ def eliminar_lote(id):
     return jsonify({
         "mensaje": "Lote eliminado correctamente"
     })
-
 
 # ==========================================
 # EDITAR LOTE
@@ -231,16 +282,19 @@ def editar_lote(id):
 
     conexion = conectar_bd()
 
-    conexion.execute("""
-        UPDATE lotes
-        SET pais = ?,
-            region = ?,
-            fundo = ?,
-            lote = ?,
-            variedad = ?,
-            fecha_cosecha = ?
-        WHERE id = ?
-    """, (
+    ejecutar(
+    conexion,
+    """
+    UPDATE lotes
+    SET pais = ?,
+        region = ?,
+        fundo = ?,
+        lote = ?,
+        variedad = ?,
+        fecha_cosecha = ?
+    WHERE id = ?
+    """,
+    (
         datos["pais"],
         datos["region"],
         datos["fundo"],
@@ -248,7 +302,8 @@ def editar_lote(id):
         datos["variedad"],
         datos["fechaCosecha"],
         id
-    ))
+    )
+)
 
     conexion.commit()
     conexion.close()
@@ -266,11 +321,15 @@ def obtener_lote(id):
 
     conexion = conectar_bd()
 
-    lote = conexion.execute("""
+    lote = ejecutar(
+        conexion,
+        """
         SELECT *
         FROM lotes
         WHERE id = ?
-    """, (id,)).fetchone()
+        """,
+        (id,)
+    ).fetchone()
 
     conexion.close()
 
@@ -302,43 +361,34 @@ def obtener_calidad(lote_id):
 
     conexion = conectar_bd()
 
-    calidad = conexion.execute("""
+    calidad = ejecutar(
+        conexion,
+        """
         SELECT *
         FROM calidad
         WHERE lote_id = ?
         ORDER BY id DESC
         LIMIT 1
-    """, (lote_id,)).fetchone()
+        """,
+        (lote_id,)
+    ).fetchone()
 
     conexion.close()
 
-
     if calidad is None:
-
         return jsonify({
             "mensaje": "No hay información de calidad registrada"
         }), 404
 
-
     return jsonify({
-
         "id": calidad["id"],
-
         "lote_id": calidad["lote_id"],
-
         "calibre": calidad["calibre"],
-
         "firmeza": calidad["firmeza"],
-
         "brix": calidad["brix"],
-
         "acidez": calidad["acidez"],
-
         "defectos": calidad["defectos"],
-
-        "observaciones":
-            calidad["observaciones"]
-
+        "observaciones": calidad["observaciones"]
     })
 
 
@@ -404,55 +454,36 @@ def obtener_packing(lote_id):
 
     conexion = conectar_bd()
 
-    packing = conexion.execute("""
+    packing = ejecutar(
+        conexion,
+        """
         SELECT *
         FROM packing
         WHERE lote_id = ?
         ORDER BY id DESC
         LIMIT 1
-    """, (lote_id,)).fetchone()
+        """,
+        (lote_id,)
+    ).fetchone()
 
     conexion.close()
 
-
     if packing is None:
-
         return jsonify({
-            "mensaje":
-                "No hay información de packing registrada"
+            "mensaje": "No hay información de packing registrada"
         }), 404
 
-
     return jsonify({
-
         "id": packing["id"],
-
         "lote_id": packing["lote_id"],
-
-        "fechaRecepcion":
-            packing["fecha_recepcion"],
-
-        "fechaPacking":
-            packing["fecha_packing"],
-
-        "prefrioTemp":
-            packing["prefrio_temp"],
-
-        "tipoEmpaque":
-            packing["tipo_empaque"],
-
-        "temperaturaCamara":
-            packing["temperatura_camara"],
-
-        "o2":
-            packing["o2"],
-
-        "co2":
-            packing["co2"],
-
-        "observaciones":
-            packing["observaciones"]
-
+        "fechaRecepcion": packing["fecha_recepcion"],
+        "fechaPacking": packing["fecha_packing"],
+        "prefrioTemp": packing["prefrio_temp"],
+        "tipoEmpaque": packing["tipo_empaque"],
+        "temperaturaCamara": packing["temperatura_camara"],
+        "o2": packing["o2"],
+        "co2": packing["co2"],
+        "observaciones": packing["observaciones"]
     })
 
 
@@ -467,8 +498,9 @@ def registrar_packing(lote_id):
 
     conexion = conectar_bd()
 
-
-    conexion.execute("""
+    ejecutar(
+        conexion,
+        """
         INSERT INTO packing (
             lote_id,
             fecha_recepcion,
@@ -480,39 +512,26 @@ def registrar_packing(lote_id):
             co2,
             observaciones
         )
-
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-
-    """, (
-
-        lote_id,
-
-        datos.get("fechaRecepcion"),
-
-        datos.get("fechaPacking"),
-
-        datos.get("prefrioTemp"),
-
-        datos.get("tipoEmpaque"),
-
-        datos.get("temperaturaCamara"),
-
-        datos.get("o2"),
-
-        datos.get("co2"),
-
-        datos.get("observaciones")
-
-    ))
-
+        """,
+        (
+            lote_id,
+            datos.get("fechaRecepcion"),
+            datos.get("fechaPacking"),
+            datos.get("prefrioTemp"),
+            datos.get("tipoEmpaque"),
+            datos.get("temperaturaCamara"),
+            datos.get("o2"),
+            datos.get("co2"),
+            datos.get("observaciones")
+        )
+    )
 
     conexion.commit()
     conexion.close()
 
-
     return jsonify({
-        "mensaje":
-            "Información de packing registrada correctamente"
+        "mensaje": "Información de packing registrada correctamente"
     }), 201
 # ==========================================
 # OBTENER RECORRIDO DE UN LOTE
@@ -523,49 +542,37 @@ def obtener_recorrido(lote_id):
 
     conexion = conectar_bd()
 
-    recorrido = conexion.execute("""
+    recorrido = ejecutar(
+        conexion,
+        """
         SELECT *
         FROM recorrido
         WHERE lote_id = ?
         ORDER BY id DESC
         LIMIT 1
-    """, (lote_id,)).fetchone()
+        """,
+        (lote_id,)
+    ).fetchone()
 
     conexion.close()
 
     if recorrido is None:
-
         return jsonify({
             "mensaje": "No hay información de recorrido registrada"
         }), 404
 
-
     return jsonify({
-
         "id": recorrido["id"],
-
         "lote_id": recorrido["lote_id"],
-
         "fechaDespacho": recorrido["fecha_despacho"],
-
         "transportista": recorrido["transportista"],
-
         "puertoSalida": recorrido["puerto_salida"],
-
         "paisDestino": recorrido["pais_destino"],
-
         "ciudadDestino": recorrido["ciudad_destino"],
-
         "estadoEnvio": recorrido["estado_envio"],
-
-        "fechaLlegadaEstimada":
-            recorrido["fecha_llegada_estimada"],
-
-        "observaciones":
-            recorrido["observaciones"]
-
+        "fechaLlegadaEstimada": recorrido["fecha_llegada_estimada"],
+        "observaciones": recorrido["observaciones"]
     })
-
 
 # ==========================================
 # RUTAS DE RECORRIDO
@@ -578,7 +585,9 @@ def registrar_recorrido(lote_id):
 
     conexion = conectar_bd()
 
-    conexion.execute("""
+    ejecutar(
+        conexion,
+        """
         INSERT INTO recorrido (
             lote_id,
             fecha_despacho,
@@ -591,27 +600,19 @@ def registrar_recorrido(lote_id):
             observaciones
         )
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-    """, (
-
-        lote_id,
-
-        datos.get("fechaDespacho"),
-
-        datos.get("transportista"),
-
-        datos.get("puertoSalida"),
-
-        datos.get("paisDestino"),
-
-        datos.get("ciudadDestino"),
-
-        datos.get("estadoEnvio"),
-
-        datos.get("fechaLlegadaEstimada"),
-
-        datos.get("observaciones")
-
-    ))
+        """,
+        (
+            lote_id,
+            datos.get("fechaDespacho"),
+            datos.get("transportista"),
+            datos.get("puertoSalida"),
+            datos.get("paisDestino"),
+            datos.get("ciudadDestino"),
+            datos.get("estadoEnvio"),
+            datos.get("fechaLlegadaEstimada"),
+            datos.get("observaciones")
+        )
+    )
 
     conexion.commit()
     conexion.close()
@@ -631,49 +632,33 @@ def obtener_documentos(lote_id):
 
     conexion = conectar_bd()
 
-    documentos = conexion.execute("""
+    documentos = ejecutar(
+        conexion,
+        """
         SELECT *
         FROM documentos
         WHERE lote_id = ?
         ORDER BY id DESC
-    """, (lote_id,)).fetchall()
+        """,
+        (lote_id,)
+    ).fetchall()
 
     conexion.close()
 
-
     return jsonify([
         {
-            "id":
-                documento["id"],
-
-            "lote_id":
-                documento["lote_id"],
-
-            "tipoDocumento":
-                documento["tipo_documento"],
-
-            "nombreDocumento":
-                documento["nombre_documento"],
-
-            "numeroDocumento":
-                documento["numero_documento"],
-
-            "fechaEmision":
-                documento["fecha_emision"],
-
-            "entidadEmisora":
-                documento["entidad_emisora"],
-
-            "urlDocumento":
-                documento["url_documento"],
-
-            "observaciones":
-                documento["observaciones"]
+            "id": documento["id"],
+            "lote_id": documento["lote_id"],
+            "tipoDocumento": documento["tipo_documento"],
+            "nombreDocumento": documento["nombre_documento"],
+            "numeroDocumento": documento["numero_documento"],
+            "fechaEmision": documento["fecha_emision"],
+            "entidadEmisora": documento["entidad_emisora"],
+            "urlDocumento": documento["url_documento"],
+            "observaciones": documento["observaciones"]
         }
-
         for documento in documentos
     ])
-
 
 # ==========================================
 # REGISTRAR DOCUMENTO
@@ -689,7 +674,9 @@ def registrar_documento(lote_id):
 
     conexion = conectar_bd()
 
-    conexion.execute("""
+    ejecutar(
+        conexion,
+        """
         INSERT INTO documentos (
             lote_id,
             tipo_documento,
@@ -700,51 +687,37 @@ def registrar_documento(lote_id):
             url_documento,
             observaciones
         )
-
         VALUES (?, ?, ?, ?, ?, ?, ?, ?)
-
-    """, (
-
-        lote_id,
-
-        datos.get(
-            "tipoDocumento"
-        ),
-
-        datos.get(
-            "nombreDocumento"
-        ),
-
-        datos.get(
-            "numeroDocumento"
-        ),
-
-        datos.get(
-            "fechaEmision"
-        ),
-
-        datos.get(
-            "entidadEmisora"
-        ),
-
-        datos.get(
-            "urlDocumento"
-        ),
-
-        datos.get(
-            "observaciones"
+        """,
+        (
+            lote_id,
+            datos.get("tipoDocumento"),
+            datos.get("nombreDocumento"),
+            datos.get("numeroDocumento"),
+            datos.get("fechaEmision"),
+            datos.get("entidadEmisora"),
+            datos.get("urlDocumento"),
+            datos.get("observaciones")
         )
-
-    ))
+    )
 
     conexion.commit()
     conexion.close()
 
-
     return jsonify({
-        "mensaje":
-            "Documento registrado correctamente"
+        "mensaje": "Documento registrado correctamente"
     }), 201
+
+# ==========================================
+# CREAR TABLAS AL INICIAR
+# ==========================================
+
+crear_tabla()
+
+
+# ==========================================
+# INICIAR SERVIDOR LOCAL
+# ==========================================
+
 if __name__ == "__main__":
-    crear_tabla()
     app.run(debug=True)

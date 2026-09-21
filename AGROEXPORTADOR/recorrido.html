@@ -14,79 +14,124 @@
 
   <!-- BARRA SUPERIOR -->
 
-  <div class="barra-superior">
+<div class="barra-superior">
 
-    <div class="perfiles">
-
-      <a href="../index.html">
-        🌐 Público general
-      </a>
-
-      <a href="produccion.html" class="perfil-activo">
-        🌱 Agroexportadores
-      </a>
-
+    <div class="selector-perfil">
+      <a href="../index.html" class="perfil-link">🌐 Público general</a>
+      <a href="buscar_lote.html" class="perfil-link activo">🌱 Agroexportadores</a>
     </div>
 
-    <div class="acciones-usuario">
-      👤 Iniciar sesión
-      <button>Registrarse</button>
+    <div class="usuario-opciones">
+      <a href="#">👤 Iniciar sesión</a>
+      <a href="#" class="boton-registro">Registrarse</a>
     </div>
 
   </div>
 
 
-  <!-- HEADER -->
-
+  <!-- =========================
+       ENCABEZADO PRINCIPAL
+  ========================== -->
   <header class="encabezado-principal">
 
-    <div class="marca marca-nechdata">
+<div class="marca marca-nechdata">
 
-      <img
-        src="../IMAGENES/LOGO3.png"
-        alt="NECHDATA"
-        class="logo-nechdata"
-      >
+  <img
+    src="../IMAGENES/LOGO3.png"
+    alt="Logo NECHDATA"
+    class="logo-nechdata"
+  >
 
-    </div>
+</div>
+
+    <nav class="menu-principal">
+      <a href="#">Inicio</a>
+      <a href="#">Quiénes somos</a>
+      <a href="#">Ficha pública NFC</a>
+      <a href="#">Beneficios</a>
+      <a href="#">Contáctanos</a>
+    </nav>
 
   </header>
 
 
-  <!-- MÓDULOS -->
+  <!-- =========================
+       BANNER
+  ========================== -->
+  <section class="banner">
 
+    <div class="banner-texto">
+      <h2>Del campo al mundo<br>con ciencia y confianza</h2>
+
+      <p>
+        Trazabilidad, calidad y valor para una agricultura sin fronteras.
+      </p>
+
+      <div class="beneficios-banner">
+
+        <div class="beneficio">
+          <span>🌱</span>
+          <p>Mejores<br>frutos</p>
+        </div>
+
+        <div class="beneficio">
+          <span>📊</span>
+          <p>Mercados<br>más fuertes</p>
+        </div>
+
+        <div class="beneficio">
+          <span>🌎</span>
+          <p>Un futuro<br>sostenible</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="banner-frase">
+      <p>
+        Grandes cosechas<br>
+        dejan huella
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       MÓDULOS AGROEXPORTADOR
+  ========================== -->
   <section class="modulos">
 
     <div class="titulo-modulos">
-      ▦ Módulos para agroexportadores
+      ▦
+      <span>Módulos para agroexportadores</span>
     </div>
 
-    <a href="buscar_lote.html">
+    <a href="buscar_lote.html" class="modulo">
       🔍 Busca tu lote
     </a>
 
-    <a href="produccion.html">
-      🌱 Producción y cosecha
-    </a>
+    <a href="produccion.html" class="modulo">
+  🌱 Producción y cosecha
+</a>
 
-    <a href="calidad.html">
+    <a href="calidad.html" class="modulo">
       🛡 Calidad
     </a>
 
-    <a href="packing.html">
+    <a href="packing.html" class="modulo">
       📦 Packing y poscosecha
     </a>
 
-    <a href="recorrido.html" class="modulo-activo">
-      📍 Recorrido de trazabilidad
-    </a>
+    <a href="recorrido.html" class="modulo activo-modulo">
+  📍 Recorrido de trazabilidad
+</a>
 
-    <a href="#">
+    <a href="documentos.html" class="modulo">
       📄 Documentos y certificaciones
     </a>
 
   </section>
-
 
   <!-- BREADCRUMB -->
 
@@ -98,9 +143,9 @@
 
   <!-- CONTENIDO -->
 
-  <main class="contenido-principal">
+  <main class="contenido-principal contenido-recorrido">
 
-    <section class="tarjeta">
+    <section class="tarjeta tarjeta-recorrido">
 
       <div class="titulo-seccion">
 

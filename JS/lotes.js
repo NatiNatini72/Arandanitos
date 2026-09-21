@@ -97,50 +97,41 @@ function renderizarLotes(lista = lotes) {
 
         const fila =
             document.createElement("tr");
+fila.innerHTML = `
+    <td>${item.codigo}</td>
+    <td><strong>${item.lote}</strong></td>
+    <td>${item.pais}</td>
+    <td>${item.region}</td>
+    <td>${item.fundo}</td>
+    <td>${item.variedad}</td>
+    <td>${formatearFecha(item.fechaCosecha)}</td>
 
-        fila.innerHTML = `
+    <td>
 
-            <td>${item.codigo}</td>
+        <button
+            class="btn-tabla btn-ver"
+            onclick="verLote(${item.id})"
+        >
+            👁 Ver
+        </button>
 
-            <td>${item.pais}</td>
+        <button
+            class="btn-tabla btn-editar"
+            onclick="editarLote(${item.id})"
+        >
+            ✏️ Editar
+        </button>
 
-            <td>${item.region}</td>
+        <button
+            class="btn-tabla btn-eliminar"
+            onclick="eliminarLote(${item.id})"
+        >
+            🗑 Eliminar
+        </button>
 
-            <td>${item.fundo}</td>
+    </td>
+`;
 
-            <td>${item.lote}</td>
-
-            <td>${item.variedad}</td>
-
-            <td>
-                ${formatearFecha(item.fechaCosecha)}
-            </td>
-
-            <td>
-
-                <button
-                    class="btn-tabla btn-ver"
-                    onclick="verLote(${item.id})"
-                >
-                    👁 Ver
-                </button>
-
-                <button
-                    class="btn-tabla btn-editar"
-                    onclick="editarLote(${item.id})"
-                >
-                    ✏️ Editar
-                </button>
-
-                <button
-                    class="btn-tabla btn-eliminar"
-                    onclick="eliminarLote(${item.id})"
-                >
-                    🗑 Eliminar
-                </button>
-
-            </td>
-        `;
 
         tablaLotesBody.appendChild(fila);
 

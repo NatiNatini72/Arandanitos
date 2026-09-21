@@ -87,6 +87,31 @@ def crear_tabla():
         )
     """)
 
+    conexion.execute("""
+    CREATE TABLE IF NOT EXISTS documentos (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+
+        lote_id INTEGER NOT NULL,
+
+        tipo_documento TEXT,
+
+        nombre_documento TEXT NOT NULL,
+
+        numero_documento TEXT,
+
+        fecha_emision TEXT,
+
+        entidad_emisora TEXT,
+
+        url_documento TEXT,
+
+        observaciones TEXT,
+
+        FOREIGN KEY (lote_id)
+        REFERENCES lotes(id)
+    )
+""")
+
     conexion.commit()
     conexion.close()
 
@@ -594,7 +619,132 @@ def registrar_recorrido(lote_id):
     return jsonify({
         "mensaje": "Recorrido registrado correctamente"
     }), 201
+# ==========================================
+# OBTENER DOCUMENTOS DE UN LOTE
+# ==========================================
 
+@app.route(
+    "/api/lotes/<int:lote_id>/documentos",
+    methods=["GET"]
+)
+def obtener_documentos(lote_id):
+
+    conexion = conectar_bd()
+
+    documentos = conexion.execute("""
+        SELECT *
+        FROM documentos
+        WHERE lote_id = ?
+        ORDER BY id DESC
+    """, (lote_id,)).fetchall()
+
+    conexion.close()
+
+
+    return jsonify([
+        {
+            "id":
+                documento["id"],
+
+            "lote_id":
+                documento["lote_id"],
+
+            "tipoDocumento":
+                documento["tipo_documento"],
+
+            "nombreDocumento":
+                documento["nombre_documento"],
+
+            "numeroDocumento":
+                documento["numero_documento"],
+
+            "fechaEmision":
+                documento["fecha_emision"],
+
+            "entidadEmisora":
+                documento["entidad_emisora"],
+
+            "urlDocumento":
+                documento["url_documento"],
+
+            "observaciones":
+                documento["observaciones"]
+        }
+
+        for documento in documentos
+    ])
+
+
+# ==========================================
+# REGISTRAR DOCUMENTO
+# ==========================================
+
+@app.route(
+    "/api/lotes/<int:lote_id>/documentos",
+    methods=["POST"]
+)
+def registrar_documento(lote_id):
+
+    datos = request.get_json()
+
+    conexion = conectar_bd()
+
+    conexion.execute("""
+        INSERT INTO documentos (
+            lote_id,
+            tipo_documento,
+            nombre_documento,
+            numero_documento,
+            fecha_emision,
+            entidad_emisora,
+            url_documento,
+            observaciones
+        )
+
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+
+    """, (
+
+        lote_id,
+
+        datos.get(
+            "tipoDocumento"
+        ),
+
+        datos.get(
+            "nombreDocumento"
+        ),
+
+        datos.get(
+            "numeroDocumento"
+        ),
+
+        datos.get(
+            "fechaEmision"
+        ),
+
+        datos.get(
+            "entidadEmisora"
+        ),
+
+        datos.get(
+            "urlDocumento"
+        ),
+
+        datos.get(
+            "observaciones"
+        )
+
+    ))
+
+    conexion.commit()
+    conexion.close()
+
+
+    return jsonify({
+        "mensaje":
+            "Documento registrado correctamente"
+    }), 201
 if __name__ == "__main__":
     crear_tabla()
     app.run(debug=True)

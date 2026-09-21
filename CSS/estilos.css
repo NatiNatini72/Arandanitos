@@ -283,21 +283,34 @@ body {
 
 /* =========================
    CONTENIDO PRINCIPAL
+   MISMO ANCHO PARA TODOS LOS MÓDULOS
 ========================= */
 
-.contenedor-principal {
-  margin: 0 4% 30px;
+.contenido-principal {
+  width: 92%;
+  max-width: none;
+  margin: 24px auto 60px;
+  padding: 0;
 }
 
 .tarjeta {
-  background-color: white;
-  border: 1px solid #dce7ef;
-  border-radius: 16px;
-  padding: 22px;
+  width: 100%;
+  max-width: none;
+  margin: 0 0 24px;
+  padding: 26px;
 
-  box-shadow: 0 3px 12px rgba(23, 62, 97, 0.08);
+  background: #ffffff;
+  border: 1px solid #dbe5ec;
+  border-radius: 18px;
 
-  margin-bottom: 18px;
+  box-sizing: border-box;
+}
+
+/* Respaldo para páginas antiguas donde .tarjeta
+   quedó directamente dentro del body */
+body > .tarjeta {
+  width: 92%;
+  margin: 24px auto;
 }
 
 
@@ -342,13 +355,15 @@ body {
 
 .grid-formulario {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px 18px;
+  width: 100%;
 }
 
 .campo {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .campo label {
@@ -359,7 +374,8 @@ body {
 }
 
 .campo input,
-.campo select {
+.campo select,
+.campo textarea {
   width: 100%;
   padding: 11px 12px;
 
@@ -370,13 +386,21 @@ body {
   background-color: #fbfdff;
 
   outline: none;
+  box-sizing: border-box;
 }
 
 .campo input:focus,
-.campo select:focus {
+.campo select:focus,
+.campo textarea:focus {
   border-color: #1680ca;
+
   box-shadow: 0 0 0 3px rgba(22, 128, 202, 0.10);
 }
+
+.campo-completo {
+  grid-column: 1 / -1;
+}
+
 
 
 /* =========================
@@ -1820,10 +1844,12 @@ tbody tr:hover {
 
 
 .ficha-publica-contenedor {
-  min-height: 100vh;
+  width: 100%;
+  max-width: 1180px;
 
-  background:
-    #f5f8fb;
+  margin: 0 auto;
+
+  padding: 35px 20px 60px;
 }
 
 
@@ -1895,23 +1921,11 @@ tbody tr:hover {
 
 
 .ficha-portada {
-  min-height: 360px;
-
-  border-radius: 22px;
-
+  width: 100%;
+  border-radius: 28px;
   overflow: hidden;
 
-  display: flex;
-  align-items: flex-end;
-
-  background-size: cover;
-  background-position: center;
-
-  position: relative;
-
-  box-shadow:
-    0 12px 30px
-    rgba(29,45,76,0.13);
+  min-height: 380px;
 }
 
 
@@ -2777,6 +2791,228 @@ tbody tr:hover {
 
   .detalle-recorrido {
     grid-template-columns: 1fr;
+  }
+
+}
+
+.header-ficha-publica {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 22px 7%;
+
+  background: #f7f8fc;
+
+  border-bottom: 1px solid #e4e7ef;
+
+  box-shadow: 0 3px 12px rgba(31, 42, 68, 0.06);
+}
+
+
+.marca-ficha {
+  display: flex;
+  align-items: center;
+}
+
+
+.logo-ficha-publica {
+  width: 250px;
+  height: auto;
+}
+
+
+.acciones-ficha {
+  display: flex;
+  align-items: center;
+
+  gap: 22px;
+}
+
+
+.estado-verificado {
+  color: #536477;
+  font-size: 14px;
+}
+
+
+.estado-verificado::first-letter {
+  color: #5ac447;
+}
+
+
+.btn-volver-inicio {
+  text-decoration: none;
+
+  color: #49386f;
+
+  background: #fbf9ff;
+
+  border: 1.5px solid #cbb9ec;
+
+  border-radius: 9px;
+
+  padding: 9px 15px;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  transition: 0.25s;
+}
+
+
+.btn-volver-inicio:hover {
+  background: #eee6ff;
+
+  border-color: #9f82d4;
+}
+
+@media (max-width: 700px) {
+
+  .header-ficha-publica {
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+
+  .acciones-ficha {
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+
+  .logo-ficha-publica {
+    width: 210px;
+  }
+
+}
+
+
+
+/* ==========================================
+   AJUSTE RESPONSIVE GLOBAL DE MÓDULOS
+========================================== */
+
+@media (max-width: 900px) {
+  .contenido-principal,
+  body > .tarjeta {
+    width: calc(100% - 30px);
+  }
+}
+
+@media (max-width: 700px) {
+  .tarjeta {
+    padding: 20px;
+  }
+}
+/* ==========================================
+   DOCUMENTOS Y CERTIFICACIONES
+========================================== */
+
+.documento-item {
+  display: grid;
+
+  grid-template-columns:
+    60px 1fr auto;
+
+  gap: 18px;
+
+  align-items: center;
+
+  padding: 20px;
+
+  margin-bottom: 14px;
+
+  background: #f8fbfd;
+
+  border: 1px solid #dce8ef;
+
+  border-radius: 14px;
+}
+
+
+.documento-icono {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  background: #e8f3ef;
+
+  font-size: 24px;
+}
+
+
+.documento-tipo {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #078373;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.6px;
+
+  text-transform: uppercase;
+}
+
+
+.documento-info h3 {
+  margin-bottom: 8px;
+
+  color: #073f73;
+}
+
+
+.documento-info p {
+  display: inline-block;
+
+  margin-right: 18px;
+  margin-top: 4px;
+
+  color: #687f91;
+
+  font-size: 13px;
+}
+
+
+.documento-info p strong {
+  color: #35556e;
+}
+
+
+.documento-acciones {
+  display: flex;
+
+  align-items: center;
+}
+
+
+@media (max-width: 750px) {
+
+  .documento-item {
+    grid-template-columns:
+      50px 1fr;
+  }
+
+
+  .documento-acciones {
+    grid-column:
+      1 / -1;
+
+    justify-content:
+      flex-end;
   }
 
 }

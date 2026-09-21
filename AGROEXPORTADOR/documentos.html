@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NECHDATA | Documentos y certificaciones</title>
+
+  <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="barra-superior">
+
+    <div class="selector-perfil">
+
+      <a href="../index.html" class="perfil-link">
+        🌐 Público general
+      </a>
+
+      <a href="buscar_lote.html" class="perfil-link activo">
+        🌱 Agroexportadores
+      </a>
+
+    </div>
+
+    <div class="usuario-opciones">
+
+      <a href="#">
+        👤 Iniciar sesión
+      </a>
+
+      <a href="#" class="boton-registro">
+        Registrarse
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- HEADER -->
+  <header class="encabezado-principal">
+
+    <div class="marca-nechdata">
+
+      <img
+        src="../IMAGENES/LOGO3.png"
+        alt="Logo NECHDATA"
+        class="logo-nechdata"
+      >
+
+    </div>
+
+
+    <nav class="menu-principal">
+
+      <a href="../index.html">
+        Inicio
+      </a>
+
+      <a href="../index.html#nosotros">
+        Quiénes somos
+      </a>
+
+      <a href="../ficha_publica.html?id=1">
+        Ficha pública NFC
+      </a>
+
+      <a href="../index.html#beneficios">
+        Beneficios
+      </a>
+
+      <a href="../index.html#contacto">
+        Contáctanos
+      </a>
+
+    </nav>
+
+  </header>
+
+
+  <!-- BANNER -->
+  <section class="banner">
+
+    <div class="banner-texto">
+
+      <h2>
+        Del campo al mundo<br>
+        con ciencia y confianza
+      </h2>
+
+      <p>
+        Trazabilidad, calidad y valor para una agricultura sin fronteras.
+      </p>
+
+      <div class="beneficios-banner">
+
+        <div class="beneficio">
+          <span>🌱</span>
+          <p>Mejores<br>frutos</p>
+        </div>
+
+        <div class="beneficio">
+          <span>📊</span>
+          <p>Mercados<br>más fuertes</p>
+        </div>
+
+        <div class="beneficio">
+          <span>🌎</span>
+          <p>Un futuro<br>sostenible</p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="banner-frase">
+      Grandes cosechas<br>
+      dejan huella
+    </div>
+
+  </section>
+
+
+  <!-- MÓDULOS -->
+  <section class="modulos">
+
+    <div class="titulo-modulos">
+      ▦ Módulos para agroexportadores
+    </div>
+
+    <a href="buscar_lote.html" class="modulo">
+      🔍 Busca tu lote
+    </a>
+
+    <a href="produccion.html" class="modulo">
+      🌱 Producción y cosecha
+    </a>
+
+    <a href="calidad.html" class="modulo">
+      🛡 Calidad
+    </a>
+
+    <a href="packing.html" class="modulo">
+      📦 Packing y poscosecha
+    </a>
+
+    <a href="recorrido.html" class="modulo">
+      📍 Recorrido de trazabilidad
+    </a>
+
+    <a href="documentos.html" class="modulo activo-modulo">
+      📄 Documentos y certificaciones
+    </a>
+
+  </section>
+
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+
+    🏠
+    <span>›</span>
+
+    Gestión de lotes
+
+    <span>›</span>
+
+    <strong>
+      Documentos y certificaciones
+    </strong>
+
+  </div>
+
+
+  <!-- CONTENIDO -->
+  <main class="contenido-principal">
+
+    <!-- REGISTRO -->
+    <section class="tarjeta">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          📄
+        </div>
+
+        <div>
+
+          <h2>
+            Registrar documento del lote
+          </h2>
+
+          <p>
+            Asocia certificados y documentos comerciales
+            al lote seleccionado.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <form id="formDocumento">
+
+        <div class="grid-formulario">
+
+          <div class="campo">
+
+            <label for="loteDocumento">
+              Lote
+            </label>
+
+            <select id="loteDocumento" required>
+
+              <option value="">
+                Seleccionar lote
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="tipoDocumento">
+              Tipo de documento
+            </label>
+
+            <select id="tipoDocumento" required>
+
+              <option value="">
+                Seleccionar
+              </option>
+
+              <option value="Certificado fitosanitario">
+                Certificado fitosanitario
+              </option>
+
+              <option value="Certificado de calidad">
+                Certificado de calidad
+              </option>
+
+              <option value="GlobalG.A.P.">
+                GlobalG.A.P.
+              </option>
+
+              <option value="Packing list">
+                Packing list
+              </option>
+
+              <option value="Bill of Lading">
+                Bill of Lading (BL)
+              </option>
+
+              <option value="DAM">
+                DAM
+              </option>
+
+              <option value="Ficha técnica">
+                Ficha técnica
+              </option>
+
+              <option value="Otro">
+                Otro
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="nombreDocumento">
+              Nombre del documento
+            </label>
+
+            <input
+              type="text"
+              id="nombreDocumento"
+              placeholder="Ej. Certificado fitosanitario de exportación"
+              required
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="numeroDocumento">
+              Número / código
+            </label>
+
+            <input
+              type="text"
+              id="numeroDocumento"
+              placeholder="Ej. CF-2026-00871"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="fechaEmision">
+              Fecha de emisión
+            </label>
+
+            <input
+              type="date"
+              id="fechaEmision"
+            >
+
+          </div>
+
+
+          <div class="campo">
+
+            <label for="entidadEmisora">
+              Entidad emisora
+            </label>
+
+            <input
+              type="text"
+              id="entidadEmisora"
+              placeholder="Ej. SENASA"
+            >
+
+          </div>
+
+
+          <div class="campo campo-completo">
+
+            <label for="urlDocumento">
+              Enlace al documento
+            </label>
+
+            <input
+              type="url"
+              id="urlDocumento"
+              placeholder="https://..."
+            >
+
+          </div>
+
+
+          <div class="campo campo-completo">
+
+            <label for="observacionesDocumento">
+              Observaciones
+            </label>
+
+            <textarea
+              id="observacionesDocumento"
+              rows="4"
+              placeholder="Información adicional sobre el documento..."
+            ></textarea>
+
+          </div>
+
+        </div>
+
+
+        <div class="botones-formulario">
+
+          <button
+            type="submit"
+            class="btn btn-principal"
+          >
+            💾 Guardar documento
+          </button>
+
+          <button
+            type="reset"
+            class="btn btn-secundario"
+          >
+            ↻ Limpiar
+          </button>
+
+        </div>
+
+      </form>
+
+    </section>
+
+
+    <!-- CONSULTA -->
+    <section class="tarjeta">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          🗂
+        </div>
+
+        <div>
+
+          <h2>
+            Documentos registrados
+          </h2>
+
+          <p>
+            Consulta los documentos asociados al lote seleccionado.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div id="listaDocumentos">
+
+        <p class="mensaje-proximamente">
+          Selecciona un lote para consultar sus documentos.
+        </p>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <script src="../JS/documentos.js"></script>
+
+</body>
+
+</html>

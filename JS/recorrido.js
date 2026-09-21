@@ -1,11 +1,6 @@
 const STORAGE_KEY = 'recorridosLotes';
 
-const lotesDemo = [
-  'Lote-001',
-  'Lote-002',
-  'Lote-003',
-  'Lote-004'
-];
+
 
 const formRecorrido = document.getElementById('formRecorrido');
 const loteRecorrido = document.getElementById('loteRecorrido');
@@ -24,19 +19,46 @@ function guardarRecorridos(recorridos) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(recorridos));
 }
 
-function poblarLotes() {
-  const recorridos = obtenerRecorridos();
-  const lotesUsados = new Set(recorridos.map((item) => item.lote));
-  const opciones = [...new Set([...lotesDemo, ...lotesUsados])];
+async function poblarLotes() {
 
-  loteRecorrido.innerHTML = '<option value="">Selecciona un lote</option>';
+    try {
 
-  opciones.forEach((lote) => {
-    const option = document.createElement('option');
-    option.value = lote;
-    option.textContent = lote;
-    loteRecorrido.appendChild(option);
-  });
+        const respuesta =
+            await fetch("http://127.0.0.1:5000/api/lotes");
+
+        const lotes =
+            await respuesta.json();
+
+
+        loteRecorrido.innerHTML =
+            '<option value="">Selecciona un lote</option>';
+
+
+        lotes.forEach((item) => {
+
+            const opcion =
+                document.createElement("option");
+
+            opcion.value =
+                item.id;
+
+            opcion.textContent =
+                `${item.lote} · ${item.fundo} · ${item.variedad}`;
+
+            loteRecorrido.appendChild(opcion);
+
+        });
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Error al cargar lotes:",
+            error
+        );
+
+    }
 }
 
 function renderRecorrido(lote) {
@@ -115,7 +137,7 @@ if (formRecorrido) {
     formRecorrido.reset();
     loteRecorrido.value = lote;
   });
-}
+} 
 
 if (loteRecorrido) {
   loteRecorrido.addEventListener('change', (event) => {

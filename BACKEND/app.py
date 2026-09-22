@@ -371,8 +371,7 @@ def obtener_lote(id):
     fecha_cosecha
 FROM lotes
 WHERE id = ?
-        WHERE id = ?
-        """,
+""",
         (id,)
     ).fetchone()
 

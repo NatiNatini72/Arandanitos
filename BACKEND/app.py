@@ -76,12 +76,29 @@ def crear_tabla():
             codigo TEXT NOT NULL,
             pais TEXT,
             region TEXT,
+            exportadora TEXT,
             fundo TEXT,
             lote TEXT,
             variedad TEXT,
             fecha_cosecha TEXT
+            
         )
     """)
+    # Agregar columna exportadora a bases ya existentes
+    if USANDO_POSTGRES:
+        cursor.execute("""
+            ALTER TABLE lotes
+            ADD COLUMN IF NOT EXISTS exportadora TEXT
+        """)
+    else:
+        cursor.execute("PRAGMA table_info(lotes)")
+        columnas = [fila[1] for fila in cursor.fetchall()]
+
+        if "exportadora" not in columnas:
+            cursor.execute("""
+                ALTER TABLE lotes
+                ADD COLUMN exportadora TEXT
+            """)
 
 
     cursor.execute(f"""
@@ -156,6 +173,8 @@ def crear_tabla():
     conexion.commit()
     conexion.close()
 
+
+
 # ==========================================
 # RUTAS DE PRUEBA
 # ==========================================
@@ -179,8 +198,17 @@ def obtener_lotes():
     lotes = ejecutar(
         conexion,
         """
-        SELECT *
-        FROM lotes
+        SELECT
+    id,
+    codigo,
+    pais,
+    region,
+    exportadora,
+    fundo,
+    lote,
+    variedad,
+    fecha_cosecha
+FROM lotes
         ORDER BY id DESC
         """
     ).fetchall()
@@ -196,6 +224,7 @@ def obtener_lotes():
             "codigo": lote["codigo"],
             "pais": lote["pais"],
             "region": lote["region"],
+            "exportadora": lote["exportadora"],
             "fundo": lote["fundo"],
             "lote": lote["lote"],
             "variedad": lote["variedad"],
@@ -212,6 +241,7 @@ def obtener_lotes():
 def registrar_lote():
 
     datos = request.get_json()
+    exportadora = datos.get("exportadora")
 
     conexion = conectar_bd()
 
@@ -219,20 +249,22 @@ def registrar_lote():
         conexion,
         """
         INSERT INTO lotes (
-            codigo,
-            pais,
-            region,
-            fundo,
-            lote,
-            variedad,
-            fecha_cosecha
-        )
-        VALUES (?, ?, ?, ?, ?, ?, ?)
+    codigo,
+    pais,
+    region,
+    exportadora,
+    fundo,
+    lote,
+    variedad,
+    fecha_cosecha
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         """,
         (
             datos["codigo"],
             datos["pais"],
             datos["region"],
+            datos["exportadora"],
             datos["fundo"],
             datos["lote"],
             datos["variedad"],
@@ -279,6 +311,7 @@ def eliminar_lote(id):
 @app.route("/api/lotes/<int:id>", methods=["PUT"])
 def editar_lote(id):
     datos = request.get_json()
+    exportadora = datos.get("exportadora")
 
     conexion = conectar_bd()
 
@@ -288,6 +321,7 @@ def editar_lote(id):
     UPDATE lotes
     SET pais = ?,
         region = ?,
+        exportadora = ?,
         fundo = ?,
         lote = ?,
         variedad = ?,
@@ -297,6 +331,7 @@ def editar_lote(id):
     (
         datos["pais"],
         datos["region"],
+        datos["exportadora"],
         datos["fundo"],
         datos["lote"],
         datos["variedad"],
@@ -324,8 +359,18 @@ def obtener_lote(id):
     lote = ejecutar(
         conexion,
         """
-        SELECT *
-        FROM lotes
+        SELECT
+    id,
+    codigo,
+    pais,
+    region,
+    exportadora,
+    fundo,
+    lote,
+    variedad,
+    fecha_cosecha
+FROM lotes
+WHERE id = ?
         WHERE id = ?
         """,
         (id,)
@@ -343,6 +388,7 @@ def obtener_lote(id):
         "codigo": lote["codigo"],
         "pais": lote["pais"],
         "region": lote["region"],
+        "exportadora": lote["exportadora"],
         "fundo": lote["fundo"],
         "lote": lote["lote"],
         "variedad": lote["variedad"],

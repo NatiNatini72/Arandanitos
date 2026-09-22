@@ -24,7 +24,7 @@ async function poblarLotes() {
     try {
 
         const respuesta =
-            await fetch("http://127.0.0.1:5000/api/lotes");
+            await fetch(`${API_BASE_URL}/api/lotes`)
 
         const lotes =
             await respuesta.json();

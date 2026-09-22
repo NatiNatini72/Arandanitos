@@ -2,7 +2,7 @@
 // DIRECCIÓN DE NUESTRO BACKEND
 // ==========================================
 
-const API_URL = "http://127.0.0.1:5000/api/lotes";
+const API_URL = API_BASE_URL;
 
 
 // ==========================================
@@ -26,7 +26,7 @@ const fundo = document.getElementById("fundo");
 const lote = document.getElementById("lote");
 const variedad = document.getElementById("variedad");
 const fechaCosecha = document.getElementById("fechaCosecha");
-
+const exportadora = document.getElementById("exportadora");
 const tablaLotesBody =
     document.getElementById("tablaLotesBody");
 
@@ -158,6 +158,8 @@ formLote.addEventListener(
 
             region: region.value,
 
+            exportadora: exportadora.value,
+
             fundo: fundo.value,
 
             lote: lote.value,
@@ -166,6 +168,8 @@ formLote.addEventListener(
 
             fechaCosecha:
                 fechaCosecha.value
+
+            
 
         };
 

@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:5000/api/lotes";
+const API_URL = `${API_BASE_URL}/api/lotes`;
 
 let lotes = [];
 

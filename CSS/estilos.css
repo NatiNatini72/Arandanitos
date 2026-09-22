@@ -3016,3 +3016,27 @@ tbody tr:hover {
   }
 
 }
+
+.exportadora-destacada {
+    margin: 16px 0;
+    padding: 14px 18px;
+    border-radius: 12px;
+    background: #f3f7fb;
+    border: 1px solid #d9e4ef;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.exportadora-destacada span {
+    font-size: 0.85rem;
+    color: #6f8297;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.exportadora-destacada strong {
+    font-size: 1rem;
+    color: #0b477f;
+}

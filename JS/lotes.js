@@ -2,7 +2,7 @@
 // DIRECCIÓN DE NUESTRO BACKEND
 // ==========================================
 
-const API_URL = API_BASE_URL;
+const API_URL = `${API_BASE_URL}/api/lotes`;
 
 
 // ==========================================
@@ -38,7 +38,8 @@ const contadorLotes =
 
 const ultimaCosecha =
     document.getElementById("ultimaCosecha");
-
+const exportadoraActual =
+    document.getElementById("exportadoraActual");
 
 // ==========================================
 // FORMATEAR FECHA
@@ -92,6 +93,12 @@ async function cargarLotes() {
 function renderizarLotes(lista = lotes) {
 
     tablaLotesBody.innerHTML = "";
+    if (lista.length > 0) {
+    exportadoraActual.textContent =
+        lista[0].exportadora || "No especificada";
+} else {
+    exportadoraActual.textContent = "--";
+}
 
     lista.forEach((item) => {
 
@@ -330,6 +337,9 @@ function editarLote(id) {
 
     region.value =
         item.region;
+    
+    exportadora.value =
+    item.exportadora || "";
 
     fundo.value =
         item.fundo;

@@ -82,10 +82,7 @@ async function cargarDetalleLote() {
 
     try {
 
-        const respuesta =
-            await fetch(
-                `${API_URL}/${idLote}`
-            );
+const respuesta = await fetch(`${API_URL}/${idLote}`);
 
 
         if (!respuesta.ok) {

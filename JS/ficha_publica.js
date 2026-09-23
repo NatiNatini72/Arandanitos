@@ -73,17 +73,37 @@ async function cargarFichaPublica() {
 
         console.log("LOTE RECIBIDO:", lote);
 
+document.getElementById(
+    "codigoPublicoPortada"
+).textContent =
+    lote.codigo;
+
+document.getElementById(
+    "codigoPublico"
+).textContent =
+    `LOTE: ${lote.lote}`;
+
+
+document.getElementById(
+    "productorCarga"
+).textContent =
+    `${lote.fundo} · ${lote.exportadora}`;
+
+document.getElementById(
+    "productorMapa"
+).textContent =
+    lote.fundo;
+
+document.getElementById(
+    "ubicacionMapa"
+).textContent =
+    `Chincha, ${lote.region}, ${lote.pais}`;
+
 
         document.getElementById(
             "variedadCarga"
         ).textContent =
             lote.variedad;
-
-
-        document.getElementById(
-            "codigoPublico"
-        ).textContent =
-            lote.codigo;
 
 
         document.getElementById(
@@ -95,7 +115,7 @@ async function cargarFichaPublica() {
 document.getElementById(
     "origenPublico"
 ).textContent =
-    "Fundo Salvador · Santiago, Ica, Perú";
+    `${lote.region}, ${lote.pais}`;
 
 
         document.getElementById(
@@ -114,6 +134,10 @@ document.getElementById(
             "fundoPublico"
         ).textContent =
             lote.fundo;
+        document.getElementById(
+    "exportadoraPublica"
+).textContent =
+    lote.exportadora || "--";
 
 
         document.getElementById(
@@ -133,7 +157,7 @@ document.getElementById(
 document.getElementById(
     "rutaOrigen"
 ).textContent =
-    "Fundo Salvador · Santiago, Ica, Perú";
+    `${lote.fundo} · ${lote.region}, ${lote.pais}`;
 
 
         await cargarCalidadPublica();

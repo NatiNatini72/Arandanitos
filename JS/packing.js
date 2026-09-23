@@ -76,8 +76,7 @@ async function cargarLotes() {
             opcion.value =
                 item.id;
 
-            opcion.textContent =
-                `${item.codigo} - ${item.fundo} - ${item.variedad}`;
+            opcion.textContent = item.lote;
 
             lotePacking.appendChild(opcion);
 

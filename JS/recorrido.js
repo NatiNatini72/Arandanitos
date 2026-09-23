@@ -42,8 +42,7 @@ async function poblarLotes() {
             opcion.value =
                 item.id;
 
-            opcion.textContent =
-                `${item.lote} · ${item.fundo} · ${item.variedad}`;
+            opcion.textContent = item.lote;
 
             loteRecorrido.appendChild(opcion);
 

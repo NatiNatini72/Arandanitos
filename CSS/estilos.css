@@ -3040,3 +3040,39 @@ tbody tr:hover {
     font-size: 1rem;
     color: #0b477f;
 }
+select#lotePacking {
+    background: #fff3b0;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #4a3a00;
+    border: 2px solid #e6c84f;
+}
+select#lotePacking option {
+    font-weight: 700;
+    background: #fff8cf;
+    color: #3d3300;
+}
+
+/* ==========================================
+   SELECTORES DE LOTE DESTACADOS
+========================================== */
+
+select#lotePacking,
+select#loteCalidad,
+select#loteRecorrido,
+select#loteDocumento {
+    background: #fff3b0;
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: #4a3a00;
+    border: 2px solid #e6c84f;
+}
+
+select#lotePacking option,
+select#loteCalidad option,
+select#loteRecorrido option,
+select#loteDocumento option {
+    font-weight: 700;
+    background: #fff8cf;
+    color: #3d3300;
+}

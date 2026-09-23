@@ -60,24 +60,16 @@ async function cargarLotes() {
     `;
 
 
-    lotes.forEach(lote => {
+lotes.forEach((lote) => {
 
-      const opcion =
-        document.createElement(
-          "option"
-        );
+    const opcion = document.createElement("option");
 
-      opcion.value =
-        lote.id;
+    opcion.value = lote.id;
 
-      opcion.textContent =
-        `${lote.codigo} · ${lote.variedad} · ${lote.fundo}`;
+    opcion.textContent = lote.lote;
 
-      selectorLote.appendChild(
-        opcion
-      );
-
-    });
+    loteDocumento.appendChild(opcion);
+});
 
   }
 

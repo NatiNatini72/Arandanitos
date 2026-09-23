@@ -441,6 +441,10 @@ def obtener_calidad(lote_id):
 # REGISTRAR CALIDAD DE UN LOTE
 # ==========================================
 
+# ==========================================
+# REGISTRAR CALIDAD DE UN LOTE
+# ==========================================
+
 @app.route("/api/lotes/<int:lote_id>/calidad", methods=["POST"])
 def registrar_calidad(lote_id):
 
@@ -448,8 +452,9 @@ def registrar_calidad(lote_id):
 
     conexion = conectar_bd()
 
-
-    conexion.execute("""
+    ejecutar(
+        conexion,
+        """
         INSERT INTO calidad (
             lote_id,
             calibre,
@@ -459,32 +464,21 @@ def registrar_calidad(lote_id):
             defectos,
             observaciones
         )
-
         VALUES (?, ?, ?, ?, ?, ?, ?)
-
-    """, (
-
-        lote_id,
-
-        datos.get("calibre"),
-
-        datos.get("firmeza"),
-
-        datos.get("brix"),
-
-        datos.get("acidez"),
-
-        datos.get("defectos"),
-
-        datos.get("observaciones")
-
-    ))
-
+        """,
+        (
+            lote_id,
+            datos.get("calibre"),
+            datos.get("firmeza"),
+            datos.get("brix"),
+            datos.get("acidez"),
+            datos.get("defectos"),
+            datos.get("observaciones")
+        )
+    )
 
     conexion.commit()
-
     conexion.close()
-
 
     return jsonify({
         "mensaje":

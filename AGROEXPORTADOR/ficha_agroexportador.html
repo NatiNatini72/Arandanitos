@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>NECHDATA | Ficha final del lote</title>
+
+  <link rel="stylesheet" href="../CSS/estilos.css">
+</head>
+
+<body>
+
+  <!-- BARRA SUPERIOR -->
+  <div class="barra-superior">
+
+    <div class="selector-perfil">
+      <a href="../index.html" class="perfil-link">🌐 Público general</a>
+      <a href="buscar_lote.html" class="perfil-link activo">🌱 Agroexportadores</a>
+    </div>
+
+    <div class="usuario-opciones">
+      <a href="#">👤 Iniciar sesión</a>
+      <a href="#" class="boton-registro">Registrarse</a>
+    </div>
+
+  </div>
+
+
+  <!-- ENCABEZADO -->
+  <header class="encabezado-principal">
+
+    <div class="marca marca-nechdata">
+      <img
+        src="../IMAGENES/LOGO3.png"
+        alt="Logo NECHDATA"
+        class="logo-nechdata"
+      >
+    </div>
+
+    <nav class="menu-principal">
+      <a href="#">Inicio</a>
+      <a href="#">Quiénes somos</a>
+      <a href="../ficha_publica.html">Ficha pública NFC</a>
+      <a href="#">Beneficios</a>
+      <a href="#">Contáctanos</a>
+    </nav>
+
+  </header>
+
+
+  <!-- MÓDULOS -->
+  <section class="modulos">
+
+    <div class="titulo-modulos">
+      ▦
+      <span>Módulos para agroexportadores</span>
+    </div>
+
+    <a href="buscar_lote.html" class="modulo">
+      🔍 Busca tu lote
+    </a>
+
+    <a href="produccion.html" class="modulo">
+      🌱 Producción y cosecha
+    </a>
+
+    <a href="calidad.html" class="modulo">
+      🛡 Calidad
+    </a>
+
+    <a href="packing.html" class="modulo">
+      📦 Packing y poscosecha
+    </a>
+
+    <a href="recorrido.html" class="modulo">
+      📍 Recorrido de trazabilidad
+    </a>
+
+    <a href="documentos.html" class="modulo">
+      📄 Documentos y certificaciones
+    </a>
+
+    <a href="ficha_agroexportador.html" class="modulo activo-modulo">
+      📋 Ficha final
+    </a>
+
+  </section>
+
+
+  <!-- MIGAS -->
+  <div class="breadcrumb">
+    🏠
+    <span>›</span>
+    <span>Gestión de lotes</span>
+    <span>›</span>
+    <strong>Ficha final</strong>
+  </div>
+
+
+  <!-- CONTENIDO -->
+  <main class="contenido-principal">
+
+    <section class="tarjeta">
+
+      <div class="titulo-seccion">
+
+        <div class="icono-seccion">
+          📋
+        </div>
+
+        <div>
+          <h2>Ficha final del lote</h2>
+          <p>
+            Revisa toda la información registrada para un lote.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="campo">
+
+        <label for="loteFicha">
+          Selecciona el lote
+        </label>
+
+        <select id="loteFicha" required>
+          <option value="">
+            Seleccionar lote
+          </option>
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <!-- RESUMEN -->
+    <section class="tarjeta" id="fichaAgroContenido">
+
+      <h2>Resumen del lote</h2>
+
+      <p>
+        Selecciona un lote para visualizar su información completa.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+
+    <div class="footer-marca">
+      <strong>🫐 NECHDATA</strong>
+      <span>Todo el proceso a la vista.</span>
+    </div>
+
+    <span>Ficha técnica del agroexportador</span>
+
+  </footer>
+
+
+  <script src="../JS/config.js"></script>
+  <script src="../JS/ficha_agroexportador.js"></script>
+
+</body>
+
+</html>

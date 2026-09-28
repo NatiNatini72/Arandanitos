@@ -2488,25 +2488,6 @@ tbody tr:hover {
 }
 
 
-.info-ubicacion {
-  background:
-    #f7f8fc;
-
-  border:
-    1px solid #e0e6ee;
-
-  border-radius: 16px;
-
-  padding: 28px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-}
-
-
 .etiqueta-ubicacion {
   font-size: 11px;
 
@@ -2590,6 +2571,70 @@ tbody tr:hover {
       280px;
   }
 
+}
+
+/* TARJETA PRODUCTOR + LOGO */
+
+.fp-origen-mapa .info-ubicacion {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 150px;
+    align-items: center;
+
+    gap: 28px;
+
+    margin-top: 12px;
+    padding: 22px 26px;
+
+    border: 1px solid #e2e8ed;
+    border-radius: 18px;
+
+    background: #f4f7fa;
+
+    box-sizing: border-box;
+}
+
+
+/* TEXTO DEL PRODUCTOR */
+
+.fp-origen-mapa .info-productor-texto {
+    min-width: 0;
+}
+
+.fp-origen-mapa .info-productor-texto h3 {
+    margin: 4px 0 6px;
+
+    color: #101653;
+
+    font-size: 1.15rem;
+}
+
+.fp-origen-mapa .info-productor-texto p {
+    margin: 0;
+
+    color: #708198;
+}
+
+
+/* LOGO DEL PRODUCTOR */
+
+.fp-origen-mapa .logo-productor-publico {
+    width: 135px;
+    height: 135px;
+
+    justify-self: end;
+
+    object-fit: contain;
+
+    padding: 8px;
+
+    border: 1px solid #dde5eb;
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
 }
 /* ==========================================
    BOTÓN PRINCIPAL NFC
@@ -3075,4 +3120,909 @@ select#loteDocumento option {
     font-weight: 700;
     background: #fff8cf;
     color: #3d3300;
+}
+
+.btn-ficha-final {
+    background: #6d5dfc;
+    color: white;
+    border: none;
+}
+
+.btn-ficha-final:hover {
+    background: #5748db;
+    transform: translateY(-1px);
+}
+
+/* ==========================================
+   ESPACIADO FICHA FINAL AGROEXPORTADOR
+========================================== */
+
+#fichaAgroContenido h3 {
+    margin-top: 32px;
+    margin-bottom: 14px;
+}
+
+#fichaAgroContenido .grid-ficha-publica {
+    margin-bottom: 18px;
+}
+
+#fichaAgroContenido > p {
+    margin-bottom: 18px;
+}
+/* ==========================================
+   PORTADA FICHA PUBLICA
+
+      FICHA PÚBLICA NECHDATA
+   00. BASE / SLIDER
+   01. PORTADA
+   02. ORIGEN
+   03. CALIDAD
+   04. PACKING
+   05. RECORRIDO
+   06. RESPONSIVE
+========================================== */
+/* =========================================================
+   00 · BASE / SLIDER
+========================================================= */
+
+.fp-slider {
+    display: flex;
+
+    width: 100%;
+    min-height: 100vh;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+
+    scrollbar-width: none;
+}
+
+.fp-slider::-webkit-scrollbar {
+    display: none;
+}
+
+.fp-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+
+    box-sizing: border-box;
+
+    padding: 28px 0 45px;
+}
+
+
+/* CABECERA COMÚN DE LOS SLIDES */
+
+.fp-slide-top {
+    display: grid;
+    grid-template-columns: 42px 1fr 42px;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 24px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #e2e8ef;
+}
+
+.fp-contador {
+    text-align: center;
+
+    color: #68788d;
+
+    font-size: 0.76rem;
+    font-weight: 800;
+
+    letter-spacing: 0.11em;
+}
+
+.fp-nav-btn {
+    width: 40px;
+    height: 40px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid #d9e2ea;
+    border-radius: 12px;
+
+    background: #ffffff;
+    color: #101653;
+
+    font-size: 1rem;
+    font-weight: 900;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.fp-nav-btn:hover {
+    transform: translateY(-2px);
+
+    background: #101653;
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   01 · PORTADA
+========================================================= */
+
+.fp-portada {
+    position: relative;
+    overflow: hidden;
+
+    width: min(1100px, 92%);
+    min-height: 620px;
+
+    margin: 0 auto;
+
+    border-radius: 32px;
+
+    background-image:
+        linear-gradient(
+            180deg,
+            rgba(7, 22, 58, 0.15) 0%,
+            rgba(7, 22, 58, 0.25) 40%,
+            rgba(7, 22, 58, 0.62) 100%
+        ),
+        url("../IMAGENES/Llaqta_agricola1.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    box-shadow:
+        0 18px 45px rgba(9, 25, 62, 0.16);
+}
+
+.fp-portada-contenido {
+    position: relative;
+    z-index: 2;
+
+    min-height: 620px;
+
+    padding: 28px 32px 25px;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+
+    gap: 18px;
+
+    color: #ffffff;
+}
+
+
+/* CABECERA PORTADA */
+
+.fp-portada-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 20px;
+}
+
+.fp-marca {
+    display: inline-flex;
+    align-items: center;
+
+    padding: 10px 16px;
+
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    backdrop-filter: blur(12px);
+}
+
+.fp-logo-nechdata {
+    display: block;
+
+    width: 180px;
+    height: auto;
+}
+
+.fp-acciones-superiores {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.fp-estado {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 10px 14px;
+
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 999px;
+
+    background: rgba(20, 32, 65, 0.42);
+
+    backdrop-filter: blur(10px);
+
+    color: #ffffff;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.fp-punto {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #62df21;
+
+    box-shadow:
+        0 0 0 5px rgba(98, 223, 33, 0.18);
+}
+
+.fp-volver-inicio {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 14px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.96);
+    color: #101653;
+
+    text-decoration: none;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    white-space: nowrap;
+}
+
+
+/* CENTRO PORTADA */
+
+.fp-portada-centro {
+    align-self: center;
+    justify-self: center;
+
+    width: min(760px, 100%);
+
+    text-align: center;
+}
+
+.fp-cultivo {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 14px;
+    padding: 9px 14px;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.15);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.fp-etiqueta {
+    display: table;
+
+    margin: 0 auto 24px;
+    padding: 8px 12px;
+
+    border: 1px solid rgba(255,255,255,0.24);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.14);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+}
+
+.fp-subtitulo {
+    margin: 0 0 6px;
+
+    font-size: 0.8rem;
+    font-weight: 800;
+
+    letter-spacing: 0.22em;
+
+    opacity: 0.82;
+}
+
+.fp-portada-centro h1 {
+    margin: 0;
+
+    font-size: clamp(4rem, 7vw, 6rem);
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
+}
+
+.fp-lote {
+    margin: 22px 0 0;
+
+    font-size: clamp(1.35rem, 2.3vw, 2rem);
+    font-weight: 800;
+}
+
+
+/* ORIGEN RESUMIDO PORTADA */
+
+.fp-portada-inferior {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.fp-origen-card {
+    width: min(700px, 100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 18px;
+
+    padding: 18px 22px;
+
+    border-radius: 22px;
+
+    background: rgba(255,255,255,0.96);
+    color: #101653;
+
+    backdrop-filter: blur(14px);
+}
+
+.fp-origen-card span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #708198;
+
+    font-size: 0.68rem;
+    font-weight: 800;
+
+    letter-spacing: 0.12em;
+}
+
+.fp-origen-card strong {
+    display: block;
+
+    font-size: 1.05rem;
+    line-height: 1.35;
+}
+
+.fp-origen-card p {
+    margin: 4px 0 0;
+
+    color: #708198;
+}
+
+.fp-flecha {
+    width: 42px;
+    height: 42px;
+
+    flex-shrink: 0;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+
+    background: #101653;
+    color: #ffffff;
+
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   02 · ORIGEN
+========================================================= */
+
+.fp-origen-slide {
+    width: min(1050px, 92%);
+
+    margin: 0 auto;
+
+    padding: 28px;
+
+    border: 1px solid #e0e7ed;
+    border-radius: 30px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 48px rgba(16, 22, 83, 0.10);
+}
+
+
+/* INTRO */
+
+.fp-origen-intro {
+    margin-bottom: 22px;
+}
+
+.fp-kicker {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #68788d;
+
+    font-size: 0.72rem;
+    font-weight: 900;
+
+    letter-spacing: 0.15em;
+}
+
+.fp-origen-intro h2 {
+    margin: 0 0 7px;
+
+    color: #101653;
+
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    line-height: 1;
+}
+
+.fp-origen-intro p {
+    margin: 0;
+
+    color: #708198;
+
+    font-size: 0.95rem;
+}
+
+
+/* FOTO ORIGEN */
+
+.fp-foto-origen {
+    position: relative;
+
+    min-height: 430px;
+
+    margin-bottom: 32px;
+
+    overflow: hidden;
+
+    border-radius: 26px;
+
+    background: #102c20;
+}
+
+.fp-foto-origen img {
+    position: absolute;
+    inset: 0;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}
+
+.fp-foto-degradado {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(7, 24, 42, 0.04) 25%,
+            rgba(7, 24, 42, 0.84) 100%
+        );
+}
+
+.fp-foto-info {
+    position: absolute;
+
+    left: 24px;
+    right: 24px;
+    bottom: 24px;
+
+    z-index: 2;
+
+    color: #ffffff;
+}
+
+.fp-ubicacion-pill {
+    display: inline-flex;
+
+    margin-bottom: 12px;
+    padding: 8px 12px;
+
+    border: 1px solid rgba(255,255,255,0.28);
+    border-radius: 999px;
+
+    background: rgba(255,255,255,0.14);
+
+    backdrop-filter: blur(10px);
+
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.fp-foto-info h3 {
+    margin: 0 0 6px;
+
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+}
+
+.fp-foto-info p {
+    max-width: 550px;
+
+    margin: 0;
+
+    line-height: 1.5;
+}
+
+
+/* TÍTULOS INTERNOS */
+
+.fp-subtitulo-bloque {
+    margin-bottom: 14px;
+}
+
+.fp-subtitulo-bloque span {
+    display: block;
+
+    color: #68788d;
+
+    font-size: 0.7rem;
+    font-weight: 900;
+
+    letter-spacing: 0.13em;
+}
+
+.fp-subtitulo-bloque h3 {
+    margin: 4px 0 0;
+
+    color: #101653;
+
+    font-size: 1.45rem;
+}
+
+
+/* MAPA */
+
+.fp-origen-mapa {
+    margin-bottom: 32px;
+}
+
+.fp-origen-mapa iframe {
+    display: block;
+
+    width: 100%;
+
+    border: 0;
+    border-radius: 22px;
+
+    box-shadow:
+        0 12px 30px rgba(16, 22, 83, 0.08);
+}
+
+.fp-origen-mapa .info-ubicacion {
+    margin-top: 12px;
+
+    padding: 16px 18px;
+
+    border: 1px solid #e2e8ed;
+    border-radius: 18px;
+
+    background: #f4f7fa;
+}
+
+
+/* DATOS */
+
+.fp-origen-datos {
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   03 · CALIDAD
+========================================================= */
+
+.fp-calidad-slide {
+    width: min(1050px, 92%);
+
+    margin: 0 auto;
+}
+
+.fp-calidad-slide > h2 {
+    color: #101653;
+}
+
+
+/* =========================================================
+   04 · PACKING
+========================================================= */
+
+.fp-packing-slide {
+    width: min(1050px, 92%);
+
+    margin: 0 auto;
+}
+
+.fp-packing-slide > h2 {
+    color: #101653;
+}
+
+
+/* =========================================================
+   05 · RECORRIDO
+========================================================= */
+
+.fp-recorrido-slide {
+    width: min(1050px, 92%);
+
+    margin: 0 auto;
+}
+
+.fp-recorrido-slide > h2 {
+    color: #101653;
+}
+
+
+/* =========================================================
+   06 · ELEMENTOS COMUNES DE DATOS
+========================================================= */
+
+.fp-slide .ficha-bloque {
+    margin-top: 0;
+}
+
+.fp-slide .grid-ficha-publica {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.fp-slide .dato-publico {
+    padding: 17px;
+
+    border: 1px solid #dde8ed;
+    border-radius: 14px;
+
+    background: #f4f8fb;
+}
+
+.fp-slide .dato-publico span {
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #7a8a99;
+
+    font-size: 0.68rem;
+
+    letter-spacing: 0.05em;
+
+    text-transform: uppercase;
+}
+
+.fp-slide .dato-publico strong {
+    color: #101653;
+
+    line-height: 1.35;
+}
+
+
+/* =========================================================
+   07 · RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .fp-slider {
+        min-height: 100svh;
+
+        touch-action: pan-x;
+    }
+
+
+    .fp-slide {
+        min-height: 100svh;
+
+        padding: 0;
+    }
+
+
+    /* PORTADA */
+
+    .fp-portada {
+        width: 100%;
+        min-height: 100svh;
+
+        margin: 0;
+
+        border-radius: 0;
+    }
+
+
+    .fp-portada-contenido {
+        min-height: 100svh;
+
+        padding:
+            calc(18px + env(safe-area-inset-top))
+            18px
+            calc(22px + env(safe-area-inset-bottom));
+    }
+
+
+    .fp-logo-nechdata {
+        width: 120px;
+    }
+
+
+    .fp-portada-superior {
+        align-items: flex-start;
+    }
+
+
+    .fp-acciones-superiores {
+        flex-direction: column;
+        align-items: flex-end;
+
+        gap: 6px;
+    }
+
+
+    .fp-estado,
+    .fp-volver-inicio {
+        padding: 7px 9px;
+
+        font-size: 0.68rem;
+    }
+
+
+    .fp-portada-centro h1 {
+        font-size: clamp(3.2rem, 17vw, 4.8rem);
+    }
+
+
+    .fp-lote {
+        font-size: 1.1rem;
+    }
+
+
+    .fp-origen-card {
+        padding: 15px;
+    }
+
+
+    /* ORIGEN */
+
+    .fp-origen-slide {
+        width: 100%;
+
+        margin: 0;
+
+        padding:
+            calc(18px + env(safe-area-inset-top))
+            18px
+            28px;
+
+        border: 0;
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+
+    .fp-origen-intro h2 {
+        font-size: 2.15rem;
+    }
+
+
+    .fp-foto-origen {
+        min-height: 520px;
+
+        border-radius: 24px;
+    }
+
+
+    .fp-foto-info {
+        left: 18px;
+        right: 18px;
+        bottom: 20px;
+    }
+
+
+    .fp-foto-info h3 {
+        font-size: 2rem;
+    }
+
+
+    .fp-origen-mapa iframe {
+        height: 280px;
+    }
+
+
+    /* DATOS */
+
+    .fp-slide .grid-ficha-publica {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+
+    /* BOTONES */
+
+    .fp-slide-top {
+        grid-template-columns:
+            38px 1fr 38px;
+    }
+
+
+    .fp-nav-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+
+    .fp-contador {
+        font-size: 0.66rem;
+    }
+
+}
+
+/* ==========================================
+   PARA EL CELULAR
+========================================== */
+
+@media (max-width: 700px) {
+
+    .fp-origen-mapa .info-ubicacion {
+        grid-template-columns: 1fr 95px;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .fp-origen-mapa .logo-productor-publico {
+        width: 90px;
+        height: 90px;
+    }
+
+}
+/* ==========================================
+   CELULAR PEQUEÑO
+========================================== */
+
+@media (max-width: 430px) {
+
+    .fp-slide .grid-ficha-publica {
+        grid-template-columns: 1fr;
+    }
+
 }

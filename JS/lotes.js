@@ -121,7 +121,12 @@ fila.innerHTML = `
         >
             👁 Ver
         </button>
-
+<button
+    class="btn-tabla btn-ficha-final"
+    onclick="verFichaFinal(${item.id})"
+>
+    📋 Ficha final
+</button>
         <button
             class="btn-tabla btn-editar"
             onclick="editarLote(${item.id})"
@@ -375,6 +380,13 @@ function verLote(id) {
 
     window.location.href =
         `detalle_lote.html?id=${id}`;
+
+}
+
+function verFichaFinal(id) {
+
+    window.location.href =
+        `../ficha_publica.html?id=${id}`;
 
 }
 

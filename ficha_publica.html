@@ -2,324 +2,713 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>NECHDATA | Ficha pública</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="stylesheet" href="CSS/estilos.css">
+  <title>
+    NECHDATA | Ficha pública
+  </title>
+
+  <link
+    rel="stylesheet"
+    href="CSS/estilos.css"
+  >
+
 </head>
+
 
 <body>
 
-  <!-- PANTALLA DE CARGA NFC -->
 
-  <div id="pantallaCarga" class="pantalla-carga-nfc">
+<!-- ==========================================
+     FICHA PÚBLICA · SLIDER
+========================================== -->
 
-    <div class="carga-contenido">
+<div class="fp-slider">
 
-      <img
-        src="IMAGENES/LOGO1.png"
-        alt="NECHDATA"
-        class="logo-carga-nfc"
-      >
 
- <div class="carga-variedad">
+  <!-- ========================================
+       01 · PORTADA
+  ========================================= -->
 
-<span id="productorCarga">
-  Consultando productor...
-</span>
+  <section class="fp-slide" data tittle="Portada">
 
-  <strong id="variedadCarga">
-    Consultando...
-  </strong>
+    <section class="fp-portada">
 
-</div>
+      <div class="fp-portada-contenido">
 
-<div class="spinner-nfc"></div>
 
-<p>
-  Cargando trazabilidad...
-</p>
- </div>
+        <!-- CABECERA -->
+
+        <div class="fp-portada-superior">
+
+          <a
+            href="index.html"
+            class="fp-marca"
+          >
+
+            <img
+              src="IMAGENES/LOGO3.png"
+              alt="NECHDATA"
+              class="fp-logo-nechdata"
+            >
+
+          </a>
+
+
+          <div class="fp-acciones-superiores">
+
+            <div class="fp-estado">
+
+              <span class="fp-punto"></span>
+
+              Lote verificado
+
+            </div>
+
+
+            <a
+              href="index.html"
+              class="fp-volver-inicio"
+            >
+              ← Volver al inicio
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- DATOS PRINCIPALES -->
+
+        <div class="fp-portada-centro">
+
+          <div class="fp-cultivo">
+            🫐 Arándano fresco
+          </div>
+
+
+          <span class="fp-etiqueta">
+
+            FICHA N°
+
+            <strong id="codigoPublicoPortada">
+              --
+            </strong>
+
+          </span>
+
+
+          <p class="fp-subtitulo">
+            VARIEDAD
+          </p>
+
+
+          <h1 id="variedadPublica">
+            --
+          </h1>
+
+
+          <p
+            class="fp-lote"
+            id="codigoPublico"
+          >
+            LOTE: --
+          </p>
+
+        </div>
+
+
+        <!-- ORIGEN RESUMIDO -->
+
+        <div class="fp-portada-inferior">
+
+          <div class="fp-origen-card">
+
+            <div>
+
+              <span>
+                ORIGEN DEL LOTE
+              </span>
+
+              <strong id="fundoPublico">
+                --
+              </strong>
+
+              <p id="origenPublico">
+                --
+              </p>
+
+            </div>
+
+
+            <div class="fp-flecha">
+              →
+            </div>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+
+
+
+  <!-- ========================================
+       02 · ORIGEN
+  ========================================= -->
+
+  <section class="fp-slide"data tittle="Origen">
+
+    <section class="fp-origen-slide">
+
+
+      <!-- CABECERA -->
+
+      <div class="fp-slide-top">
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+          id="btnAnteriorOrigen"
+        >
+          ←
+        </button>
+
+
+        <span class="fp-contador">
+          02 / 09 · ORIGEN
+        </span>
+
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+          id="btnSiguienteOrigen"
+        >
+          →
+        </button>
+
+      </div>
+
+
+      <!-- INTRO -->
+
+      <div class="fp-origen-intro">
+
+        <span class="fp-kicker">
+          EMPIEZA AQUÍ
+        </span>
+
+
+        <h2>
+          Tus arándanos nacen en
+          <span id="regionTituloOrigen">--</span>.
+        </h2>
+
+
+        <p>
+          Conoce el lugar donde comienza
+          la historia de este lote.
+        </p>
+
+      </div>
+
+
+      <!-- FOTO DEL FUNDO -->
+
+      <div class="fp-foto-origen">
+
+        <img
+  id="fotoFundoPublica"
+  src="IMAGENES/Llaqta_Agricola2.jpg"
+  alt="Arándanos del fundo"
+/>
+
+
+        <div class="fp-foto-degradado"></div>
+
+
+        <div class="fp-foto-info">
+
+          <span
+            class="fp-ubicacion-pill"
+            id="ubicacionFotoOrigen"
+          >
+            📍 Fundo · ubicación
+          </span>
+
+
+          <h3>
+            Aquí empieza todo
+          </h3>
+
+
+          <p>
+            El lugar, la variedad y el lote
+            quedan unidos desde el primer registro.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- MAPA -->
+
+      <div class="fp-origen-mapa">
+
+        <div class="fp-subtitulo-bloque">
+
+          <span>
+            📍 UBICACIÓN
+          </span>
+
+          <h3>
+            Del campo al mapa
+          </h3>
+
+        </div>
+
+
+        <iframe
+          src="https://www.google.com/maps?q=INVERSIONES%20LLAQTA%20AGRICOLA%20S.A.C.%20Chincha%20Ica%20Peru&output=embed"
+          width="100%"
+          height="320"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+
+
+        <div class="info-ubicacion">
+
+<div class="info-ubicacion">
+
+  <div class="info-productor-texto">
+
+    <span class="etiqueta-ubicacion">
+      PRODUCTOR
+    </span>
+
+    <h3 id="productorMapa">
+      --
+    </h3>
+
+    <p id="ubicacionMapa">
+      --
+    </p>
+
+  </div>
+
+
+  <img
+    src="IMAGENES/Llacta_agricola3.jpg"
+    alt="Logo del productor"
+    class="logo-productor-publico"
+  >
+
+</div>    
+
+      </div>
+
+
+      <!-- DATOS DE ORIGEN -->
+
+      <div class="fp-origen-datos">
+
+        <div class="fp-subtitulo-bloque">
+
+          <span>
+            🌱 DATOS DEL ORIGEN
+          </span>
+
+          <h3>
+            De dónde viene este lote
+          </h3>
+
+        </div>
+
+
+        <div class="grid-ficha-publica">
+
+
+          <div class="dato-publico">
+
+            <span>
+              País
+            </span>
+
+            <strong id="paisPublico">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="dato-publico">
+
+            <span>
+              Departamento
+            </span>
+
+            <strong id="regionPublico">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="dato-publico">
+
+            <span>
+              Productor
+            </span>
+
+            <strong id="productorDetallePublico">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="dato-publico">
+
+            <span>
+              Exportador
+            </span>
+
+            <strong id="exportadoraPublica">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="dato-publico">
+
+            <span>
+              Lote
+            </span>
+
+            <strong id="lotePublico">
+              --
+            </strong>
+
+          </div>
+
+
+          <div class="dato-publico">
+
+            <span>
+              Fecha de cosecha
+            </span>
+
+            <strong id="fechaPublica">
+              --
+            </strong>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+  </section>
+
+
+
+  <!-- ========================================
+       03 · CALIDAD
+  ========================================= -->
+
+  <section class="fp-slide" data tittle="Calidad">
+
+    <section class="ficha-bloque fp-calidad-slide">
+
+      <div class="fp-slide-top">
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+        >
+          ←
+        </button>
+
+
+        <span class="fp-contador">
+          03 / 09 · CALIDAD
+        </span>
+
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+        >
+          →
+        </button>
+
+      </div>
+
+
+      <h2>
+        🛡 Calidad visible
+      </h2>
+
+
+      <div id="calidadPublica">
+
+        <p class="mensaje-proximamente">
+          Consultando calidad...
+        </p>
+
+      </div>
+
+
+    </section>
+
+  </section>
+
+
+
+  <!-- ========================================
+       04 · PACKING
+  ========================================= -->
+
+  <section class="fp-slide" data tittle="Packing">
+
+    <section class="ficha-bloque fp-packing-slide">
+
+      <div class="fp-slide-top">
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+        >
+          ←
+        </button>
+
+
+        <span class="fp-contador">
+          04 / 09 · PACKING
+        </span>
+
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+        >
+          →
+        </button>
+
+      </div>
+
+
+      <h2>
+        📦 Packing y poscosecha
+      </h2>
+
+
+      <div id="packingPublico">
+
+        <p class="mensaje-proximamente">
+          Consultando packing...
+        </p>
+
+      </div>
+
+
+    </section>
+
+  </section>
+
+
+
+  <!-- ========================================
+       05 · RECORRIDO
+  ========================================= -->
+
+  <section class="fp-slide" data tittle="Recorrido">
+
+    <section class="ficha-bloque fp-recorrido-slide">
+
+      <div class="fp-slide-top">
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+        >
+          ←
+        </button>
+
+
+        <span class="fp-contador">
+          05 / 09 · RECORRIDO
+        </span>
+
+
+        <button
+          type="button"
+          class="fp-nav-btn"
+        >
+          →
+        </button>
+
+      </div>
+
+
+      <h2>
+        📍 Recorrido del lote
+      </h2>
+
+
+      <div class="timeline-publica">
+
+
+        <div class="paso-traza">
+
+          <div class="icono-traza">
+            🌱
+          </div>
+
+          <div>
+
+            <strong>
+              Origen
+            </strong>
+
+            <p id="rutaOrigen">
+              Origen pendiente
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="linea-traza"></div>
+
+
+        <div class="paso-traza">
+
+          <div class="icono-traza">
+            📦
+          </div>
+
+          <div>
+
+            <strong>
+              Packing
+            </strong>
+
+            <p id="rutaDespacho">
+              Puerto de salida pendiente
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="linea-traza"></div>
+
+
+        <div class="paso-traza">
+
+          <div class="icono-traza">
+            🚚
+          </div>
+
+          <div>
+
+            <strong>
+              Despacho
+            </strong>
+
+            <p id="rutaEstado">
+              Estado pendiente
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="linea-traza"></div>
+
+
+        <div class="paso-traza">
+
+          <div class="icono-traza">
+            🌎
+          </div>
+
+          <div>
+
+            <strong>
+              Destino
+            </strong>
+
+            <p id="rutaDestino">
+              Destino pendiente
+            </p>
+
+            <p id="rutaLlegada">
+              Llegada pendiente
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+  </section>
+
 
 </div>
 
 
 <!-- ==========================================
-     FICHA PÚBLICA
+     FOOTER
 ========================================== -->
 
-  <div id="contenidoFicha" 
-  class="ficha-publica-contenedor oculto">
-<!-- AQUÍ EMPIEZA TODO EL CONTENIDO DE LA FICHA -->
+<footer class="footer ficha-footer">
 
-   <header class="header-ficha-publica">
+  <img
+    src="IMAGENES/LOGO3.png"
+    alt="NECHDATA"
+    class="logo-footer-nechdata"
+  >
 
-  <a href="index.html" class="marca-ficha">
-    <img
-      src="IMAGENES/LOGO3.png"
-      alt="NECHDATA"
-      class="logo-ficha-publica"
-    >
-  </a>
+  <span>
+    Todo el proceso a la vista
+  </span>
 
-  <div class="acciones-ficha">
+</footer>
 
-    <span class="estado-verificado">
-      ● Lote verificado
-    </span>
-
-    <a href="index.html" class="btn-volver-inicio">
-      ← Volver al inicio
-    </a>
-
-  </div>
-
-</header>
-
-
-      <!-- PORTADA DEL LOTE -->
-
-     <section
-  class="ficha-portada"
-  style="background-image: url('IMAGENES/inka_berries.jpg');"
->
-
-  <div class="ficha-portada-overlay">
-
-    <p class="etiqueta-ficha">
-      FICHA N° <span id="codigoPublicoPortada">--</span>
-    </p>
-
-    <h1 id="codigoPublico">
-      --
-    </h1>
-
-    <h2 id="variedadPublica">
-      --
-    </h2>
-
-    <p id="origenPublico">
-      Santiago, Ica, Perú
-    </p>
-
-  </div>
-
-</section>
-
-
-      <!-- DATOS PRINCIPALES -->
-
-      <section class="ficha-bloque">
-
-        <h2>
-          🌱 Origen y producción
-        </h2>
-
-        <div class="grid-ficha-publica">
-
-          <div class="dato-publico">
-            <span>País</span>
-            <strong id="paisPublico">--</strong>
-          </div>
-
-          <div class="dato-publico">
-            <span>Región</span>
-            <strong id="regionPublico">--</strong>
-          </div>
-
-          <div class="dato-publico">
-            <span>Productor</span>
-            <strong id="fundoPublico">--</strong>
-          </div>
-
-          <div class="dato-publico">
-          <span>Exportador</span>
-          <strong id="exportadoraPublica">--</strong>
-          </div>
-
-          <div class="dato-publico">
-            <span>Lote</span>
-            <strong id="lotePublico">--</strong>
-          </div>
-
-          <div class="dato-publico">
-            <span>Fecha de cosecha</span>
-            <strong id="fechaPublica">--</strong>
-          </div>
-
-        </div>
-
-      </section>
-<!-- UBICACIÓN DEL FUNDO -->
-
-<section class="ficha-bloque">
-
-  <h2>
-    📍 Ubicación del fundo
-  </h2>
-
-  <div class="ubicacion-fundo">
-
-    <div class="mapa-fundo">
-
-<iframe
-  src="https://www.google.com/maps?q=INVERSIONES%20LLAQTA%20AGRICOLA%20S.A.C.%20Chincha%20Ica%20Peru&output=embed"
-  width="100%"
-  height="350"
-  style="border:0;"
-  allowfullscreen=""
-  loading="lazy"
-  referrerpolicy="no-referrer-when-downgrade">
-</iframe>
-
-    </div>
-
-
-    <div class="info-ubicacion">
-
-<span class="etiqueta-ubicacion">
-  PRODUCTOR
-</span>
-
-<h3 id="productorMapa">
-  --
-</h3>
-
-<p id="ubicacionMapa">
-  Chincha, Ica, Perú
-</p>
-
-      <a
-        href="https://maps.app.goo.gl/Grpgi3eSSvcF7NE36"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-mapa"
-      >
-        📍 Ver ubicación en Google Maps
-      </a>
-
-    </div>
-
-  </div>
-
-</section>
-
-      <!-- CALIDAD -->
-
-      <section class="ficha-bloque">
-
-        <h2>
-          🛡 Calidad visible
-        </h2>
-
-        <div id="calidadPublica">
-
-          <p class="mensaje-proximamente">
-            Consultando calidad...
-          </p>
-
-        </div>
-
-      </section>
-
-
-      <!-- PACKING -->
-
-      <section class="ficha-bloque">
-
-        <h2>
-          📦 Packing y poscosecha
-        </h2>
-
-        <div id="packingPublico">
-
-          <p class="mensaje-proximamente">
-            Consultando packing...
-          </p>
-
-        </div>
-
-      </section>
-
-
-      <!-- RECORRIDO -->
-
-      <section class="ficha-bloque">
-
-        <h2>
-          📍 Recorrido del lote
-        </h2>
-
-        <div class="timeline-publica">
-
-          <div class="paso-traza">
-            <div class="icono-traza">🌱</div>
-            <div>
-              <strong>Origen</strong>
-              <p id="rutaOrigen">Fundo de producción</p>
-            </div>
-          </div>
-
-          <div class="linea-traza"></div>
-
-          <div class="paso-traza">
-            <div class="icono-traza">📦</div>
-            <div>
-              <strong>Packing</strong>
-              <p>Acondicionamiento y conservación</p>
-            </div>
-          </div>
-
-          <div class="linea-traza"></div>
-
-          <div class="paso-traza">
-            <div class="icono-traza">🚚</div>
-            <div>
-              <strong>Despacho</strong>
-              <p>Información de transporte pendiente</p>
-            </div>
-          </div>
-
-          <div class="linea-traza"></div>
-
-          <div class="paso-traza">
-            <div class="icono-traza">🌎</div>
-            <div>
-              <strong>Destino</strong>
-              <p>Destino comercial pendiente</p>
-            </div>
-          </div>
-
-        </div>
-
-      </section>
-
-
-    </main>
-
-
-    <footer class="footer ficha-footer">
-
-      <img
-        src="IMAGENES/LOGO3.png"
-        alt="NECHDATA"
-        class="logo-footer-nechdata"
-      >
-
-      <span>
-        Todo el proceso a la vista
-      </span>
-
-    </footer>
-
-
-  </div>
 
 <script src="JS/config.js"></script>
 <script src="JS/ficha_publica.js"></script>
 
 </body>
-
 </html>

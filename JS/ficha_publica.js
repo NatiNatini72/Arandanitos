@@ -1,7 +1,12 @@
 console.log("✅ ficha_publica.js está funcionando");
 
-const API_URL = `${API_BASE_URL}/api/lotes`;
 
+// ==========================================
+// CONFIGURACIÓN
+// ==========================================
+
+const API_URL =
+    `${API_BASE_URL}/api/lotes`;
 
 const parametros =
     new URLSearchParams(
@@ -11,17 +16,15 @@ const parametros =
 const idLote =
     parametros.get("id");
 
+console.log(
+    "ID LOTE DESDE URL:",
+    idLote
+);
 
-const pantallaCarga =
-    document.getElementById(
-        "pantallaCarga"
-    );
 
-const contenidoFicha =
-    document.getElementById(
-        "contenidoFicha"
-    );
-
+// ==========================================
+// UTILIDADES
+// ==========================================
 
 function formatearFecha(fecha) {
 
@@ -32,22 +35,51 @@ function formatearFecha(fecha) {
     const partes =
         fecha.split("-");
 
+    if (partes.length !== 3) {
+        return fecha;
+    }
+
     return `${partes[2]}/${partes[1]}/${partes[0]}`;
 }
 
 
+function ponerTexto(id, valor) {
+
+    const elemento =
+        document.getElementById(id);
+
+    if (elemento) {
+        elemento.textContent =
+            valor ?? "--";
+    }
+
+}
+
+
+function ponerHTML(id, contenido) {
+
+    const elemento =
+        document.getElementById(id);
+
+    if (elemento) {
+        elemento.innerHTML =
+            contenido;
+    }
+
+}
+
+
 // ==========================================
-// CARGAR LOTE
+// CARGAR DATOS GENERALES DEL LOTE
 // ==========================================
 
 async function cargarFichaPublica() {
 
     if (!idLote) {
 
-        document.getElementById(
-            "codigoPublico"
-        ).textContent =
-            "Lote no identificado";
+        console.error(
+            "No se recibió un ID de lote."
+        );
 
         return;
     }
@@ -55,10 +87,17 @@ async function cargarFichaPublica() {
 
     try {
 
+        console.log(
+            "Consultando:",
+            `${API_URL}/${idLote}`
+        );
+
+
         const respuesta =
             await fetch(
                 `${API_URL}/${idLote}`
             );
+
 
         if (!respuesta.ok) {
 
@@ -68,140 +107,152 @@ async function cargarFichaPublica() {
 
         }
 
+
         const lote =
             await respuesta.json();
 
-        console.log("LOTE RECIBIDO:", lote);
 
-document.getElementById(
-    "codigoPublicoPortada"
-).textContent =
-    lote.codigo;
-
-document.getElementById(
-    "codigoPublico"
-).textContent =
-    `LOTE: ${lote.lote}`;
+        console.log(
+            "LOTE RECIBIDO:",
+            lote
+        );
 
 
-document.getElementById(
-    "productorCarga"
-).textContent =
-    `${lote.fundo} · ${lote.exportadora}`;
+        // ==========================================
+        // 01. PORTADA
+        // ==========================================
 
-document.getElementById(
-    "productorMapa"
-).textContent =
-    lote.fundo;
-
-document.getElementById(
-    "ubicacionMapa"
-).textContent =
-    `Chincha, ${lote.region}, ${lote.pais}`;
+        ponerTexto(
+            "codigoPublicoPortada",
+            lote.codigo
+        );
 
 
-        document.getElementById(
-            "variedadCarga"
-        ).textContent =
-            lote.variedad;
+        ponerTexto(
+            "variedadPublica",
+            lote.variedad
+        );
 
 
-        document.getElementById(
-            "variedadPublica"
-        ).textContent =
-            lote.variedad;
+        ponerTexto(
+            "codigoPublico",
+            `LOTE: ${lote.lote || "--"}`
+        );
 
 
-document.getElementById(
-    "origenPublico"
-).textContent =
-    `${lote.region}, ${lote.pais}`;
+        ponerTexto(
+            "fundoPublico",
+            lote.fundo
+        );
 
 
-        document.getElementById(
-            "paisPublico"
-        ).textContent =
-            lote.pais;
+        ponerTexto(
+            "origenPublico",
+            `${lote.region || "--"}, ${lote.pais || "--"}`
+        );
 
 
-        document.getElementById(
-            "regionPublico"
-        ).textContent =
-            lote.region;
+        // ==========================================
+        // 02. ORIGEN
+        // ==========================================
+
+        ponerTexto(
+            "regionTituloOrigen",
+            lote.region
+        );
 
 
-        document.getElementById(
-            "fundoPublico"
-        ).textContent =
-            lote.fundo;
-        document.getElementById(
-    "exportadoraPublica"
-).textContent =
-    lote.exportadora || "--";
+        ponerTexto(
+            "ubicacionFotoOrigen",
+            `📍 ${lote.fundo || "Fundo"} · ${lote.region || "--"}, ${lote.pais || "--"}`
+        );
 
 
-        document.getElementById(
-            "lotePublico"
-        ).textContent =
-            lote.lote;
+        ponerTexto(
+            "paisPublico",
+            lote.pais
+        );
 
 
-        document.getElementById(
-            "fechaPublica"
-        ).textContent =
+        ponerTexto(
+            "regionPublico",
+            lote.region
+        );
+
+
+        ponerTexto(
+            "productorDetallePublico",
+            lote.fundo
+        );
+
+
+        ponerTexto(
+            "exportadoraPublica",
+            lote.exportadora
+        );
+
+
+        ponerTexto(
+            "lotePublico",
+            lote.lote
+        );
+
+
+        ponerTexto(
+            "fechaPublica",
             formatearFecha(
                 lote.fechaCosecha
-            );
+            )
+        );
 
 
-document.getElementById(
-    "rutaOrigen"
-).textContent =
-    `${lote.fundo} · ${lote.region}, ${lote.pais}`;
+        ponerTexto(
+            "productorMapa",
+            lote.fundo
+        );
 
+
+        ponerTexto(
+            "ubicacionMapa",
+            `Chincha, ${lote.region || "--"}, ${lote.pais || "--"}`
+        );
+
+
+        // ==========================================
+        // 05. RECORRIDO - ORIGEN
+        // ==========================================
+
+        ponerTexto(
+            "rutaOrigen",
+            `${lote.fundo || "--"} · ${lote.region || "--"}, ${lote.pais || "--"}`
+        );
+
+
+        // ==========================================
+        // CARGAR DEMÁS SECCIONES
+        // ==========================================
 
         await cargarCalidadPublica();
         await cargarPackingPublico();
-
-
-        setTimeout(() => {
-
-            pantallaCarga.classList.add(
-                "oculto"
-            );
-
-            contenidoFicha.classList.remove(
-                "oculto"
-            );
-
-        }, 1500);
+        await cargarRecorridoPublico();
 
     }
 
-catch (error) {
 
-    console.error(
-        "Error al cargar ficha pública:",
-        error
-    );
+    catch (error) {
 
-    document.getElementById(
-        "variedadCarga"
-    ).textContent =
-        "Error al cargar el lote";
+        console.error(
+            "❌ Error al cargar ficha pública:",
+            error
+        );
 
-    document.querySelector(
-        ".pantalla-carga-nfc p"
-    ).textContent =
-        "No fue posible cargar la trazabilidad.";
-
-}
+    }
 
 }
 
 
 // ==========================================
-// CALIDAD
+// 03. CALIDAD
 // ==========================================
 
 async function cargarCalidadPublica() {
@@ -210,6 +261,11 @@ async function cargarCalidadPublica() {
         document.getElementById(
             "calidadPublica"
         );
+
+
+    if (!contenedor) {
+        return;
+    }
 
 
     try {
@@ -241,65 +297,59 @@ async function cargarCalidadPublica() {
             <div class="grid-ficha-publica">
 
                 <div class="dato-publico">
-
-                    <span>
-                        Calibre
-                    </span>
+                    <span>Calibre</span>
 
                     <strong>
                         ${calidad.calibre ?? "--"} mm
                     </strong>
-
                 </div>
 
 
                 <div class="dato-publico">
-
-                    <span>
-                        °Brix
-                    </span>
+                    <span>°Brix</span>
 
                     <strong>
                         ${calidad.brix ?? "--"}
                     </strong>
-
                 </div>
 
 
                 <div class="dato-publico">
-
-                    <span>
-                        Firmeza
-                    </span>
+                    <span>Firmeza</span>
 
                     <strong>
                         ${calidad.firmeza ?? "--"}
                     </strong>
-
                 </div>
 
 
                 <div class="dato-publico">
+                    <span>Acidez</span>
 
-                    <span>
-                        Defectos
-                    </span>
+                    <strong>
+                        ${calidad.acidez ?? "--"}
+                    </strong>
+                </div>
+
+
+                <div class="dato-publico">
+                    <span>Defectos</span>
 
                     <strong>
                         ${calidad.defectos ?? "--"} %
                     </strong>
-
                 </div>
 
             </div>
-
         `;
 
     }
 
+
     catch (error) {
 
         console.error(
+            "❌ Error al cargar calidad:",
             error
         );
 
@@ -309,7 +359,7 @@ async function cargarCalidadPublica() {
 
 
 // ==========================================
-// PACKING
+// 04. PACKING
 // ==========================================
 
 async function cargarPackingPublico() {
@@ -318,6 +368,11 @@ async function cargarPackingPublico() {
         document.getElementById(
             "packingPublico"
         );
+
+
+    if (!contenedor) {
+        return;
+    }
 
 
     try {
@@ -349,9 +404,21 @@ async function cargarPackingPublico() {
             <div class="grid-ficha-publica">
 
                 <div class="dato-publico">
-
                     <span>
-                        Fecha packing
+                        Fecha de recepción
+                    </span>
+
+                    <strong>
+                        ${formatearFecha(
+                            packing.fechaRecepcion
+                        )}
+                    </strong>
+                </div>
+
+
+                <div class="dato-publico">
+                    <span>
+                        Fecha de packing
                     </span>
 
                     <strong>
@@ -359,12 +426,10 @@ async function cargarPackingPublico() {
                             packing.fechaPacking
                         )}
                     </strong>
-
                 </div>
 
 
                 <div class="dato-publico">
-
                     <span>
                         Empaque
                     </span>
@@ -372,31 +437,62 @@ async function cargarPackingPublico() {
                     <strong>
                         ${packing.tipoEmpaque || "--"}
                     </strong>
-
                 </div>
 
 
                 <div class="dato-publico">
-
                     <span>
-                        Cámara
+                        Temperatura de pre-frío
+                    </span>
+
+                    <strong>
+                        ${packing.prefrioTemp ?? "--"} °C
+                    </strong>
+                </div>
+
+
+                <div class="dato-publico">
+                    <span>
+                        Temperatura de almacenamiento
                     </span>
 
                     <strong>
                         ${packing.temperaturaCamara ?? "--"} °C
                     </strong>
+                </div>
 
+
+                <div class="dato-publico">
+                    <span>
+                        O₂
+                    </span>
+
+                    <strong>
+                        ${packing.o2 ?? "--"} %
+                    </strong>
+                </div>
+
+
+                <div class="dato-publico">
+                    <span>
+                        CO₂
+                    </span>
+
+                    <strong>
+                        ${packing.co2 ?? "--"} %
+                    </strong>
                 </div>
 
             </div>
-
         `;
 
     }
 
+
     catch (error) {
 
         console.error(
+            "❌ Error al cargar packing:",
             error
         );
 
@@ -404,5 +500,258 @@ async function cargarPackingPublico() {
 
 }
 
+
+// ==========================================
+// 05. RECORRIDO
+// ==========================================
+
+async function cargarRecorridoPublico() {
+
+    if (!idLote) {
+        return;
+    }
+
+
+    try {
+
+        const respuesta =
+            await fetch(
+                `${API_URL}/${idLote}/recorrido`
+            );
+
+
+        if (!respuesta.ok) {
+
+            console.log(
+                "Este lote todavía no tiene recorrido registrado."
+            );
+
+            return;
+        }
+
+
+        const recorrido =
+            await respuesta.json();
+
+
+        console.log(
+            "RECORRIDO RECIBIDO:",
+            recorrido
+        );
+
+
+        ponerTexto(
+            "rutaDespacho",
+            recorrido.puertoSalida ||
+            "Puerto de salida pendiente"
+        );
+
+
+        ponerTexto(
+            "rutaEstado",
+            recorrido.estadoEnvio ||
+            "Estado pendiente"
+        );
+
+
+        ponerTexto(
+            "rutaDestino",
+            `${recorrido.ciudadDestino || "--"}, ${recorrido.paisDestino || "--"}`
+        );
+
+
+        ponerTexto(
+            "rutaLlegada",
+            recorrido.fechaLlegadaEstimada
+                ? `Llegada estimada: ${formatearFecha(
+                    recorrido.fechaLlegadaEstimada
+                )}`
+                : "Llegada pendiente"
+        );
+
+    }
+
+
+    catch (error) {
+
+        console.error(
+            "❌ Error al cargar recorrido:",
+            error
+        );
+
+    }
+
+}
+
+
+// ==========================================
+// 06. NAVEGACIÓN / SWIPE
+// ==========================================
+
+const slider =
+    document.querySelector(
+        ".fp-slider"
+    );
+
+
+const slides =
+    document.querySelectorAll(
+        ".fp-slide"
+    );
+
+
+function irASlide(indice) {
+
+    if (!slider) {
+        return;
+    }
+
+
+    if (
+        indice < 0 ||
+        indice >= slides.length
+    ) {
+        return;
+    }
+
+
+    const slide =
+        slides[indice];
+
+
+    slider.scrollTo({
+        left: slide.offsetLeft,
+        behavior: "smooth"
+    });
+
+}
+
+
+// ==========================================
+// BOTONES DE NAVEGACIÓN
+// ==========================================
+
+slides.forEach(
+    (slide, indice) => {
+
+        const botones =
+            slide.querySelectorAll(
+                ".fp-nav-btn"
+            );
+
+
+        if (botones.length === 0) {
+            return;
+        }
+
+
+        const botonAnterior =
+            botones[0];
+
+
+        const botonSiguiente =
+            botones[
+                botones.length - 1
+            ];
+
+
+        if (
+            indice > 0 &&
+            botonAnterior
+        ) {
+
+            botonAnterior.addEventListener(
+                "click",
+                () => {
+
+                    irASlide(
+                        indice - 1
+                    );
+
+                }
+            );
+
+        }
+
+
+        if (
+            indice < slides.length - 1 &&
+            botonSiguiente
+        ) {
+
+            botonSiguiente.addEventListener(
+                "click",
+                () => {
+
+                    irASlide(
+                        indice + 1
+                    );
+
+                }
+            );
+
+        }
+
+    }
+);
+
+
+// ==========================================
+// CONTADOR DE PÁGINA
+// ==========================================
+
+const TOTAL_PAGINAS = 9;
+
+
+function actualizarContadores() {
+
+    slides.forEach(
+        (slide, indice) => {
+
+            const contador =
+                slide.querySelector(
+                    ".fp-contador"
+                );
+
+
+            if (!contador) {
+                return;
+            }
+
+
+            const titulo =
+                slide.dataset.title ||
+                "";
+
+
+            const numero =
+                String(
+                    indice + 1
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
+            contador.textContent =
+                `${numero} / ${String(TOTAL_PAGINAS).padStart(2, "0")}` +
+                (
+                    titulo
+                        ? ` · ${titulo.toUpperCase()}`
+                        : ""
+                );
+
+        }
+    );
+
+}
+
+
+actualizarContadores();
+
+
+// ==========================================
+// INICIAR FICHA
+// ==========================================
 
 cargarFichaPublica();

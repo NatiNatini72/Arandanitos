@@ -3163,7 +3163,7 @@ select#loteDocumento option {
     min-height: 100vh;
 
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: visible;
 
     scroll-snap-type: x mandatory;
     scroll-behavior: smooth;
@@ -4720,6 +4720,17 @@ select#loteDocumento option {
 
     width: min(92vw, 420px);
     max-width: none;
+}
+
+.fp-slider {
+    touch-action: pan-x pan-y;
+}
+
+.fp-slide {
+    height: auto;
+    min-height: 100svh;
+
+    overflow: visible;
 }
 
 }

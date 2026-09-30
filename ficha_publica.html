@@ -36,7 +36,7 @@
        01 · PORTADA
   ========================================= -->
 
-  <section class="fp-slide" data tittle="Portada">
+  <section class="fp-slide" data-title="Portada">
 
     <section class="fp-portada">
 
@@ -168,7 +168,7 @@
        02 · ORIGEN
   ========================================= -->
 
-  <section class="fp-slide"data tittle="Origen">
+  <section class="fp-slide"data-title="Origen">
 
     <section class="fp-origen-slide">
 
@@ -231,7 +231,7 @@
 
         <img
   id="fotoFundoPublica"
-  src="IMAGENES/Llaqta_Agricola2.jpg"
+  src="IMAGENES/Llaqta_agricola2.jpg"
   alt="Arándanos del fundo"
 />
 
@@ -431,66 +431,667 @@
 
   </section>
 
+<!-- ========================================
+     03 · LOTE
+========================================= -->
+
+<section class="fp-slide" data-title="Lote">
+
+  <section class="fp-lote-slide">
+
+    <!-- CABECERA -->
+
+    <div class="fp-slide-top">
+
+      <button
+        type="button"
+        class="fp-nav-btn"
+      >
+        ←
+      </button>
+
+      <span class="fp-contador">
+        03 / 09 · LOTE
+      </span>
+
+      <button
+        type="button"
+        class="fp-nav-btn"
+      >
+        →
+      </button>
+
+    </div>
 
 
-  <!-- ========================================
-       03 · CALIDAD
-  ========================================= -->
+    <!-- INTRO -->
 
-  <section class="fp-slide" data tittle="Calidad">
+    <div class="fp-lote-intro">
 
-    <section class="ficha-bloque fp-calidad-slide">
-
-      <div class="fp-slide-top">
-
-        <button
-          type="button"
-          class="fp-nav-btn"
-        >
-          ←
-        </button>
-
-
-        <span class="fp-contador">
-          03 / 09 · CALIDAD
-        </span>
-
-
-        <button
-          type="button"
-          class="fp-nav-btn"
-        >
-          →
-        </button>
-
-      </div>
-
+      <span class="fp-kicker">
+        LO QUE TIENES DELANTE
+      </span>
 
       <h2>
-        🛡 Calidad visible
+        Un lote. Una identidad.
       </h2>
 
+      <p>
+        Cada lote conserva los datos que permiten seguir
+        su historia desde el campo.
+      </p>
 
-      <div id="calidadPublica">
+    </div>
 
-        <p class="mensaje-proximamente">
-          Consultando calidad...
+
+    <!-- FOTO PRINCIPAL -->
+
+    <div class="fp-lote-hero">
+
+      <img
+        src="IMAGENES/Llaqta_agricola4.jpg"
+        alt="Arándanos correspondientes al lote"
+      >
+
+      <div class="fp-lote-degradado"></div>
+
+
+      <div class="fp-lote-identidad">
+
+        <span>
+          LOTE
+        </span>
+
+        <h3 id="codigoLoteSlide">
+          --
+        </h3>
+
+
+        <p>
+          Variedad:
+          <strong id="variedadLoteSlide">
+            --
+          </strong>
+        </p>
+
+
+        <p>
+          Fundo:
+          <strong id="fundoLoteSlide">
+            --
+          </strong>
         </p>
 
       </div>
 
+    </div>
 
-    </section>
+
+    <!-- SEGUNDA FOTO -->
+
+    <div class="fp-lote-foto-secundaria">
+
+      <img
+        src="IMAGENES/Llaqta_agricola5.jpg"
+        alt="Detalle del proceso del lote"
+      >
+
+    </div>
+
+
+    <!-- INFORMACIÓN DE VARIEDAD -->
+
+    <details class="fp-variedad-acordeon">
+
+      <summary id="tituloInfoVariedad">
+        + Entérate más sobre esta variedad
+      </summary>
+
+
+      <div
+        class="fp-variedad-detalle"
+        id="infoVariedadPublica"
+      >
+
+        <p>
+          Consultando información de la variedad...
+        </p>
+
+      </div>
+
+    </details>
 
   </section>
 
+</section>
+
+<!-- ========================================
+     04 · CALIDAD
+========================================= -->
+
+<section class="fp-slide" data-title="Calidad">
+
+  <section class="fp-calidad-slide">
+
+    <!-- CABECERA -->
+
+    <div class="fp-slide-top">
+
+      <button
+        type="button"
+        class="fp-nav-btn"
+      >
+        ←
+      </button>
+
+      <span class="fp-contador">
+        04 / 09 · CALIDAD
+      </span>
+
+      <button
+        type="button"
+        class="fp-nav-btn"
+      >
+        →
+      </button>
+
+    </div>
+
+
+    <!-- INTRO -->
+
+    <div class="fp-calidad-intro">
+
+      <span class="fp-kicker">
+        SE MIDE. SE REGISTRA.
+      </span>
+
+      <h2>
+        Conoce el lote.
+      </h2>
+
+      <p>
+        Toca cada indicador para entender
+        qué significa y por qué importa.
+      </p>
+
+    </div>
+
+
+    <!-- TARJETAS DE CALIDAD -->
+
+    <div class="fp-calidad-grid">
+
+
+      <!-- FIRMEZA -->
+
+<!-- FIRMEZA -->
+
+<div class="fp-calidad-card">
+
+  <div class="fp-calidad-resumen">
+
+    <span>
+      FIRMEZA
+    </span>
+
+    <strong id="firmezaPublica">
+      --
+    </strong>
+
+  </div>
+
+  <button
+    type="button"
+    class="fp-info-oreja"
+    data-popup="popupFirmeza"
+  >
+    ?
+  </button>
+
+
+  <div
+    class="fp-calidad-popup"
+    id="popupFirmeza"
+  >
+
+    <button
+      type="button"
+      class="fp-popup-cerrar"
+      data-popup="popupFirmeza"
+    >
+      ×
+    </button>
+
+    <span class="fp-info-kicker">
+      ¿QUÉ SIGNIFICA?
+    </span>
+
+    <h3>
+      Firmeza
+    </h3>
+
+    <p>
+      La firmeza indica cuánto se resiste el fruto
+      a deformarse cuando recibe presión.
+      Está relacionada con la turgencia del tejido,
+      es decir, con qué tan bien conservan sus células
+      el agua y la presión interna.
+    </p>
+
+    <div class="fp-info-dato">
+      <strong>
+        ¿Cómo se mide?
+      </strong>
+
+      <span>
+        Con un <b>durómetro para frutas</b>,
+        aplicando una presión controlada sobre el fruto.
+      </span>
+    </div>
+
+    <div class="fp-info-dato">
+      <strong>
+        Unidad
+      </strong>
+
+      <span>
+        Unidades Shore (USh)
+      </span>
+    </div>
+
+    <div class="fp-info-dato">
+      <strong>
+        ¿Por qué nos importa?
+      </strong>
+
+      <span>
+        Ayuda a evaluar qué tan bien puede conservar
+        su textura durante la manipulación,
+        el almacenamiento y el transporte.
+      </span>
+    </div>
+
+    <div class="fp-info-imagen">
+
+      <img
+        src="IMAGENES/arandano_firmeza.png"
+        alt="Medición de firmeza en arándanos"
+      >
+
+    </div>
+
+    <div class="fp-info-fuente">
+
+      <span>
+        Para leer más:
+      </span>
+
+      <a
+        href="https://redagricola.com/potencial-varietal-en-chile-para-enfrentar-el-escenario-mundial-del-arandano/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Redagrícola
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+      </details>
+
+
+      <!-- CALIBRE -->
+
+      <details class="fp-calidad-card">
+
+        <summary>
+
+          <div class="fp-calidad-resumen">
+
+            <span>
+              CALIBRE
+            </span>
+
+            <strong id="calibrePublico">
+              --
+            </strong>
+
+          </div>
+
+          <div class="fp-info-oreja">
+            ?
+          </div>
+
+        </summary>
+
+<div class="fp-calidad-explicacion">
+
+  <span class="fp-info-kicker">
+    ¿QUÉ SIGNIFICA?
+  </span>
+
+  <h3>
+    Firmeza
+  </h3>
+
+  <p>
+    La firmeza indica cuánto se resiste el fruto
+    a deformarse cuando recibe presión.
+    Está relacionada con la turgencia del tejido,
+    es decir, con qué tan bien conservan sus células
+    el agua y la presión interna.
+  </p>
+
+
+  <div class="fp-info-dato">
+
+    <strong>
+      ¿Cómo se mide?
+    </strong>
+
+    <span>
+      Con un <b>durómetro para frutas</b>,
+      aplicando una presión controlada sobre el fruto.
+    </span>
+
+  </div>
+
+
+  <div class="fp-info-dato">
+
+    <strong>
+      Unidad
+    </strong>
+
+    <span>
+      Unidades Shore (USh)
+    </span>
+
+  </div>
+
+
+  <div class="fp-info-dato">
+
+    <strong>
+      ¿Por qué nos importa?
+    </strong>
+
+    <span>
+      Ayuda a evaluar qué tan bien puede conservar
+      su textura durante la manipulación,
+      el almacenamiento y el transporte.
+    </span>
+
+  </div>
+
+
+  <div class="fp-info-imagen">
+
+    <img
+      src="IMAGENES/arandano_firmeza.png"
+      alt="Medición de firmeza en arándanos"
+    >
+
+  </div>
+
+
+  <div class="fp-info-fuente">
+
+    <span>
+      Para leer más:
+    </span>
+
+    <a
+      href="https://redagricola.com/potencial-varietal-en-chile-para-enfrentar-el-escenario-mundial-del-arandano/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Redagrícola
+    </a>
+
+  </div>
+
+</div>
+
+      </details>
+
+
+      <!-- BRIX -->
+
+      <details class="fp-calidad-card">
+
+        <summary>
+
+          <div class="fp-calidad-resumen">
+
+            <span>
+              °BRIX
+            </span>
+
+            <strong id="brixPublico">
+              --
+            </strong>
+
+          </div>
+
+          <div class="fp-info-oreja">
+            ?
+          </div>
+
+        </summary>
+
+        <div class="fp-calidad-explicacion">
+
+          <span class="fp-info-kicker">
+            ¿QUÉ SIGNIFICA?
+          </span>
+
+          <h3>
+            Sólidos solubles
+          </h3>
+
+          <p>
+            Aquí irá tu explicación sobre los
+            grados Brix.
+          </p>
+
+          <div class="fp-info-dato">
+            <strong>Unidad</strong>
+            <span>°Brix</span>
+          </div>
+
+          <div class="fp-info-dato">
+            <strong>¿Por qué nos interesa?</strong>
+            <span>
+              Por completar.
+            </span>
+          </div>
+
+        </div>
+
+      </details>
+
+
+      <!-- ACIDEZ -->
+
+      <details class="fp-calidad-card">
+
+        <summary>
+
+          <div class="fp-calidad-resumen">
+
+            <span>
+              ACIDEZ
+            </span>
+
+            <strong id="acidezPublica">
+              --
+            </strong>
+
+          </div>
+
+          <div class="fp-info-oreja">
+            ?
+          </div>
+
+        </summary>
+
+        <div class="fp-calidad-explicacion">
+
+          <span class="fp-info-kicker">
+            ¿QUÉ SIGNIFICA?
+          </span>
+
+          <h3>
+            Acidez
+          </h3>
+
+          <p>
+            Aquí colocaremos la explicación
+            correspondiente.
+          </p>
+
+          <div class="fp-info-dato">
+            <strong>Unidad</strong>
+            <span>Por completar</span>
+          </div>
+
+          <div class="fp-info-dato">
+            <strong>¿Por qué nos interesa?</strong>
+            <span>
+              Por completar.
+            </span>
+          </div>
+
+        </div>
+
+      </details>
+
+
+      <!-- DEFECTOS -->
+
+      <details class="fp-calidad-card">
+
+        <summary>
+
+          <div class="fp-calidad-resumen">
+
+            <span>
+              DEFECTOS
+            </span>
+
+            <strong id="defectosPublico">
+              --
+            </strong>
+
+          </div>
+
+          <div class="fp-info-oreja">
+            ?
+          </div>
+
+        </summary>
+
+        <div class="fp-calidad-explicacion">
+
+          <span class="fp-info-kicker">
+            ¿QUÉ SIGNIFICA?
+          </span>
+
+          <h3>
+            Defectos
+          </h3>
+
+          <p>
+            Aquí explicaremos qué representa
+            este porcentaje.
+          </p>
+
+          <div class="fp-info-dato">
+            <strong>Unidad</strong>
+            <span>%</span>
+          </div>
+
+          <div class="fp-info-dato">
+            <strong>¿Por qué nos interesa?</strong>
+            <span>
+              Por completar.
+            </span>
+          </div>
+
+        </div>
+
+      </details>
+
+
+      <!-- OBSERVACIONES -->
+
+      <details class="fp-calidad-card">
+
+        <summary>
+
+          <div class="fp-calidad-resumen">
+
+            <span>
+              OBSERVACIONES
+            </span>
+
+            <strong class="fp-calidad-texto">
+              Ver registro
+            </strong>
+
+          </div>
+
+          <div class="fp-info-oreja">
+            +
+          </div>
+
+        </summary>
+
+        <div class="fp-calidad-explicacion">
+
+          <span class="fp-info-kicker">
+            REGISTRO DEL LOTE
+          </span>
+
+          <h3>
+            Observaciones
+          </h3>
+
+          <p id="observacionesCalidadPublica">
+            Sin observaciones registradas.
+          </p>
+
+        </div>
+
+      </details>
+
+
+    </div>
+
+
+    <!-- NOTA INFERIOR -->
+
+    <p class="fp-calidad-nota">
+      Los valores mostrados corresponden
+      a los registros públicos disponibles
+      para este lote.
+    </p>
+
+  </section>
+
+</section>
 
 
   <!-- ========================================
-       04 · PACKING
+       05 · PACKING
   ========================================= -->
 
-  <section class="fp-slide" data tittle="Packing">
+  <section class="fp-slide" data-title="Packing">
 
     <section class="ficha-bloque fp-packing-slide">
 
@@ -540,10 +1141,10 @@
 
 
   <!-- ========================================
-       05 · RECORRIDO
+       06 · RECORRIDO
   ========================================= -->
 
-  <section class="fp-slide" data tittle="Recorrido">
+  <section class="fp-slide" data-title="Recorrido">
 
     <section class="ficha-bloque fp-recorrido-slide">
 

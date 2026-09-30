@@ -1,20 +1,17 @@
 console.log("✅ ficha_publica.js está funcionando");
 
 
-// ==========================================
+// =========================================================
 // CONFIGURACIÓN
-// ==========================================
+// =========================================================
 
-const API_URL =
-    `${API_BASE_URL}/api/lotes`;
+const API_URL = `${API_BASE_URL}/api/lotes`;
 
-const parametros =
-    new URLSearchParams(
-        window.location.search
-    );
+const parametros = new URLSearchParams(
+    window.location.search
+);
 
-const idLote =
-    parametros.get("id");
+const idLote = parametros.get("id");
 
 console.log(
     "ID LOTE DESDE URL:",
@@ -22,9 +19,9 @@ console.log(
 );
 
 
-// ==========================================
+// =========================================================
 // UTILIDADES
-// ==========================================
+// =========================================================
 
 function formatearFecha(fecha) {
 
@@ -32,8 +29,7 @@ function formatearFecha(fecha) {
         return "--";
     }
 
-    const partes =
-        fecha.split("-");
+    const partes = fecha.split("-");
 
     if (partes.length !== 3) {
         return fecha;
@@ -45,40 +41,212 @@ function formatearFecha(fecha) {
 
 function ponerTexto(id, valor) {
 
-    const elemento =
-        document.getElementById(id);
+    const elemento = document.getElementById(id);
 
-    if (elemento) {
-        elemento.textContent =
-            valor ?? "--";
+    if (!elemento) {
+        return;
     }
 
+    elemento.textContent =
+        valor ?? "--";
 }
 
 
 function ponerHTML(id, contenido) {
 
-    const elemento =
-        document.getElementById(id);
+    const elemento = document.getElementById(id);
 
-    if (elemento) {
-        elemento.innerHTML =
-            contenido;
+    if (!elemento) {
+        return;
     }
 
+    elemento.innerHTML = contenido;
 }
 
 
-// ==========================================
+// =========================================================
+// INFORMACIÓN DIVULGATIVA DE VARIEDAD
+// =========================================================
+
+function renderizarInfoVariedad(variedad) {
+
+    const contenedor =
+        document.getElementById(
+            "infoVariedadPublica"
+        );
+
+    if (!contenedor) {
+        return;
+    }
+
+    const nombre =
+        (variedad || "")
+            .trim()
+            .toLowerCase();
+
+
+    // -----------------------------------------------------
+    // VENTURA
+    // -----------------------------------------------------
+
+    if (nombre.includes("ventura")) {
+
+        contenedor.innerHTML = `
+
+            <div class="fp-sabias-variedad">
+
+                <span class="fp-sabias-etiqueta">
+                    🫐 SABÍAS QUE...
+                </span>
+
+                <h4>
+                    Ventura está hecha para viajar.
+                </h4>
+
+                <p>
+                    Ventura es una variedad de arándano
+                    ampliamente utilizada en la producción
+                    peruana y con una presencia importante
+                    en mercados de exportación.
+                </p>
+
+
+                <div class="fp-sabias-grid">
+
+                    <div>
+                        <strong>
+                            ✈️ Buena viajera
+                        </strong>
+
+                        <p>
+                            Es reconocida por características
+                            que favorecen el transporte y la
+                            comercialización a largas distancias.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <strong>
+                            🫐 Buen calibre
+                        </strong>
+
+                        <p>
+                            Se describe por presentar buen tamaño,
+                            bloom y una apariencia comercial
+                            atractiva.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <strong>
+                            🌱 Productiva
+                        </strong>
+
+                        <p>
+                            Su productividad ha contribuido
+                            a su amplia presencia en campos
+                            de producción peruanos.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <p class="fp-sabias-nota">
+                    El comportamiento final del fruto también
+                    depende del ambiente, manejo agronómico
+                    y condiciones de producción.
+                </p>
+
+
+               <div class="fp-fuentes-variedad">
+
+    <strong>
+        Para seguir leyendo
+    </strong>
+
+    <ol>
+
+        <li>
+            <a
+                href="https://blueberriesconsulting.com/ventura-mantiene-preferencia-de-la-fruta-peruana-en-los-mercadosle-sigue-sekoya/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Blueberries Consulting
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="https://redagricola.com/la-mejor-variedad-para-peru-es-una-ventura-pero-con-mejor-sabor/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Redagrícola
+            </a>
+        </li>
+
+        <li>
+            <a
+                href="https://arandanosperu.pe/2025/01/17/consideran-el-arandano-ventura-mas-resistente-y-adecuado-para-exportacion/"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Arándanos Perú
+            </a>
+        </li>
+
+    </ol>
+
+</div>
+
+            </div>
+        `;
+
+        return;
+    }
+
+
+    // -----------------------------------------------------
+    // OTRAS VARIEDADES
+    // -----------------------------------------------------
+
+    contenedor.innerHTML = `
+
+        <div class="fp-sabias-variedad">
+
+            <span class="fp-sabias-etiqueta">
+                🫐 SABÍAS QUE...
+            </span>
+
+            <h4>
+                ${variedad || "Esta variedad"}
+            </h4>
+
+            <p>
+                Próximamente NECHDATA mostrará aquí
+                información divulgativa específica
+                de esta variedad.
+            </p>
+
+        </div>
+    `;
+}
+
+
+// =========================================================
 // CARGAR DATOS GENERALES DEL LOTE
-// ==========================================
+// =========================================================
 
 async function cargarFichaPublica() {
 
     if (!idLote) {
 
         console.error(
-            "No se recibió un ID de lote."
+            "❌ No se recibió un ID de lote."
         );
 
         return;
@@ -88,7 +256,7 @@ async function cargarFichaPublica() {
     try {
 
         console.log(
-            "Consultando:",
+            "Consultando lote:",
             `${API_URL}/${idLote}`
         );
 
@@ -104,7 +272,6 @@ async function cargarFichaPublica() {
             throw new Error(
                 "No se encontró el lote."
             );
-
         }
 
 
@@ -113,14 +280,14 @@ async function cargarFichaPublica() {
 
 
         console.log(
-            "LOTE RECIBIDO:",
+            "✅ LOTE RECIBIDO:",
             lote
         );
 
 
-        // ==========================================
-        // 01. PORTADA
-        // ==========================================
+        // =================================================
+        // 01 · PORTADA
+        // =================================================
 
         ponerTexto(
             "codigoPublicoPortada",
@@ -152,9 +319,9 @@ async function cargarFichaPublica() {
         );
 
 
-        // ==========================================
-        // 02. ORIGEN
-        // ==========================================
+        // =================================================
+        // 02 · ORIGEN
+        // =================================================
 
         ponerTexto(
             "regionTituloOrigen",
@@ -218,9 +385,43 @@ async function cargarFichaPublica() {
         );
 
 
-        // ==========================================
-        // 05. RECORRIDO - ORIGEN
-        // ==========================================
+        // =================================================
+        // 03 · LOTE
+        // =================================================
+
+        ponerTexto(
+            "codigoLoteSlide",
+            lote.lote
+        );
+
+
+        ponerTexto(
+            "variedadLoteSlide",
+            lote.variedad
+        );
+
+
+        ponerTexto(
+            "fundoLoteSlide",
+            lote.fundo
+        );
+
+
+        ponerTexto(
+            "tituloInfoVariedad",
+            `+ Entérate más sobre ${lote.variedad || "esta variedad"}`
+        );
+
+
+        renderizarInfoVariedad(
+            lote.variedad
+        );
+
+
+        // =================================================
+        // 06 · RECORRIDO
+        // ORIGEN DEL TIMELINE
+        // =================================================
 
         ponerTexto(
             "rutaOrigen",
@@ -228,16 +429,17 @@ async function cargarFichaPublica() {
         );
 
 
-        // ==========================================
-        // CARGAR DEMÁS SECCIONES
-        // ==========================================
+        // =================================================
+        // CARGAR SECCIONES COMPLEMENTARIAS
+        // =================================================
 
         await cargarCalidadPublica();
+
         await cargarPackingPublico();
+
         await cargarRecorridoPublico();
 
     }
-
 
     catch (error) {
 
@@ -245,28 +447,15 @@ async function cargarFichaPublica() {
             "❌ Error al cargar ficha pública:",
             error
         );
-
     }
-
 }
 
 
-// ==========================================
-// 03. CALIDAD
-// ==========================================
+// =========================================================
+// 04 · CALIDAD
+// =========================================================
 
 async function cargarCalidadPublica() {
-
-    const contenedor =
-        document.getElementById(
-            "calidadPublica"
-        );
-
-
-    if (!contenedor) {
-        return;
-    }
-
 
     try {
 
@@ -278,11 +467,9 @@ async function cargarCalidadPublica() {
 
         if (!respuesta.ok) {
 
-            contenedor.innerHTML = `
-                <p class="mensaje-proximamente">
-                    Sin información pública de calidad.
-                </p>
-            `;
+            console.log(
+                "ℹ️ Este lote todavía no tiene calidad registrada."
+            );
 
             return;
         }
@@ -292,59 +479,55 @@ async function cargarCalidadPublica() {
             await respuesta.json();
 
 
-        contenedor.innerHTML = `
-
-            <div class="grid-ficha-publica">
-
-                <div class="dato-publico">
-                    <span>Calibre</span>
-
-                    <strong>
-                        ${calidad.calibre ?? "--"} mm
-                    </strong>
-                </div>
+        console.log(
+            "✅ CALIDAD RECIBIDA:",
+            calidad
+        );
 
 
-                <div class="dato-publico">
-                    <span>°Brix</span>
-
-                    <strong>
-                        ${calidad.brix ?? "--"}
-                    </strong>
-                </div>
+        ponerTexto(
+            "firmezaPublica",
+            calidad.firmeza ?? "--"
+        );
 
 
-                <div class="dato-publico">
-                    <span>Firmeza</span>
-
-                    <strong>
-                        ${calidad.firmeza ?? "--"}
-                    </strong>
-                </div>
-
-
-                <div class="dato-publico">
-                    <span>Acidez</span>
-
-                    <strong>
-                        ${calidad.acidez ?? "--"}
-                    </strong>
-                </div>
+        ponerTexto(
+            "calibrePublico",
+            calidad.calibre != null
+                ? `${calidad.calibre} mm`
+                : "--"
+        );
 
 
-                <div class="dato-publico">
-                    <span>Defectos</span>
+        ponerTexto(
+            "brixPublico",
+            calidad.brix != null
+                ? `${calidad.brix} °Brix`
+                : "--"
+        );
 
-                    <strong>
-                        ${calidad.defectos ?? "--"} %
-                    </strong>
-                </div>
 
-            </div>
-        `;
+        ponerTexto(
+            "acidezPublica",
+            calidad.acidez ?? "--"
+        );
+
+
+        ponerTexto(
+            "defectosPublico",
+            calidad.defectos != null
+                ? `${calidad.defectos} %`
+                : "--"
+        );
+
+
+        ponerTexto(
+            "observacionesCalidadPublica",
+            calidad.observaciones ||
+            "Sin observaciones registradas."
+        );
 
     }
-
 
     catch (error) {
 
@@ -352,15 +535,73 @@ async function cargarCalidadPublica() {
             "❌ Error al cargar calidad:",
             error
         );
-
     }
-
 }
 
+// =========================================================
+// POPUPS DE CALIDAD
+// =========================================================
 
-// ==========================================
-// 04. PACKING
-// ==========================================
+document.querySelectorAll(
+    "[data-popup]"
+).forEach(
+    (boton) => {
+
+        boton.addEventListener(
+            "click",
+            () => {
+
+                const idPopup =
+                    boton.dataset.popup;
+
+                const popup =
+                    document.getElementById(
+                        idPopup
+                    );
+
+                if (!popup) {
+                    return;
+                }
+
+
+                const estabaActivo =
+                    popup.classList.contains(
+                        "activo"
+                    );
+
+
+                // CERRAR TODOS
+
+                document.querySelectorAll(
+                    ".fp-calidad-popup"
+                ).forEach(
+                    (item) => {
+
+                        item.classList.remove(
+                            "activo"
+                        );
+                    }
+                );
+
+
+                // SI ESTABA CERRADO, ABRIRLO
+
+                if (!estabaActivo) {
+
+                    popup.classList.add(
+                        "activo"
+                    );
+                }
+
+            }
+        );
+
+    }
+);
+
+// =========================================================
+// 05 · PACKING
+// =========================================================
 
 async function cargarPackingPublico() {
 
@@ -386,6 +627,7 @@ async function cargarPackingPublico() {
         if (!respuesta.ok) {
 
             contenedor.innerHTML = `
+
                 <p class="mensaje-proximamente">
                     Sin información pública de packing.
                 </p>
@@ -399,11 +641,19 @@ async function cargarPackingPublico() {
             await respuesta.json();
 
 
+        console.log(
+            "✅ PACKING RECIBIDO:",
+            packing
+        );
+
+
         contenedor.innerHTML = `
 
             <div class="grid-ficha-publica">
 
+
                 <div class="dato-publico">
+
                     <span>
                         Fecha de recepción
                     </span>
@@ -413,10 +663,12 @@ async function cargarPackingPublico() {
                             packing.fechaRecepcion
                         )}
                     </strong>
+
                 </div>
 
 
                 <div class="dato-publico">
+
                     <span>
                         Fecha de packing
                     </span>
@@ -426,10 +678,12 @@ async function cargarPackingPublico() {
                             packing.fechaPacking
                         )}
                     </strong>
+
                 </div>
 
 
                 <div class="dato-publico">
+
                     <span>
                         Empaque
                     </span>
@@ -437,10 +691,12 @@ async function cargarPackingPublico() {
                     <strong>
                         ${packing.tipoEmpaque || "--"}
                     </strong>
+
                 </div>
 
 
                 <div class="dato-publico">
+
                     <span>
                         Temperatura de pre-frío
                     </span>
@@ -448,10 +704,12 @@ async function cargarPackingPublico() {
                     <strong>
                         ${packing.prefrioTemp ?? "--"} °C
                     </strong>
+
                 </div>
 
 
                 <div class="dato-publico">
+
                     <span>
                         Temperatura de almacenamiento
                     </span>
@@ -459,10 +717,12 @@ async function cargarPackingPublico() {
                     <strong>
                         ${packing.temperaturaCamara ?? "--"} °C
                     </strong>
+
                 </div>
 
 
                 <div class="dato-publico">
+
                     <span>
                         O₂
                     </span>
@@ -470,10 +730,12 @@ async function cargarPackingPublico() {
                     <strong>
                         ${packing.o2 ?? "--"} %
                     </strong>
+
                 </div>
 
 
                 <div class="dato-publico">
+
                     <span>
                         CO₂
                     </span>
@@ -481,13 +743,14 @@ async function cargarPackingPublico() {
                     <strong>
                         ${packing.co2 ?? "--"} %
                     </strong>
+
                 </div>
+
 
             </div>
         `;
 
     }
-
 
     catch (error) {
 
@@ -495,15 +758,13 @@ async function cargarPackingPublico() {
             "❌ Error al cargar packing:",
             error
         );
-
     }
-
 }
 
 
-// ==========================================
-// 05. RECORRIDO
-// ==========================================
+// =========================================================
+// 06 · RECORRIDO
+// =========================================================
 
 async function cargarRecorridoPublico() {
 
@@ -523,7 +784,7 @@ async function cargarRecorridoPublico() {
         if (!respuesta.ok) {
 
             console.log(
-                "Este lote todavía no tiene recorrido registrado."
+                "ℹ️ Este lote todavía no tiene recorrido registrado."
             );
 
             return;
@@ -535,7 +796,7 @@ async function cargarRecorridoPublico() {
 
 
         console.log(
-            "RECORRIDO RECIBIDO:",
+            "✅ RECORRIDO RECIBIDO:",
             recorrido
         );
 
@@ -571,22 +832,19 @@ async function cargarRecorridoPublico() {
 
     }
 
-
     catch (error) {
 
         console.error(
             "❌ Error al cargar recorrido:",
             error
         );
-
     }
-
 }
 
 
-// ==========================================
-// 06. NAVEGACIÓN / SWIPE
-// ==========================================
+// =========================================================
+// 07 · NAVEGACIÓN / SWIPE
+// =========================================================
 
 const slider =
     document.querySelector(
@@ -599,6 +857,10 @@ const slides =
         ".fp-slide"
     );
 
+
+// ---------------------------------------------------------
+// IR A UN SLIDE
+// ---------------------------------------------------------
 
 function irASlide(indice) {
 
@@ -620,16 +882,18 @@ function irASlide(indice) {
 
 
     slider.scrollTo({
-        left: slide.offsetLeft,
-        behavior: "smooth"
-    });
 
+        left: slide.offsetLeft,
+
+        behavior: "smooth"
+
+    });
 }
 
 
-// ==========================================
-// BOTONES DE NAVEGACIÓN
-// ==========================================
+// ---------------------------------------------------------
+// BOTONES ANTERIOR / SIGUIENTE
+// ---------------------------------------------------------
 
 slides.forEach(
     (slide, indice) => {
@@ -655,6 +919,8 @@ slides.forEach(
             ];
 
 
+        // ANTERIOR
+
         if (
             indice > 0 &&
             botonAnterior
@@ -667,12 +933,12 @@ slides.forEach(
                     irASlide(
                         indice - 1
                     );
-
                 }
             );
-
         }
 
+
+        // SIGUIENTE
 
         if (
             indice < slides.length - 1 &&
@@ -686,19 +952,17 @@ slides.forEach(
                     irASlide(
                         indice + 1
                     );
-
                 }
             );
-
         }
 
     }
 );
 
 
-// ==========================================
+// =========================================================
 // CONTADOR DE PÁGINA
-// ==========================================
+// =========================================================
 
 const TOTAL_PAGINAS = 9;
 
@@ -720,8 +984,7 @@ function actualizarContadores() {
 
 
             const titulo =
-                slide.dataset.title ||
-                "";
+                slide.dataset.title || "";
 
 
             const numero =
@@ -733,8 +996,17 @@ function actualizarContadores() {
                 );
 
 
+            const total =
+                String(
+                    TOTAL_PAGINAS
+                ).padStart(
+                    2,
+                    "0"
+                );
+
+
             contador.textContent =
-                `${numero} / ${String(TOTAL_PAGINAS).padStart(2, "0")}` +
+                `${numero} / ${total}` +
                 (
                     titulo
                         ? ` · ${titulo.toUpperCase()}`
@@ -743,15 +1015,14 @@ function actualizarContadores() {
 
         }
     );
-
 }
 
 
 actualizarContadores();
 
 
-// ==========================================
+// =========================================================
 // INICIAR FICHA
-// ==========================================
+// =========================================================
 
 cargarFichaPublica();

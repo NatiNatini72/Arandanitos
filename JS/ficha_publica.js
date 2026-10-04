@@ -889,7 +889,50 @@ function irASlide(indice) {
 
     });
 }
+// ---------------------------------------------------------
+// BOTONES SIGUIENTE
+// ---------------------------------------------------------
 
+const botonesSiguiente =
+    document.querySelectorAll(
+        ".fp-nav-btn"
+    );
+
+
+botonesSiguiente.forEach((boton) => {
+
+    boton.addEventListener(
+        "click",
+        () => {
+
+            const slideActual =
+                boton.closest(
+                    ".fp-slide"
+                );
+
+
+            if (!slideActual) {
+                return;
+            }
+
+
+            const indiceActual =
+                Array.from(slides)
+                    .indexOf(slideActual);
+
+
+            const siguienteIndice =
+                indiceActual + 1;
+
+
+            irASlide(
+                siguienteIndice
+            );
+
+        }
+    );
+
+});
 
 // ---------------------------------------------------------
 // BOTONES ANTERIOR / SIGUIENTE

@@ -5950,6 +5950,668 @@ body.fp-pop {
         width: 14px;
     }
 }
+
+/* ==========================================
+   INDEX · NECHDATA AGROTECH POP
+========================================== */
+
+body.home-pop {
+    --home-violeta: #5922e8;
+    --home-lima: #c4ff38;
+    --home-navy: #101653;
+    --home-perla: #fffef8;
+
+    margin: 0;
+    background: var(--home-perla);
+    color: var(--home-navy);
+}
+
+.home-pop *,
+.home-pop *::before,
+.home-pop *::after {
+    box-sizing: border-box;
+}
+
+/* BARRA SUPERIOR */
+
+.home-pop .barra-superior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 10px 5%;
+    background: var(--home-navy);
+    color: #fff;
+}
+
+.home-pop .selector-perfil,
+.home-pop .usuario-opciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.home-pop .barra-superior a {
+    color: #fff;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.home-pop .barra-superior .boton-registro {
+    padding: 9px 16px;
+    background: var(--home-lima);
+    color: var(--home-navy);
+    border-radius: 8px;
+}
+
+/* MENÚ */
+
+.home-pop .encabezado-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 22px 5%;
+    background: #fff;
+    border-bottom: 2px solid #eee7ff;
+    box-shadow: none;
+}
+
+.home-pop .logo-nechdata {
+    display: block;
+    width: 220px;
+    max-width: 100%;
+    height: auto;
+}
+
+.home-pop .menu-principal {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.home-pop .menu-principal a {
+    color: var(--home-navy);
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.home-pop .menu-principal a:hover {
+    color: var(--home-violeta);
+}
+
+/* PORTADA */
+
+.home-pop .hero-nechdata {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 44px;
+
+    width: min(1280px, 90%);
+    margin: 0 auto;
+    padding: 60px 0;
+
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.home-pop .hero-contenido {
+    min-width: 0;
+}
+
+.home-pop .etiqueta-hero {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: var(--home-lima);
+    color: var(--home-navy);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+}
+
+.home-pop .hero-contenido h1 {
+    margin: 22px 0;
+    color: var(--home-navy);
+    font-size: clamp(38px, 4.5vw, 66px);
+    font-weight: 900;
+    line-height: 1.03;
+    letter-spacing: -0.045em;
+}
+
+.home-pop .hero-contenido h1 span {
+    display: block;
+}
+
+.home-pop .hero-contenido > p {
+    max-width: 540px;
+    margin: 0 0 28px;
+    color: #444c71;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.home-pop .hero-botones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.home-pop .home-pop-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 52px;
+    padding: 14px 20px;
+
+    border: 2px solid var(--home-navy);
+    border-radius: 12px;
+    box-shadow: 4px 4px 0 var(--home-navy);
+
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.4;
+    text-align: center;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.home-pop .home-pop-btn-lima {
+    background: var(--home-lima);
+    color: var(--home-navy);
+}
+
+.home-pop .home-pop-btn-borde {
+    background: #fff;
+    color: var(--home-navy);
+    border-color: var(--home-violeta);
+    box-shadow: 4px 4px 0 #ddd1ff;
+}
+
+.home-pop .home-pop-btn-navy {
+    background: var(--home-navy);
+    color: #fff;
+    box-shadow: 4px 4px 0 #8c72e0;
+}
+
+.home-pop .home-pop-btn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 var(--home-navy);
+}
+
+.home-pop .home-enlace-ayuda {
+    display: inline-block;
+    margin-top: 22px;
+    color: var(--home-violeta);
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+/* FOTO ORIGINAL */
+
+.home-pop .hero-visual {
+    position: relative;
+    min-width: 0;
+    min-height: 0;
+    padding: 14px;
+    background: var(--home-violeta);
+    border-radius: 26px;
+    box-shadow: 7px 7px 0 #ded4ff;
+}
+
+.home-pop .imagen-hero-arandanos {
+    position: static;
+    display: block;
+    width: 100%;
+    height: 390px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+.home-pop .hero-overlay-card {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 16px 20px;
+    transform: none;
+
+    background: var(--home-perla);
+    color: var(--home-navy);
+    border-left: 8px solid var(--home-lima);
+    border-radius: 12px;
+}
+
+.home-pop .hero-overlay-card h2 {
+    margin: 0 0 4px;
+    color: var(--home-navy);
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.home-pop .hero-overlay-card p {
+    margin: 0;
+    color: #444c71;
+    font-size: 14px;
+}
+
+/* FRANJA TIPO TV */
+
+.home-pop .home-franja-modulos {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    padding: 22px 5%;
+
+    background: var(--home-navy);
+    color: var(--home-lima);
+}
+
+.home-pop .home-franja-modulos span {
+    padding: 5px 12px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+}
+
+.home-pop .home-franja-modulos span + span {
+    border-left: 1px solid #626891;
+}
+
+/* SECCIONES */
+
+.home-pop .seccion-home {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 60px 5%;
+}
+
+.home-pop .encabezado-home {
+    max-width: 850px;
+    margin: 0 auto 32px;
+    text-align: center;
+}
+
+.home-pop .encabezado-home > span,
+.home-pop .etiqueta-home {
+    color: var(--home-violeta);
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.home-pop .encabezado-home h2,
+.home-pop .bloque-nosotros h2 {
+    margin: 12px 0;
+    color: var(--home-navy);
+    font-size: clamp(28px, 3vw, 42px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -0.03em;
+}
+
+.home-pop .encabezado-home p {
+    color: #444c71;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* REGISTRA · TRAZA · CONSULTA */
+
+.home-pop .tarjetas-home {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 26px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.home-pop .tarjeta-home {
+    padding: 28px;
+    background: #fff;
+    border: 2px solid #e4dafa;
+    border-radius: 22px;
+    box-shadow: none;
+}
+
+.home-pop .tarjeta-home:nth-child(1) {
+    background: #efffc8;
+}
+
+.home-pop .tarjeta-home:nth-child(2) {
+    background: #eee7ff;
+}
+
+.home-pop .home-paso-cabecera {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.home-pop .home-numero-paso {
+    color: var(--home-navy);
+    font-size: 62px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.home-pop .icono-home {
+    display: grid;
+    place-items: center;
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    background: transparent;
+    font-size: 44px;
+}
+
+.home-pop .tarjeta-home h3 {
+    margin: 0 0 12px;
+    color: var(--home-navy);
+    font-size: 26px;
+    font-weight: 900;
+}
+
+.home-pop .tarjeta-home p {
+    margin: 0;
+    color: #444c71;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+/* BENEFICIOS */
+
+.home-pop .fondo-home {
+    background: var(--home-violeta);
+}
+
+.home-pop .fondo-home .encabezado-home > span {
+    color: var(--home-lima);
+}
+
+.home-pop .fondo-home .encabezado-home h2 {
+    color: #fff;
+}
+
+.home-pop .beneficios-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.home-pop .beneficio-home {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 22px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: none;
+}
+
+.home-pop .home-beneficio-icono {
+    flex-shrink: 0;
+    font-size: 30px;
+}
+
+.home-pop .beneficio-home h3 {
+    margin: 0 0 10px;
+    color: var(--home-navy);
+    font-size: 19px;
+    font-weight: 900;
+}
+
+.home-pop .beneficio-home p {
+    margin: 0;
+    color: #444c71;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* NOSOTROS */
+
+.home-pop .bloque-nosotros {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: 48px;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.home-pop .bloque-nosotros p {
+    color: #444c71;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.home-pop .caja-frase {
+    position: relative;
+    padding: 32px;
+    background: var(--home-navy);
+    color: #fff;
+    border-radius: 22px;
+}
+
+.home-pop .caja-frase .home-comillas {
+    display: block;
+    color: var(--home-lima);
+    font-size: 90px;
+    font-weight: 900;
+    line-height: 0.8;
+}
+
+.home-pop .caja-frase blockquote {
+    margin: 18px 0;
+    color: #fff;
+    font-size: 25px;
+    line-height: 1.5;
+}
+
+.home-pop .caja-frase .home-firma {
+    color: var(--home-lima);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+/* CTA FINAL */
+
+.home-pop .cta-home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    width: min(1280px, 90%);
+    margin: 0 auto 32px;
+    padding: 28px;
+
+    background: var(--home-lima);
+    color: var(--home-navy);
+    border-radius: 20px;
+}
+
+.home-pop .cta-home > div {
+    flex: 1 1 320px;
+}
+
+.home-pop .cta-home span {
+    color: var(--home-navy);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+}
+
+.home-pop .cta-home h2 {
+    margin: 8px 0 0;
+    color: var(--home-navy);
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+/* FOOTER */
+
+.home-pop .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    padding: 28px 5%;
+    background: var(--home-navy);
+    color: #fff;
+}
+
+.home-pop .footer-marca {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.home-pop .footer-marca strong {
+    color: #fff;
+    font-size: 23px;
+    font-weight: 900;
+}
+
+.home-pop .footer span {
+    color: #e1ddff;
+    font-size: 13px;
+}
+
+.home-pop a:focus-visible {
+    outline: 3px solid #ff705e;
+    outline-offset: 4px;
+}
+
+/* TABLET */
+
+@media (max-width: 1050px) {
+
+    .home-pop .beneficios-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .home-pop .hero-nechdata {
+        gap: 28px;
+    }
+
+    .home-pop .imagen-hero-arandanos {
+        height: 360px;
+    }
+}
+
+/* CELULAR */
+
+@media (max-width: 700px) {
+
+    .home-pop .barra-superior {
+        padding: 12px 5%;
+    }
+
+    .home-pop .selector-perfil,
+    .home-pop .usuario-opciones {
+        gap: 12px;
+    }
+
+    .home-pop .encabezado-principal {
+        padding: 20px 5%;
+    }
+
+    .home-pop .logo-nechdata {
+        width: 180px;
+    }
+
+    .home-pop .menu-principal {
+        gap: 12px 18px;
+    }
+
+    .home-pop .menu-principal a {
+        font-size: 13px;
+    }
+
+    .home-pop .hero-nechdata {
+        grid-template-columns: 1fr;
+        padding: 36px 0;
+        gap: 32px;
+    }
+
+    .home-pop .hero-contenido > p {
+        font-size: 18px;
+    }
+
+    .home-pop .hero-botones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .home-pop .imagen-hero-arandanos {
+        height: 320px;
+    }
+}
+
+/* INDEX POP · AMPLIAR Y CORREGIR RÓTULO */
+
+.home-pop .hero-nechdata {
+    width: 90%;
+    max-width: none;
+    gap: clamp(28px, 4vw, 80px);
+}
+
+.home-pop .hero-contenido h1 {
+    font-size: clamp(38px, 4.5vw, 88px);
+}
+
+.home-pop .tarjetas-home,
+.home-pop .beneficios-grid,
+.home-pop .bloque-nosotros {
+    width: 100%;
+    max-width: none;
+}
+
+.home-pop .cta-home {
+    width: 90%;
+    max-width: none;
+}
+
+/* Quitar el desplazamiento de la animación anterior */
+
+.home-pop .hero-overlay-card,
+.home-pop .hero-overlay-card:hover {
+    animation: none;
+    transform: none;
+    opacity: 1;
+    text-align: left;
+}
+
+@media (min-width: 701px) {
+
+    .home-pop .imagen-hero-arandanos {
+        height: clamp(390px, 28vw, 560px);
+    }
+}
 /* ==========================================
    PARA EL CELULAR
 ========================================== */

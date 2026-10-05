@@ -10,422 +10,267 @@
   <link rel="stylesheet" href="CSS/estilos.css">
 </head>
 
-<body>
+<body class="home-pop">
 
-
-  <!-- =========================
-       BARRA SUPERIOR
-  ========================== -->
+  <!-- BARRA SUPERIOR -->
 
   <div class="barra-superior">
 
     <div class="selector-perfil">
-      <a href="#" class="perfil-link activo">
+      <a href="index.html" class="perfil-link activo" aria-current="page">
         🌐 Público general
       </a>
 
-      <a
-        href="AGROEXPORTADOR/buscar_lote.html"
-        class="perfil-link"
-      >
+      <a href="AGROEXPORTADOR/buscar_lote.html" class="perfil-link">
         🌱 Agroexportadores
       </a>
     </div>
 
     <div class="usuario-opciones">
       <a href="#">👤 Iniciar sesión</a>
-      <a href="#" class="boton-registro">
-        Registrarse
-      </a>
+      <a href="#" class="boton-registro">Registrarse</a>
     </div>
 
   </div>
 
-
-  <!-- =========================
-       MENÚ PRINCIPAL
-  ========================== -->
+  <!-- MENÚ PRINCIPAL -->
 
   <header class="encabezado-principal">
 
-<div class="marca marca-nechdata">
+    <a href="#inicio" class="marca marca-nechdata" aria-label="NECHDATA, inicio">
+      <img
+        src="IMAGENES/LOGO3.png"
+        alt="NECHDATA"
+        class="logo-nechdata"
+      >
+    </a>
 
-  <img src="IMAGENES/LOGO3.png"alt="Logo NECHDATA" class="logo-nechdata"
-  >
-
-</div>
-
-    </div>
-
-
-    <nav class="menu-principal">
-
-      <a href="#inicio">
-        Inicio
-      </a>
-
-      <a href="#como-funciona">
-        ¿Cómo funciona?
-      </a>
-
-      <a href="#nosotros">
-        Quiénes somos
-      </a>
-
-      <a href="#beneficios">
-        Beneficios
-      </a>
-
-      <a href="#contacto">
-        Contáctanos
-      </a>
-
+    <nav class="menu-principal" aria-label="Menú principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#nosotros">Quiénes somos</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#contacto">Contáctanos</a>
     </nav>
 
   </header>
 
-
-  <!-- =========================
-       PORTADA
-  ========================== -->
-
   <main>
 
+    <!-- PORTADA -->
 
-    <section
-      class="hero-nechdata"
-      id="inicio"
-    >
+    <section class="hero-nechdata" id="inicio">
 
       <div class="hero-contenido">
 
         <span class="etiqueta-hero">
-          🌱 Agricultura + Ciencia + Tecnología
+          AGRICULTURA · CIENCIA · TECNOLOGÍA
         </span>
 
-
-        <h2>
+        <h1>
           Cada lote tiene una historia.
-          <br>
-          Hazla visible.
-        </h2>
-
+          <span>Hazla visible.</span>
+        </h1>
 
         <p>
-          NECHDATA centraliza la información
-          de cada lote de fruta, desde su origen
-          en campo hasta su destino.
+          Conecta la información de tu fruta,
+          desde su origen hasta su destino.
         </p>
-
 
         <div class="hero-botones">
 
-         <a
-  href="ficha_publica.html?id=1"
-  class="btn-principal btn-nfc-principal"
->
-
-  <span class="icono-nfc-demo">
-    🎯
-  </span>
-
-  <span>
-    REVISA TU FICHA NFC AQUÍ
-  </span>
-
-  <span class="arandano-nfc">
-    🫐
-  </span>
-
-</a>
-
+          <a
+            href="AGROEXPORTADOR/produccion.html"
+            class="home-pop-btn home-pop-btn-lima"
+          >
+            Ingresa tu lote →
+          </a>
 
           <a
-            href="#como-funciona"
-            class="btn btn-secundario"
+            href="ficha_publica.html?id=1"
+            class="home-pop-btn home-pop-btn-borde"
           >
-            Conoce cómo funciona
+            Ver ficha de ejemplo ↗
           </a>
 
         </div>
 
-
-        <div class="hero-indicadores">
-
-          <div>
-            <strong>01</strong>
-            <span>Registrar</span>
-          </div>
-
-          <div>
-            <strong>02</strong>
-            <span>Trazar</span>
-          </div>
-
-          <div>
-            <strong>03</strong>
-            <span>Consultar</span>
-          </div>
-
-        </div>
+        <a href="#como-funciona" class="home-enlace-ayuda">
+          Descubre cómo funciona ↓
+        </a>
 
       </div>
 
+      <div class="hero-visual">
 
-<div class="hero-visual">
+        <img
+          src="IMAGENES/arandanos_inka.png"
+          alt="Arándanos cosechados y trabajo en campo"
+          class="imagen-hero-arandanos"
+        >
 
-  <img
-    src="IMAGENES/arandanos_inka.png"
-    alt="Cosecha de arándanos"
-    class="imagen-hero-arandanos"
-  >
+        <div class="hero-overlay-card">
+          <h2>DEL CAMPO AL MUNDO</h2>
+          <p>Información agrícola trazable.</p>
+        </div>
 
-  <div class="hero-overlay-card">
-    <h3>Del campo al mundo</h3>
-    <p>Información organizada, trazable y accesible.</p>
-  </div>
+        <!-- AQUÍ PODEMOS AÑADIR UN PNG DE ARÁNDANOS CON HOJAS -->
 
-</div>
+      </div>
 
     </section>
 
+    <!-- FRANJA DE MÓDULOS -->
 
+    <div class="home-franja-modulos" aria-label="Información del lote">
+      <span>🌱 ORIGEN</span>
+      <span>🧪 CALIDAD</span>
+      <span>📦 PACKING</span>
+      <span>🚚 RECORRIDO</span>
+    </div>
 
-    <!-- =========================
-         CÓMO FUNCIONA
-    ========================== -->
+    <!-- CÓMO FUNCIONA -->
 
-    <section
-      class="seccion-home"
-      id="como-funciona"
-    >
+    <section class="seccion-home" id="como-funciona">
 
       <div class="encabezado-home">
-
-        <span>
-          CÓMO FUNCIONA
-        </span>
-
-        <h2>
-          La historia del lote,
-          en un solo lugar
-        </h2>
-
+        <span>CÓMO FUNCIONA</span>
+        <h2>La historia del lote, en un solo lugar</h2>
         <p>
-          NECHDATA organiza información
-          dispersa para facilitar su consulta
-          y seguimiento.
+          Registra, conecta y consulta la información
+          que acompaña a cada lote.
         </p>
-
       </div>
-
 
       <div class="tarjetas-home">
 
-
         <article class="tarjeta-home">
-
-          <div class="icono-home">
-            🌱
+          <div class="home-paso-cabecera">
+            <span class="home-numero-paso">01</span>
+            <span class="icono-home" aria-hidden="true">🌱</span>
           </div>
 
-          <h3>
-            1. Registra
-          </h3>
-
+          <h3>Registra</h3>
           <p>
-            Guarda información sobre
-            origen, fundo, variedad,
-            cosecha y producción.
+            Ingresa tu lote y sus datos de origen,
+            fundo, variedad y producción.
           </p>
-
         </article>
 
-
         <article class="tarjeta-home">
-
-          <div class="icono-home">
-            📦
+          <div class="home-paso-cabecera">
+            <span class="home-numero-paso">02</span>
+            <span class="icono-home" aria-hidden="true">📦</span>
           </div>
 
-          <h3>
-            2. Traza
-          </h3>
-
+          <h3>Traza</h3>
           <p>
-            Integra calidad, packing,
-            poscosecha, documentos
-            y recorrido del lote.
+            Reúne calidad, packing, poscosecha,
+            documentos y recorrido.
           </p>
-
         </article>
 
-
         <article class="tarjeta-home">
-
-          <div class="icono-home">
-            📱
+          <div class="home-paso-cabecera">
+            <span class="home-numero-paso">03</span>
+            <span class="icono-home" aria-hidden="true">📱</span>
           </div>
 
-          <h3>
-            3. Consulta
-          </h3>
-
+          <h3>Consulta</h3>
           <p>
-            Accede a una ficha digital
-            del lote y comparte información
-            mediante NFC.
+            Explora la ficha pública del lote
+            y comparte su historia mediante NFC.
           </p>
-
         </article>
 
       </div>
 
     </section>
 
+    <!-- BENEFICIOS -->
 
-
-    <!-- =========================
-         BENEFICIOS
-    ========================== -->
-
-    <section
-      class="seccion-home fondo-home"
-      id="beneficios"
-    >
+    <section class="seccion-home fondo-home" id="beneficios">
 
       <div class="encabezado-home">
-
-        <span>
-          BENEFICIOS
-        </span>
-
-        <h2>
-          Información que genera confianza
-        </h2>
-
+        <span>DATOS QUE CONECTAN</span>
+        <h2>Información que genera confianza</h2>
       </div>
-
 
       <div class="beneficios-grid">
 
+        <article class="beneficio-home">
+          <span class="home-beneficio-icono" aria-hidden="true">📍</span>
+          <div>
+            <h3>Trazabilidad</h3>
+            <p>Conecta el origen, el proceso y el destino.</p>
+          </div>
+        </article>
 
-        <div class="beneficio-home">
+        <article class="beneficio-home">
+          <span class="home-beneficio-icono" aria-hidden="true">🧪</span>
+          <div>
+            <h3>Calidad</h3>
+            <p>Centraliza los parámetros registrados de tu fruta.</p>
+          </div>
+        </article>
 
-          <strong>
-            🔎 Trazabilidad
-          </strong>
+        <article class="beneficio-home">
+          <span class="home-beneficio-icono" aria-hidden="true">📄</span>
+          <div>
+            <h3>Documentos</h3>
+            <p>Organiza certificados y documentos asociados.</p>
+          </div>
+        </article>
 
-          <p>
-            Reconstruye rápidamente
-            la historia de un lote.
-          </p>
-
-        </div>
-
-
-        <div class="beneficio-home">
-
-          <strong>
-            🧪 Calidad
-          </strong>
-
-          <p>
-            Centraliza parámetros
-            de calidad y poscosecha.
-          </p>
-
-        </div>
-
-
-        <div class="beneficio-home">
-
-          <strong>
-            📄 Documentos
-          </strong>
-
-          <p>
-            Organiza certificados
-            y documentos asociados.
-          </p>
-
-        </div>
-
-
-        <div class="beneficio-home">
-
-          <strong>
-            🌎 Transparencia
-          </strong>
-
-          <p>
-            Facilita información
-            para compradores y consumidores.
-          </p>
-
-        </div>
+        <article class="beneficio-home">
+          <span class="home-beneficio-icono" aria-hidden="true">🌎</span>
+          <div>
+            <h3>Transparencia</h3>
+            <p>Facilita la consulta de información del lote.</p>
+          </div>
+        </article>
 
       </div>
 
     </section>
 
+    <!-- QUIÉNES SOMOS -->
 
-
-    <!-- =========================
-         QUIÉNES SOMOS
-    ========================== -->
-
-    <section
-      class="seccion-home"
-      id="nosotros"
-    >
+    <section class="seccion-home" id="nosotros">
 
       <div class="bloque-nosotros">
 
         <div>
-
-          <span class="etiqueta-home">
-            QUIÉNES SOMOS
-          </span>
-
+          <span class="etiqueta-home">QUIÉNES SOMOS</span>
 
           <h2>
-            Agricultura, ciencia
-            y tecnología conectadas
+            Agricultura, ciencia y tecnología conectadas
           </h2>
 
-
           <p>
-            NECHDATA nace como una propuesta
-            para resolver un problema frecuente
-            del sector agroexportador:
-            la información de los lotes suele
-            encontrarse dispersa entre hojas
-            de cálculo, etiquetas, documentos,
-            certificados y distintos actores
-            de la cadena.
+            NECHDATA nace como una propuesta para reunir
+            la información de los lotes que suele encontrarse
+            dispersa entre hojas de cálculo, etiquetas,
+            documentos y distintos actores de la cadena.
           </p>
 
-
           <p>
-            Nuestro propósito es hacer visible,
-            ordenada y accesible la historia
-            de cada lote de fruta.
+            Nuestro propósito es hacer visible, ordenada
+            y accesible la historia de cada lote de fruta.
           </p>
-
         </div>
 
-
         <div class="caja-frase">
-
-          <span>
-            NECHDATA
-          </span>
+          <span class="home-comillas" aria-hidden="true">“</span>
 
           <blockquote>
-            “Cada lote tiene una historia,
-            y nosotros buscamos hacerla visible.”
+            Cada lote tiene una historia,
+            y nosotros buscamos hacerla visible.
           </blockquote>
+
+          <span class="home-firma">NECHDATA · DATOS QUE DAN VIDA</span>
+
+          <!-- AQUÍ PODEMOS AÑADIR OTRO PNG DECORATIVO -->
 
         </div>
 
@@ -433,76 +278,43 @@
 
     </section>
 
+    <!-- CTA FINAL -->
 
-
-    <!-- =========================
-         CTA FINAL
-    ========================== -->
-
-    <section
-      class="cta-home"
-      id="contacto"
-    >
+    <section class="cta-home" id="contacto">
 
       <div>
-
-        <span>
-          NECHDATA
-        </span>
+        <span>NUESTRA PROPUESTA</span>
 
         <h2>
           Del origen al destino,
           una sola historia digital.
         </h2>
-
       </div>
-
 
       <a
         href="AGROEXPORTADOR/produccion.html"
-        class="btn btn-principal"
+        class="home-pop-btn home-pop-btn-navy"
       >
         Explorar plataforma →
       </a>
 
     </section>
 
-
   </main>
 
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
 
   <footer class="footer">
 
     <div class="footer-marca">
-
-      <strong>
-        🫐 NECHDATA
-      </strong>
-
-      <span>
-        Todo el proceso a la vista.
-      </span>
-
+      <strong>NECHDATA</strong>
+      <span>Datos que dan vida.</span>
     </div>
 
-
-    <span>
-      Trazabilidad digital agroexportadora
-    </span>
-
-
-    <span>
-      Proyecto demostrativo 2026
-    </span>
+    <span>Trazabilidad digital agroexportadora</span>
+    <span>Proyecto demostrativo 2026</span>
 
   </footer>
 
-
 </body>
-
 </html>

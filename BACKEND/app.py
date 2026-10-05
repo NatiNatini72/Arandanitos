@@ -310,35 +310,37 @@ def eliminar_lote(id):
 
 @app.route("/api/lotes/<int:id>", methods=["PUT"])
 def editar_lote(id):
+
     datos = request.get_json()
-    exportadora = datos.get("exportadora")
 
     conexion = conectar_bd()
 
     ejecutar(
-    conexion,
-    """
-    UPDATE lotes
-    SET pais = ?,
-        region = ?,
-        exportadora = ?,
-        fundo = ?,
-        lote = ?,
-        variedad = ?,
-        fecha_cosecha = ?
-    WHERE id = ?
-    """,
-    (
-        datos["pais"],
-        datos["region"],
-        datos["exportadora"],
-        datos["fundo"],
-        datos["lote"],
-        datos["variedad"],
-        datos["fechaCosecha"],
-        id
+        conexion,
+        """
+        UPDATE lotes
+        SET codigo = ?,
+            pais = ?,
+            region = ?,
+            exportadora = ?,
+            fundo = ?,
+            lote = ?,
+            variedad = ?,
+            fecha_cosecha = ?
+        WHERE id = ?
+        """,
+        (
+            datos["codigo"],
+            datos["pais"],
+            datos["region"],
+            datos["exportadora"],
+            datos["fundo"],
+            datos["lote"],
+            datos["variedad"],
+            datos["fechaCosecha"],
+            id
+        )
     )
-)
 
     conexion.commit()
     conexion.close()

@@ -539,225 +539,304 @@ async function cargarCalidadPublica() {
 }
 
 // =========================================================
-// POPUPS DE CALIDAD
+// POPUPS DE INFORMACIÓN
 // =========================================================
 
-document.querySelectorAll(
-    "[data-popup]"
-).forEach(
-    (boton) => {
+document.addEventListener(
+    "click",
+    (evento) => {
 
-        boton.addEventListener(
-            "click",
-            () => {
+        const boton =
+            evento.target.closest(
+                "[data-popup]"
+            );
 
-                const idPopup =
-                    boton.dataset.popup;
+        if (!boton) {
+            return;
+        }
 
-                const popup =
-                    document.getElementById(
-                        idPopup
-                    );
+        const idPopup =
+            boton.dataset.popup;
 
-                if (!popup) {
-                    return;
-                }
+        const popup =
+            document.getElementById(
+                idPopup
+            );
 
+        if (!popup) {
+            return;
+        }
 
-                const estabaActivo =
-                    popup.classList.contains(
+        const estabaActivo =
+            popup.classList.contains(
+                "activo"
+            );
+
+        document
+            .querySelectorAll(
+                ".fp-calidad-popup"
+            )
+            .forEach(
+                (item) => {
+
+                    item.classList.remove(
                         "activo"
                     );
 
-
-                // CERRAR TODOS
-
-                document.querySelectorAll(
-                    ".fp-calidad-popup"
-                ).forEach(
-                    (item) => {
-
-                        item.classList.remove(
-                            "activo"
-                        );
-                    }
-                );
-
-
-                // SI ESTABA CERRADO, ABRIRLO
-
-                if (!estabaActivo) {
-
-                    popup.classList.add(
-                        "activo"
-                    );
                 }
+            );
 
-            }
-        );
+        if (!estabaActivo) {
+
+            popup.classList.add(
+                "activo"
+            );
+
+        }
 
     }
 );
-
 // =========================================================
 // 05 · PACKING
 // =========================================================
 
 async function cargarPackingPublico() {
+    const contenedor = document.getElementById("packingPublico");
 
-    const contenedor =
-        document.getElementById(
-            "packingPublico"
-        );
+    if (!contenedor) return;
 
+    // Protege los datos que se insertan en el HTML.
+    const escapar = (valor) =>
+        String(valor ?? "--").replace(/[&<>"']/g, (caracter) => ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        }[caracter]));
 
-    if (!contenedor) {
-        return;
+    const conUnidad = (valor, unidad) =>
+        valor == null || valor === ""
+            ? "--"
+            : `${valor} ${unidad}`;
+
+    const fuentes = {
+    popupPackingEmpaque: {
+        nombre: "NC State Extension",
+        url: "https://ncfreshproducesafety.ces.ncsu.edu/postharvest-produce-guide/produce-guide-blueberries/"
+    },
+
+    popupPackingPrefrio: {
+        nombre: "University of Minnesota",
+        url: "https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota"
+    },
+
+    popupPackingAlmacenamiento: {
+        nombre: "UC Davis · Poscosecha",
+        url: "https://postharvest.ucdavis.edu/produce-facts-sheets/bushberry"
+    },
+
+    popupPackingO2: {
+        nombre: "UC Davis · Atmósferas modificadas",
+        url: "https://postharvest.ucdavis.edu/produce-facts-sheets/bushberry"
+    },
+
+    popupPackingCO2: {
+        nombre: "UC Davis · Atmósferas modificadas",
+        url: "https://postharvest.ucdavis.edu/produce-facts-sheets/bushberry"
+    }
+};
+
+    // Construye una tarjeta con su orejita y popup.
+    function tarjeta(info) {
+        return `
+            <div class="fp-calidad-card fp-packing-card">
+
+                <div class="fp-calidad-resumen">
+                    <span>${info.etiqueta}</span>
+                    <strong>${escapar(info.valor)}</strong>
+                </div>
+
+                <button
+                    type="button"
+                    class="fp-info-oreja"
+                    data-popup="${info.id}"
+                    aria-label="Información sobre ${info.titulo}"
+                >?</button>
+
+                <div
+                    class="fp-calidad-popup"
+                    id="${info.id}"
+                >
+                    <button
+                        type="button"
+                        class="fp-popup-cerrar"
+                        data-popup="${info.id}"
+                        aria-label="Cerrar información"
+                    >×</button>
+
+                    <span class="fp-info-kicker">
+                        ¿QUÉ SIGNIFICA?
+                    </span>
+
+                    <h3>${info.titulo}</h3>
+
+                    <p>${info.descripcion}</p>
+
+                    <div class="fp-info-dato">
+                        <strong>${info.detalleTitulo}</strong>
+                        <span>${info.detalle}</span>
+                    </div>
+
+                    <div class="fp-info-dato">
+                        <strong>¿Por qué nos importa?</strong>
+                        <span>${info.importancia}</span>
+                    </div>
+
+                    ${info.imagen ? `
+    <div class="fp-info-imagen">
+        <img
+            src="${info.imagen}"
+            alt="Envase clamshell para arándanos"
+            loading="lazy"
+        >
+    </div>
+` : ""}
+
+                    <div class="fp-info-fuente">
+                        <span>Para leer más:</span>
+                        <a
+                            href="${fuentes[info.id].url}""
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            ${fuentes[info.id].nombre}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
     }
 
-
     try {
-
-        const respuesta =
-            await fetch(
-                `${API_URL}/${idLote}/packing`
-            );
-
+        const respuesta = await fetch(
+            `${API_URL}/${idLote}/packing`
+        );
 
         if (!respuesta.ok) {
-
             contenedor.innerHTML = `
-
                 <p class="mensaje-proximamente">
                     Sin información pública de packing.
                 </p>
             `;
-
             return;
         }
 
+        const packing = await respuesta.json();
 
-        const packing =
-            await respuesta.json();
+        const indicadores = [
+            {
+                id: "popupPackingEmpaque",
+                etiqueta: "EMPAQUE",
+                titulo: "Empaque",
+                valor: packing.tipoEmpaque || "--",
+                imagen: "IMAGENES/arandano_clamshell.jpg",
+               descripcion:
+    "Es el envase que contiene y protege los arándanos durante su manipulación, almacenamiento y transporte.",
 
+detalleTitulo: "¿Qué es un clamshell?",
 
-        console.log(
-            "✅ PACKING RECIBIDO:",
-            packing
-        );
+detalle:
+    "Es un envase con tapa unida al cuerpo, que se abre como una concha. Sus aberturas permiten la circulación del aire y facilitan el intercambio de calor y gases entre la fruta y el ambiente.",
 
+importancia:
+    "Su ventilación facilita que el aire frío llegue a los frutos durante el enfriamiento. Además, ayuda a protegerlos y permite ver su contenido."
+            },
+            {
+                id: "popupPackingPrefrio",
+                etiqueta: "TEMPERATURA DE PREFRÍO",
+                titulo: "Prefrío",
+                valor: conUnidad(packing.prefrioTemp, "°C"),
+                descripcion:
+                    "Es el enfriamiento inicial de la fruta después de la cosecha.",
+                detalleTitulo: "Unidad",
+                detalle:
+                    "Grados Celsius (°C). Aquí se muestra la temperatura registrada para esta etapa.",
+                importancia:
+                    "Enfriar pronto ayuda a reducir la pérdida de agua, la respiración y el deterioro de los arándanos."
+            },
+            {
+                id: "popupPackingAlmacenamiento",
+                etiqueta: "TEMPERATURA DE ALMACENAMIENTO",
+                titulo: "Almacenamiento en frío",
+                valor: conUnidad(packing.temperaturaCamara, "°C"),
+                descripcion:
+                    "Es la temperatura registrada en la cámara donde se conserva el lote.",
+                detalleTitulo: "Unidad",
+                detalle:
+                    "Grados Celsius (°C).",
+                importancia:
+                    "El almacenamiento en frío ayuda a retrasar el deterioro y conservar la calidad después del enfriamiento inicial."
+            },
+            {
+                id: "popupPackingO2",
+                etiqueta: "O₂",
+                titulo: "Oxígeno",
+                valor: conUnidad(packing.o2, "%"),
+                descripcion:
+                    "Indica la proporción de oxígeno registrada en la atmósfera de conservación.",
+                detalleTitulo: "Unidad",
+                detalle:
+                    "Porcentaje (%). Es un dato del ambiente que rodea la fruta.",
+                importancia:
+                    "La modificación del oxígeno, combinada con frío y control del CO₂, puede ayudar a reducir la respiración y retrasar el ablandamiento."
+            },
+            {
+                id: "popupPackingCO2",
+                etiqueta: "CO₂",
+                titulo: "Dióxido de carbono",
+                valor: conUnidad(packing.co2, "%"),
+                descripcion:
+                    "Indica la proporción de dióxido de carbono registrada en la atmósfera de conservación.",
+                detalleTitulo: "Unidad",
+                detalle:
+                    "Porcentaje (%). Se interpreta junto con el oxígeno y la temperatura.",
+                importancia:
+                    "Las atmósferas enriquecidas con CO₂ pueden ayudar a reducir el desarrollo de organismos que causan pudriciones."
+            }
+        ];
 
         contenedor.innerHTML = `
-
-            <div class="grid-ficha-publica">
-
+            <div class="grid-ficha-publica fp-packing-grid">
 
                 <div class="dato-publico">
-
-                    <span>
-                        Fecha de recepción
-                    </span>
-
+                    <span>Fecha de recepción</span>
                     <strong>
-                        ${formatearFecha(
-                            packing.fechaRecepcion
-                        )}
+                        ${escapar(formatearFecha(packing.fechaRecepcion))}
                     </strong>
-
                 </div>
-
 
                 <div class="dato-publico">
-
-                    <span>
-                        Fecha de packing
-                    </span>
-
+                    <span>Fecha de packing</span>
                     <strong>
-                        ${formatearFecha(
-                            packing.fechaPacking
-                        )}
+                        ${escapar(formatearFecha(packing.fechaPacking))}
                     </strong>
-
                 </div>
 
-
-                <div class="dato-publico">
-
-                    <span>
-                        Empaque
-                    </span>
-
-                    <strong>
-                        ${packing.tipoEmpaque || "--"}
-                    </strong>
-
-                </div>
-
-
-                <div class="dato-publico">
-
-                    <span>
-                        Temperatura de pre-frío
-                    </span>
-
-                    <strong>
-                        ${packing.prefrioTemp ?? "--"} °C
-                    </strong>
-
-                </div>
-
-
-                <div class="dato-publico">
-
-                    <span>
-                        Temperatura de almacenamiento
-                    </span>
-
-                    <strong>
-                        ${packing.temperaturaCamara ?? "--"} °C
-                    </strong>
-
-                </div>
-
-
-                <div class="dato-publico">
-
-                    <span>
-                        O₂
-                    </span>
-
-                    <strong>
-                        ${packing.o2 ?? "--"} %
-                    </strong>
-
-                </div>
-
-
-                <div class="dato-publico">
-
-                    <span>
-                        CO₂
-                    </span>
-
-                    <strong>
-                        ${packing.co2 ?? "--"} %
-                    </strong>
-
-                </div>
-
+                ${indicadores.map(tarjeta).join("")}
 
             </div>
         `;
-
     }
-
     catch (error) {
+        console.error("❌ Error al cargar packing:", error);
 
-        console.error(
-            "❌ Error al cargar packing:",
-            error
-        );
+        contenedor.innerHTML = `
+            <p class="mensaje-proximamente">
+                No se pudo cargar la información de packing.
+                Intenta nuevamente.
+            </p>
+        `;
     }
 }
 
@@ -767,80 +846,115 @@ async function cargarPackingPublico() {
 // =========================================================
 
 async function cargarRecorridoPublico() {
+    if (!idLote) return;
 
-    if (!idLote) {
+    // Cambiar a false para consultar el recorrido de la API.
+    const MOSTRAR_EJEMPLO = true;
+
+const ejemplo = {
+    fechaDespacho: "2024-10-20",
+    fechaLlegadaEstimada: "2024-11-15",
+    transportista: "Operador logístico de ejemplo",
+    puertoSalida: "Callao, Perú",
+    ciudadDestino: "North Vancouver, Columbia Británica",
+    paisDestino: "Canadá",
+    estadoEnvio: "En puerto de destino"
+};
+
+    function mostrarRecorrido(recorrido) {
+        ponerTexto(
+            "rutaFechaDespacho",
+            formatearFecha(recorrido.fechaDespacho)
+        );
+
+        ponerTexto(
+            "rutaLlegada",
+            formatearFecha(recorrido.fechaLlegadaEstimada)
+        );
+
+        ponerTexto(
+            "rutaTransportista",
+            recorrido.transportista
+                ? `Transportista: ${recorrido.transportista}`
+                : "Transportista pendiente"
+        );
+
+        ponerTexto(
+            "rutaDespacho",
+            recorrido.puertoSalida
+                ? `Puerto de origen: ${recorrido.puertoSalida}`
+                : "Puerto de origen pendiente"
+        );
+
+        const destino = [
+            recorrido.ciudadDestino,
+            recorrido.paisDestino
+        ].filter(Boolean).join(", ");
+
+        ponerTexto(
+            "rutaDestino",
+            destino || "Destino pendiente"
+        );
+
+        ponerTexto(
+            "rutaEstado",
+            recorrido.estadoEnvio || "Sin registro"
+        );
+    }
+
+    if (MOSTRAR_EJEMPLO) {
+        mostrarRecorrido(ejemplo);
+
+        ponerTexto(
+    "avisoRecorrido",
+    "EJEMPLO ILUSTRATIVO · Destino basado en la dirección del importador del ticket y fechas simuladas posteriores al packing del 18/10/2024. Operador, puerto de origen y estado ficticios."
+);
+
         return;
     }
 
+    mostrarRecorrido({});
+
+    ponerTexto(
+        "avisoRecorrido",
+        "Consultando información del recorrido..."
+    );
 
     try {
-
-        const respuesta =
-            await fetch(
-                `${API_URL}/${idLote}/recorrido`
-            );
-
+        const respuesta = await fetch(
+            `${API_URL}/${idLote}/recorrido`
+        );
 
         if (!respuesta.ok) {
-
-            console.log(
-                "ℹ️ Este lote todavía no tiene recorrido registrado."
+            ponerTexto(
+                "avisoRecorrido",
+                "No se pudo obtener un recorrido registrado."
             );
 
             return;
         }
 
+        const recorrido = await respuesta.json();
 
-        const recorrido =
-            await respuesta.json();
-
-
-        console.log(
-            "✅ RECORRIDO RECIBIDO:",
-            recorrido
-        );
-
+        mostrarRecorrido(recorrido || {});
 
         ponerTexto(
-            "rutaDespacho",
-            recorrido.puertoSalida ||
-            "Puerto de salida pendiente"
+            "avisoRecorrido",
+            "Información del recorrido registrada para este lote."
         );
 
-
-        ponerTexto(
-            "rutaEstado",
-            recorrido.estadoEnvio ||
-            "Estado pendiente"
-        );
-
-
-        ponerTexto(
-            "rutaDestino",
-            `${recorrido.ciudadDestino || "--"}, ${recorrido.paisDestino || "--"}`
-        );
-
-
-        ponerTexto(
-            "rutaLlegada",
-            recorrido.fechaLlegadaEstimada
-                ? `Llegada estimada: ${formatearFecha(
-                    recorrido.fechaLlegadaEstimada
-                )}`
-                : "Llegada pendiente"
-        );
-
-    }
-
-    catch (error) {
-
+    } catch (error) {
         console.error(
-            "❌ Error al cargar recorrido:",
+            "Error al cargar el recorrido:",
             error
+        );
+
+        ponerTexto(
+            "avisoRecorrido",
+            "No se pudo consultar el recorrido. Intenta nuevamente."
         );
     }
 }
-
 
 // =========================================================
 // 07 · NAVEGACIÓN / SWIPE
@@ -858,16 +972,11 @@ const slides =
     );
 
 
-// ---------------------------------------------------------
-// IR A UN SLIDE
-// ---------------------------------------------------------
-
 function irASlide(indice) {
 
     if (!slider) {
         return;
     }
-
 
     if (
         indice < 0 ||
@@ -876,63 +985,43 @@ function irASlide(indice) {
         return;
     }
 
-
     const slide =
         slides[indice];
 
-
     slider.scrollTo({
-
         left: slide.offsetLeft,
-
         behavior: "smooth"
-
     });
+
 }
+
+
 // ---------------------------------------------------------
-// BOTONES SIGUIENTE
+// FLECHA DE LA PORTADA
 // ---------------------------------------------------------
 
-const botonesSiguiente =
-    document.querySelectorAll(
-        ".fp-nav-btn"
+const btnPortadaSiguiente =
+    document.getElementById(
+        "btnPortadaSiguiente"
     );
 
 
-botonesSiguiente.forEach((boton) => {
+if (btnPortadaSiguiente && slider) {
 
-    boton.addEventListener(
+    btnPortadaSiguiente.addEventListener(
         "click",
         () => {
 
-            const slideActual =
-                boton.closest(
-                    ".fp-slide"
-                );
-
-
-            if (!slideActual) {
-                return;
-            }
-
-
-            const indiceActual =
-                Array.from(slides)
-                    .indexOf(slideActual);
-
-
-            const siguienteIndice =
-                indiceActual + 1;
-
-
-            irASlide(
-                siguienteIndice
-            );
+            slider.scrollBy({
+                left: slider.clientWidth,
+                behavior: "smooth"
+            });
 
         }
     );
 
-});
+}
+
 
 // ---------------------------------------------------------
 // BOTONES ANTERIOR / SIGUIENTE
@@ -1007,7 +1096,7 @@ slides.forEach(
 // CONTADOR DE PÁGINA
 // =========================================================
 
-const TOTAL_PAGINAS = 9;
+const TOTAL_PAGINAS = slides.length;
 
 
 function actualizarContadores() {
@@ -1062,10 +1151,62 @@ function actualizarContadores() {
 
 
 actualizarContadores();
+function agregarFranjasPublicas() {
+    const paginas = [
+        ...document.querySelectorAll(".fp-slider > .fp-slide")
+    ];
 
+    const total = String(paginas.length).padStart(2, "0");
+
+    paginas.forEach((pagina, indice) => {
+        const contenedor = pagina.firstElementChild;
+
+        if (!contenedor) return;
+
+        if (contenedor.querySelector(".fp-slide-footer")) return;
+
+        const franja = document.createElement("div");
+        franja.className = "fp-slide-footer";
+
+        const numero = document.createElement("span");
+        numero.textContent =
+            `${String(indice + 1).padStart(2, "0")} / ${total}`;
+
+        const marcas = document.createElement("div");
+        marcas.className = "fp-footer-marcas";
+        marcas.setAttribute("aria-hidden", "true");
+
+        paginas.forEach((_, posicion) => {
+            const marca = document.createElement("span");
+
+            if (posicion === indice) {
+                marca.className = "activo";
+            }
+
+            marcas.appendChild(marca);
+        });
+
+        const titulo = document.createElement("strong");
+        titulo.textContent =
+            (pagina.dataset.title || "").toUpperCase();
+
+        franja.append(numero, marcas, titulo);
+        contenedor.appendChild(franja);
+    });
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        agregarFranjasPublicas,
+        { once: true }
+    );
+} else {
+    agregarFranjasPublicas();
+}
 
 // =========================================================
 // INICIAR FICHA
 // =========================================================
-
+agregarFranjasPublicas();
 cargarFichaPublica();

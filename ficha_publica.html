@@ -22,7 +22,7 @@
 </head>
 
 
-<body>
+<body class="fp-pop">
 
 
 <!-- ==========================================
@@ -126,42 +126,31 @@
 
         <!-- ORIGEN RESUMIDO -->
 
-        <div class="fp-portada-inferior">
+               <div class="fp-portada-inferior">
 
-          <div class="fp-origen-card">
-
-            <div>
-
-              <span>
-                ORIGEN DEL LOTE
-              </span>
-
-              <strong id="fundoPublico">
-                --
-              </strong>
-
-              <p id="origenPublico">
-                --
-              </p>
-
+            <div class="fp-origen-card">
+                <div>
+                    <span>ORIGEN DEL LOTE</span>
+                    <strong id="fundoPublico">--</strong>
+                    <p id="origenPublico">--</p>
+                </div>
             </div>
 
+            <button
+                type="button"
+                class="fp-descubre-btn"
+                id="btnPortadaSiguiente"
+            >
+                Descubre el origen →
+            </button>
 
-            <div class="fp-flecha">
-              →
-            </div>
+        </div><!-- FIN fp-portada-inferior -->
 
-          </div>
+    </div><!-- FIN fp-portada-contenido -->
 
-        </div>
+    </section><!-- FIN fp-portada -->
 
-
-      </div>
-
-    </section>
-
-  </section>
-
+</section><!-- FIN slide Portada -->
 
 
   <!-- ========================================
@@ -623,8 +612,6 @@
     <div class="fp-calidad-grid">
 
 
-      <!-- FIRMEZA -->
-
 <!-- FIRMEZA -->
 
 <div class="fp-calidad-card">
@@ -874,6 +861,15 @@
 
     </div>
 
+    <div class="fp-info-imagen">
+
+  <img
+    src="IMAGENES/arandano_calibre.jpg"
+    alt="Calibre de arándanos según su diámetro"
+  >
+
+</div>
+
 
     <div class="fp-info-fuente">
 
@@ -991,11 +987,10 @@
 
     <div class="fp-info-imagen">
   <img
-    src="IMAGENES/arandano_brix.png"
+    src="IMAGENES/arandano_brix.jpeg"
     alt="Medición de grados Brix en arándanos"
   >
 </div>
-
 
     <div class="fp-info-fuente">
 
@@ -1346,6 +1341,21 @@
 
 </div>
 
+<!-- CIERRE DE GRID DE CALIDAD -->
+</div>
+
+
+<!-- CIERRE DE fp-calidad-slide -->
+</section>
+
+
+<!-- CIERRE DEL SLIDE 04 · CALIDAD -->
+</section>
+
+
+<!-- ========================================
+     05 · PACKING
+========================================= -->
 
   <!-- ========================================
        05 · PACKING
@@ -1404,150 +1414,222 @@
        06 · RECORRIDO
   ========================================= -->
 
-  <section class="fp-slide" data-title="Recorrido">
+<section class="fp-slide" data-title="Recorrido">
 
-    <section class="ficha-bloque fp-recorrido-slide">
+  <section class="ficha-bloque fp-recorrido-slide">
 
-      <div class="fp-slide-top">
+    <div class="fp-slide-top">
+      <button type="button" class="fp-nav-btn">←</button>
 
-        <button
-          type="button"
-          class="fp-nav-btn"
-        >
-          ←
-        </button>
+      <span class="fp-contador">
+        06 / 09 · RECORRIDO
+      </span>
 
+      <button type="button" class="fp-nav-btn">→</button>
+    </div>
 
-        <span class="fp-contador">
-          05 / 09 · RECORRIDO
-        </span>
+    <h2>📍 Recorrido del lote</h2>
 
+    <!-- FOTO REFERENCIAL -->
+    <figure class="fp-recorrido-foto">
+      <img
+        src="IMAGENES/recorrido_arandano.jpg"
+        alt="Contenedores y transporte en una terminal logística"
+      >
+      <figcaption>
+        Imagen referencial del proceso logístico.
+      </figcaption>
+    </figure>
 
-        <button
-          type="button"
-          class="fp-nav-btn"
-        >
-          →
-        </button>
+    <!-- AVISO DEL EJEMPLO -->
+    <p class="fp-recorrido-aviso" id="avisoRecorrido">
+      Sin información de recorrido registrada.
+    </p>
 
+    <!-- FECHAS JUNTAS -->
+    <div class="fp-recorrido-fechas">
+
+      <div>
+        <span>FECHA DE DESPACHO</span>
+        <strong id="rutaFechaDespacho">--</strong>
       </div>
 
-
-      <h2>
-        📍 Recorrido del lote
-      </h2>
-
-
-      <div class="timeline-publica">
-
-
-        <div class="paso-traza">
-
-          <div class="icono-traza">
-            🌱
-          </div>
-
-          <div>
-
-            <strong>
-              Origen
-            </strong>
-
-            <p id="rutaOrigen">
-              Origen pendiente
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="linea-traza"></div>
-
-
-        <div class="paso-traza">
-
-          <div class="icono-traza">
-            📦
-          </div>
-
-          <div>
-
-            <strong>
-              Packing
-            </strong>
-
-            <p id="rutaDespacho">
-              Puerto de salida pendiente
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="linea-traza"></div>
-
-
-        <div class="paso-traza">
-
-          <div class="icono-traza">
-            🚚
-          </div>
-
-          <div>
-
-            <strong>
-              Despacho
-            </strong>
-
-            <p id="rutaEstado">
-              Estado pendiente
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="linea-traza"></div>
-
-
-        <div class="paso-traza">
-
-          <div class="icono-traza">
-            🌎
-          </div>
-
-          <div>
-
-            <strong>
-              Destino
-            </strong>
-
-            <p id="rutaDestino">
-              Destino pendiente
-            </p>
-
-            <p id="rutaLlegada">
-              Llegada pendiente
-            </p>
-
-          </div>
-
-        </div>
-
-
+      <div>
+        <span>LLEGADA ESTIMADA</span>
+        <strong id="rutaLlegada">--</strong>
       </div>
 
+    </div>
 
-    </section>
+    <!-- CUATRO ETAPAS -->
+    <div class="timeline-publica">
 
-  </section>
+      <div class="paso-traza">
+        <div class="icono-traza">🌱</div>
+        <div>
+          <strong>Origen</strong>
+          <p id="rutaOrigen">Origen pendiente</p>
+        </div>
+      </div>
 
+      <div class="linea-traza"></div>
+
+      <div class="paso-traza">
+        <div class="icono-traza">📦</div>
+        <div>
+          <strong>Packing</strong>
+          <p>Selección, acondicionamiento y empaque.</p>
+          <p>Consulta los registros en la página anterior.</p>
+        </div>
+      </div>
+
+      <div class="linea-traza"></div>
+
+      <div class="paso-traza">
+        <div class="icono-traza">🚚</div>
+        <div>
+          <strong>Despacho</strong>
+          <p id="rutaTransportista">Transportista pendiente</p>
+<p id="rutaDespacho">Puerto de origen pendiente</p>
+        </div>
+      </div>
+
+      <div class="linea-traza"></div>
+
+      <div class="paso-traza">
+        <div class="icono-traza">🌎</div>
+        <div>
+          <strong>Destino</strong>
+          <p id="rutaDestino">Destino pendiente</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ESTADO AL FINAL -->
+    <div class="fp-seguimiento">
+
+    <div class="fp-seguimiento-cabecera">
+        <span class="fp-seguimiento-icono" aria-hidden="true">🚢</span>
+
+        <div>
+            <span class="fp-seguimiento-etiqueta">
+                ESTADO DEL ENVÍO
+            </span>
+
+            <strong id="rutaEstado">Sin registro</strong>
+
+            <p>Destino del ejemplo: North Vancouver, Canadá.</p>
+        </div>
+
+        <span class="fp-seguimiento-demo">DEMO</span>
+    </div>
+
+    <p class="fp-seguimiento-nota">
+        Historial ilustrativo de 2024. Los movimientos logísticos
+        son simulados; la fecha de packing procede del ticket.
+    </p>
+
+    <details class="fp-seguimiento-detalle">
+        <summary>📍 Ver movimientos</summary>
+
+        <div class="fp-eventos">
+
+            <article class="fp-evento fp-evento-actual">
+                <span class="fp-evento-punto" aria-hidden="true"></span>
+
+                <div>
+                    <time datetime="2024-11-15">15 NOV 2024</time>
+                    <h3>En puerto de destino</h3>
+                    <p>
+                        Arribo simulado al puerto de Vancouver.
+                        Pendiente de liberación y traslado al importador.
+                    </p>
+                    <span class="fp-evento-insignia">Último movimiento simulado</span>
+                </div>
+            </article>
+
+            <article class="fp-evento">
+                <span class="fp-evento-punto" aria-hidden="true"></span>
+
+                <div>
+                    <time datetime="2024-10-21">21 OCT 2024</time>
+                    <h3>En tránsito marítimo</h3>
+                    <p>
+                        Salida simulada del puerto de origen,
+                        con destino a Canadá.
+                    </p>
+                </div>
+            </article>
+
+            <article class="fp-evento">
+                <span class="fp-evento-punto" aria-hidden="true"></span>
+
+                <div>
+                    <time datetime="2024-10-20">20 OCT 2024</time>
+                    <h3>En puerto de origen</h3>
+                    <p>
+                        Ingreso simulado al puerto del Callao
+                        para gestionar el embarque.
+                    </p>
+                </div>
+            </article>
+
+            <article class="fp-evento">
+                <span class="fp-evento-punto" aria-hidden="true"></span>
+
+                <div>
+                    <time datetime="2024-10-18">18 OCT 2024</time>
+                    <h3>Packing registrado</h3>
+                    <p>
+                        Fecha indicada en el ticket.
+                        Packinghouse: VERDEFLOR S.A.C.
+                    </p>
+                    <span class="fp-evento-insignia fp-evento-documentado">
+                        Dato del ticket
+                    </span>
+                </div>
+            </article>
+
+        </div>
+    </details>
+
+    <details class="fp-seguimiento-detalle">
+        <summary>📦 Datos del envío</summary>
+
+        <dl class="fp-envio-datos">
+            <div>
+                <dt>Exportador · ticket</dt>
+                <dd>GO EXPORT PERU S.A.C.</dd>
+            </div>
+
+            <div>
+                <dt>Importador · ticket</dt>
+                <dd>BIG H FOODS INC</dd>
+            </div>
+
+            <div>
+                <dt>Ubicación del importador · ticket</dt>
+                <dd>North Vancouver, Columbia Británica, Canadá.</dd>
+            </div>
+
+            <div>
+                <dt>Ruta simulada</dt>
+                <dd>Callao, Perú → Vancouver, Canadá.</dd>
+            </div>
+
+            <div>
+                <dt>Modalidad del ejemplo</dt>
+                <dd>Transporte marítimo en contenedor refrigerado.</dd>
+            </div>
+        </dl>
+    </details>
 
 </div>
 
+  </section>
+
+</section>
 
 <!-- ==========================================
      FOOTER

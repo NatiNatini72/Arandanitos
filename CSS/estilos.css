@@ -79,7 +79,7 @@ body {
 
   padding: 18px 55px;
 
-  background: #f1f3f8;
+  background: #101653;
 
   border-bottom: 1px solid #e3e7ef;
 
@@ -115,20 +115,33 @@ body {
 .menu-principal {
   display: flex;
   align-items: center;
-  gap: 26px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px 22px;
 
-  margin-left: 40px;
+  margin-left: 30px;
 }
 
 .menu-principal a {
+  padding: 8px 0;
+
   text-decoration: none;
-  color: #173b5e;
-  font-weight: 500;
-  transition: 0.25s;
+  color: #fffef8;
+  font-size: 14px;
+  font-weight: 700;
+
+  transition: color 0.2s ease;
 }
 
-.menu-principal a:hover {
-  color: #0b76c5;
+.menu-principal a:hover,
+.menu-principal a:focus-visible {
+  color: #c4ff38;
+}
+
+.menu-principal a:focus-visible {
+  outline: 2px solid #c4ff38;
+  outline-offset: 5px;
+  border-radius: 4px;
 }
 
 
@@ -712,7 +725,12 @@ tbody tr:hover {
 /* ==========================================
    PÁGINA PRINCIPAL NECHDATA
 ========================================== */
-
+.imagen-hero-red {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 .hero-nechdata {
   margin: 30px 5%;
   min-height: 500px;
@@ -845,18 +863,11 @@ tbody tr:hover {
 
   border-radius: 25px;
 
-  background:
-    linear-gradient(
-      145deg,
-      #0b568d,
-      #087f83
-    );
+background: #f1ffc7;
 
   color: white;
 
-  box-shadow:
-    0 15px 30px
-    rgba(7, 73, 105, 0.20);
+  box-shadow: 0 6px 0 #dceba9;
 }
 
 
@@ -1850,10 +1861,17 @@ tbody tr:hover {
 .marca-nechdata {
   display: flex;
   align-items: center;
+  justify-content: center;
+
+  margin-left: 25px;
+  padding: 10px 16px;
+
+  background: #fffef8;
+  border-radius: 16px;
 }
 
 .logo-nechdata {
-  width: 330px;
+  width: 220px;
   max-width: 100%;
   height: auto;
   display: block;
@@ -2417,23 +2435,6 @@ tbody tr:hover {
   object-fit: cover;
 
   border-radius: 28px;
-}
-
-
-/* sombrita suave sobre la imagen */
-.hero-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background: linear-gradient(
-    to top,
-    rgba(10, 26, 44, 0.35),
-    rgba(10, 26, 44, 0.05) 45%,
-    rgba(10, 26, 44, 0) 70%
-  );
-
-  pointer-events: none;
 }
 
 
@@ -6163,9 +6164,10 @@ body.home-pop {
     min-width: 0;
     min-height: 0;
     padding: 14px;
-    background: var(--home-violeta);
+
+    background: #f1ffc7;
     border-radius: 26px;
-    box-shadow: 7px 7px 0 #ded4ff;
+    box-shadow: 7px 7px 0 #dceba9;
 }
 
 .home-pop .imagen-hero-arandanos {

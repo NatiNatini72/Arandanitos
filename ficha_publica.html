@@ -1,1657 +1,1484 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
-
-  <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
-    NECHDATA | Ficha pública
+   NECHDATA | Ficha pública
   </title>
-
-  <link
-    rel="stylesheet"
-    href="CSS/estilos.css"
-  >
-
-</head>
-
-
-<body class="fp-pop">
-
-
-<!-- ==========================================
-     FICHA PÚBLICA · SLIDER
-========================================== -->
-
-<div class="fp-slider">
-
-
-  <!-- ========================================
-       01 · PORTADA
-  ========================================= -->
-
-  <section class="fp-slide" data-title="Portada">
-
+  <link href="CSS/ficha_publica.css" rel="stylesheet"/>
+ </head>
+ <body class="fp-pop">
+  <p class="fp-mensaje" hidden="" id="estadoFicha" role="status">
+  </p>
+  <main aria-label="Historia del lote" class="fp-slider" tabindex="0">
+   <!-- 01 · PORTADA -->
+   <section class="fp-slide" data-title="Portada" id="slidePortada">
     <section class="fp-portada">
-
-      <div class="fp-portada-contenido">
-
-
-        <!-- CABECERA -->
-
-        <div class="fp-portada-superior">
-
-          <a
-            href="index.html"
-            class="fp-marca"
-          >
-
-            <img
-              src="IMAGENES/LOGO3.png"
-              alt="NECHDATA"
-              class="fp-logo-nechdata"
-            >
-
-          </a>
-
-
-          <div class="fp-acciones-superiores">
-
-            <div class="fp-estado">
-
-              <span class="fp-punto"></span>
-
-              Lote verificado
-
-            </div>
-
-
-            <a
-              href="index.html"
-              class="fp-volver-inicio"
-            >
-              ← Volver al inicio
-            </a>
-
-          </div>
-
+     <div class="fp-portada-contenido">
+      <div class="fp-portada-superior">
+       <a class="fp-marca" href="index.html">
+        <img alt="NECHDATA" class="fp-logo-nechdata" src="IMAGENES/LOGO3.png"/>
+       </a>
+       <div class="fp-acciones-superiores">
+        <div class="fp-estado">
+         <span class="fp-punto">
+         </span>
+         Ficha del lote
         </div>
-
-
-        <!-- DATOS PRINCIPALES -->
-
-        <div class="fp-portada-centro">
-
-          <div class="fp-cultivo">
-            🫐 Arándano fresco
-          </div>
-
-
-          <span class="fp-etiqueta">
-
-            FICHA N°
-
-            <strong id="codigoPublicoPortada">
-              --
-            </strong>
-
-          </span>
-
-
-          <p class="fp-subtitulo">
-            VARIEDAD
-          </p>
-
-
-          <h1 id="variedadPublica">
-            --
-          </h1>
-
-
-          <p
-            class="fp-lote"
-            id="codigoPublico"
-          >
-            LOTE: --
-          </p>
-
-        </div>
-
-
-        <!-- ORIGEN RESUMIDO -->
-
-               <div class="fp-portada-inferior">
-
-            <div class="fp-origen-card">
-                <div>
-                    <span>ORIGEN DEL LOTE</span>
-                    <strong id="fundoPublico">--</strong>
-                    <p id="origenPublico">--</p>
-                </div>
-            </div>
-
-            <button
-                type="button"
-                class="fp-descubre-btn"
-                id="btnPortadaSiguiente"
-            >
-                Descubre el origen →
-            </button>
-
-        </div><!-- FIN fp-portada-inferior -->
-
-    </div><!-- FIN fp-portada-contenido -->
-
-    </section><!-- FIN fp-portada -->
-
-</section><!-- FIN slide Portada -->
-
-
-  <!-- ========================================
-       02 · ORIGEN
-  ========================================= -->
-
-  <section class="fp-slide"data-title="Origen">
-
-    <section class="fp-origen-slide">
-
-
-      <!-- CABECERA -->
-
-      <div class="fp-slide-top">
-
-        <button
-          type="button"
-          class="fp-nav-btn"
-          id="btnAnteriorOrigen"
-        >
-          ←
-        </button>
-
-
-        <span class="fp-contador">
-          02 / 09 · ORIGEN
-        </span>
-
-
-        <button
-          type="button"
-          class="fp-nav-btn"
-          id="btnSiguienteOrigen"
-        >
-          →
-        </button>
-
+        <a class="fp-volver-inicio" href="index.html">
+         ← Volver al inicio
+        </a>
+       </div>
       </div>
-
-
-      <!-- INTRO -->
-
-      <div class="fp-origen-intro">
-
-        <span class="fp-kicker">
-          EMPIEZA AQUÍ
-        </span>
-
-
-        <h2>
-          Tus arándanos nacen en
-          <span id="regionTituloOrigen">--</span>.
-        </h2>
-
-
-        <p>
-          Conoce el lugar donde comienza
-          la historia de este lote.
-        </p>
-
+      <div class="fp-portada-centro">
+       <div class="fp-cultivo">
+        🫐 Arándano fresco
+       </div>
+       <span class="fp-etiqueta">
+        FICHA N°
+        <strong id="codigoPublicoPortada">
+         --
+        </strong>
+       </span>
+       <p class="fp-subtitulo">
+        VARIEDAD
+       </p>
+       <h1 id="variedadPublica">
+        --
+       </h1>
+       <p class="fp-lote" id="codigoPublico">
+        LOTE: --
+       </p>
       </div>
-
-
-      <!-- FOTO DEL FUNDO -->
-
-      <div class="fp-foto-origen">
-
-        <img
-  id="fotoFundoPublica"
-  src="IMAGENES/Llaqta_agricola2.jpg"
-  alt="Arándanos del fundo"
-/>
-
-
-        <div class="fp-foto-degradado"></div>
-
-
-        <div class="fp-foto-info">
-
-          <span
-            class="fp-ubicacion-pill"
-            id="ubicacionFotoOrigen"
-          >
-            📍 Fundo · ubicación
-          </span>
-
-
-          <h3>
-            Aquí empieza todo
-          </h3>
-
-
-          <p>
-            El lugar, la variedad y el lote
-            quedan unidos desde el primer registro.
-          </p>
-
+      <div class="fp-portada-inferior">
+       <div class="fp-origen-card">
+        <div>
+         <span>
+          ORIGEN DEL LOTE
+         </span>
+         <strong id="fundoPublico">
+          --
+         </strong>
+         <p id="origenPublico">
+          --
+         </p>
         </div>
-
+       </div>
+       <button class="fp-descubre-btn" id="btnPortadaSiguiente" type="button">
+        Descubre el origen →
+       </button>
       </div>
-
-
-      <!-- MAPA -->
-
-      <div class="fp-origen-mapa">
-
-        <div class="fp-subtitulo-bloque">
-
-          <span>
-            📍 UBICACIÓN
-          </span>
-
-          <h3>
-            Del campo al mapa
-          </h3>
-
-        </div>
-
-
-        <iframe
-          src="https://www.google.com/maps?q=INVERSIONES%20LLAQTA%20AGRICOLA%20S.A.C.%20Chincha%20Ica%20Peru&output=embed"
-          width="100%"
-          height="320"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-
-
-        <div class="info-ubicacion">
-
-<div class="info-ubicacion">
-
-  <div class="info-productor-texto">
-
-    <span class="etiqueta-ubicacion">
-      PRODUCTOR
-    </span>
-
-    <h3 id="productorMapa">
-      --
-    </h3>
-
-    <p id="ubicacionMapa">
-      --
-    </p>
-
-  </div>
-
-
-  <img
-    src="IMAGENES/Llacta_agricola3.jpg"
-    alt="Logo del productor"
-    class="logo-productor-publico"
-  >
-
-</div>    
-
+     </div>
+     <div class="fp-slide-footer">
+      <span>
+       01 / 06
+      </span>
+      <div aria-hidden="true" class="fp-footer-marcas">
+       <span class="activo">
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
       </div>
-
-
-      <!-- DATOS DE ORIGEN -->
-
-      <div class="fp-origen-datos">
-
-        <div class="fp-subtitulo-bloque">
-
-          <span>
-            🌱 DATOS DEL ORIGEN
-          </span>
-
-          <h3>
-            De dónde viene este lote
-          </h3>
-
-        </div>
-
-
-        <div class="grid-ficha-publica">
-
-
-          <div class="dato-publico">
-
-            <span>
-              País
-            </span>
-
-            <strong id="paisPublico">
-              --
-            </strong>
-
-          </div>
-
-
-          <div class="dato-publico">
-
-            <span>
-              Departamento
-            </span>
-
-            <strong id="regionPublico">
-              --
-            </strong>
-
-          </div>
-
-
-          <div class="dato-publico">
-
-            <span>
-              Productor
-            </span>
-
-            <strong id="productorDetallePublico">
-              --
-            </strong>
-
-          </div>
-
-
-          <div class="dato-publico">
-
-            <span>
-              Exportador
-            </span>
-
-            <strong id="exportadoraPublica">
-              --
-            </strong>
-
-          </div>
-
-
-          <div class="dato-publico">
-
-            <span>
-              Lote
-            </span>
-
-            <strong id="lotePublico">
-              --
-            </strong>
-
-          </div>
-
-
-          <div class="dato-publico">
-
-            <span>
-              Fecha de cosecha
-            </span>
-
-            <strong id="fechaPublica">
-              --
-            </strong>
-
-          </div>
-
-
-        </div>
-
-      </div>
-
-
+      <strong>
+       PORTADA
+      </strong>
+     </div>
     </section>
-
-  </section>
-
-<!-- ========================================
-     03 · LOTE
-========================================= -->
-
-<section class="fp-slide" data-title="Lote">
-
-  <section class="fp-lote-slide">
-
-    <!-- CABECERA -->
-
-    <div class="fp-slide-top">
-
-      <button
-        type="button"
-        class="fp-nav-btn"
-      >
-        ←
+   </section>
+   <!-- 02 · ORIGEN -->
+   <section class="fp-slide" data-title="Origen" id="slideOrigen">
+    <section class="fp-origen-slide fp-panel">
+     <div class="fp-slide-top">
+      <button aria-label="Página anterior" class="fp-nav-btn" data-direccion="-1" type="button">
+       ←
       </button>
-
       <span class="fp-contador">
-        03 / 09 · LOTE
+       02 / 06 · ORIGEN
       </span>
-
-      <button
-        type="button"
-        class="fp-nav-btn"
-      >
-        →
+      <button aria-label="Página siguiente" class="fp-nav-btn" data-direccion="1" type="button">
+       →
       </button>
-
-    </div>
-
-
-    <!-- INTRO -->
-
-    <div class="fp-lote-intro">
-
+     </div>
+     <div class="fp-origen-intro">
       <span class="fp-kicker">
-        LO QUE TIENES DELANTE
+       EMPIEZA AQUÍ
       </span>
-
       <h2>
-        Un lote. Una identidad.
+       Tus arándanos nacen en
+       <span id="regionTituloOrigen">
+        --
+       </span>
+       .
       </h2>
-
       <p>
-        Cada lote conserva los datos que permiten seguir
+       Conoce el lugar donde comienza
+          la historia de este lote.
+      </p>
+     </div>
+     <div class="fp-foto-origen">
+      <img alt="Arándanos del fundo" id="fotoFundoPublica" loading="lazy" src="IMAGENES/Llaqta_agricola2.jpg"/>
+      <div class="fp-foto-degradado">
+      </div>
+      <div class="fp-foto-info">
+       <span class="fp-ubicacion-pill" id="ubicacionFotoOrigen">
+        📍 Fundo · ubicación
+       </span>
+       <h3>
+        Aquí empieza todo
+       </h3>
+       <p>
+        El lugar, la variedad y el lote
+            quedan unidos desde el primer registro.
+       </p>
+      </div>
+     </div>
+     <div class="fp-origen-mapa">
+      <div class="fp-subtitulo-bloque">
+       <span>
+        📍 UBICACIÓN
+       </span>
+       <h3>
+        Del campo al mapa
+       </h3>
+      </div>
+      <iframe allowfullscreen="" height="320" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=INVERSIONES%20LLAQTA%20AGRICOLA%20S.A.C.%20Chincha%20Ica%20Peru&amp;output=embed" title="Ubicación referencial del productor en Chincha, Ica" width="100%">
+      </iframe>
+      <div class="info-ubicacion">
+       <div class="info-productor-texto">
+        <span class="etiqueta-ubicacion">
+         PRODUCTOR
+        </span>
+        <h3 id="productorMapa">
+         --
+        </h3>
+        <p id="ubicacionMapa">
+         --
+        </p>
+       </div>
+       <img alt="Logo del productor" class="logo-productor-publico" loading="lazy" src="IMAGENES/Llacta_agricola3.jpg"/>
+      </div>
+     </div>
+     <div class="fp-origen-datos">
+      <div class="fp-subtitulo-bloque">
+       <span>
+        🌱 DATOS DEL ORIGEN
+       </span>
+       <h3>
+        De dónde viene este lote
+       </h3>
+      </div>
+      <div class="grid-ficha-publica">
+       <div class="dato-publico">
+        <span>
+         País
+        </span>
+        <strong id="paisPublico">
+         --
+        </strong>
+       </div>
+       <div class="dato-publico">
+        <span>
+         Departamento
+        </span>
+        <strong id="regionPublico">
+         --
+        </strong>
+       </div>
+       <div class="dato-publico">
+        <span>
+         Productor
+        </span>
+        <strong id="productorDetallePublico">
+         --
+        </strong>
+       </div>
+       <div class="dato-publico">
+        <span>
+         Exportador
+        </span>
+        <strong id="exportadoraPublica">
+         --
+        </strong>
+       </div>
+       <div class="dato-publico">
+        <span>
+         Lote
+        </span>
+        <strong id="lotePublico">
+         --
+        </strong>
+       </div>
+       <div class="dato-publico">
+        <span>
+         Fecha de cosecha
+        </span>
+        <strong id="fechaPublica">
+         --
+        </strong>
+       </div>
+      </div>
+     </div>
+     <div class="fp-slide-footer">
+      <span>
+       02 / 06
+      </span>
+      <div aria-hidden="true" class="fp-footer-marcas">
+       <span>
+       </span>
+       <span class="activo">
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+      </div>
+      <strong>
+       ORIGEN
+      </strong>
+     </div>
+    </section>
+   </section>
+   <!-- 03 · LOTE -->
+   <section class="fp-slide" data-title="Lote" id="slideLote">
+    <section class="fp-lote-slide fp-panel">
+     <div class="fp-slide-top">
+      <button aria-label="Página anterior" class="fp-nav-btn" data-direccion="-1" type="button">
+       ←
+      </button>
+      <span class="fp-contador">
+       03 / 06 · LOTE
+      </span>
+      <button aria-label="Página siguiente" class="fp-nav-btn" data-direccion="1" type="button">
+       →
+      </button>
+     </div>
+     <div class="fp-lote-intro">
+      <span class="fp-kicker">
+       LO QUE TIENES DELANTE
+      </span>
+      <h2>
+       Un lote. Una identidad.
+      </h2>
+      <p>
+       Cada lote conserva los datos que permiten seguir
         su historia desde el campo.
       </p>
-
-    </div>
-
-
-    <!-- FOTO PRINCIPAL -->
-
-    <div class="fp-lote-hero">
-
-      <img
-        src="IMAGENES/Llaqta_agricola4.jpg"
-        alt="Arándanos correspondientes al lote"
-      >
-
-      <div class="fp-lote-degradado"></div>
-
-
+     </div>
+     <div class="fp-lote-hero">
+      <img alt="Arándanos correspondientes al lote" loading="lazy" src="IMAGENES/Llaqta_agricola4.jpg"/>
+      <div class="fp-lote-degradado">
+      </div>
       <div class="fp-lote-identidad">
-
-        <span>
-          LOTE
-        </span>
-
-        <h3 id="codigoLoteSlide">
-          --
-        </h3>
-
-
-        <p>
-          Variedad:
-          <strong id="variedadLoteSlide">
-            --
-          </strong>
-        </p>
-
-
-        <p>
-          Fundo:
-          <strong id="fundoLoteSlide">
-            --
-          </strong>
-        </p>
-
+       <span>
+        LOTE
+       </span>
+       <h3 id="codigoLoteSlide">
+        --
+       </h3>
+       <p>
+        Variedad:
+        <strong id="variedadLoteSlide">
+         --
+        </strong>
+       </p>
+       <p>
+        Fundo:
+        <strong id="fundoLoteSlide">
+         --
+        </strong>
+       </p>
       </div>
-
-    </div>
-
-
-    <!-- SEGUNDA FOTO -->
-
-    <div class="fp-lote-foto-secundaria">
-
-      <img
-        src="IMAGENES/Llaqta_agricola5.jpg"
-        alt="Detalle del proceso del lote"
-      >
-
-    </div>
-
-
-    <!-- INFORMACIÓN DE VARIEDAD -->
-
-    <details class="fp-variedad-acordeon">
-
+     </div>
+     <div class="fp-lote-foto-secundaria">
+      <img alt="Detalle del proceso del lote" loading="lazy" src="IMAGENES/Llaqta_agricola5.jpg"/>
+     </div>
+     <details class="fp-variedad-acordeon">
       <summary id="tituloInfoVariedad">
-        + Entérate más sobre esta variedad
+       + Entérate más sobre esta variedad
       </summary>
-
-
-      <div
-        class="fp-variedad-detalle"
-        id="infoVariedadPublica"
-      >
-
-        <p>
-          Consultando información de la variedad...
-        </p>
-
+      <div class="fp-variedad-detalle" id="infoVariedadPublica">
+       <div hidden="" id="infoVentura">
+        <div class="fp-sabias-variedad">
+         <span class="fp-sabias-etiqueta">
+          🫐 SABÍAS QUE...
+         </span>
+         <h4>
+          Ventura está hecha para viajar.
+         </h4>
+         <p>
+          Ventura es una variedad de arándano
+                    ampliamente utilizada en la producción
+                    peruana y con una presencia importante
+                    en mercados de exportación.
+         </p>
+         <div class="fp-sabias-grid">
+          <div>
+           <strong>
+            ✈️ Buena viajera
+           </strong>
+           <p>
+            Es reconocida por características
+                            que favorecen el transporte y la
+                            comercialización a largas distancias.
+           </p>
+          </div>
+          <div>
+           <strong>
+            🫐 Buen calibre
+           </strong>
+           <p>
+            Se describe por presentar buen tamaño,
+                            bloom y una apariencia comercial
+                            atractiva.
+           </p>
+          </div>
+          <div>
+           <strong>
+            🌱 Productiva
+           </strong>
+           <p>
+            Su productividad ha contribuido
+                            a su amplia presencia en campos
+                            de producción peruanos.
+           </p>
+          </div>
+         </div>
+         <p class="fp-sabias-nota">
+          El comportamiento final del fruto también
+                    depende del ambiente, manejo agronómico
+                    y condiciones de producción.
+         </p>
+         <div class="fp-fuentes-variedad">
+          <strong>
+           Para seguir leyendo
+          </strong>
+          <ol>
+           <li>
+            <a href="https://blueberriesconsulting.com/ventura-mantiene-preferencia-de-la-fruta-peruana-en-los-mercadosle-sigue-sekoya/" rel="noopener noreferrer" target="_blank">
+             Blueberries Consulting
+            </a>
+           </li>
+           <li>
+            <a href="https://redagricola.com/la-mejor-variedad-para-peru-es-una-ventura-pero-con-mejor-sabor/" rel="noopener noreferrer" target="_blank">
+             Redagrícola
+            </a>
+           </li>
+           <li>
+            <a href="https://arandanosperu.pe/2025/01/17/consideran-el-arandano-ventura-mas-resistente-y-adecuado-para-exportacion/" rel="noopener noreferrer" target="_blank">
+             Arándanos Perú
+            </a>
+           </li>
+          </ol>
+         </div>
+        </div>
+       </div>
+       <p hidden="" id="infoOtraVariedad">
+        Información divulgativa de esta variedad pendiente de incorporación.
+       </p>
       </div>
-
-    </details>
-
-  </section>
-
-</section>
-
-<!-- ========================================
-     04 · CALIDAD
-========================================= -->
-
-<section class="fp-slide" data-title="Calidad">
-
-  <section class="fp-calidad-slide">
-
-    <!-- CABECERA -->
-
-    <div class="fp-slide-top">
-
-      <button
-        type="button"
-        class="fp-nav-btn"
-      >
-        ←
+     </details>
+     <div class="fp-slide-footer">
+      <span>
+       03 / 06
+      </span>
+      <div aria-hidden="true" class="fp-footer-marcas">
+       <span>
+       </span>
+       <span>
+       </span>
+       <span class="activo">
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+      </div>
+      <strong>
+       LOTE
+      </strong>
+     </div>
+    </section>
+   </section>
+   <!-- 04 · CALIDAD -->
+   <section class="fp-slide" data-title="Calidad" id="slideCalidad">
+    <section class="fp-calidad-slide fp-panel">
+     <div class="fp-slide-top">
+      <button aria-label="Página anterior" class="fp-nav-btn" data-direccion="-1" type="button">
+       ←
       </button>
-
       <span class="fp-contador">
-        04 / 09 · CALIDAD
+       04 / 06 · CALIDAD
       </span>
-
-      <button
-        type="button"
-        class="fp-nav-btn"
-      >
-        →
+      <button aria-label="Página siguiente" class="fp-nav-btn" data-direccion="1" type="button">
+       →
       </button>
-
-    </div>
-
-
-    <!-- INTRO -->
-
-    <div class="fp-calidad-intro">
-
+     </div>
+     <div class="fp-calidad-intro">
       <span class="fp-kicker">
-        SE MIDE. SE REGISTRA.
+       SE MIDE. SE REGISTRA.
       </span>
-
       <h2>
-        Conoce el lote.
+       Conoce el lote.
       </h2>
-
       <p>
-        Toca cada indicador para entender
+       Toca cada indicador para entender
         qué significa y por qué importa.
       </p>
-
-    </div>
-
-
-    <!-- TARJETAS DE CALIDAD -->
-
-    <div class="fp-calidad-grid">
-
-
-<!-- FIRMEZA -->
-
-<div class="fp-calidad-card">
-
-  <div class="fp-calidad-resumen">
-
-    <span>
-      FIRMEZA
+     </div>
+     <p class="fp-mensaje" id="estadoCalidad" role="status">
+      Consultando información…
+     </p>
+     <div class="fp-calidad-grid">
+      <div class="fp-calidad-card fp-card-firmeza">
+       <div class="fp-calidad-resumen">
+        <span>
+         FIRMEZA
+        </span>
+        <strong id="firmezaPublica">
+         --
+        </strong>
+       </div>
+       <div class="fp-valoracion" aria-live="polite">
+    <span class="fp-valoracion-titulo">
+        Valoración referencial
     </span>
 
-    <strong id="firmezaPublica">
-      --
-    </strong>
+    <span
+        class="fp-valoracion-estrellas"
+        id="estrellasFirmeza"
+        aria-hidden="true"
+    >☆☆☆☆☆</span>
 
-  </div>
+    <strong id="categoriaFirmeza">--</strong>
 
-  <button
-    type="button"
-    class="fp-info-oreja"
-    data-popup="popupFirmeza"
-  >
-    ?
-  </button>
-
-
-  <div
-    class="fp-calidad-popup"
-    id="popupFirmeza"
-  >
-
-    <button
-      type="button"
-      class="fp-popup-cerrar"
-      data-popup="popupFirmeza"
-    >
-      ×
-    </button>
-
-    <span class="fp-info-kicker">
-      ¿QUÉ SIGNIFICA?
-    </span>
-
-    <h3>
-      Firmeza
-    </h3>
-
-    <p>
-      La firmeza indica cuánto se resiste el fruto
+    <small>Ejemplo ilustrativo · FirmPro</small>
+</div>
+       <button aria-controls="popupFirmeza" aria-expanded="false" aria-label="Información sobre Firmeza" class="fp-info-oreja" data-popup="popupFirmeza" type="button">
+        <span aria-hidden="true">👆</span>
+<span>Haz click aqui</span>
+       </button>
+       <div aria-labelledby="popupFirmezaTitulo" class="fp-calidad-popup" hidden="" id="popupFirmeza" role="region">
+        
+        <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupFirmeza" type="button">
+         ×
+        </button>
+        <span class="fp-info-kicker">
+         ¿QUÉ SIGNIFICA?
+        </span>
+        <h3 id="popupFirmezaTitulo">
+         Firmeza
+        </h3>
+        <p>
+         La firmeza indica cuánto se resiste el fruto
       a deformarse cuando recibe presión.
       Está relacionada con la turgencia del tejido,
       es decir, con qué tan bien conservan sus células
       el agua y la presión interna.
-    </p>
-
-    <div class="fp-info-dato">
-      <strong>
-        ¿Cómo se mide?
-      </strong>
-
-      <span>
-        Con un <b>durómetro para frutas</b>,
+        </p>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Cómo se mide?
+         </strong>
+         <span>
+          Con un
+          <b>
+           durómetro para frutas
+          </b>
+          ,
         aplicando una presión controlada sobre el fruto.
-      </span>
-    </div>
-
-    <div class="fp-info-dato">
-      <strong>
-        Unidad
-      </strong>
-
-      <span>
-        Unidades Shore (USh)
-      </span>
-    </div>
-
-    <div class="fp-info-dato">
-      <strong>
-        ¿Por qué nos importa?
-      </strong>
-
-      <span>
-        Ayuda a evaluar qué tan bien puede conservar
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          Unidad
+         </strong>
+         <span>
+          Gramo-fuerza milímetro (gf/mm)
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Por qué nos importa?
+         </strong>
+         <span>
+          Ayuda a evaluar qué tan bien puede conservar
         su textura durante la manipulación,
         el almacenamiento y el transporte.
-      </span>
-    </div>
+         </span>
+        </div>
+        <div class="fp-info-imagen">
+         <img alt="Medición de firmeza en arándanos" loading="lazy" src="IMAGENES/arandano_firmeza.png"/>
+        </div>
+        <div class="fp-info-fuente">
+         <span>
+          Para leer más:
+         </span>
+         <a href="https://redagricola.com/potencial-varietal-en-chile-para-enfrentar-el-escenario-mundial-del-arandano/" rel="noopener noreferrer" target="_blank">
+          Redagrícola
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="fp-calidad-card fp-card-valorada">
+       <div class="fp-calidad-resumen">
+        <span>
+         CALIBRE
+        </span>
+        <strong id="calibrePublico">
+         --
+        </strong>
+       </div>
+       <div class="fp-valoracion" aria-live="polite">
+    <span class="fp-valoracion-titulo">
+        Tamaño referencial
+    </span>
 
-    <div class="fp-info-imagen">
+    <span
+        class="fp-valoracion-estrellas"
+        id="estrellasCalibre"
+        aria-hidden="true"
+    >☆☆☆☆☆</span>
 
-      <img
-        src="IMAGENES/arandano_firmeza.png"
-        alt="Medición de firmeza en arándanos"
-      >
+    <strong id="categoriaCalibre">--</strong>
 
-    </div>
-
-    <div class="fp-info-fuente">
-
-      <span>
-        Para leer más:
-      </span>
-
-      <a
-        href="https://redagricola.com/potencial-varietal-en-chile-para-enfrentar-el-escenario-mundial-del-arandano/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Redagrícola
-      </a>
-
-    </div>
-
-  </div>
-
+    <small>Escala ilustrativa · Mayor tamaño, más estrellas</small>
 </div>
-
-      </details>
-
-
-      <!-- CALIBRE -->
-
-<div class="fp-calidad-card">
-
-  <div class="fp-calidad-resumen">
-
-    <span>
-      CALIBRE
-    </span>
-
-    <strong id="calibrePublico">
-      --
-    </strong>
-
-  </div>
-
-
-  <button
-    type="button"
-    class="fp-info-oreja"
-    data-popup="popupCalibre"
-  >
-    ?
-  </button>
-
-
-  <div
-    class="fp-calidad-popup"
-    id="popupCalibre"
-  >
-
-    <button
-      type="button"
-      class="fp-popup-cerrar"
-      data-popup="popupCalibre"
-    >
-      ×
-    </button>
-
-
-    <span class="fp-info-kicker">
-      ¿QUÉ SIGNIFICA?
-    </span>
-
-    <h3>
-      Calibre
-    </h3>
-
-    <p>
-      El calibre corresponde al diámetro ecuatorial
+       <button aria-controls="popupCalibre" aria-expanded="false" aria-label="Información sobre Calibre" class="fp-info-oreja" data-popup="popupCalibre" type="button">
+        <span aria-hidden="true">👆</span>
+<span>Haz click aquí</span>
+       </button>
+       <div aria-labelledby="popupCalibreTitulo" class="fp-calidad-popup" hidden="" id="popupCalibre" role="region">
+        <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupCalibre" type="button">
+         ×
+        </button>
+        <span class="fp-info-kicker">
+         ¿QUÉ SIGNIFICA?
+        </span>
+        <h3 id="popupCalibreTitulo">
+         Calibre
+        </h3>
+        <p>
+         El calibre corresponde al diámetro ecuatorial
       del fruto, es decir, al ancho del arándano
       medido en su zona central.
-    </p>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Cómo se mide?
-      </strong>
-
-      <span>
-        Con un calibrador o vernier,
+        </p>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Cómo se mide?
+         </strong>
+         <span>
+          Con un calibrador o vernier,
         o mediante equipos automáticos de selección.
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        Unidad
-      </strong>
-
-      <span>
-        Milímetros (mm)
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Por qué nos importa?
-      </strong>
-
-      <span>
-        Porque permite clasificar la fruta por tamaño,
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          Unidad
+         </strong>
+         <span>
+          Milímetros (mm)
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Por qué nos importa?
+         </strong>
+         <span>
+          Porque permite clasificar la fruta por tamaño,
         estandarizar presentaciones y verificar
         especificaciones comerciales.
-      </span>
-
-    </div>
-
-
-    <div class="fp-calibre-rangos">
-
-      <strong>
-        Rangos de referencia
-      </strong>
-
-      <div>
-        <span>Bajo calibre</span>
-        <b>&lt; 10 mm</b>
+         </span>
+        </div>
+        <div class="fp-calibre-rangos">
+         <strong>
+          Rangos de referencia
+         </strong>
+         <div>
+          <span>
+           Bajo calibre
+          </span>
+          <b>
+           &lt; 10 mm
+          </b>
+         </div>
+         <div>
+          <span>
+           Chico / small
+          </span>
+          <b>
+           &gt; 10 a 12 mm
+          </b>
+         </div>
+         <div>
+          <span>
+           Mediano / medium
+          </span>
+          <b>
+           &gt; 12 a 14 mm
+          </b>
+         </div>
+         <div>
+          <span>
+           Grande / large
+          </span>
+          <b>
+           &gt; 14 a 18 mm
+          </b>
+         </div>
+         <div>
+          <span>
+           Extragrande / jumbo
+          </span>
+          <b>
+           &gt; 18 mm
+          </b>
+         </div>
+        </div>
+        <div class="fp-info-imagen">
+         <img alt="Calibre de arándanos según su diámetro" loading="lazy" src="IMAGENES/arandano_calibre.jpg"/>
+        </div>
+        <div class="fp-info-fuente">
+         <span>
+          Fuente:
+         </span>
+         <strong>
+          INACAL
+         </strong>
+        </div>
+       </div>
       </div>
-
-      <div>
-        <span>Chico / small</span>
-        <b>&gt; 10 a 12 mm</b>
-      </div>
-
-      <div>
-        <span>Mediano / medium</span>
-        <b>&gt; 12 a 14 mm</b>
-      </div>
-
-      <div>
-        <span>Grande / large</span>
-        <b>&gt; 14 a 18 mm</b>
-      </div>
-
-      <div>
-        <span>Extragrande / jumbo</span>
-        <b>&gt; 18 mm</b>
-      </div>
-
-    </div>
-
-    <div class="fp-info-imagen">
-
-  <img
-    src="IMAGENES/arandano_calibre.jpg"
-    alt="Calibre de arándanos según su diámetro"
-  >
-
-</div>
-
-
-    <div class="fp-info-fuente">
-
-      <span>
-        Fuente:
-      </span>
-
-      <strong>
-        INACAL
-      </strong>
-
-    </div>
-
-  </div>
-
-</div>
-
-      <!-- BRIX -->
-
-<div class="fp-calidad-card">
-
-  <div class="fp-calidad-resumen">
-
-    <span>
-      °BRIX
+      <div class="fp-calidad-card fp-card-valorada">
+       <div class="fp-calidad-resumen">
+        <span>
+         °BRIX
+        </span>
+        <strong id="brixPublico">
+         --
+        </strong>
+       </div>
+       <div class="fp-valoracion" aria-live="polite">
+    <span class="fp-valoracion-titulo">
+        Sólidos solubles
     </span>
 
-    <strong id="brixPublico">
-      --
-    </strong>
+    <span
+        class="fp-valoracion-estrellas"
+        id="estrellasBrix"
+        aria-hidden="true"
+    >☆☆☆☆☆</span>
 
-  </div>
+    <strong id="categoriaBrix">--</strong>
 
-
-  <button
-    type="button"
-    class="fp-info-oreja"
-    data-popup="popupBrix"
-  >
-    ?
-  </button>
-
-
-  <div
-    class="fp-calidad-popup"
-    id="popupBrix"
-  >
-
-    <button
-      type="button"
-      class="fp-popup-cerrar"
-      data-popup="popupBrix"
-    >
-      ×
-    </button>
-
-
-    <span class="fp-info-kicker">
-      ¿QUÉ SIGNIFICA?
-    </span>
-
-    <h3>
-      Grados Brix
-    </h3>
-
-    <p>
-      Los °Brix indican la concentración
+    <small>Escala ilustrativa · Mayor °Brix, más estrellas</small>
+</div>
+       <button aria-controls="popupBrix" aria-expanded="false" aria-label="Información sobre Grados Brix" class="fp-info-oreja" data-popup="popupBrix" type="button">
+        <span aria-hidden="true">👆</span>
+<span>Haz click aquí</span>
+       </button>
+       <div aria-labelledby="popupBrixTitulo" class="fp-calidad-popup" hidden="" id="popupBrix" role="region">
+        <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupBrix" type="button">
+         ×
+        </button>
+        <span class="fp-info-kicker">
+         ¿QUÉ SIGNIFICA?
+        </span>
+        <h3 id="popupBrixTitulo">
+         Grados Brix
+        </h3>
+        <p>
+         Los °Brix indican la concentración
       de sólidos solubles en el jugo del fruto.
       En los arándanos, una parte importante
       de estos sólidos corresponde a azúcares.
-    </p>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Cómo se mide?
-      </strong>
-
-      <span>
-        Con un <b>refractómetro</b>,
+        </p>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Cómo se mide?
+         </strong>
+         <span>
+          Con un
+          <b>
+           refractómetro
+          </b>
+          ,
         colocando una pequeña muestra del jugo
         del arándano sobre el equipo.
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        Unidad
-      </strong>
-
-      <span>
-        Grados Brix (°Brix)
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Por qué nos importa?
-      </strong>
-
-      <span>
-        Ayuda a evaluar la madurez y la calidad
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          Unidad
+         </strong>
+         <span>
+          Grados Brix (°Brix)
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Por qué nos importa?
+         </strong>
+         <span>
+          Ayuda a evaluar la madurez y la calidad
         sensorial del fruto, especialmente su
         balance entre dulzor y acidez.
-      </span>
-
-    </div>
-
-    <div class="fp-info-imagen">
-  <img
-    src="IMAGENES/arandano_brix.jpeg"
-    alt="Medición de grados Brix en arándanos"
-  >
-</div>
-
-    <div class="fp-info-fuente">
-
-      <span>
-        Para leer más:
-      </span>
-
-      <a
-        href="https://extension.uga.edu/publications/detail.html?number=C1294&title=blueberry-fruit-set-development-and-ripening"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        University of Georgia Cooperative Extension
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-     <!-- ACIDEZ -->
-
-<div class="fp-calidad-card">
-
-  <div class="fp-calidad-resumen">
-
-    <span>
-      ACIDEZ
+         </span>
+        </div>
+        <div class="fp-info-imagen">
+         <img alt="Medición de grados Brix en arándanos" loading="lazy" src="IMAGENES/arandano_brix.jpeg"/>
+        </div>
+        <div class="fp-info-fuente">
+         <span>
+          Para leer más:
+         </span>
+         <a href="https://extension.uga.edu/publications/detail.html?number=C1294&amp;title=blueberry-fruit-set-development-and-ripening" rel="noopener noreferrer" target="_blank">
+          University of Georgia Cooperative Extension
+         </a>
+        </div>
+       </div>
+      </div>
+      <div class="fp-calidad-card fp-card-valorada">
+       <div class="fp-calidad-resumen">
+        <span>
+         ACIDEZ
+        </span>
+        <strong id="acidezPublica">
+         --
+        </strong>
+       </div>
+       <div class="fp-valoracion" aria-live="polite">
+    <span class="fp-valoracion-titulo">
+        Acidez titulable
     </span>
 
-    <strong id="acidezPublica">
-      --
-    </strong>
+    <span
+        class="fp-valoracion-estrellas"
+        id="estrellasAcidez"
+        aria-hidden="true"
+    >☆☆☆☆☆</span>
 
-  </div>
+    <strong id="categoriaAcidez">--</strong>
 
-
-  <button
-    type="button"
-    class="fp-info-oreja"
-    data-popup="popupAcidez"
-  >
-    ?
-  </button>
-
-
-  <div
-    class="fp-calidad-popup"
-    id="popupAcidez"
-  >
-
-    <button
-      type="button"
-      class="fp-popup-cerrar"
-      data-popup="popupAcidez"
-    >
-      ×
-    </button>
-
-
-    <span class="fp-info-kicker">
-      ¿QUÉ SIGNIFICA?
-    </span>
-
-    <h3>
-      Acidez
-    </h3>
-
-    <p>
-      La acidez representa la cantidad de ácidos
+    <small>Escala ilustrativa · Mayor acidez, más estrellas</small>
+</div>
+       <button aria-controls="popupAcidez" aria-expanded="false" aria-label="Información sobre Acidez" class="fp-info-oreja" data-popup="popupAcidez" type="button">
+        <span aria-hidden="true">👆</span>
+<span>Haz click aquí</span>
+       </button>
+       <div aria-labelledby="popupAcidezTitulo" class="fp-calidad-popup" hidden="" id="popupAcidez" role="region">
+        <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupAcidez" type="button">
+         ×
+        </button>
+        <span class="fp-info-kicker">
+         ¿QUÉ SIGNIFICA?
+        </span>
+        <h3 id="popupAcidezTitulo">
+         Acidez
+        </h3>
+        <p>
+         La acidez representa la cantidad de ácidos
       orgánicos presentes en el fruto.
       Estos compuestos participan directamente
       en la percepción del sabor.
-    </p>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Cómo se mide?
-      </strong>
-
-      <span>
-        Puede determinarse mediante
-        <b>acidez titulable</b>,
+        </p>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Cómo se mide?
+         </strong>
+         <span>
+          Puede determinarse mediante
+          <b>
+           acidez titulable
+          </b>
+          ,
         neutralizando los ácidos del jugo
         con una solución base hasta alcanzar
         un punto final.
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        Unidad
-      </strong>
-
-      <span>
-        Puede expresarse como porcentaje
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          Unidad
+         </strong>
+         <span>
+          Puede expresarse como porcentaje
         de ácido cítrico equivalente (%).
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Por qué nos importa?
-      </strong>
-
-      <span>
-        Porque junto con los °Brix ayuda a entender
+         </span>
+        </div>
+        <div class="fp-info-dato">
+         <strong>
+          ¿Por qué nos importa?
+         </strong>
+         <span>
+          Porque junto con los °Brix ayuda a entender
         el equilibrio entre dulzor y acidez,
         uno de los componentes más importantes
         de la calidad sensorial del arándano.
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-fuente">
-
-      <span>
-        Para leer más:
-      </span>
-
-      <a
-        href="https://extension.uga.edu/publications/detail.html?number=C1294&title=blueberry-fruit-set-development-and-ripening"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        University of Georgia Cooperative Extension
-      </a>
-
-    </div>
-
-  </div>
-
-</div>
-
-      <!-- DEFECTOS -->
-
-<div class="fp-calidad-card">
-
-  <div class="fp-calidad-resumen">
-
-    <span>
-      DEFECTOS
-    </span>
-
-    <strong id="defectosPublico">
-      --
-    </strong>
-
-  </div>
-
-
-  <button
-    type="button"
-    class="fp-info-oreja"
-    data-popup="popupDefectos"
-  >
-    ?
-  </button>
-
-
-  <div
-    class="fp-calidad-popup"
-    id="popupDefectos"
-  >
-
-    <button
-      type="button"
-      class="fp-popup-cerrar"
-      data-popup="popupDefectos"
-    >
-      ×
-    </button>
-
-
-    <span class="fp-info-kicker">
-      ¿QUÉ SIGNIFICA?
-    </span>
-
-    <h3>
-      Defectos
-    </h3>
-
-    <p>
-      El porcentaje de defectos indica qué parte
-      de la muestra presenta alteraciones que pueden
-      afectar la apariencia o la calidad comercial
-      del fruto.
-    </p>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Cómo se evalúa?
-      </strong>
-
-      <span>
-        Mediante inspección visual de una muestra,
-        identificando los frutos con defectos
-        y calculando qué porcentaje representan
-        del total evaluado.
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        Unidad
-      </strong>
-
-      <span>
-        Porcentaje (%)
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Por qué nos importa?
-      </strong>
-
-      <span>
-        Ayuda a evaluar la uniformidad y la calidad
-        comercial del lote antes de su transporte,
-        comercialización o exportación.
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- OBSERVACIONES -->
-
-<div class="fp-calidad-card">
-
-  <div class="fp-calidad-resumen">
-
-    <span>
-      OBSERVACIONES
-    </span>
-
-    <strong>
-      VER DETALLE
-    </strong>
-
-  </div>
-
-
-  <button
-    type="button"
-    class="fp-info-oreja"
-    data-popup="popupObservaciones"
-  >
-    ?
-  </button>
-
-
-  <div
-    class="fp-calidad-popup"
-    id="popupObservaciones"
-  >
-
-    <button
-      type="button"
-      class="fp-popup-cerrar"
-      data-popup="popupObservaciones"
-    >
-      ×
-    </button>
-
-
-    <span class="fp-info-kicker">
-      ¿QUÉ SIGNIFICA?
-    </span>
-
-    <h3>
-      Observaciones
-    </h3>
-
-    <p>
-      Es el espacio donde se registran comentarios
-      adicionales encontrados durante la evaluación
-      de calidad del lote.
-    </p>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Qué puede incluir?
-      </strong>
-
-      <span>
-        Condición del fruto, daños visibles,
-        deshidratación, coloración irregular,
-        observaciones del empaque u otros
-        hallazgos relevantes.
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        ¿Por qué nos importa?
-      </strong>
-
-      <span>
-        Porque aporta contexto adicional que los
-        valores numéricos por sí solos no siempre
-        permiten mostrar.
-      </span>
-
-    </div>
-
-
-    <div class="fp-info-dato">
-
-      <strong>
-        Observación registrada
-      </strong>
-
-      <span id="observacionesCalidadPublica">
-        Sin observaciones registradas.
-      </span>
-
-    </div>
-
-  </div>
-
-</div>
-
-<!-- CIERRE DE GRID DE CALIDAD -->
-</div>
-
-
-<!-- CIERRE DE fp-calidad-slide -->
-</section>
-
-
-<!-- CIERRE DEL SLIDE 04 · CALIDAD -->
-</section>
-
-
-<!-- ========================================
-     05 · PACKING
-========================================= -->
-
-  <!-- ========================================
-       05 · PACKING
-  ========================================= -->
-
-  <section class="fp-slide" data-title="Packing">
-
-    <section class="ficha-bloque fp-packing-slide">
-
-      <div class="fp-slide-top">
-
-        <button
-          type="button"
-          class="fp-nav-btn"
-        >
-          ←
-        </button>
-
-
-        <span class="fp-contador">
-          04 / 09 · PACKING
-        </span>
-
-
-        <button
-          type="button"
-          class="fp-nav-btn"
-        >
-          →
-        </button>
-
+         </span>
+        </div>
+        <div class="fp-info-fuente">
+         <span>
+          Para leer más:
+         </span>
+         <a href="https://extension.uga.edu/publications/detail.html?number=C1294&amp;title=blueberry-fruit-set-development-and-ripening" rel="noopener noreferrer" target="_blank">
+          University of Georgia Cooperative Extension
+         </a>
+        </div>
+       </div>
       </div>
-
-
-      <h2>
-        📦 Packing y poscosecha
-      </h2>
-
-
-      <div id="packingPublico">
-
-        <p class="mensaje-proximamente">
-          Consultando packing...
-        </p>
-
+     <div class="fp-slide-footer">
+      <span>
+       04 / 06
+      </span>
+      <div aria-hidden="true" class="fp-footer-marcas">
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span class="activo">
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
       </div>
-
-
+      <strong>
+       CALIDAD
+      </strong>
+     </div>
     </section>
-
-  </section>
-
-
-
-  <!-- ========================================
-       06 · RECORRIDO
-  ========================================= -->
-
-<section class="fp-slide" data-title="Recorrido">
-
-  <section class="ficha-bloque fp-recorrido-slide">
-
-    <div class="fp-slide-top">
-      <button type="button" class="fp-nav-btn">←</button>
-
+   </section>
+   <!-- 05 · PACKING -->
+   <section class="fp-slide" data-title="Packing" id="slidePacking">
+    <section class="fp-packing-slide fp-panel">
+     <div class="fp-slide-top">
+      <button aria-label="Página anterior" class="fp-nav-btn" data-direccion="-1" type="button">
+       ←
+      </button>
       <span class="fp-contador">
-        06 / 09 · RECORRIDO
+       05 / 06 · PACKING
       </span>
-
-      <button type="button" class="fp-nav-btn">→</button>
-    </div>
-
-    <h2>📍 Recorrido del lote</h2>
-
-    <!-- FOTO REFERENCIAL -->
-    <figure class="fp-recorrido-foto">
-      <img
-        src="IMAGENES/recorrido_arandano.jpg"
-        alt="Contenedores y transporte en una terminal logística"
-      >
+      <button aria-label="Página siguiente" class="fp-nav-btn" data-direccion="1" type="button">
+       →
+      </button>
+     </div>
+     <h2>
+      📦 Packing y poscosecha
+     </h2>
+     <p class="fp-mensaje" id="estadoPacking" role="status">
+      Consultando información…
+     </p>
+     <div id="packingPublico">
+      <div class="grid-ficha-publica fp-packing-grid">
+       <div class="dato-publico">
+        <span>
+         Fecha de recepción
+        </span>
+        <strong id="fechaRecepcionPublica">
+         --
+        </strong>
+       </div>
+       <div class="dato-publico">
+        <span>
+         Fecha de packing
+        </span>
+        <strong id="fechaPackingPublica">
+         --
+        </strong>
+       </div>
+       <div class="fp-calidad-card fp-packing-card">
+        <div class="fp-calidad-resumen">
+         <span>
+          EMPAQUE
+         </span>
+         <strong id="empaquePublico">
+          --
+         </strong>
+        </div>
+        <button aria-controls="popupPackingEmpaque" aria-expanded="false" aria-label="Información sobre Empaque" class="fp-info-oreja" data-popup="popupPackingEmpaque" type="button">
+         ?
+        </button>
+        <div aria-labelledby="popupPackingEmpaqueTitulo" class="fp-calidad-popup" hidden="" id="popupPackingEmpaque" role="region">
+         <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupPackingEmpaque" type="button">
+          ×
+         </button>
+         <span class="fp-info-kicker">
+          ¿QUÉ SIGNIFICA?
+         </span>
+         <h3 id="popupPackingEmpaqueTitulo">
+          Empaque
+         </h3>
+         <p>
+          Es el envase que contiene y protege los arándanos durante su manipulación, almacenamiento y transporte.
+         </p>
+         <div class="fp-info-dato">
+          <strong>
+           ¿Qué es un clamshell?
+          </strong>
+          <span>
+           Es un envase con tapa unida al cuerpo, que se abre como una concha. Sus aberturas permiten la circulación del aire y facilitan el intercambio de calor y gases entre la fruta y el ambiente.
+          </span>
+         </div>
+         <div class="fp-info-dato">
+          <strong>
+           ¿Por qué nos importa?
+          </strong>
+          <span>
+           Su ventilación facilita que el aire frío llegue a los frutos durante el enfriamiento. Además, ayuda a protegerlos y permite ver su contenido.
+          </span>
+         </div>
+         <div class="fp-info-imagen">
+          <img alt="Envase clamshell para arándanos" loading="lazy" src="IMAGENES/arandano_clamshell.jpg"/>
+         </div>
+         <div class="fp-info-fuente">
+          <span>
+           Para leer más:
+          </span>
+          <a href="https://ncfreshproducesafety.ces.ncsu.edu/postharvest-produce-guide/produce-guide-blueberries/" rel="noopener noreferrer" target="_blank">
+           NC State Extension
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="fp-calidad-card fp-packing-card">
+        <div class="fp-calidad-resumen">
+         <span>
+          TEMPERATURA DE PREFRÍO
+         </span>
+         <strong id="prefrioPublico">
+          --
+         </strong>
+        </div>
+        <button aria-controls="popupPackingPrefrio" aria-expanded="false" aria-label="Información sobre Prefrío" class="fp-info-oreja" data-popup="popupPackingPrefrio" type="button">
+         ?
+        </button>
+        <div aria-labelledby="popupPackingPrefrioTitulo" class="fp-calidad-popup" hidden="" id="popupPackingPrefrio" role="region">
+         <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupPackingPrefrio" type="button">
+          ×
+         </button>
+         <span class="fp-info-kicker">
+          ¿QUÉ SIGNIFICA?
+         </span>
+         <h3 id="popupPackingPrefrioTitulo">
+          Prefrío
+         </h3>
+         <p>
+          Es el enfriamiento inicial de la fruta después de la cosecha.
+         </p>
+         <div class="fp-info-dato">
+          <strong>
+           Unidad
+          </strong>
+          <span>
+           Grados Celsius (°C). Aquí se muestra la temperatura registrada para esta etapa.
+          </span>
+         </div>
+         <div class="fp-info-dato">
+          <strong>
+           ¿Por qué nos importa?
+          </strong>
+          <span>
+           Enfriar pronto ayuda a reducir la pérdida de agua, la respiración y el deterioro de los arándanos.
+          </span>
+         </div>
+         <div class="fp-info-fuente">
+          <span>
+           Para leer más:
+          </span>
+          <a href="https://extension.umn.edu/agriculture/specialty-crops/commercial-fruit-production/postharvest-handling-of-fruit-and-vegetable-crops-in-minnesota" rel="noopener noreferrer" target="_blank">
+           University of Minnesota
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="fp-calidad-card fp-packing-card">
+        <div class="fp-calidad-resumen">
+         <span>
+          TEMPERATURA DE ALMACENAMIENTO
+         </span>
+         <strong id="almacenamientoPublico">
+          --
+         </strong>
+        </div>
+        <button aria-controls="popupPackingAlmacenamiento" aria-expanded="false" aria-label="Información sobre Almacenamiento en frío" class="fp-info-oreja" data-popup="popupPackingAlmacenamiento" type="button">
+         ?
+        </button>
+        <div aria-labelledby="popupPackingAlmacenamientoTitulo" class="fp-calidad-popup" hidden="" id="popupPackingAlmacenamiento" role="region">
+         <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupPackingAlmacenamiento" type="button">
+          ×
+         </button>
+         <span class="fp-info-kicker">
+          ¿QUÉ SIGNIFICA?
+         </span>
+         <h3 id="popupPackingAlmacenamientoTitulo">
+          Almacenamiento en frío
+         </h3>
+         <p>
+          Es la temperatura registrada en la cámara donde se conserva el lote.
+         </p>
+         <div class="fp-info-dato">
+          <strong>
+           Unidad
+          </strong>
+          <span>
+           Grados Celsius (°C).
+          </span>
+         </div>
+         <div class="fp-info-dato">
+          <strong>
+           ¿Por qué nos importa?
+          </strong>
+          <span>
+           El almacenamiento en frío ayuda a retrasar el deterioro y conservar la calidad después del enfriamiento inicial.
+          </span>
+         </div>
+         <div class="fp-info-fuente">
+          <span>
+           Para leer más:
+          </span>
+          <a href="https://postharvest.ucdavis.edu/produce-facts-sheets/bushberry" rel="noopener noreferrer" target="_blank">
+           UC Davis · Poscosecha
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="fp-calidad-card fp-packing-card">
+        <div class="fp-calidad-resumen">
+         <span>
+          O₂
+         </span>
+         <strong id="o2Publico">
+          --
+         </strong>
+        </div>
+        <button aria-controls="popupPackingO2" aria-expanded="false" aria-label="Información sobre Oxígeno" class="fp-info-oreja" data-popup="popupPackingO2" type="button">
+         ?
+        </button>
+        <div aria-labelledby="popupPackingO2Titulo" class="fp-calidad-popup" hidden="" id="popupPackingO2" role="region">
+         <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupPackingO2" type="button">
+          ×
+         </button>
+         <span class="fp-info-kicker">
+          ¿QUÉ SIGNIFICA?
+         </span>
+         <h3 id="popupPackingO2Titulo">
+          Oxígeno
+         </h3>
+         <p>
+          Indica la proporción de oxígeno registrada en la atmósfera de conservación.
+         </p>
+         <div class="fp-info-dato">
+          <strong>
+           Unidad
+          </strong>
+          <span>
+           Porcentaje (%). Es un dato del ambiente que rodea la fruta.
+          </span>
+         </div>
+         <div class="fp-info-dato">
+          <strong>
+           ¿Por qué nos importa?
+          </strong>
+          <span>
+           La modificación del oxígeno, combinada con frío y control del CO₂, puede ayudar a reducir la respiración y retrasar el ablandamiento.
+          </span>
+         </div>
+         <div class="fp-info-fuente">
+          <span>
+           Para leer más:
+          </span>
+          <a href="https://postharvest.ucdavis.edu/produce-facts-sheets/bushberry" rel="noopener noreferrer" target="_blank">
+           UC Davis · Atmósferas modificadas
+          </a>
+         </div>
+        </div>
+       </div>
+       <div class="fp-calidad-card fp-packing-card">
+        <div class="fp-calidad-resumen">
+         <span>
+          CO₂
+         </span>
+         <strong id="co2Publico">
+          --
+         </strong>
+        </div>
+        <button aria-controls="popupPackingCO2" aria-expanded="false" aria-label="Información sobre Dióxido de carbono" class="fp-info-oreja" data-popup="popupPackingCO2" type="button">
+         ?
+        </button>
+        <div aria-labelledby="popupPackingCO2Titulo" class="fp-calidad-popup" hidden="" id="popupPackingCO2" role="region">
+         <button aria-label="Cerrar información" class="fp-popup-cerrar" data-popup="popupPackingCO2" type="button">
+          ×
+         </button>
+         <span class="fp-info-kicker">
+          ¿QUÉ SIGNIFICA?
+         </span>
+         <h3 id="popupPackingCO2Titulo">
+          Dióxido de carbono
+         </h3>
+         <p>
+          Indica la proporción de dióxido de carbono registrada en la atmósfera de conservación.
+         </p>
+         <div class="fp-info-dato">
+          <strong>
+           Unidad
+          </strong>
+          <span>
+           Porcentaje (%). Se interpreta junto con el oxígeno y la temperatura.
+          </span>
+         </div>
+         <div class="fp-info-dato">
+          <strong>
+           ¿Por qué nos importa?
+          </strong>
+          <span>
+           Las atmósferas enriquecidas con CO₂ pueden ayudar a reducir el desarrollo de organismos que causan pudriciones.
+          </span>
+         </div>
+         <div class="fp-info-fuente">
+          <span>
+           Para leer más:
+          </span>
+          <a href="https://postharvest.ucdavis.edu/produce-facts-sheets/bushberry" rel="noopener noreferrer" target="_blank">
+           UC Davis · Atmósferas modificadas
+          </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <div class="fp-slide-footer">
+      <span>
+       05 / 06
+      </span>
+      <div aria-hidden="true" class="fp-footer-marcas">
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span class="activo">
+       </span>
+       <span>
+       </span>
+      </div>
+      <strong>
+       PACKING
+      </strong>
+     </div>
+    </section>
+   </section>
+   <!-- 06 · RECORRIDO -->
+   <section class="fp-slide" data-title="Recorrido" id="slideRecorrido">
+    <section class="fp-recorrido-slide fp-panel">
+     <div class="fp-slide-top">
+      <button aria-label="Página anterior" class="fp-nav-btn" data-direccion="-1" type="button">
+       ←
+      </button>
+      <span class="fp-contador">
+       06 / 06 · RECORRIDO
+      </span>
+      <button aria-label="Página siguiente" class="fp-nav-btn" data-direccion="1" disabled="" type="button">
+       →
+      </button>
+     </div>
+     <h2>
+      📍 Recorrido del lote
+     </h2>
+     <figure class="fp-recorrido-foto">
+      <img alt="Contenedores y transporte en una terminal logística" loading="lazy" src="IMAGENES/recorrido_arandano.jpg"/>
       <figcaption>
-        Imagen referencial del proceso logístico.
+       Imagen referencial del proceso logístico.
       </figcaption>
-    </figure>
-
-    <!-- AVISO DEL EJEMPLO -->
-    <p class="fp-recorrido-aviso" id="avisoRecorrido">
+     </figure>
+     <p class="fp-recorrido-aviso" id="avisoRecorrido">
       Sin información de recorrido registrada.
-    </p>
-
-    <!-- FECHAS JUNTAS -->
-    <div class="fp-recorrido-fechas">
-
+     </p>
+     <div class="fp-recorrido-fechas">
       <div>
-        <span>FECHA DE DESPACHO</span>
-        <strong id="rutaFechaDespacho">--</strong>
+       <span>
+        FECHA DE DESPACHO
+       </span>
+       <strong id="rutaFechaDespacho">
+        --
+       </strong>
       </div>
-
       <div>
-        <span>LLEGADA ESTIMADA</span>
-        <strong id="rutaLlegada">--</strong>
+       <span>
+        LLEGADA ESTIMADA
+       </span>
+       <strong id="rutaLlegada">
+        --
+       </strong>
       </div>
-
-    </div>
-
-    <!-- CUATRO ETAPAS -->
-    <div class="timeline-publica">
-
+     </div>
+     <div class="timeline-publica">
       <div class="paso-traza">
-        <div class="icono-traza">🌱</div>
-        <div>
-          <strong>Origen</strong>
-          <p id="rutaOrigen">Origen pendiente</p>
-        </div>
+       <div class="icono-traza">
+        🌱
+       </div>
+       <div>
+        <strong>
+         Origen
+        </strong>
+        <p id="rutaOrigen">
+         Origen pendiente
+        </p>
+       </div>
       </div>
-
-      <div class="linea-traza"></div>
-
+      <div class="linea-traza">
+      </div>
       <div class="paso-traza">
-        <div class="icono-traza">📦</div>
-        <div>
-          <strong>Packing</strong>
-          <p>Selección, acondicionamiento y empaque.</p>
-          <p>Consulta los registros en la página anterior.</p>
-        </div>
+       <div class="icono-traza">
+        📦
+       </div>
+       <div>
+        <strong>
+         Packing
+        </strong>
+        <p>
+         Selección, acondicionamiento y empaque.
+        </p>
+        <p>
+         Consulta los registros en la página anterior.
+        </p>
+       </div>
       </div>
-
-      <div class="linea-traza"></div>
-
+      <div class="linea-traza">
+      </div>
       <div class="paso-traza">
-        <div class="icono-traza">🚚</div>
-        <div>
-          <strong>Despacho</strong>
-          <p id="rutaTransportista">Transportista pendiente</p>
-<p id="rutaDespacho">Puerto de origen pendiente</p>
-        </div>
+       <div class="icono-traza">
+        🚚
+       </div>
+       <div>
+        <strong>
+         Despacho
+        </strong>
+        <p id="rutaTransportista">
+         Transportista pendiente
+        </p>
+        <p id="rutaDespacho">
+         Puerto de origen pendiente
+        </p>
+       </div>
       </div>
-
-      <div class="linea-traza"></div>
-
+      <div class="linea-traza">
+      </div>
       <div class="paso-traza">
-        <div class="icono-traza">🌎</div>
-        <div>
-          <strong>Destino</strong>
-          <p id="rutaDestino">Destino pendiente</p>
-        </div>
+       <div class="icono-traza">
+        🌎
+       </div>
+       <div>
+        <strong>
+         Destino
+        </strong>
+        <p id="rutaDestino">
+         Destino pendiente
+        </p>
+       </div>
       </div>
-
-    </div>
-
-    <!-- ESTADO AL FINAL -->
-    <div class="fp-seguimiento">
-
-    <div class="fp-seguimiento-cabecera">
-        <span class="fp-seguimiento-icono" aria-hidden="true">🚢</span>
-
-        <div>
-            <span class="fp-seguimiento-etiqueta">
-                ESTADO DEL ENVÍO
-            </span>
-
-            <strong id="rutaEstado">Sin registro</strong>
-
-            <p>Destino del ejemplo: North Vancouver, Canadá.</p>
-        </div>
-
-        <span class="fp-seguimiento-demo">DEMO</span>
-    </div>
-
-    <p class="fp-seguimiento-nota">
-        Historial ilustrativo de 2024. Los movimientos logísticos
+     </div>
+     <div class="fp-seguimiento">
+      <div class="fp-seguimiento-cabecera">
+       <span aria-hidden="true" class="fp-seguimiento-icono">
+        🚢
+       </span>
+       <div>
+        <span class="fp-seguimiento-etiqueta">
+         ESTADO DEL ENVÍO
+        </span>
+        <strong id="rutaEstado">
+         Sin registro
+        </strong>
+        <p data-demo="" hidden="">
+         Destino del ejemplo: North Vancouver, Canadá.
+        </p>
+       </div>
+       <span class="fp-seguimiento-demo" data-demo="" hidden="">
+        DEMO
+       </span>
+      </div>
+      <p class="fp-seguimiento-nota" data-demo="" hidden="">
+       Historial ilustrativo de 2024. Los movimientos logísticos
         son simulados; la fecha de packing procede del ticket.
-    </p>
-
-    <details class="fp-seguimiento-detalle">
-        <summary>📍 Ver movimientos</summary>
-
-        <div class="fp-eventos">
-
-            <article class="fp-evento fp-evento-actual">
-                <span class="fp-evento-punto" aria-hidden="true"></span>
-
-                <div>
-                    <time datetime="2024-11-15">15 NOV 2024</time>
-                    <h3>En puerto de destino</h3>
-                    <p>
-                        Arribo simulado al puerto de Vancouver.
+      </p>
+      <details class="fp-seguimiento-detalle" data-demo="" hidden="">
+       <summary>
+        📍 Ver movimientos
+       </summary>
+       <div class="fp-eventos">
+        <article class="fp-evento fp-evento-actual">
+         <span aria-hidden="true" class="fp-evento-punto">
+         </span>
+         <div>
+          <time datetime="2024-11-15">
+           15 NOV 2024
+          </time>
+          <h3>
+           En puerto de destino
+          </h3>
+          <p>
+           Arribo simulado al puerto de Vancouver.
                         Pendiente de liberación y traslado al importador.
-                    </p>
-                    <span class="fp-evento-insignia">Último movimiento simulado</span>
-                </div>
-            </article>
-
-            <article class="fp-evento">
-                <span class="fp-evento-punto" aria-hidden="true"></span>
-
-                <div>
-                    <time datetime="2024-10-21">21 OCT 2024</time>
-                    <h3>En tránsito marítimo</h3>
-                    <p>
-                        Salida simulada del puerto de origen,
+          </p>
+          <span class="fp-evento-insignia">
+           Último movimiento simulado
+          </span>
+         </div>
+        </article>
+        <article class="fp-evento">
+         <span aria-hidden="true" class="fp-evento-punto">
+         </span>
+         <div>
+          <time datetime="2024-10-21">
+           21 OCT 2024
+          </time>
+          <h3>
+           En tránsito marítimo
+          </h3>
+          <p>
+           Salida simulada del puerto de origen,
                         con destino a Canadá.
-                    </p>
-                </div>
-            </article>
-
-            <article class="fp-evento">
-                <span class="fp-evento-punto" aria-hidden="true"></span>
-
-                <div>
-                    <time datetime="2024-10-20">20 OCT 2024</time>
-                    <h3>En puerto de origen</h3>
-                    <p>
-                        Ingreso simulado al puerto del Callao
+          </p>
+         </div>
+        </article>
+        <article class="fp-evento">
+         <span aria-hidden="true" class="fp-evento-punto">
+         </span>
+         <div>
+          <time datetime="2024-10-20">
+           20 OCT 2024
+          </time>
+          <h3>
+           En puerto de origen
+          </h3>
+          <p>
+           Ingreso simulado al puerto del Callao
                         para gestionar el embarque.
-                    </p>
-                </div>
-            </article>
-
-            <article class="fp-evento">
-                <span class="fp-evento-punto" aria-hidden="true"></span>
-
-                <div>
-                    <time datetime="2024-10-18">18 OCT 2024</time>
-                    <h3>Packing registrado</h3>
-                    <p>
-                        Fecha indicada en el ticket.
+          </p>
+         </div>
+        </article>
+        <article class="fp-evento">
+         <span aria-hidden="true" class="fp-evento-punto">
+         </span>
+         <div>
+          <time datetime="2024-10-18">
+           18 OCT 2024
+          </time>
+          <h3>
+           Packing registrado
+          </h3>
+          <p>
+           Fecha indicada en el ticket.
                         Packinghouse: VERDEFLOR S.A.C.
-                    </p>
-                    <span class="fp-evento-insignia fp-evento-documentado">
-                        Dato del ticket
-                    </span>
-                </div>
-            </article>
-
+          </p>
+          <span class="fp-evento-insignia fp-evento-documentado">
+           Dato del ticket
+          </span>
+         </div>
+        </article>
+       </div>
+      </details>
+      <details class="fp-seguimiento-detalle" data-demo="" hidden="">
+       <summary>
+        📦 Datos del envío
+       </summary>
+       <dl class="fp-envio-datos">
+        <div>
+         <dt>
+          Exportador · ticket
+         </dt>
+         <dd>
+          GO EXPORT PERU S.A.C.
+         </dd>
         </div>
-    </details>
-
-    <details class="fp-seguimiento-detalle">
-        <summary>📦 Datos del envío</summary>
-
-        <dl class="fp-envio-datos">
-            <div>
-                <dt>Exportador · ticket</dt>
-                <dd>GO EXPORT PERU S.A.C.</dd>
-            </div>
-
-            <div>
-                <dt>Importador · ticket</dt>
-                <dd>BIG H FOODS INC</dd>
-            </div>
-
-            <div>
-                <dt>Ubicación del importador · ticket</dt>
-                <dd>North Vancouver, Columbia Británica, Canadá.</dd>
-            </div>
-
-            <div>
-                <dt>Ruta simulada</dt>
-                <dd>Callao, Perú → Vancouver, Canadá.</dd>
-            </div>
-
-            <div>
-                <dt>Modalidad del ejemplo</dt>
-                <dd>Transporte marítimo en contenedor refrigerado.</dd>
-            </div>
-        </dl>
-    </details>
-
-</div>
-
-  </section>
-
-</section>
-
-<!-- ==========================================
-     FOOTER
-========================================== -->
-
-<footer class="footer ficha-footer">
-
-  <img
-    src="IMAGENES/LOGO3.png"
-    alt="NECHDATA"
-    class="logo-footer-nechdata"
-  >
-
-  <span>
+        <div>
+         <dt>
+          Importador · ticket
+         </dt>
+         <dd>
+          BIG H FOODS INC
+         </dd>
+        </div>
+        <div>
+         <dt>
+          Ubicación del importador · ticket
+         </dt>
+         <dd>
+          North Vancouver, Columbia Británica, Canadá.
+         </dd>
+        </div>
+        <div>
+         <dt>
+          Ruta simulada
+         </dt>
+         <dd>
+          Callao, Perú → Vancouver, Canadá.
+         </dd>
+        </div>
+        <div>
+         <dt>
+          Modalidad del ejemplo
+         </dt>
+         <dd>
+          Transporte marítimo en contenedor refrigerado.
+         </dd>
+        </div>
+       </dl>
+      </details>
+     </div>
+     <div class="fp-slide-footer">
+      <span>
+       06 / 06
+      </span>
+      <div aria-hidden="true" class="fp-footer-marcas">
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span>
+       </span>
+       <span class="activo">
+       </span>
+      </div>
+      <strong>
+       RECORRIDO
+      </strong>
+     </div>
+    </section>
+   </section>
+  </main>
+  <footer class="footer ficha-footer">
+   <img alt="NECHDATA" class="logo-footer-nechdata" loading="lazy" src="IMAGENES/LOGO3.png"/>
+   <span>
     Todo el proceso a la vista
-  </span>
-
-</footer>
-
-
-<script src="JS/config.js"></script>
-<script src="JS/ficha_publica.js"></script>
-
-</body>
+   </span>
+  </footer>
+  <script src="JS/config.js">
+  </script>
+  <script src="JS/ficha_publica.js">
+  </script>
+ </body>
 </html>

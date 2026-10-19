@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NECHDATA | Nosotros</title>
+<meta name="description" content="NECHDATA — trazabilidad digital para la cadena del arándano.">
+<style>
+:root{
+  --ink:#11222f;
+  --muted:#6e7d86;
+  --paper:#f7f8f6;
+  --white:#fff;
+  --line:rgba(17,34,47,.10);
+  --blue:#0e4f72;
+  --teal:#0c8b79;
+  --accent:#b9e9d8;
+  --radius:26px;
+  --shadow:0 18px 55px rgba(10,35,50,.10);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--paper);color:var(--ink);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{font:inherit}
+
+/* --- header --- */
+.header{position:sticky;top:0;z-index:50;background:rgba(247,248,246,.86);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+.header-inner{width:min(1380px,92%);margin:auto;min-height:78px;display:flex;align-items:center;gap:20px}
+.logo{font-size:22px;font-weight:900;letter-spacing:.08em;white-space:nowrap}
+.logo span{color:var(--teal)}
+.audience{display:inline-flex;align-items:center;gap:4px;padding:4px;border:1px solid var(--line);background:#fff;border-radius:999px;margin-left:8px}
+.audience a{padding:9px 14px;border-radius:999px;font-size:12px;font-weight:800;color:#60707a;transition:.25s}
+.audience a.active{background:var(--ink);color:#fff}
+.nav{margin-left:auto;display:flex;gap:22px;align-items:center}
+.nav a{font-size:12px;font-weight:800;color:#687782;position:relative}
+.nav a:hover,.nav a.active{color:var(--ink)}
+.nav a.active:after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;background:var(--teal);border-radius:999px}
+
+/* --- global --- */
+.wrap{width:min(1380px,92%);margin:auto}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:900;color:var(--teal)}
+.section{padding:110px 0}
+
+/* --- hero --- */
+.hero{padding:54px 0 32px}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:36px;align-items:end}
+.hero-copy{padding:20px 0 14px}
+.hero h1{font-size:clamp(54px,7vw,102px);line-height:.93;letter-spacing:-.07em;max-width:800px;margin-top:18px}
+.hero h1 span{color:var(--teal)}
+.hero-lead{max-width:545px;font-size:17px;line-height:1.65;color:var(--muted);margin-top:24px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 17px;border-radius:999px;font-size:12px;font-weight:900;border:1px solid transparent;transition:.25s}
+.btn.primary{background:var(--ink);color:#fff}.btn.primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(17,34,47,.16)}
+.btn.ghost{background:rgba(255,255,255,.72);border-color:var(--line)}.btn.ghost:hover{background:#fff}
+.hero-side{position:relative;min-height:560px;display:grid;grid-template-columns:1.08fr .92fr;gap:14px;align-items:stretch}
+.photo{position:relative;overflow:hidden;border-radius:var(--radius);background:#dfe9e7;box-shadow:var(--shadow)}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.photo:hover img{transform:scale(1.045)}
+.photo-main{min-height:560px}
+.photo-stack{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+.photo-small{min-height:0}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 46%,rgba(5,22,30,.48));pointer-events:none}
+.photo-caption{position:absolute;z-index:2;left:20px;right:20px;bottom:18px;color:#fff;font-weight:800;font-size:12px;letter-spacing:.03em}
+.scroll-hint{display:flex;align-items:center;gap:9px;color:#73828b;font-size:11px;font-weight:800;margin-top:18px}.scroll-hint i{display:block;width:24px;height:1px;background:#afbcc1}
+
+/* --- role strip --- */
+.role-strip{padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fbfcfa}
+.role-inner{display:flex;justify-content:space-between;align-items:center;gap:18px}.role-inner strong{font-size:12px}.role-inner span{font-size:12px;color:var(--muted)}
+.role-tags{display:flex;gap:7px;flex-wrap:wrap}.role-tags span{padding:7px 10px;border-radius:999px;background:#eef4f1;font-size:10px;font-weight:900;color:#527268}
+
+/* --- interactive story --- */
+.story{background:#0e2835;color:#fff}
+.story-grid{display:grid;grid-template-columns:.72fr 1.28fr;gap:44px;align-items:center}
+.story-copy h2{font-size:clamp(42px,5vw,72px);line-height:.96;letter-spacing:-.055em;margin-top:12px}
+.story-copy p{color:rgba(255,255,255,.68);line-height:1.65;max-width:470px;margin-top:20px;font-size:15px}
+.story-tabs{display:flex;flex-direction:column;gap:8px;margin-top:30px}
+.story-tab{cursor:pointer;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);color:rgba(255,255,255,.68);padding:15px 16px;border-radius:16px;text-align:left;transition:.25s}
+.story-tab strong{display:block;color:#fff;font-size:13px}.story-tab small{display:block;margin-top:4px;font-size:11px;opacity:.65}
+.story-tab.active{background:#fff;color:var(--ink);border-color:#fff;transform:translateX(6px)}
+.story-tab.active strong{color:var(--ink)}
+.story-media{min-height:540px;border-radius:var(--radius);overflow:hidden;position:relative;background:#163b4a;box-shadow:0 24px 70px rgba(0,0,0,.28)}
+.story-media img{width:100%;height:100%;display:block;object-fit:cover;position:absolute;inset:0;opacity:0;transform:scale(1.03);transition:opacity .45s,transform .7s}
+.story-media img.active{opacity:1;transform:scale(1)}
+.story-overlay{position:absolute;left:22px;right:22px;bottom:22px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;z-index:2}
+.story-overlay .badge{padding:8px 11px;background:rgba(0,0,0,.38);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.16);border-radius:999px;font-size:10px;font-weight:900}
+
+/* --- pillars --- */
+.section-heading{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}.section-heading h2{font-size:clamp(38px,4.7vw,68px);line-height:.98;letter-spacing:-.05em;max-width:690px;margin-top:10px}.section-heading p{max-width:380px;color:var(--muted);line-height:1.6;font-size:14px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.pillar{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;min-height:230px;transition:.25s;position:relative;overflow:hidden}.pillar:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+.pillar .index{font-size:10px;letter-spacing:.2em;color:var(--teal);font-weight:900}.pillar h3{font-size:25px;letter-spacing:-.03em;margin-top:58px}.pillar p{color:var(--muted);line-height:1.55;font-size:13px;margin-top:10px;max-width:310px}.pillar:after{content:"↗";position:absolute;right:20px;top:18px;font-size:20px;color:#c0ceca}
+
+/* --- photo band --- */
+.photo-band{display:grid;grid-template-columns:1.12fr .88fr;gap:14px}
+.band-large,.band-small{position:relative;overflow:hidden;border-radius:24px;min-height:520px;background:#dfe9e7}.band-small{min-height:250px}.band-small-grid{display:grid;grid-template-rows:1fr 1fr;gap:14px}
+.band-large img,.band-small img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}.band-large:hover img,.band-small:hover img{transform:scale(1.05)}
+.band-copy{position:absolute;left:22px;bottom:20px;color:#fff;z-index:2}.band-copy strong{font-size:24px}.band-copy p{font-size:12px;margin-top:4px;opacity:.82}
+.band-large:after,.band-small:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,.55))}
+
+/* --- albums --- */
+.gallery-strip{background:#eef5f1}
+.albums{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.album{position:relative;min-height:430px;border-radius:24px;overflow:hidden;background:#d4ddd9;border:1px solid rgba(0,0,0,.05);transition:.3s}.album:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(25,55,60,.13)}
+.album img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s}.album:hover img{transform:scale(1.06)}
+.album:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 25%,rgba(0,0,0,.74) 100%)}
+.album-info{position:absolute;left:18px;right:18px;bottom:18px;z-index:2;color:#fff}.album-info span{display:block;font-size:10px;letter-spacing:.18em;font-weight:900;opacity:.72}.album-info strong{display:block;font-size:22px;letter-spacing:-.02em;margin-top:6px}.album-info small{display:inline-flex;margin-top:12px;padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);font-weight:900;font-size:10px}
+
+/* --- final CTA --- */
+.cta{padding:40px 0 85px}.cta-card{background:#102c39;color:#fff;border-radius:28px;padding:44px;display:flex;align-items:center;justify-content:space-between;gap:24px}.cta-card h2{font-size:clamp(36px,4.7vw,65px);line-height:.98;letter-spacing:-.05em}.cta-card p{color:rgba(255,255,255,.65);max-width:480px;margin-top:13px;line-height:1.55;font-size:14px}.cta-card .btn{background:#fff;color:var(--ink)}
+.footer{padding:24px 0 35px;border-top:1px solid var(--line);color:#819098;font-size:11px}.footer-inner{display:flex;justify-content:space-between;gap:15px}.footer strong{color:var(--ink)}
+
+/* --- reveal / responsive --- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:1100px){.hero-grid,.story-grid,.photo-band{grid-template-columns:1fr}.hero-side{min-height:500px}.story-media{min-height:440px}.albums{grid-template-columns:repeat(2,1fr)}.nav{display:none}.header-inner{justify-content:flex-start;flex-wrap:wrap;padding:12px 0}.audience{margin-left:auto}}
+@media(max-width:720px){.section{padding:78px 0}.header-inner{gap:10px}.audience{order:3;width:100%;margin-left:0;justify-content:center}.audience a{flex:1;text-align:center}.hero{padding-top:30px}.hero h1{font-size:58px}.hero-side{grid-template-columns:1fr;height:auto;min-height:auto}.photo-main{min-height:450px}.photo-stack{grid-template-columns:1fr 1fr;grid-template-rows:210px}.pillars,.albums{grid-template-columns:1fr}.section-heading{display:block}.section-heading p{margin-top:16px}.role-inner,.cta-card,.footer-inner{display:block}.role-inner span{display:block;margin-top:7px}.cta-card{padding:30px}.cta-card .btn{margin-top:20px}.story-tab.active{transform:none}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="header-inner">
+    <a class="logo" href="https://natinatini72.github.io/Arandanitos/index.html">NECH<span>DATA</span></a>
+    <div class="audience" aria-label="Seleccionar experiencia">
+      <a href="#nosotros" class="active">Nosotros</a>
+      <a href="https://natinatini72.github.io/Arandanitos/index.html">Público general</a>
+    </div>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#inicio" class="active">Inicio</a>
+      <a href="#que-hacemos">Qué hacemos</a>
+      <a href="#historia">Cómo funciona</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="nosotros">
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <div class="eyebrow">NOSOTROS · NECHDATA</div>
+      <h1>La historia de un lote, <span>visible.</span></h1>
+      <p class="hero-lead">Conectamos campo, calidad y tecnología para que cada arándano tenga algo que contar.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#historia">Ver cómo lo hacemos ↗</a>
+        <a class="btn ghost" href="#galeria">Explorar fotos</a>
+      </div>
+      <div class="scroll-hint"><i></i> Desplázate para descubrir</div>
+    </div>
+    <div class="hero-side reveal" aria-label="Fotografías del proyecto">
+      <figure class="photo photo-main">
+        <img src="https://raw.githubusercontent.com/NatiNatini72/Arandanitos/main/IMAGENES/arandanos_inka.png" alt="Arándanos y producto">
+        <figcaption class="photo-caption">Del campo · al dato · al mundo</figcaption>
+      </figure>
+      <div class="photo-stack">
+        <figure class="photo photo-small">
+          <img src="https://raw.githubusercontent.com/NatiNatini72/Arandanitos/main/IMAGENES/Llaqta_agricola1.jpg" alt="Campo agrícola">
+          <figcaption class="photo-caption">Origen</figcaption>
+        </figure>
+        <figure class="photo photo-small">
+          <img src="https://www.fallcreeknursery.com/assets/uploads/images/810/ventura__full.jpg" alt="Arándano Ventura">
+          <figcaption class="photo-caption">Producto</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="role-strip">
+  <div class="wrap role-inner">
+    <div><strong>Una web para entender antes de leer.</strong><span> La fotografía muestra; la tecnología explica.</span></div>
+    <div class="role-tags"><span>TRAZABILIDAD</span><span>CALIDAD</span><span>NFC</span><span>DATOS</span></div>
+  </div>
+</div>
+
+<section class="section story" id="historia">
+  <div class="wrap story-grid">
+    <div class="story-copy reveal">
+      <div class="eyebrow">LA IDEA</div>
+      <h2>Un registro. Tres miradas.</h2>
+      <p>La misma historia puede ser útil para quienes producen, para quienes exportan y para quien recibe el producto.</p>
+      <div class="story-tabs" role="tablist">
+        <button class="story-tab active" data-story="0"><strong>01 · Campo</strong><small>Origen, lote, variedad y cosecha.</small></button>
+        <button class="story-tab" data-story="1"><strong>02 · Operación</strong><small>Calidad, recorrido y eventos.</small></button>
+        <button class="story-tab" data-story="2"><strong>03 · Público</strong><small>Una experiencia simple desde el producto.</small></button>
+      </div>
+    </div>
+    <div class="story-media reveal">
+      <img class="story-img active" data-story-image="0" src="https://raw.githubusercontent.com/NatiNatini72/Arandanitos/main/IMAGENES/Llaqta_agricola1.jpg" alt="Campo y origen">
+      <img class="story-img" data-story-image="1" src="https://raw.githubusercontent.com/NatiNatini72/Arandanitos/main/IMAGENES/arandanos_inka.png" alt="Producto de arándanos">
+      <img class="story-img" data-story-image="2" src="https://cdn11.bigcommerce.com/s-qibmvxoqzq/images/stencil/1280x1280/products/2548/2417/biloxi-blueberry__50276.1723476398.jpg?c=1" alt="Arándanos para el consumidor">
+      <div class="story-overlay"><span class="badge">NECHDATA · TRACEABILITY</span><span class="badge" id="storyLabel">Campo</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="que-hacemos">
+  <div class="wrap">
+    <div class="section-heading reveal">
+      <div><div class="eyebrow">QUÉ HACEMOS</div><h2>Menos fricción. Más claridad.</h2></div>
+      <p>La plataforma organiza la información del lote y la convierte en una experiencia visual, consultable y compartible.</p>
+    </div>
+    <div class="pillars">
+      <article class="pillar reveal"><div class="index">01 / TRACE</div><h3>Trazabilidad</h3><p>Un mismo identificador conecta origen, lote y recorrido.</p></article>
+      <article class="pillar reveal"><div class="index">02 / QUALITY</div><h3>Calidad</h3><p>Los datos técnicos dejan de vivir separados del producto.</p></article>
+      <article class="pillar reveal"><div class="index">03 / PUBLIC</div><h3>Experiencia</h3><p>La información llega a una persona real sin lenguaje complicado.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap photo-band reveal">
+    <figure class="band-large">
+      <img src="https://raw.githubusercontent.com/NatiNatini72/Arandanitos/main/IMAGENES/arandanos_inka.png" alt="Arándanos de exportación">
+      <figcaption class="band-copy"><strong>Lo físico se encuentra con lo digital.</strong><p>El producto se convierte en la puerta de entrada a su historia.</p></figcaption>
+    </figure>
+    <div class="band-small-grid">
+      <figure class="band-small"><img src="https://www.southernidaholandscapecenter.com/cdn/shop/products/duke.jpg?v=1620247040" alt="Arándano Duke"><figcaption class="band-copy"><strong>Variedad</strong></figcaption></figure>
+      <figure class="band-small"><img src="https://fallcreekcatalogs.com/wp-content/uploads/2025/01/SekoyaFiesta.webp" alt="Arándano Sekoya Pop"><figcaption class="band-copy"><strong>Producto</strong></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section gallery-strip" id="galeria">
+  <div class="wrap">
+    <div class="section-heading reveal">
+      <div><div class="eyebrow">MATERIAL REAL</div><h2>Cuatro galerías. Una sola historia.</h2></div>
+      <p>Abre cada colección para ver el material completo del proyecto en Google Photos.</p>
+    </div>
+    <div class="albums">
+      <a class="album reveal" target="_blank" rel="noopener noreferrer" href="https://photos.google.com/share/AF1QipNUHWMrwmNO4W4NS6J3aPRnarG5BAc_R_4c38mAYcRHp9Wl46GoEA-6E2_he9JYww?key=S1NhUlpXMlQ2U0oycjVMSlhlY1QwcTNIdnpESXhR">
+        <img src="https://raw.githubusercontent.com/NatiNatini72/Arandanitos/main/IMAGENES/arandanos_inka.png" alt="Blueberry 18+">
+        <div class="album-info"><span>ÁLBUM 01</span><strong>BLUEBERRY 18+</strong><small>Ver galería ↗</small></div>
+      </a>
+      <a class="album reveal" target="_blank" rel="noopener noreferrer" href="https://photos.google.com/share/AF1QipOq01_8vJaojusMApu8gkn-7Fgbekhdx383KyjdrGPh0mNIs3p7Q9ADFiaLXQA_ZQ?key=dVNSWFg4RjMtU1Q3RlBocUtaV25OTGpObTZqNHln">
+        <img src="https://cdn11.bigcommerce.com/s-qibmvxoqzq/images/stencil/1280x1280/products/2548/2417/biloxi-blueberry__50276.1723476398.jpg?c=1" alt="Blueberries India">
+        <div class="album-info"><span>ÁLBUM 02</span><strong>BLUEBERRIES · INDIA</strong><small>Ver galería ↗</small></div>
+      </a>
+      <a class="album reveal" target="_blank" rel="noopener noreferrer" href="https://photos.google.com/share/AF1QipMPlfuAj-EXQLC754_Uwz74BWRdGfByuFg40ZAesms0er2wiz875TGvPPYGjz5nZA?key=R1BlVEQ4dy0zSmdELXdmLU9nNGtpRl96aGV0cjZ3">
+        <img src="https://www.fallcreeknursery.com/assets/uploads/images/810/ventura__full.jpg" alt="Arándano Israel">
+        <div class="album-info"><span>ÁLBUM 03</span><strong>ARÁNDANO · ISRAEL</strong><small>Ver galería ↗</small></div>
+      </a>
+      <a class="album reveal" target="_blank" rel="noopener noreferrer" href="https://photos.google.com/share/AF1QipN4Fbe-7xp7wloowiBvC3gDc4GrzyuNPStSKVJIXW2w0XAYIaasDBeXnPgxjY0UOA?key=WTJnTlVITG00LUF1M05FS0ZnMUxKWHFEUTNTVVp3">
+        <img src="https://fallcreekcatalogs.com/wp-content/uploads/2025/01/SekoyaFiesta.webp" alt="Blueberries">
+        <div class="album-info"><span>ÁLBUM 04</span><strong>BLUEBERRIES</strong><small>Ver galería ↗</small></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contacto">
+  <div class="wrap cta-card reveal">
+    <div><div class="eyebrow" style="color:#9be0ce">SIGUIENTE PASO</div><h2>La trazabilidad también puede sentirse.</h2><p>Una interfaz clara hace que una tecnología compleja parezca simple. Ese es el estándar para NECHDATA.</p></div>
+    <a class="btn" href="https://natinatini72.github.io/Arandanitos/index.html">Ir a Público general ↗</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer"><div class="wrap footer-inner"><div><strong>NECHDATA</strong> · Datos que dan vida.</div><div>Nosotros · 2026</div></div></footer>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+// Interactive story selector
+const tabs=[...document.querySelectorAll('.story-tab')];
+const images=[...document.querySelectorAll('.story-img')];
+const labels=['Campo','Operación','Público'];
+tabs.forEach(tab=>tab.addEventListener('click',()=>{
+  const i=Number(tab.dataset.story);
+  tabs.forEach(t=>t.classList.toggle('active',t===tab));
+  images.forEach(img=>img.classList.toggle('active',Number(img.dataset.storyImage)===i));
+  document.getElementById('storyLabel').textContent=labels[i];
+}));
+
+// Active nav while scrolling
+const navLinks=[...document.querySelectorAll('.nav a')];
+const sections=['inicio','que-hacemos','historia','galeria','contacto'].map(id=>document.getElementById(id));
+const navObserver=new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{if(entry.isIntersecting){navLinks.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+entry.target.id))}})
+},{rootMargin:'-35% 0px -55% 0px',threshold:0});
+sections.forEach(s=>navObserver.observe(s));
+
+// Subtle pointer parallax on hero images
+const heroSide=document.querySelector('.hero-side');
+heroSide.addEventListener('pointermove',(e)=>{
+  const r=heroSide.getBoundingClientRect();
+  const x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+  heroSide.querySelectorAll('.photo').forEach((el,i)=>{
+    const amt=(i+1)*5;
+    el.style.transform=`translate(${x*amt}px,${y*amt}px)`;
+  });
+});
+heroSide.addEventListener('pointerleave',()=>heroSide.querySelectorAll('.photo').forEach(el=>el.style.transform=''));
+</script>
+</body>
+</html>

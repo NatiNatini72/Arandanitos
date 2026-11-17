@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,23 +12,23 @@
       box-sizing: border-box;
     }
 
-body {
-  margin: 0;
-  color: #172354;
-  font-family: Arial, sans-serif;
+    body {
+      margin: 0;
+      color: #172354;
+      font-family: Arial, sans-serif;
 
-  background-color: #f8f9f4;
+      background-color: #f8f9f4;
 
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.88),
-      rgba(255, 255, 255, 0.88)
-    ),
-    url("IMAGENES/FONDONOTAS.JPG");
+      background-image:
+        linear-gradient(
+          rgba(255, 255, 255, 0.88),
+          rgba(255, 255, 255, 0.88)
+        ),
+        url("IMAGENES/FONDONOTAS.JPG");
 
-  background-repeat: repeat;
-  background-size: auto, 450px auto;
-}
+      background-repeat: repeat;
+      background-size: auto, 450px auto;
+    }
 
     a {
       color: inherit;
@@ -266,134 +267,138 @@ body {
         font-size: 18px;
       }
     }
-/* ENCABEZADO DE LAS NOTICIAS */
 
-.encabezado-nota {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+    /* ENCABEZADO DE LAS NOTICIAS */
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
+    .encabezado-nota {
+      position: sticky;
+      top: 0;
+      z-index: 100;
 
-  padding: 18px 6%;
-  background: #101653;
-}
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
 
-.encabezado-nota .marca-nota {
-  display: block;
-  flex-shrink: 0;
-  padding: 12px 18px;
-  border-radius: 16px;
-  background: #fffef8;
-}
+      padding: 18px 6%;
+      background: #101653;
+    }
 
-.marca-nota img {
-  display: block;
-  width: 250px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 15px;
-}
+    .encabezado-nota .marca-nota {
+      display: block;
+      flex-shrink: 0;
+      padding: 12px 18px;
+      border-radius: 16px;
+      background: #fffef8;
+    }
 
-.encabezado-nota .menu-nota {
-  display: flex;
-  align-items: center;
-  gap: 28px;
-}
+    .marca-nota img {
+      display: block;
+      width: 250px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+    }
 
-.encabezado-nota .menu-nota a {
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  text-decoration: none;
-}
+    .encabezado-nota .menu-nota {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
 
-.encabezado-nota .menu-nota a:hover,
-.encabezado-nota .menu-nota a:focus-visible {
-  color: #b5ff31;
-}
+    .encabezado-nota .menu-nota a {
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+    }
 
-.boton-menu-nota {
-  display: none;
-  padding: 8px 13px;
-  border: 1px solid #b5ff31;
-  border-radius: 8px;
-  background: transparent;
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
+    .encabezado-nota .menu-nota a:hover,
+    .encabezado-nota .menu-nota a:focus-visible {
+      color: #b5ff31;
+    }
 
-/* MENÚ EN PANTALLAS PEQUEÑAS */
+    .boton-menu-nota {
+      display: none;
+      padding: 8px 13px;
+      border: 1px solid #b5ff31;
+      border-radius: 8px;
+      background: transparent;
+      color: white;
+      font-size: 28px;
+      cursor: pointer;
+    }
 
-@media (max-width: 900px) {
-  .encabezado-nota {
-    flex-wrap: wrap;
-    gap: 12px;
-    padding: 12px 5%;
-  }
+    /* MENÚ EN PANTALLAS PEQUEÑAS */
 
-  .marca-nota img {
-    width: 155px;
-  }
+    @media (max-width: 900px) {
+      .encabezado-nota {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 5%;
+      }
 
-  .boton-menu-nota {
-    display: block;
-  }
+      .marca-nota img {
+        width: 155px;
+      }
 
-  .encabezado-nota .menu-nota {
-    display: none;
-    flex-basis: 100%;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0;
-  }
+      .boton-menu-nota {
+        display: block;
+      }
 
-  .encabezado-nota .menu-nota.abierto {
-    display: flex;
-  }
+      .encabezado-nota .menu-nota {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
 
-  .encabezado-nota .menu-nota a {
-    padding: 12px 4px;
-  }
-}
+      .encabezado-nota .menu-nota.abierto {
+        display: flex;
+      }
+
+      .encabezado-nota .menu-nota a {
+        padding: 12px 4px;
+      }
+    }
   </style>
 </head>
 
 <body>
 
-<header class="encabezado-nota">
-  <a
-    href="index.html#inicio"
-    class="marca-nota"
-    aria-label="NECHDATA, inicio"
-  >
-    <img src="IMAGENES/LOGO3.png" alt="NECHDATA">
-  </a>
+  <header class="encabezado-nota">
 
-  <button
-    type="button"
-    class="boton-menu-nota"
-    aria-label="Abrir menú"
-    aria-expanded="false"
-    aria-controls="menu-nota"
-  >
-    ☰
-  </button>
+    <a
+      href="index.html#inicio"
+      class="marca-nota"
+      aria-label="NECHDATA, inicio"
+    >
+      <img src="IMAGENES/LOGO3.png" alt="NECHDATA">
+    </a>
 
-  <nav id="menu-nota" class="menu-nota" aria-label="Menú principal">
-    <a href="index.html#inicio">Inicio</a>
-    <a href="index.html#como-funciona">Cómo funciona</a>
-    <a href="index.html#nosotros">Quiénes somos</a>
-    <a href="index.html#blog">Blog</a>
-    <a href="index.html#contacto">Contáctanos</a>
-  </nav>
-</header>
+    <button
+      type="button"
+      class="boton-menu-nota"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="menu-nota"
+    >
+      ☰
+    </button>
+
+    <nav id="menu-nota" class="menu-nota" aria-label="Menú principal">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#como-funciona">Cómo funciona</a>
+      <a href="index.html#nosotros">Quiénes somos</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#contacto">Contáctanos</a>
+    </nav>
+
+  </header>
 
   <main class="contenedor-nota">
+
     <div class="ruta-nota">
       <a href="index.html#inicio">Inicio</a>
       &nbsp;›&nbsp;
@@ -406,16 +411,22 @@ body {
 
       <aside class="lateral-nota">
         <h2>Contenido relacionado</h2>
-
         <ul id="notas-relacionadas"></ul>
       </aside>
 
       <article class="articulo-nota">
-        <span class="categoria-nota" id="categoria-nota"></span>
+
+        <span
+          class="categoria-nota"
+          id="categoria-nota"
+        ></span>
 
         <h1 id="titulo-nota"></h1>
 
-        <p class="bajada-nota" id="bajada-nota"></p>
+        <p
+          class="bajada-nota"
+          id="bajada-nota"
+        ></p>
 
         <div class="datos-nota">
           <span id="fecha-nota"></span>
@@ -434,29 +445,45 @@ body {
           Imagen referencial.
         </p>
 
-        <div class="cuerpo-nota" id="cuerpo-nota"></div>
+        <div
+          class="cuerpo-nota"
+          id="cuerpo-nota"
+        ></div>
 
         <div class="fuentes-nota">
           <strong>Fuentes consultadas:</strong>
           <ul id="fuentes-nota"></ul>
         </div>
 
-        <a class="volver-blog" href="index.html#blog">
+        <a
+          class="volver-blog"
+          href="index.html#blog"
+        >
           ← Volver al blog
         </a>
+
       </article>
 
     </div>
+
   </main>
 
   <script>
+
     const notas = {
+
       calibre: {
+
         titulo: "¿Qué nos dice el calibre de un arándano?",
+
         categoria: "Calidad de la fruta",
+
         bajada: "El tamaño es una característica visible del arándano, pero para conocer la fruta conviene observar también su firmeza, sabor y estado de conservación.",
+
         fecha: "17 de noviembre de 2026",
-        imagen: "NOTICIACALIBRE.jpg",
+
+        imagen: "noticiacalibre.jpg",
+
         cuerpo: `
           <p>
             Cuando vemos arándanos de diferentes tamaños, es natural
@@ -492,6 +519,7 @@ body {
             de consultar y entender a partir de los datos de cada lote.
           </p>
         `,
+
         fuentes: [
           {
             nombre: "University of Georgia: desarrollo y maduración del arándano",
@@ -500,12 +528,19 @@ body {
         ]
       },
 
+
       indicadores: {
+
         titulo: "Firmeza, °Brix y acidez: aprendamos a leer los datos",
+
         categoria: "Conociendo la fruta",
+
         bajada: "Estos indicadores describen distintas características del arándano y ayudan a interpretar la información de un lote con mayor contexto.",
+
         fecha: "16 de noviembre de 2026",
-        imagen: "NOTICIABRIX.jpg",
+
+        imagen: "noticiabrix.jpg",
+
         cuerpo: `
           <p>
             Una ficha de arándanos puede incluir números y términos
@@ -544,6 +579,7 @@ body {
             obtener una idea más completa de las características del lote.
           </p>
         `,
+
         fuentes: [
           {
             nombre: "University of Georgia: desarrollo y maduración del arándano",
@@ -556,12 +592,19 @@ body {
         ]
       },
 
+
       packing: {
+
         titulo: "¿Qué ocurre durante el packing y la poscosecha?",
+
         categoria: "Del campo a la mesa",
+
         bajada: "Después de la cosecha, la fruta pasa por etapas de selección, acondicionamiento y conservación que acompañan su recorrido.",
+
         fecha: "15 de noviembre de 2026",
-        imagen: "NOTICIAPOSCOSECHA.jpg",
+
+        imagen: "noticiaposcosecha.jpg",
+
         cuerpo: `
           <p>
             La historia de un arándano continúa después de salir del campo.
@@ -601,6 +644,7 @@ body {
             de la fruta.
           </p>
         `,
+
         fuentes: [
           {
             nombre: "University of Georgia: cosecha y manejo poscosecha de arándanos",
@@ -612,84 +656,178 @@ body {
           }
         ]
       }
+
     };
 
+
     const parametros = new URLSearchParams(window.location.search);
+
     const claveSolicitada = parametros.get("articulo");
-    const claveActual = Object.hasOwn(notas, claveSolicitada)
-      ? claveSolicitada
-      : "calibre";
+
+    const claveActual =
+      Object.hasOwn(notas, claveSolicitada)
+        ? claveSolicitada
+        : "calibre";
+
     const nota = notas[claveActual];
 
-    document.title = `${nota.titulo} | NECHDATA`;
 
-    document.getElementById("ruta-titulo").textContent = nota.titulo;
-    document.getElementById("categoria-nota").textContent = nota.categoria;
-    document.getElementById("titulo-nota").textContent = nota.titulo;
-    document.getElementById("bajada-nota").textContent = nota.bajada;
-    document.getElementById("fecha-nota").textContent = nota.fecha;
-    document.getElementById("cuerpo-nota").innerHTML = nota.cuerpo;
+    document.title =
+      `${nota.titulo} | NECHDATA`;
 
-    const contenedorImagen = document.getElementById("imagen-nota");
-    const textoImagen = document.getElementById("texto-imagen");
-    const imagen = new Image();
+    document.getElementById("ruta-titulo").textContent =
+      nota.titulo;
 
-    textoImagen.textContent = nota.imagen;
+    document.getElementById("categoria-nota").textContent =
+      nota.categoria;
+
+    document.getElementById("titulo-nota").textContent =
+      nota.titulo;
+
+    document.getElementById("bajada-nota").textContent =
+      nota.bajada;
+
+    document.getElementById("fecha-nota").textContent =
+      nota.fecha;
+
+    document.getElementById("cuerpo-nota").innerHTML =
+      nota.cuerpo;
+
+
+    /* IMAGEN DE LA NOTA */
+
+    const contenedorImagen =
+      document.getElementById("imagen-nota");
+
+    const textoImagen =
+      document.getElementById("texto-imagen");
+
+    const imagen =
+      new Image();
+
+
+    textoImagen.textContent =
+      nota.imagen;
+
+
     contenedorImagen.setAttribute(
       "aria-label",
       `Imagen de la nota: ${nota.titulo}`
     );
 
+
     imagen.onload = () => {
-      contenedorImagen.style.backgroundImage = `url("${imagen.src}")`;
+
+      contenedorImagen.style.backgroundImage =
+        `url("${imagen.src}")`;
+
       textoImagen.hidden = true;
+
     };
 
-imagen.src = `IMAGENES/${nota.imagen}`;
 
-    const listaFuentes = document.getElementById("fuentes-nota");
+    imagen.src =
+      `IMAGENES/${nota.imagen}`;
+
+
+    /* FUENTES */
+
+    const listaFuentes =
+      document.getElementById("fuentes-nota");
+
 
     nota.fuentes.forEach((fuente) => {
-      const elemento = document.createElement("li");
-      const enlace = document.createElement("a");
 
-      enlace.href = fuente.url;
-      enlace.textContent = fuente.nombre;
-      enlace.target = "_blank";
-      enlace.rel = "noopener noreferrer";
+      const elemento =
+        document.createElement("li");
+
+      const enlace =
+        document.createElement("a");
+
+      enlace.href =
+        fuente.url;
+
+      enlace.textContent =
+        fuente.nombre;
+
+      enlace.target =
+        "_blank";
+
+      enlace.rel =
+        "noopener noreferrer";
 
       elemento.appendChild(enlace);
+
       listaFuentes.appendChild(elemento);
+
     });
 
-    const listaRelacionadas = document.getElementById("notas-relacionadas");
 
-    Object.entries(notas).forEach(([clave, relacionada]) => {
-      if (clave === claveActual) return;
+    /* NOTAS RELACIONADAS */
 
-      const elemento = document.createElement("li");
-      const enlace = document.createElement("a");
+    const listaRelacionadas =
+      document.getElementById("notas-relacionadas");
 
-      enlace.href = `notas.html?articulo=${clave}`;
-      enlace.textContent = relacionada.titulo;
 
-      elemento.appendChild(enlace);
-      listaRelacionadas.appendChild(elemento);
-    });
-const botonMenuNota = document.querySelector(".boton-menu-nota");
-const menuNota = document.querySelector(".menu-nota");
+    Object.entries(notas).forEach(
+      ([clave, relacionada]) => {
 
-botonMenuNota.addEventListener("click", () => {
-  const estaAbierto = menuNota.classList.toggle("abierto");
+        if (clave === claveActual) return;
 
-  botonMenuNota.setAttribute("aria-expanded", estaAbierto);
-  botonMenuNota.setAttribute(
-    "aria-label",
-    estaAbierto ? "Cerrar menú" : "Abrir menú"
-  );
+        const elemento =
+          document.createElement("li");
 
-  botonMenuNota.textContent = estaAbierto ? "✕" : "☰";
-});
+        const enlace =
+          document.createElement("a");
+
+        enlace.href =
+          `notas.html?articulo=${clave}`;
+
+        enlace.textContent =
+          relacionada.titulo;
+
+        elemento.appendChild(enlace);
+
+        listaRelacionadas.appendChild(elemento);
+
+      }
+    );
+
+
+    /* MENÚ CELULAR */
+
+    const botonMenuNota =
+      document.querySelector(".boton-menu-nota");
+
+    const menuNota =
+      document.querySelector(".menu-nota");
+
+
+    botonMenuNota.addEventListener(
+      "click",
+      () => {
+
+        const estaAbierto =
+          menuNota.classList.toggle("abierto");
+
+        botonMenuNota.setAttribute(
+          "aria-expanded",
+          estaAbierto
+        );
+
+        botonMenuNota.setAttribute(
+          "aria-label",
+          estaAbierto
+            ? "Cerrar menú"
+            : "Abrir menú"
+        );
+
+        botonMenuNota.textContent =
+          estaAbierto ? "✕" : "☰";
+
+      }
+    );
+
   </script>
 
 </body>

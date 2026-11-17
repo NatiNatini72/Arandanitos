@@ -1328,6 +1328,52 @@ button:focus-visible, a:focus-visible, summary:focus-visible,
     height: auto;
 }
 
+/* Tarjeta del exportador y navegación adicional */
+
+.fp-exportador {
+    margin-top: 12px;
+}
+
+.fp-volver-portada {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto 20px;
+    padding: 10px 16px;
+
+    border: 2px solid #101653;
+    border-radius: 12px;
+
+    background: #fff;
+    color: #101653;
+
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.fp-volver-portada:hover {
+    background: #c5ff36;
+}
+
+.fp-navegacion-inferior {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    margin: 24px 0 14px;
+}
+
+.fp-navegacion-inferior .fp-volver-portada {
+    margin: 0;
+    text-align: center;
+}
+
+.fp-nav-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
 /* =========================================================
    08 · CELULAR 
 ========================================================= */

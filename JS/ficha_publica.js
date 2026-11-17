@@ -63,6 +63,14 @@ function mostrarOrigen(lote) {
     ponerTexto("lotePublico", lote.lote);
     ponerTexto("fechaPublica", formatearFecha(lote.fechaCosecha));
     ponerTexto("productorMapa", lote.fundo);
+    ponerTexto("exportadorMapa", lote.exportadora);
+
+const logoExportador = document.getElementById("logoExportador");
+
+if (logoExportador) {
+    const nombre = String(lote.exportadora || "").toUpperCase();
+    logoExportador.hidden = !nombre.includes("GO EXPORT");
+}
     // Chincha procede del ticket de la demo; no se presupone para otros lotes.
     const lugar = [ES_DEMO ? "Chincha" : "", lote.region, lote.pais].filter(Boolean).join(", ");
     ponerTexto("ubicacionMapa", lugar);
@@ -395,5 +403,56 @@ if (!idLote) {
 }
 
 iniciarPopups();
+function agregarNavegacionAdicional() {
+    slides.forEach((slide, indice) => {
+        // La portada ya tiene su propio botón para avanzar.
+        if (indice === 0) return;
+
+        const panel = slide.querySelector(".fp-panel");
+        const barraSuperior = slide.querySelector(".fp-slide-top");
+        const footer = slide.querySelector(".fp-slide-footer");
+
+        if (!panel || !barraSuperior || !footer) return;
+
+        // Botón debajo de la barra superior.
+        const inicioSuperior = document.createElement("button");
+        inicioSuperior.type = "button";
+        inicioSuperior.className = "fp-volver-portada";
+        inicioSuperior.textContent = "⌂ Volver al inicio de la ficha";
+        inicioSuperior.addEventListener("click", () => irASlide(0));
+
+        barraSuperior.insertAdjacentElement("afterend", inicioSuperior);
+
+        // Controles al final de cada slide.
+        const navegacionInferior = document.createElement("div");
+        navegacionInferior.className = "fp-navegacion-inferior";
+
+        const anterior = document.createElement("button");
+        anterior.type = "button";
+        anterior.className = "fp-nav-btn";
+        anterior.textContent = "←";
+        anterior.setAttribute("aria-label", "Página anterior");
+        anterior.addEventListener("click", () => irASlide(indice - 1));
+
+        const inicioInferior = document.createElement("button");
+        inicioInferior.type = "button";
+        inicioInferior.className = "fp-volver-portada";
+        inicioInferior.textContent = "⌂ Inicio de la ficha";
+        inicioInferior.addEventListener("click", () => irASlide(0));
+
+        const siguiente = document.createElement("button");
+        siguiente.type = "button";
+        siguiente.className = "fp-nav-btn";
+        siguiente.textContent = "→";
+        siguiente.setAttribute("aria-label", "Página siguiente");
+        siguiente.disabled = indice === slides.length - 1;
+        siguiente.addEventListener("click", () => irASlide(indice + 1));
+
+        navegacionInferior.append(anterior, inicioInferior, siguiente);
+        footer.insertAdjacentElement("beforebegin", navegacionInferior);
+    });
+}
+
+agregarNavegacionAdicional();
 iniciarNavegacion();
 cargarFichaPublica();

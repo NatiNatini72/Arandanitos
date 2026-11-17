@@ -307,6 +307,70 @@ function cerrarPopups(devolverFoco = false) {
     botonPopupAbierto = null;
 }
 
+// ==========================================
+// PACKING · EXPLICACIONES Y BOTONES
+// ==========================================
+
+function prepararTarjetasPacking() {
+    const explicaciones = [
+        {
+            id: "empaquePublico",
+            titulo: "¿Para qué sirve?",
+            texto: "El envase ayuda a proteger la fruta durante su manipulación y transporte."
+        },
+        {
+            id: "prefrioPublico",
+            titulo: "Enfriamiento inicial",
+            texto: "El prefrío ayuda a retirar el calor de la fruta después de la cosecha."
+        },
+        {
+            id: "almacenamientoPublico",
+            titulo: "Conservación en frío",
+            texto: "La cámara fría ayuda a retrasar el deterioro de la fruta."
+        },
+        {
+            id: "o2Publico",
+            titulo: "Oxígeno",
+            texto: "Indica la proporción de oxígeno registrada en el ambiente de conservación."
+        },
+        {
+            id: "co2Publico",
+            titulo: "Dióxido de carbono",
+            texto: "Indica la proporción de CO₂ registrada en el ambiente de conservación."
+        }
+    ];
+
+    explicaciones.forEach(function (dato) {
+        const valor = document.getElementById(dato.id);
+        if (!valor) return;
+
+        const tarjeta = valor.closest(".fp-packing-card");
+        if (!tarjeta) return;
+
+        // Cambia el signo de pregunta por el botón de calidad.
+        const boton = tarjeta.querySelector(".fp-info-oreja");
+
+        if (boton) {
+            boton.textContent = "👇 Haz click aquí";
+        }
+
+        // Añade el cuadrito explicativo.
+        const cuadro = document.createElement("div");
+        cuadro.className = "fp-packing-explicacion";
+
+        const titulo = document.createElement("strong");
+        titulo.textContent = dato.titulo;
+
+        const texto = document.createElement("p");
+        texto.textContent = dato.texto;
+
+        cuadro.append(titulo, texto);
+        tarjeta.appendChild(cuadro);
+    });
+}
+
+prepararTarjetasPacking();
+
 function iniciarPopups() {
     document.addEventListener("click", evento => {
         const boton = evento.target.closest("[data-popup]");

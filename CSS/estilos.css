@@ -6614,6 +6614,1117 @@ body.home-pop {
         height: clamp(390px, 28vw, 560px);
     }
 }
+
+/* Imagen interactiva del recorrido */
+.red-interactiva {
+  position: relative;
+  width: 100%;
+}
+
+.red-interactiva .imagen-hero-red {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.zona-red {
+  position: absolute;
+  aspect-ratio: 1;
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.zona-red:hover,
+.zona-red:focus {
+  border-color: #b6ff35;
+  box-shadow: 0 0 12px 5px #b6ff35;
+  outline: none;
+  z-index: 2;
+}
+
+.zona-red span {
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 200px;
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: #10154f;
+  color: white;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.3;
+  text-align: center;
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s;
+}
+
+.zona-red:hover span,
+.zona-red:focus span {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Brillo para las frutas de la red */
+.zona-fruta {
+  position: absolute;
+  left: 2.5%;
+  width: 20%;
+  height: 18%;
+  box-sizing: border-box;
+  padding: 0;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.zona-fruta:hover,
+.zona-fruta:focus {
+  border-color: #b6ff35;
+  box-shadow: 0 0 12px 4px #6a25ff;
+  outline: none;
+}
+
+.fruta-arandano {
+  top: 9%;
+}
+
+.fruta-uva {
+  top: 30%;
+}
+
+.fruta-palta {
+  top: 49%;
+}
+
+.fruta-cacao {
+  top: 69%;
+}
+
+/* Ubicación de cada círculo sobre la imagen */
+.zona-produccion {
+  left: 34%;
+  top: 4%;
+  width: 26%;
+}
+
+.zona-packing {
+  left: 30%;
+  top: 50%;
+  width: 21%;
+}
+
+.zona-cosecha {
+  left: 65.5%;
+  top: 44%;
+  width: 29%;
+}
+
+.zona-consumidor {
+  left: 76%;
+  top: 7%;
+  width: 21%;
+}
+
+/* Aparición suave de las secciones del index */
+.seccion-home.animar-entrada {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.seccion-home.animar-entrada.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Respeta la preferencia de reducir animaciones */
+@media (prefers-reduced-motion: reduce) {
+  .seccion-home.animar-entrada {
+    transition: none;
+    transform: none;
+  }
+}
+
+/* Un registro, tres miradas */
+.tres-miradas {
+  background: #101a4b;
+  color: white;
+  padding: 70px 6%;
+}
+
+.miradas-contenedor {
+  max-width: 1300px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.miradas-etiqueta {
+  color: #b6ff35;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.miradas-texto h2 {
+  color: white;
+  font-size: clamp(36px, 4vw, 60px);
+  line-height: 1.05;
+  margin: 16px 0;
+}
+
+.miradas-texto p {
+  color: #d7e1ef;
+  line-height: 1.6;
+}
+
+.miradas-opciones {
+  display: grid;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.mirada-boton {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #647393;
+  border-radius: 12px;
+  background: #1c2b59;
+  color: white;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.mirada-boton strong,
+.mirada-boton span {
+  display: block;
+}
+
+.mirada-boton span {
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.mirada-boton.activo {
+  background: #b6ff35;
+  border-color: #b6ff35;
+  color: #101a4b;
+}
+
+.mirada-boton:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
+}
+
+.miradas-foto {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.miradas-foto img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.miradas-foto > span {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  background: #101a4b;
+  color: white;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .miradas-contenedor {
+    grid-template-columns: 1fr;
+  }
+
+  .miradas-foto {
+    height: 300px;
+  }
+}
+
+/* Menú principal fijo al desplazarse */
+.home-pop .encabezado-principal {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* En pantalla grande se muestra el menú normal */
+.home-pop .boton-menu {
+  display: none;
+}
+
+html {
+  scroll-padding-top: 90px;
+}
+
+/* En pantallas pequeñas aparece la hamburguesita */
+@media (max-width: 900px) {
+  .home-pop .encabezado-principal {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 20px;
+  }
+
+  .home-pop .marca-nechdata {
+    margin-left: 0;
+    padding: 6px 10px;
+  }
+
+  .home-pop .logo-nechdata {
+    width: 135px;
+  }
+
+  .home-pop .boton-menu {
+    display: block;
+    padding: 6px 12px;
+    border: 1px solid #b6ff35;
+    border-radius: 8px;
+    background: transparent;
+    color: white;
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  .home-pop .menu-principal {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 12px 20px;
+    background: #101653;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .home-pop .menu-principal.abierto {
+    display: flex;
+  }
+
+  .home-pop .menu-principal a {
+    padding: 12px;
+  }
+}
+
+/* Espacio entre el título y el texto de portada */
+.hero-contenido h2 {
+  margin-bottom: 20px;
+}
+
+/* Fotos de los pasos de Cómo funciona */
+.foto-paso-home {
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto 20px;
+  border: 3px solid #101653;
+  border-radius: 50%;
+  object-fit: cover;
+}
+/* Texto introductorio de Cómo funciona */
+#como-funciona .encabezado-home p {
+  color: #ffffff;
+}
+
+/* Quiénes somos y nube de palabras */
+.conocenos-nechdata {
+  padding: 80px 6%;
+  background: #f3fbdc;
+}
+
+.conocenos-contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.conocenos-etiqueta {
+  color: #5620eb;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.conocenos-contenido h2 {
+  margin: 14px 0;
+  color: #101653;
+  font-size: clamp(34px, 5vw, 60px);
+  line-height: 1.1;
+}
+
+.conocenos-pregunta {
+  max-width: 760px;
+  margin: 0 auto;
+  color: #334d6e;
+  font-size: 18px;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.nube-palabras {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 18px 24px;
+  max-width: 850px;
+  margin: 38px auto 0;
+  padding: 45px 30px;
+  border-radius: 24px;
+  background: white;
+  line-height: 1.2;
+}
+
+.nube-palabras span {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* La palabra protagonista */
+.nube-palabras .palabra-principal {
+  width: auto;
+  color: #5620eb;
+  font-size: clamp(34px, 5vw, 58px);
+  transform: rotate(-3deg);
+}
+
+.nube-palabras .palabra-grande {
+  font-size: clamp(25px, 3vw, 38px);
+}
+
+.nube-palabras .palabra-mediana {
+  font-size: 23px;
+}
+
+/* Colores y pequeños giros para cada palabra */
+.nube-palabras span:nth-child(2) {
+  color: #008eae;
+  transform: rotate(4deg);
+}
+
+.nube-palabras span:nth-child(3) {
+  color: #ff568e;
+  transform: rotate(-5deg);
+}
+
+.nube-palabras span:nth-child(4) {
+  color: #f28b00;
+  transform: rotate(5deg);
+}
+
+.nube-palabras span:nth-child(5) {
+  color: #008a68;
+  transform: rotate(-4deg);
+}
+
+.nube-palabras span:nth-child(6) {
+  color: #ec4f4f;
+  transform: rotate(3deg);
+}
+
+.nube-palabras span:nth-child(7) {
+  color: #6655df;
+  transform: rotate(-3deg);
+}
+
+.nube-palabras span:nth-child(8) {
+  color: #d66a00;
+  transform: rotate(5deg);
+}
+
+.nube-palabras span:nth-child(9) {
+  color: #007fa0;
+  transform: rotate(-5deg);
+}
+
+.nube-palabras span:nth-child(10) {
+  color: #c42e77;
+  transform: rotate(3deg);
+}
+
+@media (max-width: 600px) {
+  .conocenos-nechdata {
+    padding: 55px 20px;
+  }
+
+  .nube-palabras {
+    padding: 24px 16px;
+    gap: 12px 16px;
+  }
+}
+/* Nube de palabras estilo Mentimeter */
+.nube-palabras-grafica {
+  max-width: 900px;
+  margin: 38px auto 0;
+  padding: 15px;
+  border-radius: 24px;
+  background: white;
+}
+
+.nube-palabras-grafica svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: Arial, sans-serif;
+  font-weight: 700;
+}
+
+/* Tamaños de letra para el index */
+.home-pop .menu-principal a {
+  font-size: 18px;
+}
+
+.home-pop .hero-contenido p,
+.home-pop .seccion-home p {
+  font-size: clamp(18px, 1.3vw, 23px);
+  line-height: 1.6;
+}
+
+.home-pop .seccion-home h2 {
+  font-size: clamp(32px, 3vw, 48px);
+  line-height: 1.15;
+}
+
+.home-pop .tarjeta-home h3 {
+  font-size: clamp(24px, 1.8vw, 30px);
+  line-height: 1.2;
+}
+
+/* Texto de las opciones Campo, Agroexportación y Consumidor */
+.home-pop .mirada-boton strong {
+  font-size: 18px;
+}
+
+.home-pop .mirada-boton span {
+  font-size: 16px;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 700px) {
+  .home-pop .menu-principal a {
+    font-size: 17px;
+  }
+
+  .home-pop .hero-contenido p,
+  .home-pop .seccion-home p {
+    font-size: 18px;
+  }
+}
+
+/* Nube y galería lado a lado */
+.nube-y-galeria {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  align-items: center;
+  max-width: 1400px;
+  margin: 38px auto 0;
+}
+
+.nube-y-galeria .nube-palabras-grafica {
+  width: 100%;
+  margin: 0;
+}
+
+.galeria-arandanos {
+  text-align: left;
+}
+
+.galeria-arandanos h3 {
+  color: #101653;
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.galeria-arandanos p {
+  color: #334d6e;
+  margin-bottom: 18px;
+}
+
+.galeria-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.galeria-tarjetas a {
+  position: relative;
+  display: block;
+  min-width: 0;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #101653;
+}
+
+.galeria-tarjetas img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.galeria-tarjetas a:hover img,
+.galeria-tarjetas a:focus-visible img {
+  transform: scale(1.06);
+}
+
+.galeria-tarjetas span {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 6px 9px;
+  border-radius: 8px;
+  background: #101653;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.galeria-tarjetas a:focus-visible {
+  outline: 3px solid #5620eb;
+  outline-offset: 3px;
+}
+
+/* En pantallas pequeñas, la galería pasa debajo */
+@media (max-width: 900px) {
+  .nube-y-galeria {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .galeria-tarjetas {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .galeria-tarjetas a {
+    height: 150px;
+  }
+}
+
+/* Tres galerías grandes */
+.galeria-tarjetas {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.galeria-tarjetas a {
+  height: 360px;
+}
+
+/* En celular, una galería debajo de la otra */
+@media (max-width: 600px) {
+  .galeria-tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria-tarjetas a {
+    height: 280px;
+  }
+}
+
+/* Blog del index */
+.blog-nechdata {
+  padding: 80px 5%;
+  background: #f5fbdc;
+}
+
+.blog-encabezado {
+  max-width: 1300px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.blog-encabezado > span {
+  color: #5620eb;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.blog-encabezado h2 {
+  color: #101653;
+  margin: 14px 0;
+}
+
+.blog-encabezado p {
+  color: #334d6e;
+}
+
+.blog-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.blog-tarjeta {
+  position: relative;
+  display: block;
+  height: 460px;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #101653;
+  color: white;
+  text-decoration: none;
+}
+
+.blog-tarjeta img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.blog-tarjeta:hover img,
+.blog-tarjeta:focus-visible img {
+  transform: scale(1.08);
+}
+
+.blog-tarjeta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(8, 15, 53, 0.96),
+    rgba(8, 15, 53, 0.05) 75%
+  );
+}
+
+.blog-tarjeta-texto {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  padding: 25px;
+}
+
+.blog-tarjeta-texto span {
+  color: #b6ff35;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.blog-tarjeta-texto h3 {
+  margin: 10px 0 18px;
+  color: white;
+  font-size: clamp(23px, 2vw, 32px);
+  line-height: 1.2;
+}
+
+.blog-tarjeta-texto strong {
+  color: white;
+  font-size: 16px;
+}
+
+.blog-tarjeta:focus-visible {
+  outline: 4px solid #5620eb;
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .blog-tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-tarjeta {
+    height: 360px;
+  }
+}
+/* Iconos de la sección de contacto */
+
+.redes-contacto {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-top: 22px;
+}
+
+.redes-contacto .icono-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #101653;
+  font-size: 27px;
+  text-decoration: none;
+}
+
+.redes-contacto a.icono-red:hover {
+  color: #5a20e8;
+}
+
+/* Orden del correo y el botón */
+
+.contacto-correo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.contacto-correo .contacto-email {
+  color: #101653;
+  font-size: 18px;
+  overflow-wrap: anywhere;
+}
+
+.contacto-correo .contacto-boton {
+  display: inline-block;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #07538a;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.contacto-correo .contacto-boton:hover {
+  background: #5421de;
+}
+/* Centrar el contenido del recuadro de contacto */
+
+.contacto-tarjeta {
+  text-align: center;
+}
+
+.contacto-tarjeta .contacto-correo,
+.contacto-tarjeta .redes-contacto {
+  justify-content: center;
+}
+/* Tarjeta de contacto con imagen */
+
+.contacto-tarjeta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.contacto-informacion {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.contacto-informacion h3 {
+  margin: 8px 0 18px;
+}
+
+.contacto-tarjeta .contacto-boton {
+  display: inline-block;
+  max-width: 100%;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background: #07538a;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.contacto-tarjeta .contacto-boton:hover {
+  background: #5421de;
+}
+
+.contacto-tarjeta .redes-contacto {
+  justify-content: center;
+}
+
+.contacto-imagen {
+  display: block;
+  width: 190px;
+  max-width: 35%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 600px) {
+  .contacto-tarjeta {
+    flex-direction: column;
+  }
+
+  .contacto-imagen {
+    width: 160px;
+    max-width: 70%;
+  }
+}
+/* Tarjeta de contacto más grande */
+
+.contacto-tarjeta {
+  padding: 40px;
+  min-height: 300px;
+}
+
+.contacto-tarjeta .etiqueta-home {
+  font-size: 16px;
+}
+
+.contacto-tarjeta h3 {
+  font-size: 36px;
+}
+
+.contacto-tarjeta .contacto-boton {
+  font-size: 18px;
+  padding: 15px 22px;
+}
+
+.contacto-tarjeta .redes-contacto .icono-red {
+  font-size: 32px;
+}
+
+@media (max-width: 600px) {
+  .contacto-tarjeta {
+    padding: 28px 20px;
+    min-height: 0;
+  }
+}
+
+/* Espacio entre los elementos de la tarjeta lila */
+
+.contacto-tarjeta .etiqueta-home {
+  display: block;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.contacto-tarjeta h3 {
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+
+.contacto-tarjeta .redes-contacto {
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+/* Ajustes cuando la pantalla es más angosta */
+
+@media (max-width: 900px) {
+  /* La columna de texto y la tarjeta pasan una debajo de otra */
+  #contacto :has(> .contacto-tarjeta) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contacto-tarjeta {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 600px) {
+  .contacto-tarjeta {
+    flex-direction: column;
+    gap: 24px;
+    padding: 28px 20px;
+  }
+
+  .contacto-tarjeta .contacto-informacion {
+    width: 100%;
+  }
+
+  .contacto-tarjeta .contacto-boton {
+    max-width: 100%;
+    box-sizing: border-box;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+  }
+
+  .contacto-tarjeta .contacto-imagen {
+    width: 160px;
+    max-width: 70%;
+    height: auto;
+  }
+}
+/* Texto oscuro para el botón verde de registro */
+
+.usuario-opciones a.boton-registro {
+  color: #101653 !important;
+}
+
+/* Camino decorativo encima del blog */
+
+.camino-blog {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 1200px);
+  gap: 15px;
+  margin: 0 auto 35px;
+}
+
+.camino-blog-arandano,
+.camino-blog-ubicacion {
+  display: block;
+  width: clamp(75px, 12vw, 150px);
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Círculo blanco para el arandanito */
+
+.camino-blog-arandano {
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+}
+
+.camino-blog-ruta {
+  display: block;
+  width: 100%;
+  max-width: 750px;
+  min-width: 0;
+  max-height: 280px;
+  object-fit: contain;
+}
+
+/* Ajuste para celulares */
+
+@media (max-width: 600px) {
+  .camino-blog {
+    gap: 5px;
+    margin-bottom: 25px;
+  }
+
+  .camino-blog-arandano,
+  .camino-blog-ubicacion {
+    width: 60px;
+  }
+
+  .camino-blog-ruta {
+    max-height: 150px;
+  }
+}
+
+/* Camino pequeño ubicado a la izquierda */
+
+.camino-blog {
+  position: relative;
+  display: block;
+
+  width: min(300px, 75%);
+  margin: 15px 0 25px 8%;
+}
+
+/* La imagen define el tamaño del recorrido */
+
+.camino-blog-ruta {
+  display: block;
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  height: auto;
+}
+
+/* Arándano en la punta inferior izquierda */
+
+.camino-blog-arandano {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translate(-45%, 35%);
+
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: white;
+}
+
+/* Marcador en la punta superior derecha */
+
+.camino-blog-ubicacion {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(45%, -35%);
+
+  width: 65px;
+  height: 65px;
+  object-fit: contain;
+}
+
+/* Ajuste para celular */
+
+@media (max-width: 600px) {
+  .camino-blog {
+    width: min(220px, 65%);
+    margin-left: 15%;
+  }
+
+  .camino-blog-arandano,
+  .camino-blog-ubicacion {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Camino detrás de la nube de palabras */
+
+.nube-palabras-grafica {
+  position: relative;
+  overflow: hidden;
+}
+
+.nube-palabras-grafica .camino-blog {
+  position: absolute;
+  z-index: 0;
+
+  width: 30%;
+  max-width: 230px;
+  margin: 0;
+
+  left: 10%;
+  top: 15%;
+
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.nube-palabras-grafica svg {
+  position: relative;
+  z-index: 1;
+}
 /* ==========================================
    PARA EL CELULAR
 ========================================== */
@@ -6711,8 +7822,159 @@ body.home-pop {
 }
 
 }
+/* Más espacio para la nube y las galerías */
+.conocenos-contenido {
+  max-width: 1600px;
+}
 
+.nube-y-galeria {
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  max-width: 1600px;
+  align-items: center;
+}
 
+.nube-y-galeria .nube-palabras-grafica {
+  max-width: none;
+  width: 100%;
+  box-sizing: border-box;
+  position: relative
+}
+
+/* Tarjetas grandes para las galerías */
+.galeria-tarjetas {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.galeria-tarjetas a {
+  height: 300px;
+  border-radius: 18px;
+}
+
+.galeria-tarjetas span {
+  left: 12px;
+  bottom: 12px;
+  padding: 9px 12px;
+  font-size: 16px;
+}
+
+/* En ventana pequeña, una sección debajo de la otra */
+@media (max-width: 900px) {
+  .nube-y-galeria {
+    grid-template-columns: 1fr;
+  }
+
+  .galeria-tarjetas a {
+    height: 260px;
+  }
+}
+
+@media (max-width: 500px) {
+  .galeria-tarjetas {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .galeria-tarjetas a {
+    height: 220px;
+  }
+}
+
+/* Caminito detrás de la nube de palabras */
+.nube-palabras-grafica {
+  position: relative;
+  overflow: hidden;
+}
+
+.nube-palabras-grafica .camino-blog {
+  position: absolute;
+  display: block;
+  width: 28%;
+  max-width: 200px;
+  height: auto;
+  margin: 0;
+  left: 50%;
+  top: 50%;
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  opacity: 0.25;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.nube-palabras-grafica .camino-blog-ruta {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  max-height: none;
+}
+
+.nube-palabras-grafica .camino-blog-arandano,
+.nube-palabras-grafica .camino-blog-ubicacion {
+  width: 25%;
+  height: auto;
+}
+
+.nube-palabras-grafica > svg {
+  position: relative;
+  z-index: 1;
+}
+
+/* Nube sin recuadro blanco */
+.nube-palabras-grafica {
+  background: transparent;
+}
+
+/* Título con caminito pequeño a la izquierda */
+.titulo-con-camino {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.titulo-con-camino .camino-blog {
+  position: relative;
+  display: block;
+  flex: 0 0 100px;
+  width: 100px;
+  max-width: 100px;
+  height: auto;
+  margin: 0;
+  opacity: 1;
+}
+
+.titulo-con-camino .camino-blog-ruta {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}
+
+.titulo-con-camino .camino-blog-arandano,
+.titulo-con-camino .camino-blog-ubicacion {
+  width: 30px;
+  height: 30px;
+}
+
+@media (max-width: 600px) {
+  .titulo-con-camino {
+    gap: 14px;
+  }
+
+  .titulo-con-camino .camino-blog {
+    flex-basis: 70px;
+    width: 70px;
+  }
+
+  .titulo-con-camino .camino-blog-arandano,
+  .titulo-con-camino .camino-blog-ubicacion {
+    width: 24px;
+    height: 24px;
+  }
+}
 /* ==========================================
    PARA EL CELULAR PEQUEÑO
 ========================================== */

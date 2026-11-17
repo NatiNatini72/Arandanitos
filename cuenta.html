@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tu cuenta | NECHDATA</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f8f9ee;
+      color: #101653;
+      font-family: Arial, sans-serif;
+    }
+
+    /* ENCABEZADO */
+
+    .cuenta-encabezado {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 15px 6%;
+      background: #101653;
+    }
+
+    .cuenta-marca {
+      display: block;
+      flex-shrink: 0;
+      padding: 10px 16px;
+      border-radius: 16px;
+      background: #fffef8;
+    }
+
+    .cuenta-marca img {
+      display: block;
+      width: 220px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .cuenta-menu {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .cuenta-menu a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .cuenta-menu a:hover,
+    .cuenta-menu a:focus-visible {
+      color: #b5ff31;
+    }
+
+    .cuenta-hamburguesa {
+      display: none;
+      padding: 8px 13px;
+      border: 1px solid #b5ff31;
+      border-radius: 8px;
+      background: transparent;
+      color: white;
+      font-size: 27px;
+      cursor: pointer;
+    }
+
+    /* TARJETA DE CUENTA */
+
+    .cuenta-contenido {
+      display: flex;
+      justify-content: center;
+      padding: 60px 20px 80px;
+    }
+
+    .cuenta-tarjeta {
+      width: 100%;
+      max-width: 470px;
+      padding: 40px;
+      border: 1px solid #e5dfef;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 12px 35px rgba(16, 22, 83, 0.08);
+    }
+
+    .cuenta-logo {
+      display: block;
+      width: 190px;
+      max-width: 80%;
+      height: auto;
+      margin: 0 auto 25px;
+    }
+
+    .cuenta-tarjeta h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      text-align: center;
+    }
+
+    .cuenta-descripcion {
+      margin: 0 0 25px;
+      color: #53627b;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* BOTONES PARA CAMBIAR DE FORMULARIO */
+
+    .cuenta-pestanas {
+      display: flex;
+      gap: 4px;
+      padding: 5px;
+      margin-bottom: 26px;
+      border-radius: 30px;
+      background: #efebf8;
+    }
+
+    .cuenta-pestanas button {
+      flex: 1;
+      padding: 12px 8px;
+      border: 0;
+      border-radius: 25px;
+      background: transparent;
+      color: #101653;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cuenta-pestanas button.activa {
+      background: white;
+      color: #5421de;
+      box-shadow: 0 2px 8px rgba(16, 22, 83, 0.1);
+    }
+
+    /* FORMULARIOS */
+
+    .cuenta-formulario label {
+      display: block;
+      margin: 16px 0 8px;
+      font-weight: bold;
+    }
+
+    .cuenta-formulario input {
+      width: 100%;
+      padding: 13px 14px;
+      border: 1px solid #b8bfd0;
+      border-radius: 9px;
+      font: inherit;
+    }
+
+    .cuenta-formulario input:focus {
+      outline: 2px solid #7545ef;
+      outline-offset: 2px;
+    }
+
+    .cuenta-enviar {
+      width: 100%;
+      margin-top: 24px;
+      padding: 14px;
+      border: 0;
+      border-radius: 9px;
+      background: #07538a;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .cuenta-enviar:hover {
+      background: #5421de;
+    }
+
+    .cuenta-mensaje {
+      min-height: 1.5em;
+      margin: 16px 0 0;
+      color: #5421de;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .cuenta-volver {
+      display: block;
+      margin-top: 20px;
+      color: #07538a;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .cuenta-volver:hover {
+      text-decoration: underline;
+    }
+
+    /* PANTALLAS PEQUEÑAS */
+
+    @media (max-width: 900px) {
+      .cuenta-encabezado {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 12px 5%;
+      }
+
+      .cuenta-marca img {
+        width: 140px;
+      }
+
+      .cuenta-hamburguesa {
+        display: block;
+      }
+
+      .cuenta-menu {
+        display: none;
+        flex-basis: 100%;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .cuenta-menu.abierto {
+        display: flex;
+      }
+
+      .cuenta-menu a {
+        padding: 12px 4px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cuenta-contenido {
+        padding: 30px 15px 50px;
+      }
+
+      .cuenta-tarjeta {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="cuenta-encabezado">
+    <a
+      class="cuenta-marca"
+      href="index.html#inicio"
+      aria-label="NECHDATA, inicio"
+    >
+      <img src="IMAGENES/LOGO3.png" alt="NECHDATA">
+    </a>
+
+    <button
+      type="button"
+      class="cuenta-hamburguesa"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="cuenta-menu"
+    >
+      ☰
+    </button>
+
+    <nav id="cuenta-menu" class="cuenta-menu" aria-label="Menú principal">
+      <a href="index.html#inicio">Inicio</a>
+      <a href="index.html#como-funciona">Cómo funciona</a>
+      <a href="index.html#nosotros">Quiénes somos</a>
+      <a href="index.html#blog">Blog</a>
+      <a href="index.html#contacto">Contáctanos</a>
+    </nav>
+  </header>
+
+  <main class="cuenta-contenido">
+    <section class="cuenta-tarjeta">
+      <img
+        class="cuenta-logo"
+        src="IMAGENES/LOGO3.png"
+        alt="NECHDATA"
+      >
+
+      <h1 id="cuenta-titulo">Iniciar sesión</h1>
+
+<p id="cuenta-descripcion" class="cuenta-descripcion">
+  Ingresa a tu cuenta de NECHDATA.
+</p>
+
+      <div class="cuenta-pestanas" aria-label="Opciones de cuenta">
+        <button
+          type="button"
+          id="pestana-ingreso"
+          class="activa"
+          aria-pressed="true"
+        >
+          Iniciar sesión
+        </button>
+
+        <button
+          type="button"
+          id="pestana-registro"
+          aria-pressed="false"
+        >
+          Crear cuenta
+        </button>
+      </div>
+
+      <form id="formulario-ingreso" class="cuenta-formulario">
+        <label for="correo-ingreso">Correo electrónico</label>
+        <input
+          id="correo-ingreso"
+          type="email"
+          placeholder="tucorreo@ejemplo.com"
+          autocomplete="email"
+          required
+        >
+
+        <label for="clave-ingreso">Contraseña</label>
+        <input
+          id="clave-ingreso"
+          type="password"
+          autocomplete="current-password"
+          required
+        >
+
+        <button class="cuenta-enviar" type="submit">
+          Entrar
+        </button>
+      </form>
+
+<form id="formulario-registro" class="cuenta-formulario" hidden>
+
+  <label for="nombre-registro">Nombre de usuario</label>
+  <input
+    id="nombre-registro"
+    type="text"
+    placeholder="Elige tu nombre de usuario"
+    autocomplete="username"
+    required
+  >
+
+  <label for="correo-registro">Correo electrónico</label>
+  <input
+    id="correo-registro"
+    type="email"
+    placeholder="tucorreo@ejemplo.com"
+    autocomplete="email"
+    required
+  >
+
+  <label for="celular-registro">Número de celular</label>
+  <input
+    id="celular-registro"
+    type="tel"
+    placeholder="+51 987 654 321"
+    autocomplete="tel"
+    required
+  >
+
+  <label for="clave-registro">Contraseña</label>
+  <input
+    id="clave-registro"
+    type="password"
+    placeholder="Crea una contraseña"
+    autocomplete="new-password"
+    required
+  >
+
+  <label for="confirmar-clave">Confirmar contraseña</label>
+  <input
+    id="confirmar-clave"
+    type="password"
+    placeholder="Repite tu contraseña"
+    autocomplete="new-password"
+    required
+  >
+
+  <button class="cuenta-enviar" type="submit">
+    Registrarme
+  </button>
+
+</form>
+
+      <p id="cuenta-mensaje" class="cuenta-mensaje" role="status"></p>
+
+      <a class="cuenta-volver" href="index.html#inicio">
+        ← Volver al inicio
+      </a>
+    </section>
+  </main>
+
+  <script>
+    /* ABRIR Y CERRAR EL MENÚ */
+
+    const hamburguesa = document.querySelector(".cuenta-hamburguesa");
+    const menu = document.querySelector(".cuenta-menu");
+
+    hamburguesa.addEventListener("click", () => {
+      const abierto = menu.classList.toggle("abierto");
+
+      hamburguesa.setAttribute("aria-expanded", abierto);
+      hamburguesa.setAttribute(
+        "aria-label",
+        abierto ? "Cerrar menú" : "Abrir menú"
+      );
+
+      hamburguesa.textContent = abierto ? "✕" : "☰";
+    });
+
+    /* CAMBIAR ENTRE INGRESO Y REGISTRO */
+
+    const pestanaIngreso = document.getElementById("pestana-ingreso");
+    const pestanaRegistro = document.getElementById("pestana-registro");
+    const formularioIngreso = document.getElementById("formulario-ingreso");
+    const formularioRegistro = document.getElementById("formulario-registro");
+    const mensaje = document.getElementById("cuenta-mensaje");
+
+    function mostrarFormulario(modo) {
+      const esRegistro = modo === "registro";
+      document.getElementById("cuenta-titulo").textContent =
+  esRegistro ? "Crear cuenta" : "Iniciar sesión";
+
+document.getElementById("cuenta-descripcion").textContent =
+  esRegistro
+    ? "Crea tu cuenta y forma parte de NECHDATA."
+    : "Ingresa a tu cuenta de NECHDATA.";
+
+      formularioIngreso.hidden = esRegistro;
+      formularioRegistro.hidden = !esRegistro;
+
+      pestanaIngreso.classList.toggle("activa", !esRegistro);
+      pestanaRegistro.classList.toggle("activa", esRegistro);
+
+      pestanaIngreso.setAttribute("aria-pressed", !esRegistro);
+      pestanaRegistro.setAttribute("aria-pressed", esRegistro);
+
+      mensaje.textContent = "";
+    }
+
+    pestanaIngreso.addEventListener("click", () => {
+      mostrarFormulario("ingreso");
+    });
+
+    pestanaRegistro.addEventListener("click", () => {
+      mostrarFormulario("registro");
+    });
+
+    const parametros = new URLSearchParams(window.location.search);
+
+    if (parametros.get("modo") === "registro") {
+      mostrarFormulario("registro");
+    }
+
+    /* PENDIENTE: CONECTAR CON EL BACKEND */
+
+    formularioIngreso.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      mensaje.textContent = "El inicio de sesión aún no está conectado.";
+    });
+
+    formularioRegistro.addEventListener("submit", (evento) => {
+      evento.preventDefault();
+      mensaje.textContent = "El registro aún no está conectado.";
+    });
+  </script>
+</body>
+</html>

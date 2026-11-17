@@ -1009,16 +1009,106 @@ button:focus-visible, a:focus-visible, summary:focus-visible,
     font-size: 20px;
 }
 
-.fp-packing-grid > .fp-packing-card:nth-child(3) {
-    background: var(--pop-lima);
-}
-
-.fp-packing-grid > .fp-packing-card:nth-child(6), .fp-packing-grid > .fp-packing-card:nth-child(7) {
-    background: #eee7ff;
-}
-
 .fp-packing-card .fp-calidad-resumen strong {
     font-size: clamp(22px, 3vw, 30px);
+}
+
+/* ==========================================
+   PACKING · TARJETAS INFORMATIVAS
+========================================== */
+
+/* Todas las tarjetas del mismo color */
+.fp-packing-grid > .fp-packing-card {
+    background: #ffffff;
+}
+
+/* Al abrir un popup, se resalta la tarjeta */
+.fp-packing-grid > .fp-packing-card.popup-abierto {
+    background: #c5ff36;
+}
+
+/* Dos columnas: dato a la izquierda y explicación a la derecha */
+.fp-packing-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    align-items: stretch;
+    gap: 12px;
+}
+
+.fp-packing-card .fp-calidad-resumen {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+/* Botón igual al de calidad */
+.fp-packing-card .fp-info-oreja {
+    grid-column: 1;
+    grid-row: 2;
+
+    position: static;
+    justify-self: start;
+    align-self: start;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: auto;
+    height: auto;
+    min-height: 40px;
+
+    padding: 8px 14px;
+
+    border: 2px solid #101653;
+    border-radius: 10px;
+
+    background: #c5ff36;
+    color: #101653;
+
+    box-shadow: 2px 2px 0 #101653;
+
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+
+    animation: none;
+}
+
+/* Cuadro de explicación */
+.fp-packing-explicacion {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+
+    min-width: 0;
+    padding: 14px 10px;
+
+    border: 1px solid #101653;
+    border-radius: 18px;
+
+    background: #fff8e7;
+    color: #101653;
+
+    text-align: center;
+}
+
+.fp-packing-explicacion strong {
+    font-size: 12px;
+}
+
+.fp-packing-explicacion p {
+    margin: 0;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* Barra inferior del mismo violeta que la superior */
+.fp-slide-footer {
+    background: var(--pop-violeta);
 }
 
 /* =========================================================

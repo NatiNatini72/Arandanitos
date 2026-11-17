@@ -8,6 +8,10 @@
   <title>NECHDATA | Trazabilidad digital</title>
 
   <link rel="stylesheet" href="CSS/estilos.css">
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+>
 </head>
 
 <body class="home-pop">
@@ -26,10 +30,13 @@
       </a>
     </div>
 
-    <div class="usuario-opciones">
-      <a href="#">👤 Iniciar sesión</a>
-      <a href="#" class="boton-registro">Registrarse</a>
-    </div>
+<div class="usuario-opciones">
+  <a href="cuenta.html">👤 Iniciar sesión</a>
+
+  <a href="cuenta.html?modo=registro" class="boton-registro">
+    Registrarse
+  </a>
+</div>
 
   </div>
 
@@ -44,12 +51,19 @@
         class="logo-nechdata"
       >
     </a>
-
-    <nav class="menu-principal" aria-label="Menú principal">
+<button
+  type="button"
+  class="boton-menu"
+  aria-label="Abrir menú"
+  aria-expanded="false"
+  aria-controls="menu-principal"
+>
+  ☰
+</button>
+    <nav id="menu-principal" class="menu-principal" aria-label="Menú principal">
       <a href="#inicio">Inicio</a>
       <a href="#como-funciona">Cómo funciona</a>
       <a href="#nosotros">Quiénes somos</a>
-      <a href="#beneficios">Beneficios</a>
       <a href="#blog">Blog</a>
       <a href="#contacto">Contáctanos</a>
     </nav>
@@ -120,70 +134,99 @@
 
     </div>
 
-    <div class="hero-visual">
+<div class="hero-visual">
 
+  <div class="red-interactiva">
+
+    <img
+      src="IMAGENES/Rednechdata.png"
+      alt="Red que conecta cultivos, producción, cosecha, packing y consumidores"
+      class="imagen-hero-red"
+    >
+<button type="button" class="zona-fruta fruta-arandano" aria-label="Arándanos"></button>
+<button type="button" class="zona-fruta fruta-uva" aria-label="Uvas"></button>
+<button type="button" class="zona-fruta fruta-palta" aria-label="Paltas"></button>
+<button type="button" class="zona-fruta fruta-cacao" aria-label="Cacao"></button>
+    <button type="button" class="zona-red zona-produccion">
+      <span>🚜 Producción: Aquí comienza el recorrido.</span>
+    </button>
+
+    <button type="button" class="zona-red zona-packing">
+      <span>📦 Packing: Selección y preparación de tus arándanos.</span>
+    </button>
+
+    <button type="button" class="zona-red zona-cosecha">
+      <span>🫐 Cosecha: Personas que hacen posible todo esto.</span>
+    </button>
+
+    <button type="button" class="zona-red zona-consumidor">
+      <span>🛍️ Consumidor: Conoce el origen de tus arándanos.</span>
+    </button>
+
+  </div>
+
+</div>
+
+  </section>
+
+</section> <!-- Aquí termina la portada -->
+
+<section class="seccion-home tres-miradas">
+<section class="seccion-home tres-miradas">
+  <div class="miradas-contenedor">
+
+    <div class="miradas-texto">
+      <span class="miradas-etiqueta">UNA HISTORIA CONECTADA</span>
+
+      <h2>Un registro.<br>Tres miradas.</h2>
+
+      <p>
+        La misma historia conecta a quienes producen,
+        exportan y disfrutan la fruta.
+      </p>
+
+      <div class="miradas-opciones">
+        <button type="button" class="mirada-boton activo"
+          data-imagen="IMAGENES/Llaqta_agricola1.jpg"
+          data-alt="Campo agrícola"
+          data-etiqueta="Campo"
+          aria-pressed="true">
+          <strong>🌱 01 · Campo</strong>
+          <span>Origen, variedad y cosecha.</span>
+        </button>
+
+        <button type="button" class="mirada-boton"
+          data-imagen="IMAGENES/EXPORTACION1.jpeg"
+          data-alt="Arándanos preparados para su distribución"
+          data-etiqueta="Agroexportación"
+          aria-pressed="false">
+          <strong>📦 02 · Agroexportación</strong>
+          <span>Calidad, packing y recorrido.</span>
+        </button>
+
+        <button type="button" class="mirada-boton"
+          data-imagen="IMAGENES/CONSUMIDOR1.jpeg"
+          data-alt="Arándanos para el consumidor"
+          data-etiqueta="Consumidor"
+          aria-pressed="false">
+          <strong>🫐 03 · Consumidor</strong>
+          <span>Una historia que puedes descubrir desde tu producto.</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="miradas-foto">
       <img
-  src="IMAGENES/Rednechdata.png"
-  alt="Red que conecta cultivos, agroexportadores, distribuidores, agricultores y consumidores"
-  class="imagen-hero-red"
->
-
+        id="imagen-mirada"
+        src="IMAGENES/Llaqta_agricola1.jpg"
+        alt="Campo agrícola"
+      >
+      <span id="etiqueta-mirada">Campo</span>
     </div>
 
-  </section>
-
-
-  <!-- =========================
-       EL PROBLEMA
-  ========================== -->
-
-  <section class="seccion-home">
-
-    <div class="bloque-nosotros">
-
-      <div>
-
-        <span class="etiqueta-home">
-          EL PUNTO DE PARTIDA
-        </span>
-
-        <h2>
-          La información existe.
-          El reto es conectarla.
-        </h2>
-
-        <p>
-          La historia de un lote puede estar repartida entre
-          etiquetas, hojas de cálculo, registros de calidad y
-          documentos. Consultarla implica buscar en distintas
-          fuentes y relacionar datos que no siempre se presentan
-          de la misma manera.
-        </p>
-
-        <p>
-          Para el consumidor, una cifra o un término técnico
-          también puede decir poco sin una explicación.
-          NECHDATA busca acercar esas piezas: organizar la
-          información y facilitar su comprensión.
-        </p>
-
-      </div>
-
-      <div class="caja-frase">
-
-        <span>NUESTRA PROPUESTA</span>
-
-        <blockquote>
-          Conectar los datos del lote y convertirlos
-          en información útil para cada persona.
-        </blockquote>
-
-      </div>
-
-    </div>
-
-  </section>
-
+  </div>
+</section>
+</section>
 
   <!-- =========================
        CÓMO FUNCIONA
@@ -209,7 +252,7 @@
 
       <article class="tarjeta-home">
 
-        <div class="icono-home">🌱</div>
+        <img class="foto-paso-home" src="IMAGENES/REGISTRO.jpg" alt="Registro del lote">
 
         <h3>1. Identifica y registra</h3>
 
@@ -223,7 +266,7 @@
 
       <article class="tarjeta-home">
 
-        <div class="icono-home">📦</div>
+        <img class="foto-paso-home" src="IMAGENES/ORGANIZA.jpg" alt="Organización de la información">
 
         <h3>2. Organiza y conecta</h3>
 
@@ -237,7 +280,7 @@
 
       <article class="tarjeta-home">
 
-        <div class="icono-home">📱</div>
+        <img class="foto-paso-home" src="IMAGENES/COMPRENDE.jpg" alt="Consulta de la información del lote">
 
         <h3>3. Consulta y comprende</h3>
 
@@ -254,343 +297,233 @@
     </div>
 
   </section>
-<!-- =========================
-     CONTENIDO DE LA FICHA
-========================== -->
-
-<section class="seccion-home">
-
-  <div class="encabezado-home">
-
-    <span>DEL DATO A LA HISTORIA</span>
-
-    <h2>¿Qué puedes descubrir sobre tu fruta?</h2>
-
-    <p>
-      La ficha pública conecta información del lote con
-      explicaciones que ayudan a entender su origen,
-      sus características y su recorrido.
-    </p>
-
-  </div>
-
-  <div class="beneficios-grid">
-
-    <article class="beneficio-home">
-
-      <strong>🌱 De dónde viene</strong>
-
-      <p>
-        Conoce la procedencia de la fruta, su productor
-        y la variedad registrada. El origen le da
-        contexto a lo que tienes en tus manos.
-      </p>
-
-    </article>
-
-    <article class="beneficio-home">
-
-      <strong>🫐 Qué describen sus características</strong>
-
-      <p>
-        Descubre qué significan el calibre, la firmeza,
-        los sólidos solubles y la acidez. Cada indicador
-        describe un aspecto diferente de la fruta.
-      </p>
-
-    </article>
-
-    <article class="beneficio-home">
-
-      <strong>📦 Cómo se acondiciona</strong>
-
-      <p>
-        Comprende las etapas registradas de packing
-        y poscosecha, el tipo de empaque y las condiciones
-        de conservación informadas para el lote.
-      </p>
-
-    </article>
-
-    <article class="beneficio-home">
-
-      <strong>🌎 Hacia dónde se dirige</strong>
-
-      <p>
-        Consulta los hitos disponibles de su recorrido
-        y la empresa de destino registrada.
-        Cada etapa aporta una parte de su historia.
-      </p>
-
-    </article>
-
-  </div>
-
-</section>
-
-  <!-- =========================
-       PARA QUIÉN
-  ========================== -->
-
-  <section class="seccion-home">
-
-    <div class="encabezado-home">
-
-      <span>PERSONAS CONECTADAS</span>
-
-      <h2>Una misma historia, distintas necesidades.</h2>
-
-      <p>
-        Nuestra propuesta contempla información adecuada
-        para cada público. No todos necesitan consultar
-        los mismos detalles.
-      </p>
-
-    </div>
-
-    <div class="tarjetas-home">
-
-      <article class="tarjeta-home">
-
-        <div class="icono-home">🌿</div>
-
-        <h3>Agroexportadores</h3>
-
-        <p>
-          Proponemos una vista de trabajo para registrar y
-          consultar información técnica y documentos
-          asociados a sus lotes.
-        </p>
-
-      </article>
-
-      <article class="tarjeta-home">
-
-        <div class="icono-home">🚚</div>
-
-        <h3>Distribuidores</h3>
-
-        <p>
-          Buscamos facilitar la consulta de información sobre
-          los lotes que reciben y su relación con los actores
-          de la cadena.
-        </p>
-
-      </article>
-
-      <article class="tarjeta-home">
-
-        <div class="icono-home">🫐</div>
-
-        <h3>Consumidores</h3>
-
-        <p>
-          La ficha pública acerca el origen y las características
-          de la fruta mediante imágenes, datos y explicaciones
-          que ayudan a comprender el producto.
-        </p>
-
-      </article>
-
-    </div>
-
-    <p>
-      Actualmente desarrollamos el prototipo y la ficha pública.
-      Las vistas especializadas forman parte de las siguientes
-      etapas del proyecto.
-    </p>
-
-  </section>
-
-
-  <!-- =========================
-       BENEFICIOS
-  ========================== -->
-
-  <section class="seccion-home fondo-home" id="beneficios">
-
-    <div class="encabezado-home">
-
-      <span>BENEFICIOS DE NUESTRA PROPUESTA</span>
-
-      <h2>Datos que se pueden encontrar, relacionar y entender.</h2>
-
-    </div>
-
-    <div class="beneficios-grid">
-
-      <div class="beneficio-home">
-
-        <strong>🔎 Información organizada</strong>
-
-        <p>
-          Reunir los registros alrededor de un lote facilita
-          encontrar la información asociada al producto.
-        </p>
-
-      </div>
-
-      <div class="beneficio-home">
-
-        <strong>🔗 Etapas conectadas</strong>
-
-        <p>
-          Relacionar origen, calidad, packing y recorrido
-          permite consultar la historia del lote con contexto.
-        </p>
-
-      </div>
-
-      <div class="beneficio-home">
-
-        <strong>💬 Contenido comprensible</strong>
-
-        <p>
-          Las explicaciones acompañan a los términos técnicos
-          para ayudar al consumidor a interpretar los datos.
-        </p>
-
-      </div>
-
-      <div class="beneficio-home">
-
-        <strong>👥 Una vista para cada público</strong>
-
-        <p>
-          La información se presenta según las necesidades
-          de quien registra, distribuye o consume la fruta.
-        </p>
-
-      </div>
-
-    </div>
-
-  </section>
-
 
   <!-- =========================
        QUIÉNES SOMOS
   ========================== -->
 
-  <section class="seccion-home" id="nosotros">
+<section class="seccion-home conocenos-nechdata" id="nosotros">
 
-    <div class="bloque-nosotros">
+  <div class="conocenos-contenido">
 
-      <div>
+    <span class="conocenos-etiqueta">QUIÉNES SOMOS</span>
 
-        <span class="etiqueta-home">QUIÉNES SOMOS</span>
+<div class="titulo-con-camino">
 
-        <h2>Agricultura, ciencia y tecnología conectadas.</h2>
+  <div class="camino-blog" aria-hidden="true">
+    <img
+      class="camino-blog-arandano"
+      src="IMAGENES/ARANDANITO.gif"
+      alt=""
+    >
 
-        <p>
-          NECHDATA es un proyecto académico de trazabilidad
-          digital agroexportadora, inicialmente enfocado
-          en arándanos.
-        </p>
+    <img
+      class="camino-blog-ruta"
+      src="IMAGENES/CAMINO.png"
+      alt=""
+    >
 
-        <p>
-          Partimos de una pregunta: ¿cómo podemos organizar la
-          información que acompaña a un lote y hacer que resulte
-          útil para quienes participan en su recorrido?
-        </p>
+    <img
+      class="camino-blog-ubicacion"
+      src="IMAGENES/UBICA.gif"
+      alt=""
+    >
+  </div>
 
-        <p>
-          Combinamos la organización de datos con una comunicación
-          accesible. Construimos el proyecto de forma progresiva,
-          revisando su contenido y funcionamiento a partir de
-          las observaciones recibidas durante su desarrollo.
-        </p>
+  <h2>Una fruta, muchas historias.</h2>
 
-      </div>
+</div>
 
-      <div class="caja-frase">
+<p class="conocenos-pregunta">
+  Partimos de una pregunta: ¿cómo podemos organizar la información
+  que acompaña a un lote y hacer que resulte útil para quienes
+  participan en su recorrido?
+</p>
 
-        <span>NECHDATA · DATOS QUE DAN VIDA</span>
+<div class="nube-y-galeria">
 
-        <blockquote>
-          Cada lote tiene una historia.
-          Nuestro propósito es hacerla visible y comprensible.
-        </blockquote>
+  <div class="nube-palabras-grafica">
 
-      </div>
 
-    </div>
+  <svg viewBox="0 0 800 360" role="img"
+       aria-labelledby="titulo-nube descripcion-nube">
 
-  </section>
+    <title id="titulo-nube">Nube de palabras de NECHDATA</title>
+
+<desc id="descripcion-nube">
+  Trazabilidad, arándanos, origen, calidad, beneficios, cultivo,
+  variedades, exportación, cosecha, conservación, frescura,
+  nutrición, campo, tecnología, productor, confianza,
+  sostenibilidad, innovación, agricultura y transparencia.
+</desc>
+
+    <text x="400" y="188" text-anchor="middle"
+          font-size="62" fill="#5620eb">
+      Trazabilidad
+    </text>
+
+    <text x="400" y="117" text-anchor="middle"
+          font-size="42" fill="#0086a8">
+      Arándanos
+    </text>
+
+    <text x="400" y="241" text-anchor="middle"
+          font-size="38" fill="#ed4d87">
+      Origen
+    </text>
+
+    <text x="175" y="108" text-anchor="middle"
+          font-size="24" fill="#ec7b00">
+      Calidad
+    </text>
+
+    <text x="612" y="111" text-anchor="middle"
+          font-size="25" fill="#008a68">
+      Beneficios
+    </text>
+
+    <text x="206" y="240" text-anchor="middle"
+          font-size="25" fill="#e24c4c">
+      Cultivo
+    </text>
+
+    <text x="580" y="240" text-anchor="middle"
+          font-size="25" fill="#6655df">
+      Variedades
+    </text>
+
+    <text x="400" y="290" text-anchor="middle"
+          font-size="25" fill="#d66a00">
+      Exportación
+    </text>
+
+    <text x="100" y="190" text-anchor="middle"
+          font-size="23" fill="#007f9e"
+          transform="rotate(-90 100 190)">
+      Cosecha
+    </text>
+
+    <text x="700" y="190" text-anchor="middle"
+          font-size="23" fill="#c42e77"
+          transform="rotate(90 700 190)">
+      Conservación
+    </text>
+<text x="185" y="50" text-anchor="middle"
+      font-size="18" fill="#008a68">Frescura</text>
+
+<text x="350" y="46" text-anchor="middle"
+      font-size="22" fill="#ed4d87">Nutrición</text>
+
+<text x="520" y="50" text-anchor="middle"
+      font-size="17" fill="#e36d00">Campo</text>
+
+<text x="665" y="52" text-anchor="middle"
+      font-size="19" fill="#6655df">Tecnología</text>
+
+<text x="200" y="300" text-anchor="middle"
+      font-size="19" fill="#d63375">Productor</text>
+
+<text x="610" y="300" text-anchor="middle"
+      font-size="20" fill="#008a68">Confianza</text>
+
+<text x="285" y="335" text-anchor="middle"
+      font-size="17" fill="#007f9e">Sostenibilidad</text>
+
+<text x="485" y="335" text-anchor="middle"
+      font-size="18" fill="#e24c4c">Innovación</text>
+
+<text x="55" y="190" text-anchor="middle"
+      font-size="17" fill="#6655df"
+      transform="rotate(-90 55 190)">Agricultura</text>
+
+<text x="750" y="190" text-anchor="middle"
+      font-size="18" fill="#e36d00"
+      transform="rotate(90 750 190)">Transparencia</text>
+  </svg>
+
+</div>
+
+<div class="galeria-arandanos">
+
+  <h3>🫐 Arándanos en imágenes</h3>
+  <p>Explora nuestras colecciones en Google Photos.</p>
+
+  <div class="galeria-tarjetas">
+
+    <a href="https://photos.app.goo.gl/Mp7VftTu9Xij1bAz5"
+       target="_blank" rel="noopener noreferrer">
+      <img src="IMAGENES/arandanos_inka.png" alt="">
+      <span>Blueberry 18+</span>
+    </a>
+
+    <a href="https://photos.app.goo.gl/T2bqs9zsFzs3LvC5A"
+       target="_blank" rel="noopener noreferrer">
+      <img src="IMAGENES/Llaqta_agricola1.jpg" alt="">
+      <span>Blueberries · India</span>
+    </a>
+
+    <a href="https://photos.app.goo.gl/2ivohF5rEDbdBWML6"
+       target="_blank" rel="noopener noreferrer">
+      <img src="IMAGENES/Llaqta_agricola2.jpg" alt="">
+      <span>Arándano · Israel</span>
+    </a>
+
+  </div>
+</div>
+
+</div> <!-- Cierre de nube-y-galeria -->
+
+  </div>
+
+</section>
 
 
   <!-- =========================
        BLOG
   ========================== -->
 
-  <section class="seccion-home fondo-home" id="blog">
+  <section class="seccion-home blog-nechdata" id="blog">
+<div class="camino-blog" aria-label="Del origen al destino">
 
-    <div class="encabezado-home">
 
-      <span>BLOG · PRÓXIMOS CONTENIDOS</span>
+</div>
+  <div class="blog-encabezado">
+    <span>BLOG NECHDATA</span>
+    <h2>Historias que nacen en el campo.</h2>
+    <p>Descubre lo que hay detrás de tus arándanos.</p>
+  </div>
 
-      <h2>Conocer la fruta también es parte de su historia.</h2>
+  <div class="blog-tarjetas">
 
-      <p>
-        Un espacio para acercarnos a la producción de arándanos
-        y comprender los conceptos que aparecen en su ficha digital.
-      </p>
-
-    </div>
-
-    <div class="tarjetas-home">
-
-      <article class="tarjeta-home">
-
-        <div class="icono-home">🫐</div>
-
+    <a class="blog-tarjeta" href="notas.html?articulo=calibre">
+      <img src="IMAGENES/NOTICIACALIBRE.JPG" alt="">
+      <div class="blog-tarjeta-texto">
+        <span>CALIDAD</span>
         <h3>¿Qué nos dice el calibre de un arándano?</h3>
+        <strong>Leer nota →</strong>
+      </div>
+    </a>
 
-        <p>
-          Cómo se expresa el tamaño del fruto y por qué
-          no debe confundirse con una calificación de su
-          sabor o de su calidad general.
-        </p>
+    <a class="blog-tarjeta" href="notas.html?articulo=indicadores">
+      <img src="IMAGENES/NOTICIABRIX.JPG" alt="">
+      <div class="blog-tarjeta-texto">
+        <span>CONOCE TU FRUTA</span>
+        <h3>Firmeza, °Brix y acidez: aprendamos a leer los datos</h3>
+        <strong>Leer nota →</strong>
+      </div>
+    </a>
 
-        <span class="etiqueta-home">Próximamente</span>
-
-      </article>
-
-      <article class="tarjeta-home">
-
-        <div class="icono-home">🧪</div>
-
-        <h3>Firmeza, °Brix y acidez: aprendamos a leer los datos.</h3>
-
-        <p>
-          Qué describe cada indicador y por qué conviene
-          interpretarlos en conjunto al conocer las
-          características de la fruta.
-        </p>
-
-        <span class="etiqueta-home">Próximamente</span>
-
-      </article>
-
-      <article class="tarjeta-home">
-
-        <div class="icono-home">📦</div>
-
+    <a class="blog-tarjeta" href="notas.html?articulo=packing">
+      <img src="IMAGENES/NOTICIAPOSCOSECHA.jpg" alt="">
+      <div class="blog-tarjeta-texto">
+        <span>DEL CAMPO AL MUNDO</span>
         <h3>¿Qué ocurre durante el packing y la poscosecha?</h3>
+        <strong>Leer nota →</strong>
+      </div>
+    </a>
 
-        <p>
-          Una explicación de las etapas de acondicionamiento
-          y conservación que acompañan a la fruta antes
-          de llegar a su destino.
-        </p>
-
-        <span class="etiqueta-home">Próximamente</span>
-
-      </article>
-
-    </div>
-
-  </section>
+  </div>
+</section>
 
 
   <!-- =========================
@@ -607,58 +540,60 @@
 
         <h2>Conversemos sobre la información que acompaña a tu fruta.</h2>
 
-        <p>
-          ¿Trabajas en el sector agroexportador, distribuyes
-          fruta o quieres compartir una observación sobre
-          nuestra propuesta?
-        </p>
-
-       <p>
-  Si participas en la producción, exportación o distribución,
-  cuéntanos cómo identificas tus lotes, dónde guardas sus
-  registros y qué información necesitas compartir con
-  otros actores.
-</p>
-
 <p>
-  Si eres consumidor, queremos saber qué te gustaría conocer
-  sobre tu fruta y qué datos de nuestra ficha necesitan
-  una explicación más clara.
+  ¿Tienes una pregunta, idea o sugerencia? Nos encantaría
+  conocer tu experiencia y conversar contigo.
 </p>
 
       </div>
 
      <div class="tarjeta-home contacto-tarjeta">
 
-  <span class="etiqueta-home">
-    TU EXPERIENCIA NOS AYUDA A CONSTRUIR
-  </span>
+  <div class="contacto-informacion">
+    <span class="etiqueta-home">
+      TU EXPERIENCIA NOS AYUDA A CONSTRUIR
+    </span>
 
-  <h3>Escríbenos</h3>
+    <h3>Escríbenos</h3>
 
-  <a
-    class="contacto-correo"
-    href="mailto:Nechdataperu@gmail.com"
-  >
-    Nechdataperu@gmail.com
-  </a>
-
-  <a
-    href="mailto:Nechdataperu@gmail.com?subject=Consulta%20sobre%20NECHDATA"
-    class="btn btn-principal contacto-boton"
-  >
-    Escribir por correo →
-  </a>
-
-  <div class="contacto-linkedin">
-    <img
-      src="IMAGENES/linkedinnechdata.png"
-      alt=""
-      width="28"
-      height="28"
+    <a
+      class="contacto-boton"
+      href="mailto:Nechdataperu@gmail.com"
     >
-    <span>NECHDATA en LinkedIn · Próximamente</span>
+      Nechdataperu@gmail.com
+    </a>
+
+    <div class="redes-contacto">
+      <span class="icono-red" aria-label="Facebook">
+        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+      </span>
+
+      <span class="icono-red" aria-label="LinkedIn">
+        <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+      </span>
+
+      <span class="icono-red" aria-label="Instagram">
+        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+      </span>
+
+      <a
+        class="icono-red"
+        href="mailto:Nechdataperu@gmail.com"
+        aria-label="Escribir por correo"
+      >
+        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+      </a>
+    </div>
   </div>
+
+  <img
+    class="contacto-imagen"
+    src="IMAGENES/CONTACTANOSSI.png"
+    alt="Ilustración de productos agrícolas y exportación"
+  >
+
+</div>
+
 
 </div>
 
@@ -707,6 +642,73 @@
     <span>Proyecto demostrativo 2026</span>
 
   </footer>
+<script>
+  // Las secciones aparecen al entrar en la pantalla
+  const seccionesHome = document.querySelectorAll(".seccion-home");
 
+  if ("IntersectionObserver" in window) {
+    const observadorHome = new IntersectionObserver((entradas) => {
+      entradas.forEach((entrada) => {
+        if (entrada.isIntersecting) {
+          entrada.target.classList.add("visible");
+          observadorHome.unobserve(entrada.target);
+        }
+      });
+    }, { threshold: 0 });
+
+    seccionesHome.forEach((seccion) => {
+      seccion.classList.add("animar-entrada");
+      observadorHome.observe(seccion);
+    });
+  }
+</script>
+
+<script>
+  const botonesMirada = document.querySelectorAll(".mirada-boton");
+  const imagenMirada = document.getElementById("imagen-mirada");
+  const etiquetaMirada = document.getElementById("etiqueta-mirada");
+
+  function mostrarMirada(boton) {
+    botonesMirada.forEach((opcion) => {
+      const estaActiva = opcion === boton;
+      opcion.classList.toggle("activo", estaActiva);
+      opcion.setAttribute("aria-pressed", estaActiva);
+    });
+
+    imagenMirada.src = boton.dataset.imagen;
+    imagenMirada.alt = boton.dataset.alt;
+    etiquetaMirada.textContent = boton.dataset.etiqueta;
+  }
+
+  botonesMirada.forEach((boton) => {
+    boton.addEventListener("mouseenter", () => mostrarMirada(boton));
+    boton.addEventListener("click", () => mostrarMirada(boton));
+  });
+</script>
+<script>
+  const botonMenu = document.querySelector(".boton-menu");
+  const menuPrincipal = document.querySelector("#menu-principal");
+
+  botonMenu.addEventListener("click", () => {
+    const estaAbierto = menuPrincipal.classList.toggle("abierto");
+
+    botonMenu.setAttribute("aria-expanded", estaAbierto);
+    botonMenu.setAttribute(
+      "aria-label",
+      estaAbierto ? "Cerrar menú" : "Abrir menú"
+    );
+
+    botonMenu.textContent = estaAbierto ? "✕" : "☰";
+  });
+
+  menuPrincipal.querySelectorAll("a").forEach((enlace) => {
+    enlace.addEventListener("click", () => {
+      menuPrincipal.classList.remove("abierto");
+      botonMenu.setAttribute("aria-expanded", "false");
+      botonMenu.setAttribute("aria-label", "Abrir menú");
+      botonMenu.textContent = "☰";
+    });
+  });
+</script>
 </body>
 </html>

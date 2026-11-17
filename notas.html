@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Blog | NECHDATA</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+body {
+  margin: 0;
+  color: #172354;
+  font-family: Arial, sans-serif;
+
+  background-color: #f8f9f4;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.88),
+      rgba(255, 255, 255, 0.88)
+    ),
+    url("IMAGENES/FONDONOTAS.JPG");
+
+  background-repeat: repeat;
+  background-size: auto, 450px auto;
+}
+
+    a {
+      color: inherit;
+    }
+
+    /* ENCABEZADO */
+
+    .encabezado-nota {
+      background: #101653;
+      padding: 18px 6%;
+    }
+
+    .encabezado-nota a {
+      display: inline-block;
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .encabezado-nota a:hover {
+      color: #b5ff31;
+    }
+
+    /* CONTENIDO PRINCIPAL */
+
+    .contenedor-nota {
+      width: min(1300px, 90%);
+      margin: 0 auto;
+      padding: 42px 0 80px;
+    }
+
+    .ruta-nota {
+      margin-bottom: 35px;
+      color: #66718b;
+      font-size: 15px;
+    }
+
+    .ruta-nota a {
+      text-decoration: none;
+    }
+
+    .ruta-nota a:hover {
+      text-decoration: underline;
+    }
+
+    .distribucion-nota {
+      display: grid;
+      grid-template-columns: 240px minmax(0, 1fr);
+      gap: 45px;
+      align-items: start;
+    }
+
+    /* COLUMNA LATERAL */
+
+    .lateral-nota {
+      position: sticky;
+      top: 24px;
+      padding: 22px;
+      border-left: 5px solid #9bea25;
+      background: #eef2e5;
+    }
+
+    .lateral-nota h2 {
+      margin: 0 0 16px;
+      font-size: 21px;
+    }
+
+    .lateral-nota ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .lateral-nota li {
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+
+    .lateral-nota a {
+      color: #172354;
+      text-decoration: none;
+    }
+
+    .lateral-nota a:hover {
+      color: #591ee8;
+      text-decoration: underline;
+    }
+
+    /* ARTÍCULO */
+
+    .categoria-nota {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 12px;
+      border-radius: 6px;
+      background: #b5ff31;
+      color: #101653;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .articulo-nota h1 {
+      margin: 0 0 20px;
+      color: #101653;
+      font-size: clamp(38px, 4.5vw, 64px);
+      line-height: 1.08;
+    }
+
+    .bajada-nota {
+      margin: 0 0 24px;
+      color: #344c70;
+      font-size: clamp(20px, 2vw, 26px);
+      font-weight: bold;
+      line-height: 1.45;
+    }
+
+    .datos-nota {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 16px;
+      color: #59657b;
+      font-size: 15px;
+    }
+
+    /* IMAGEN GRANDE */
+
+    .imagen-nota {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 450px;
+      overflow: hidden;
+      border-radius: 12px;
+      background-color: #dfe8d0;
+      background-position: center;
+      background-size: cover;
+      color: #42566b;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .imagen-nota span {
+      padding: 12px 18px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.88);
+    }
+
+    .pie-imagen {
+      margin: 9px 0 32px;
+      color: #748097;
+      font-size: 14px;
+    }
+
+    /* TEXTO */
+
+    .cuerpo-nota {
+      max-width: 850px;
+      color: #263a59;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .cuerpo-nota h2 {
+      margin: 36px 0 12px;
+      color: #101653;
+      font-size: 29px;
+      line-height: 1.2;
+    }
+
+    .cuerpo-nota p {
+      margin: 0 0 20px;
+    }
+
+    .fuentes-nota {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid #cbd3d6;
+      font-size: 16px;
+    }
+
+    .fuentes-nota a {
+      color: #4f1fd6;
+      overflow-wrap: anywhere;
+    }
+
+    .volver-blog {
+      display: inline-block;
+      margin-top: 35px;
+      padding: 14px 20px;
+      border-radius: 8px;
+      background: #101653;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .volver-blog:hover {
+      background: #5421de;
+    }
+
+    /* CELULAR */
+
+    @media (max-width: 800px) {
+      .contenedor-nota {
+        width: 90%;
+        padding-top: 25px;
+      }
+
+      .distribucion-nota {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+      }
+
+      .articulo-nota {
+        order: 1;
+        width: 100%;
+      }
+
+      .lateral-nota {
+        order: 2;
+        position: static;
+        width: 100%;
+      }
+
+      .imagen-nota {
+        min-height: 280px;
+      }
+
+      .cuerpo-nota {
+        font-size: 18px;
+      }
+    }
+/* ENCABEZADO DE LAS NOTICIAS */
+
+.encabezado-nota {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  padding: 18px 6%;
+  background: #101653;
+}
+
+.encabezado-nota .marca-nota {
+  display: block;
+  flex-shrink: 0;
+  padding: 12px 18px;
+  border-radius: 16px;
+  background: #fffef8;
+}
+
+.marca-nota img {
+  display: block;
+  width: 250px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.encabezado-nota .menu-nota {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.encabezado-nota .menu-nota a {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.encabezado-nota .menu-nota a:hover,
+.encabezado-nota .menu-nota a:focus-visible {
+  color: #b5ff31;
+}
+
+.boton-menu-nota {
+  display: none;
+  padding: 8px 13px;
+  border: 1px solid #b5ff31;
+  border-radius: 8px;
+  background: transparent;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* MENÚ EN PANTALLAS PEQUEÑAS */
+
+@media (max-width: 900px) {
+  .encabezado-nota {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 5%;
+  }
+
+  .marca-nota img {
+    width: 155px;
+  }
+
+  .boton-menu-nota {
+    display: block;
+  }
+
+  .encabezado-nota .menu-nota {
+    display: none;
+    flex-basis: 100%;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .encabezado-nota .menu-nota.abierto {
+    display: flex;
+  }
+
+  .encabezado-nota .menu-nota a {
+    padding: 12px 4px;
+  }
+}
+  </style>
+</head>
+
+<body>
+
+<header class="encabezado-nota">
+  <a
+    href="index.html#inicio"
+    class="marca-nota"
+    aria-label="NECHDATA, inicio"
+  >
+    <img src="IMAGENES/LOGO3.png" alt="NECHDATA">
+  </a>
+
+  <button
+    type="button"
+    class="boton-menu-nota"
+    aria-label="Abrir menú"
+    aria-expanded="false"
+    aria-controls="menu-nota"
+  >
+    ☰
+  </button>
+
+  <nav id="menu-nota" class="menu-nota" aria-label="Menú principal">
+    <a href="index.html#inicio">Inicio</a>
+    <a href="index.html#como-funciona">Cómo funciona</a>
+    <a href="index.html#nosotros">Quiénes somos</a>
+    <a href="index.html#blog">Blog</a>
+    <a href="index.html#contacto">Contáctanos</a>
+  </nav>
+</header>
+
+  <main class="contenedor-nota">
+    <div class="ruta-nota">
+      <a href="index.html#inicio">Inicio</a>
+      &nbsp;›&nbsp;
+      <a href="index.html#blog">Blog</a>
+      &nbsp;›&nbsp;
+      <span id="ruta-titulo">Artículo</span>
+    </div>
+
+    <div class="distribucion-nota">
+
+      <aside class="lateral-nota">
+        <h2>Contenido relacionado</h2>
+
+        <ul id="notas-relacionadas"></ul>
+      </aside>
+
+      <article class="articulo-nota">
+        <span class="categoria-nota" id="categoria-nota"></span>
+
+        <h1 id="titulo-nota"></h1>
+
+        <p class="bajada-nota" id="bajada-nota"></p>
+
+        <div class="datos-nota">
+          <span id="fecha-nota"></span>
+          <span>Equipo NECHDATA</span>
+        </div>
+
+        <div
+          class="imagen-nota"
+          id="imagen-nota"
+          role="img"
+        >
+          <span id="texto-imagen"></span>
+        </div>
+
+        <p class="pie-imagen">
+          Imagen referencial.
+        </p>
+
+        <div class="cuerpo-nota" id="cuerpo-nota"></div>
+
+        <div class="fuentes-nota">
+          <strong>Fuentes consultadas:</strong>
+          <ul id="fuentes-nota"></ul>
+        </div>
+
+        <a class="volver-blog" href="index.html#blog">
+          ← Volver al blog
+        </a>
+      </article>
+
+    </div>
+  </main>
+
+  <script>
+    const notas = {
+      calibre: {
+        titulo: "¿Qué nos dice el calibre de un arándano?",
+        categoria: "Calidad de la fruta",
+        bajada: "El tamaño es una característica visible del arándano, pero para conocer la fruta conviene observar también su firmeza, sabor y estado de conservación.",
+        fecha: "17 de noviembre de 2026",
+        imagen: "NOTICIACALIBRE.JPG",
+        cuerpo: `
+          <p>
+            Cuando vemos arándanos de diferentes tamaños, es natural
+            preguntarnos qué nos dice esa diferencia sobre la fruta.
+            El calibre es una forma de describir su tamaño y puede
+            utilizarse para agrupar frutos con características similares.
+          </p>
+
+          <h2>¿Qué significa el calibre?</h2>
+
+          <p>
+            El calibre suele expresarse mediante el diámetro del fruto,
+            normalmente en milímetros. Por ejemplo, un arándano de
+            18 mm tiene un diámetro mayor que uno de 14 mm.
+          </p>
+
+          <p>
+            El tamaño puede variar entre variedades y también según las
+            condiciones de desarrollo de la planta y de la fruta.
+          </p>
+
+          <h2>¿Más grande significa mejor?</h2>
+
+          <p>
+            No necesariamente. El calibre describe el tamaño, pero por
+            sí solo no nos dice si un arándano será más dulce, más firme
+            o tendrá mejor sabor. Para comprender mejor sus características
+            es útil revisar varios indicadores en conjunto.
+          </p>
+
+          <p>
+            En NECHDATA buscamos que información como esta sea más fácil
+            de consultar y entender a partir de los datos de cada lote.
+          </p>
+        `,
+        fuentes: [
+          {
+            nombre: "University of Georgia: desarrollo y maduración del arándano",
+            url: "https://extension.uga.edu/publications/detail.html?number=C1294"
+          }
+        ]
+      },
+
+      indicadores: {
+        titulo: "Firmeza, °Brix y acidez: aprendamos a leer los datos",
+        categoria: "Conociendo la fruta",
+        bajada: "Estos indicadores describen distintas características del arándano y ayudan a interpretar la información de un lote con mayor contexto.",
+        fecha: "16 de noviembre de 2026",
+        imagen: "NOTICIABRIX.JPG",
+        cuerpo: `
+          <p>
+            Una ficha de arándanos puede incluir números y términos
+            técnicos que, a primera vista, parecen difíciles de interpretar.
+            Tres de ellos son la firmeza, los grados Brix y la acidez.
+          </p>
+
+          <h2>Firmeza: una pista sobre la textura</h2>
+
+          <p>
+            La firmeza describe la resistencia del fruto a la deformación.
+            Es una característica relacionada con la textura y puede
+            cambiar durante la maduración y el almacenamiento.
+          </p>
+
+          <h2>°Brix: sólidos solubles</h2>
+
+          <p>
+            Los grados Brix se usan para expresar los sólidos solubles
+            presentes en el jugo. En las frutas, los azúcares suelen
+            representar una parte importante de estos sólidos, aunque
+            no son los únicos componentes.
+          </p>
+
+          <h2>Acidez: otra pieza del sabor</h2>
+
+          <p>
+            La acidez aporta información sobre los ácidos presentes en
+            la fruta. La percepción del sabor depende, entre otros factores,
+            del equilibrio entre dulzor y acidez.
+          </p>
+
+          <p>
+            Ninguno de estos valores cuenta toda la historia por sí solo.
+            Al interpretarlos juntos y considerar su contexto, podemos
+            obtener una idea más completa de las características del lote.
+          </p>
+        `,
+        fuentes: [
+          {
+            nombre: "University of Georgia: desarrollo y maduración del arándano",
+            url: "https://extension.uga.edu/publications/detail.html?number=C1294"
+          },
+          {
+            nombre: "University of Georgia: cosecha y manejo poscosecha",
+            url: "https://extension.uga.edu/publications/detail.html?number=C1269-SP"
+          }
+        ]
+      },
+
+      packing: {
+        titulo: "¿Qué ocurre durante el packing y la poscosecha?",
+        categoria: "Del campo a la mesa",
+        bajada: "Después de la cosecha, la fruta pasa por etapas de selección, acondicionamiento y conservación que acompañan su recorrido.",
+        fecha: "15 de noviembre de 2026",
+        imagen: "NOTICIAPOSCOSECHA.JPG",
+        cuerpo: `
+          <p>
+            La historia de un arándano continúa después de salir del campo.
+            Para preparar la fruta para su distribución se realizan distintas
+            operaciones, según las condiciones y necesidades de cada lote.
+          </p>
+
+          <h2>Selección y acondicionamiento</h2>
+
+          <p>
+            Durante el packing, la fruta puede pasar por procesos de
+            selección y clasificación antes de colocarse en su envase.
+            Estas etapas ayudan a organizarla según las características
+            y requisitos definidos para su destino.
+          </p>
+
+          <h2>El papel de la conservación</h2>
+
+          <p>
+            Los arándanos son delicados. Una manipulación cuidadosa y el
+            enfriamiento oportuno ayudan a conservar su condición durante
+            el almacenamiento y el transporte.
+          </p>
+
+          <p>
+            La temperatura, la humedad y el tiempo son parte de los
+            factores que influyen en cómo se mantiene la fruta después
+            de la cosecha.
+          </p>
+
+          <h2>Una historia que se puede seguir</h2>
+
+          <p>
+            Registrar estas etapas permite relacionar la información
+            disponible sobre el origen, el acondicionamiento y el recorrido
+            de un lote. Así, cada dato aporta una pieza a la historia
+            de la fruta.
+          </p>
+        `,
+        fuentes: [
+          {
+            nombre: "University of Georgia: cosecha y manejo poscosecha de arándanos",
+            url: "https://extension.uga.edu/publications/detail.html?number=C1269-SP"
+          },
+          {
+            nombre: "UC Davis: recomendaciones poscosecha para berries",
+            url: "https://postharvest.ucdavis.edu/produce-facts-sheets/bushberry"
+          }
+        ]
+      }
+    };
+
+    const parametros = new URLSearchParams(window.location.search);
+    const claveSolicitada = parametros.get("articulo");
+    const claveActual = Object.hasOwn(notas, claveSolicitada)
+      ? claveSolicitada
+      : "calibre";
+    const nota = notas[claveActual];
+
+    document.title = `${nota.titulo} | NECHDATA`;
+
+    document.getElementById("ruta-titulo").textContent = nota.titulo;
+    document.getElementById("categoria-nota").textContent = nota.categoria;
+    document.getElementById("titulo-nota").textContent = nota.titulo;
+    document.getElementById("bajada-nota").textContent = nota.bajada;
+    document.getElementById("fecha-nota").textContent = nota.fecha;
+    document.getElementById("cuerpo-nota").innerHTML = nota.cuerpo;
+
+    const contenedorImagen = document.getElementById("imagen-nota");
+    const textoImagen = document.getElementById("texto-imagen");
+    const imagen = new Image();
+
+    textoImagen.textContent = nota.imagen;
+    contenedorImagen.setAttribute(
+      "aria-label",
+      `Imagen de la nota: ${nota.titulo}`
+    );
+
+    imagen.onload = () => {
+      contenedorImagen.style.backgroundImage = `url("${imagen.src}")`;
+      textoImagen.hidden = true;
+    };
+
+imagen.src = `IMAGENES/${nota.imagen}`;
+
+    const listaFuentes = document.getElementById("fuentes-nota");
+
+    nota.fuentes.forEach((fuente) => {
+      const elemento = document.createElement("li");
+      const enlace = document.createElement("a");
+
+      enlace.href = fuente.url;
+      enlace.textContent = fuente.nombre;
+      enlace.target = "_blank";
+      enlace.rel = "noopener noreferrer";
+
+      elemento.appendChild(enlace);
+      listaFuentes.appendChild(elemento);
+    });
+
+    const listaRelacionadas = document.getElementById("notas-relacionadas");
+
+    Object.entries(notas).forEach(([clave, relacionada]) => {
+      if (clave === claveActual) return;
+
+      const elemento = document.createElement("li");
+      const enlace = document.createElement("a");
+
+      enlace.href = `notas.html?articulo=${clave}`;
+      enlace.textContent = relacionada.titulo;
+
+      elemento.appendChild(enlace);
+      listaRelacionadas.appendChild(elemento);
+    });
+const botonMenuNota = document.querySelector(".boton-menu-nota");
+const menuNota = document.querySelector(".menu-nota");
+
+botonMenuNota.addEventListener("click", () => {
+  const estaAbierto = menuNota.classList.toggle("abierto");
+
+  botonMenuNota.setAttribute("aria-expanded", estaAbierto);
+  botonMenuNota.setAttribute(
+    "aria-label",
+    estaAbierto ? "Cerrar menú" : "Abrir menú"
+  );
+
+  botonMenuNota.textContent = estaAbierto ? "✕" : "☰";
+});
+  </script>
+
+</body>
+</html>
